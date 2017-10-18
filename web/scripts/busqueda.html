@@ -1,0 +1,11 @@
+<script>
+    function irAlbum(nickname, album) {
+        window.location = "/Tarea2/SContenido?accion=consultarAlbum&nickArtista=" + nickname + "&nomAlbum=" + album;
+    }
+    function irListaDefecto(nomLista,nomGenero) {
+        window.location = "/Tarea2/SContenido?accion=consultarListaDefecto&nomGenero=" + encodeURI(nomGenero) + "&nomLista=" + encodeURI(nomLista);
+    }
+     function irListaParticular(nomLista,nickCliente) {
+        window.location = "/Tarea2/SContenido?accion=consultarListaParticular&nickCliente=" + encodeURI(nickCliente) + "&nomLista=" + encodeURI(nomLista);
+    }
+</script>

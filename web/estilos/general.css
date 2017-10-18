@@ -1,0 +1,10 @@
+body, html {
+    overflow-x: hidden;
+}
+
+.pestaniaP {
+    background-color: white;
+    border-radius: 50px;
+    padding: 5px;
+    font-size: 13px;
+}

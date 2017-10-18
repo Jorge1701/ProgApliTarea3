@@ -1,0 +1,44 @@
+            .centrar
+            {
+                position: absolute;
+                /*nos posicionamos en el centro del navegador*/
+                top:60%;
+                left:80%;
+                /*determinamos una anchura*/
+                width:400px;
+                /*indicamos que el margen izquierdo, es la mitad de la anchura*/
+                margin-left: -300px;
+                /*determinamos una altura*/
+                height:340px;
+                /*indicamos que el margen superior, es la mitad de la altura*/
+                margin-top:-10px;
+
+                padding:5px;
+            }
+
+
+            .button {
+                background-color: #4CAF50; /* Green */
+                border: none;
+                color: white;
+                padding: 4px 10px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 4px 2px;
+                -webkit-transition-duration: 0.4s; /* Safari */
+                transition-duration: 0.4s;
+                cursor: pointer;
+            }
+
+            .button1 {
+                background-color: #4CAF50; 
+                color: black; 
+                border: 2px solid #4CAF50;
+            }
+
+            .button1:hover {
+                background-color: white ;
+                color: white;
+            }

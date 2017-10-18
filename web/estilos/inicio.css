@@ -1,0 +1,36 @@
+.imgUsuario {
+    margin: 15px 0px 15px 0px;
+}
+
+.infoUsuario {
+    padding: 10px 0px 0px 20px;
+}
+
+.nombreUsuario {
+    font-size: 25px;
+}
+
+.btnSeguimiento {
+    margin-top: 5px;
+}
+
+.pestania {
+    background-color: white;
+    border-radius: 50px;
+    padding: 5px;
+}
+
+.panelTexto {
+    border-style: solid;
+    border-color: black;
+    border-radius: 15px;
+    border-width: 2px;
+    background-color: #00cc66;
+    margin-bottom: 20px;
+}
+
+.mensaje {
+    font-size: 30px;
+    color: black;
+    padding-top: 10px;
+}

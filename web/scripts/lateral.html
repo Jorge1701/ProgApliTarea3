@@ -1,0 +1,18 @@
+<script>
+    function reproducirLocal(tema, nombre, artista, imagen) {
+        document.getElementById("txtNombreTema").textContent = nombre;
+        document.getElementById("txtNombreArtista").textContent = artista;
+        document.getElementById("imgAlbumTema").src = "/Tarea2/SImagen?album=" + imagen;
+        var repr = document.getElementById("aurepr");
+        repr.src = "/Tarea2/STema?audio=" + tema;
+        repr.play();
+    }
+
+    function reproducirRemoto(url) {
+        if( url.indexOf("://") > -1 ) {
+          window.open(url, '_blank');  
+        }else{
+        window.open('http://' + url, '_blank');
+    }
+    }
+</script>

@@ -1,0 +1,24 @@
+  
+body{
+            background-image: url('../media/wallpaper2.jpg');
+            background-repeat:no-repeat;
+            background-position:center center;
+            background-attachment:fixed;
+            -o-background-size: 100% 100%, auto;
+            -moz-background-size: 100% 100%, auto;
+            -webkit-background-size: 100% 100%, auto;
+            background-size: 100% 100%, auto;
+        }
+  
+#lateral{
+            background-image: url('../media/lateral1.jpg'); 
+            background-repeat:no-repeat; 
+            background-position:center center;
+           
+            -o-background-size: 100% 100%, auto; 
+            -moz-background-size: 100% 100%, auto; 
+            -webkit-background-size: 100% 100%, auto; 
+            background-size: 100% 100%, auto;
+         
+            
+        }
