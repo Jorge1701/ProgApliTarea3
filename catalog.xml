@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://localhost:1234/registro?wsdl" uri="src/conf/xml-resources/web-services/Registro/wsdl/localhost_1234/registro.wsdl"/>
+    <system systemId="http://localhost:1234/registro?xsd=1" uri="src/conf/xml-resources/web-services/Registro/wsdl/localhost_1234/registro.xsd_1.xsd"/>
+    <system systemId="http://localhost:1234/inicio?wsdl" uri="src/conf/xml-resources/web-services/Inicio/wsdl/localhost_1234/inicio.wsdl"/>
+    <system systemId="http://localhost:1234/inicio?xsd=1" uri="src/conf/xml-resources/web-services/Inicio/wsdl/localhost_1234/inicio.xsd_1.xsd"/>
+</catalog>
