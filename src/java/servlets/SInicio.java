@@ -135,7 +135,7 @@ public class SInicio extends HttpServlet {
 
                 }
                 // hasta aca
-                request.setAttribute("seguidos", port.listarSeguidosDe(u.getNickname()).getUsuarios());
+                request.setAttribute("seguidos", (ArrayList) port.listarSeguidosDe(u.getNickname()).getUsuarios());
             }
         }
 

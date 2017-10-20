@@ -89,7 +89,6 @@ public class SRegistro extends HttpServlet {
                     break;
                 case "nickname":
                     //Verficacion de nickname
-                    // DtUsuario usuario = iUsuario.getDataUsuario(nickname);
 
                     if (port.nicknameExiste(nickname)) {
                         existe = "si";
@@ -166,7 +165,7 @@ public class SRegistro extends HttpServlet {
                             nMes = 0;
                             break;
                     }
-                    //  DtFecha fechaNac = new DtFecha(Integer.valueOf(dia), nMes, Integer.valueOf(anio));
+
                     DtFecha fechaNac = new DtFecha();
                     fechaNac.setDia(Integer.valueOf(dia));
                     fechaNac.setMes(nMes);
@@ -175,30 +174,20 @@ public class SRegistro extends HttpServlet {
                     DtUsuario dtu;
                     if ("si".equals(artista)) {
                         dtu = new DtArtista();
-                        dtu.setNickname(nickname);
-                        dtu.setNombre(nombre);
-                        dtu.setApellido(apellido);
-                        dtu.setEmail(email);
-                        dtu.setFechaNac(fechaNac);
-                        dtu.setImagen(imagen);
-                        dtu.setContrasenia(contrasenia);
                         ((DtArtista) dtu).setBiografia(biografia);
                         ((DtArtista) dtu).setWeb(link);
-                        //nickname, nombre, apellido, email, null /*fechaNac*/, imagen, biografia, link, contrasenia
                     } else {
                         dtu = new DtCliente();
-                        dtu.setNickname(nickname);
-                        dtu.setNombre(nombre);
-                        dtu.setApellido(apellido);
-                        dtu.setEmail(email);
-                        dtu.setFechaNac(fechaNac);
-                        dtu.setImagen(imagen);
-                        dtu.setContrasenia(contrasenia);
-
-                        // dtu = new DtCliente(nickname, nombre, apellido, email, null/*fechaNac*/, imagen, contrasenia, null);
                     }
 
-                    //iUsuario.ingresarUsuario(dtu);
+                    dtu.setNickname(nickname);
+                    dtu.setNombre(nombre);
+                    dtu.setApellido(apellido);
+                    dtu.setEmail(email);
+                    dtu.setFechaNac(fechaNac);
+                    dtu.setImagen(imagen);
+                    dtu.setContrasenia(contrasenia);
+
                     port.ingresarUsuario(dtu);
 
                     request.getSession().setAttribute("usuario", dtu);
