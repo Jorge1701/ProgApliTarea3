@@ -1,23 +1,39 @@
 package servlets;
 
-import Logica.DtCliente;
-import Logica.DtUsuario;
-import Logica.Fabrica;
-import Logica.IUsuario;
+import servicios.DtCliente;
+import servicios.DtUsuario;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import servicios.PRegistro;
+import servicios.PRegistroService;
+import servicios.PSesion;
+import servicios.PSesionService;
 
 @WebServlet(name = "SSesion", urlPatterns = {"/SSesion"})
 public class SSesion extends HttpServlet {
 
-    private IUsuario iUsuario;
+    //private IUsuario iUsuario;
+    PSesion port;
 
     public SSesion() {
-        iUsuario = Fabrica.getIControladorUsuario();
+        //iUsuario = Fabrica.getIControladorUsuario();
+        URL url = null;
+        try {
+            url = new URL("http://localhost:1234/sesion");
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(SSesion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        PSesionService webserv = new PSesionService(url);
+        port = webserv.getPSesionPort();
+
     }
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -100,13 +116,13 @@ public class SSesion extends HttpServlet {
                     return;
                 }
 
-                String nickname = iUsuario.chequearLogin(request.getParameter("nickname"), request.getParameter("contrasenia"));
+                String nickname = port.chequearLogin(request.getParameter("nickname"), request.getParameter("contrasenia"));
 
                 if (!nickname.contains("Error")) {
-                    DtUsuario dtu = iUsuario.getDataUsuario(nickname);
+                    DtUsuario dtu = port.getDataUsuario(nickname);
                     request.getSession().setAttribute("usuario", dtu);
                     if (dtu instanceof DtCliente) {
-                        request.getSession().setAttribute("suscripcion", ((DtCliente) dtu).getSuscripcion());
+                        request.getSession().setAttribute("suscripcion", ((DtCliente) dtu).getActual());
                         request.getSession().setAttribute("suscripciones", ((DtCliente) dtu).getSuscripciones());
                     }
                     response.setContentType("text/plain");

@@ -17,7 +17,7 @@ import javax.xml.bind.annotation.XmlType;
  * <pre>
  * &lt;complexType name="dtCliente">
  *   &lt;complexContent>
- *     &lt;extension base="{http://Servicios/}dtUsuario">
+ *     &lt;extension base="{http://Servicios/}DtUsuario">
  *       &lt;sequence>
  *         &lt;element name="suscripciones" type="{http://Servicios/}dtSuscripcion" maxOccurs="unbounded" minOccurs="0"/>
  *         &lt;element name="actual" type="{http://Servicios/}dtSuscripcion" minOccurs="0"/>
@@ -42,19 +42,28 @@ public class DtCliente
     protected List<DtSuscripcion> suscripciones;
     protected DtSuscripcion actual;
 
-
-    public DtCliente() {
-        this.suscripciones = null;
-        this.actual = null;
-    }
-
-    public DtCliente(String nickname, String nombre, String apellido, String email, DtFecha fechaNac, String imagen, String contrasenia, DtSuscripcion suscripcion) {
-        super(nickname, nombre, apellido, email, fechaNac, imagen, contrasenia);
-        this.suscripciones = new ArrayList<>();
-        this.actual = suscripcion;
-    }
-
-    
+    /**
+     * Gets the value of the suscripciones property.
+     * 
+     * <p>
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the suscripciones property.
+     * 
+     * <p>
+     * For example, to add a new item, do as follows:
+     * <pre>
+     *    getSuscripciones().add(newItem);
+     * </pre>
+     * 
+     * 
+     * <p>
+     * Objects of the following type(s) are allowed in the list
+     * {@link DtSuscripcion }
+     * 
+     * 
+     */
     public List<DtSuscripcion> getSuscripciones() {
         if (suscripciones == null) {
             suscripciones = new ArrayList<DtSuscripcion>();

@@ -2,10 +2,11 @@ package servlets;
 
 //import Logica.Fabrica;
 //import Logica.IUsuario;
+import servicios.DtFecha;
 import Properties.PropertyManager;
 import servicios.DtArtista;
 import servicios.DtCliente;
-import servicios.DtFecha;
+//import servicios.DtFecha;
 import servicios.DtUsuario;
 import java.io.IOException;
 import java.net.URL;
@@ -165,13 +166,36 @@ public class SRegistro extends HttpServlet {
                             nMes = 0;
                             break;
                     }
-                    DtFecha fechaNac = new DtFecha(Integer.valueOf(dia), nMes, Integer.valueOf(anio));
+                    //  DtFecha fechaNac = new DtFecha(Integer.valueOf(dia), nMes, Integer.valueOf(anio));
+                    DtFecha fechaNac = new DtFecha();
+                    fechaNac.setDia(Integer.valueOf(dia));
+                    fechaNac.setMes(nMes);
+                    fechaNac.setAnio(Integer.valueOf(anio));
 
                     DtUsuario dtu;
                     if ("si".equals(artista)) {
-                        dtu = new DtArtista(nickname, nombre, apellido, email, fechaNac, imagen, biografia, link, contrasenia);
+                        dtu = new DtArtista();
+                        dtu.setNickname(nickname);
+                        dtu.setNombre(nombre);
+                        dtu.setApellido(apellido);
+                        dtu.setEmail(email);
+                        dtu.setFechaNac(fechaNac);
+                        dtu.setImagen(imagen);
+                        dtu.setContrasenia(contrasenia);
+                        ((DtArtista) dtu).setBiografia(biografia);
+                        ((DtArtista) dtu).setWeb(link);
+                        //nickname, nombre, apellido, email, null /*fechaNac*/, imagen, biografia, link, contrasenia
                     } else {
-                        dtu = new DtCliente(nickname, nombre, apellido, email, fechaNac, imagen, contrasenia, null);
+                        dtu = new DtCliente();
+                        dtu.setNickname(nickname);
+                        dtu.setNombre(nombre);
+                        dtu.setApellido(apellido);
+                        dtu.setEmail(email);
+                        dtu.setFechaNac(fechaNac);
+                        dtu.setImagen(imagen);
+                        dtu.setContrasenia(contrasenia);
+
+                        // dtu = new DtCliente(nickname, nombre, apellido, email, null/*fechaNac*/, imagen, contrasenia, null);
                     }
 
                     //iUsuario.ingresarUsuario(dtu);

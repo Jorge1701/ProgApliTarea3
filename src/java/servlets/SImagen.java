@@ -22,7 +22,7 @@ public class SImagen extends HttpServlet {
         }
 
         String ruta = getServletContext().getRealPath("/");
-        String[] parte = ruta.split("ProgApliTarea2");
+        String[] parte = ruta.split("ProgApliTarea3");
         String tarea1 = parte[0] + "ProgApliTarea1" + File.separator;
 
         if (request.getParameter("usuario") != null) {

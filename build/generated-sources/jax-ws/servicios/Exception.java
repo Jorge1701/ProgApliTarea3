@@ -33,10 +33,14 @@ public class Exception {
 
     protected String message;
 
-    public Exception(){
-        this.message = null;
-    }
-    
+    /**
+     * Obtiene el valor de la propiedad message.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
     public String getMessage() {
         return message;
     }

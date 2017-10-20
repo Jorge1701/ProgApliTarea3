@@ -1,12 +1,8 @@
 package servlets;
 
 import servicios.DtCliente;
-import servicios.DtArtista;
 import servicios.DtSuscripcion;
 import servicios.DtUsuario;
-import Logica.Fabrica;
-//import Logica.IContenido;
-//import Logica.IUsuario;
 import Properties.PropertyManager;
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -133,10 +129,13 @@ public class SInicio extends HttpServlet {
 
                 if (dts != null) {
                     DtUsuario usr = port.getDataUsuario(u.getNickname());
-                    request.setAttribute("suscripciones", ((DtCliente) usr).getSuscripciones());
+                    if (usr instanceof DtCliente) {
+                        request.setAttribute("suscripciones", ((DtCliente) usr).getSuscripciones());
+                    }
+
                 }
                 // hasta aca
-                request.setAttribute("seguidos", port.listarSeguidosDe(u.getNickname()));
+                request.setAttribute("seguidos", port.listarSeguidosDe(u.getNickname()).getUsuarios());
             }
         }
 

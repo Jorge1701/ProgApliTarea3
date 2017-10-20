@@ -26,19 +26,6 @@ public interface PRegistro {
 
     /**
      * 
-     * @param arg0
-     * @return
-     *     returns boolean
-     */
-    @WebMethod
-    @WebResult(partName = "return")
-    @Action(input = "http://Servicios/PRegistro/ingresarUsuarioRequest", output = "http://Servicios/PRegistro/ingresarUsuarioResponse")
-    public boolean ingresarUsuario(
-        @WebParam(name = "arg0", partName = "arg0")
-        DtUsuario arg0);
-
-    /**
-     * 
      */
     @WebMethod
     @Action(input = "http://Servicios/PRegistro/publicarRequest", output = "http://Servicios/PRegistro/publicarResponse")
@@ -52,8 +39,21 @@ public interface PRegistro {
      */
     @WebMethod
     @WebResult(partName = "return")
-    @Action(input = "http://Servicios/PRegistro/correoExisteRequest", output = "http://Servicios/PRegistro/correoExisteResponse")
-    public boolean correoExiste(
+    @Action(input = "http://Servicios/PRegistro/ingresarUsuarioRequest", output = "http://Servicios/PRegistro/ingresarUsuarioResponse")
+    public boolean ingresarUsuario(
+        @WebParam(name = "arg0", partName = "arg0")
+        DtUsuario arg0);
+
+    /**
+     * 
+     * @param arg0
+     * @return
+     *     returns servicios.DtUsuario
+     */
+    @WebMethod
+    @WebResult(partName = "return")
+    @Action(input = "http://Servicios/PRegistro/getDataUsuarioRequest", output = "http://Servicios/PRegistro/getDataUsuarioResponse")
+    public DtUsuario getDataUsuario(
         @WebParam(name = "arg0", partName = "arg0")
         String arg0);
 
@@ -73,25 +73,25 @@ public interface PRegistro {
     /**
      * 
      * @param arg0
-     * @return
-     *     returns servicios.DtUsuario
-     */
-    @WebMethod
-    @WebResult(partName = "return")
-    @Action(input = "http://Servicios/PRegistro/getDataUsuarioRequest", output = "http://Servicios/PRegistro/getDataUsuarioResponse")
-    public DtUsuario getDataUsuario(
-        @WebParam(name = "arg0", partName = "arg0")
-        String arg0);
-
-    /**
-     * 
-     * @param arg0
      */
     @WebMethod(operationName = "DtCliente")
     @Action(input = "http://Servicios/PRegistro/DtClienteRequest", output = "http://Servicios/PRegistro/DtClienteResponse")
     public void dtCliente(
         @WebParam(name = "arg0", partName = "arg0")
         DtCliente arg0);
+
+    /**
+     * 
+     * @param arg0
+     * @return
+     *     returns boolean
+     */
+    @WebMethod
+    @WebResult(partName = "return")
+    @Action(input = "http://Servicios/PRegistro/correoExisteRequest", output = "http://Servicios/PRegistro/correoExisteResponse")
+    public boolean correoExiste(
+        @WebParam(name = "arg0", partName = "arg0")
+        String arg0);
 
     /**
      * 

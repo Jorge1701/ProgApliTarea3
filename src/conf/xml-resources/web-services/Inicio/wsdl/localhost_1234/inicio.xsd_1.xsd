@@ -28,11 +28,11 @@
 
 <xs:complexType name="dtListaUsuarios">
 <xs:sequence>
-<xs:element name="usuarios" type="tns:dtUsuario" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
+<xs:element name="usuarios" type="tns:DtUsuario" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="dtUsuario">
+<xs:complexType name="DtUsuario">
 <xs:sequence>
 <xs:element name="nickname" type="xs:string" minOccurs="0"></xs:element>
 <xs:element name="nombre" type="xs:string" minOccurs="0"></xs:element>

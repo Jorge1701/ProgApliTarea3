@@ -19,36 +19,4 @@
 <xs:element name="anio" type="xs:int"></xs:element>
 </xs:sequence>
 </xs:complexType>
-
-<xs:complexType name="dtArtista">
-<xs:complexContent>
-<xs:extension base="tns:DtUsuario">
-<xs:sequence>
-<xs:element name="biografia" type="xs:string" minOccurs="0"></xs:element>
-<xs:element name="web" type="xs:string" minOccurs="0"></xs:element>
-</xs:sequence>
-</xs:extension>
-</xs:complexContent>
-</xs:complexType>
-
-<xs:complexType name="dtCliente">
-<xs:complexContent>
-<xs:extension base="tns:DtUsuario">
-<xs:sequence>
-<xs:element name="suscripciones" type="tns:dtSuscripcion" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
-<xs:element name="actual" type="tns:dtSuscripcion" minOccurs="0"></xs:element>
-</xs:sequence>
-</xs:extension>
-</xs:complexContent>
-</xs:complexType>
-
-<xs:complexType name="dtSuscripcion">
-<xs:sequence>
-<xs:element name="estado" type="xs:string" minOccurs="0"></xs:element>
-<xs:element name="cuota" type="xs:string" minOccurs="0"></xs:element>
-<xs:element name="fecha_venc" type="tns:dtFecha" minOccurs="0"></xs:element>
-<xs:element name="fecha" type="tns:dtFecha" minOccurs="0"></xs:element>
-<xs:element name="monto" type="xs:int"></xs:element>
-</xs:sequence>
-</xs:complexType>
 </xs:schema>

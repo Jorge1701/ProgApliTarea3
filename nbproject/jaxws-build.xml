@@ -64,5 +64,24 @@
         <delete dir="${build.generated.sources.dir}/jax-ws/servicios"/>
         <delete dir="${build.generated.dir}/jax-wsCache/service/Inicio"/>
     </target>
-    <target name="wsimport-service-generate" depends="wsimport-service-Registro, wsimport-service-Inicio"/>
+    <target name="wsimport-service-Sesion" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/service/Sesion"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/service/Sesion" destdir="${build.generated.dir}/jax-wsCache/service/Sesion" wsdl="${basedir}/${conf-dir}xml-resources/web-services/Sesion/wsdl/localhost_1234/sesion.wsdl" catalog="catalog.xml" extension="true" verbose="true" fork="false" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-services/Sesion/wsdl/localhost_1234/sesion.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/service/Sesion"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/service/Sesion">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+        <copy todir="${build.web.dir}/WEB-INF/wsdl/Sesion">
+            <fileset dir="${basedir}/${conf-dir}xml-resources/web-services/Sesion/wsdl/"/>
+        </copy>
+    </target>
+    <target name="wsimport-service-clean-Sesion" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/servicios"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/service/Sesion"/>
+    </target>
+    <target name="wsimport-service-generate" depends="wsimport-service-Registro, wsimport-service-Inicio, wsimport-service-Sesion"/>
 </project>

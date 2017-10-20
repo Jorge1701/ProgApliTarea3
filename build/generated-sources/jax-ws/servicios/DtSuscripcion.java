@@ -47,14 +47,6 @@ public class DtSuscripcion {
     protected DtFecha fecha;
     protected int monto;
 
-    public DtSuscripcion(){
-        estado = "";
-        cuota = "";
-        fechaVenc = null;
-        fecha = null;
-        monto = 0;
-    }
-    
     /**
      * Obtiene el valor de la propiedad estado.
      * 

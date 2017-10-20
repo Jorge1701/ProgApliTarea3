@@ -65,6 +65,38 @@
         </wsimport-option>
       </wsimport-options>
     </service>
+    <service name="Sesion">
+      <implementation-class>Services.Sesion</implementation-class>
+      <wsdl-url>http://localhost:1234/sesion?wsdl</wsdl-url>
+      <local-wsdl-file>localhost_1234/sesion.wsdl</local-wsdl-file>
+      <service-name>PSesionService</service-name>
+      <port-name>PSesionPort</port-name>
+      <package-name>servicios</package-name>
+      <catalog-file>catalog.xml</catalog-file>
+      <use-provider>false</use-provider>
+      <wsimport-options>
+        <wsimport-option>
+          <wsimport-option-name>extension</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>verbose</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>fork</wsimport-option-name>
+          <wsimport-option-value>false</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>xnocompile</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>xendorsed</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+      </wsimport-options>
+    </service>
   </services>
   <clients/>
   <jsr109>false</jsr109>
