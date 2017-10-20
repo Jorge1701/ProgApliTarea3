@@ -83,5 +83,24 @@
         <delete dir="${build.generated.sources.dir}/jax-ws/servicios"/>
         <delete dir="${build.generated.dir}/jax-wsCache/service/Sesion"/>
     </target>
-    <target name="wsimport-service-generate" depends="wsimport-service-Registro, wsimport-service-Inicio, wsimport-service-Sesion"/>
+    <target name="wsimport-service-Imagen" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/service/Imagen"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/service/Imagen" destdir="${build.generated.dir}/jax-wsCache/service/Imagen" wsdl="${basedir}/${conf-dir}xml-resources/web-services/Imagen/wsdl/localhost_1234/imagen.wsdl" catalog="catalog.xml" extension="true" verbose="true" fork="false" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-services/Imagen/wsdl/localhost_1234/imagen.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/service/Imagen"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/service/Imagen">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+        <copy todir="${build.web.dir}/WEB-INF/wsdl/Imagen">
+            <fileset dir="${basedir}/${conf-dir}xml-resources/web-services/Imagen/wsdl/"/>
+        </copy>
+    </target>
+    <target name="wsimport-service-clean-Imagen" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/servicios"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/service/Imagen"/>
+    </target>
+    <target name="wsimport-service-generate" depends="wsimport-service-Registro, wsimport-service-Inicio, wsimport-service-Sesion, wsimport-service-Imagen"/>
 </project>
