@@ -18,6 +18,11 @@
         <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
+    <servlet>
+        <servlet-name>PImagenService</servlet-name>
+        <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
     <servlet-mapping>
         <servlet-name>PInicioService</servlet-name>
         <url-pattern>/PInicioService</url-pattern>
@@ -29,6 +34,10 @@
     <servlet-mapping>
         <servlet-name>PSesionService</servlet-name>
         <url-pattern>/PSesionService</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PImagenService</servlet-name>
+        <url-pattern>/PImagenService</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

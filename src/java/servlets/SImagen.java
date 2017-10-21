@@ -1,15 +1,21 @@
 package servlets;
 
 import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.imageio.ImageIO;
+import javax.imageio.stream.MemoryCacheImageOutputStream;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import servicios.PImagen;
+import servicios.PImagenService;
 
 @WebServlet(name = "SImagen", urlPatterns = {"/SImagen"})
 public class SImagen extends HttpServlet {
@@ -20,42 +26,55 @@ public class SImagen extends HttpServlet {
             request.getRequestDispatcher("vistas/pagina_error.jsp").forward(request, response);
             return;
         }
-
+        byte[] img = null;
         String ruta = getServletContext().getRealPath("/");
         String[] parte = ruta.split("ProgApliTarea3");
         String tarea1 = parte[0] + "ProgApliTarea1" + File.separator;
+        
+        PImagenService serviceImg = new PImagenService();
+        PImagen port = serviceImg.getPImagenPort();
 
         if (request.getParameter("usuario") != null) {
             BufferedImage bi = null;
-            try {
-                bi = ImageIO.read(new File(tarea1 + "Recursos/Imagenes/Usuarios/" + request.getParameter("usuario")));
-            } catch (IOException e) {
-                bi = ImageIO.read(new File(tarea1 + "Recursos/Imagenes/Usuarios/userDefaullt.png"));
-            }
             OutputStream out = response.getOutputStream();
-            ImageIO.write(bi, "png", out);
+            try {
+                //bi = ImageIO.read(new File(tarea1 + "Recursos/Imagenes/Usuarios/" + request.getParameter("usuario")));
+                img = port.getFile("Usuario", request.getParameter("usuario"));
+                out.write(img);                
+                //bi = ImageIO.read(new ByteArrayInputStream(img));
+            } catch (Exception e) {
+                bi = ImageIO.read(new File(tarea1 + "Recursos/Imagenes/Usuarios/userDefaullt.png"));
+                ImageIO.write(bi, "png", out);
+            }      
+            
             out.close();
         }
         if (request.getParameter("album") != null) {
             BufferedImage bi = null;
-            try {
-                bi = ImageIO.read(new File(tarea1 + "Recursos/Imagenes/Albumes/" + request.getParameter("album")));
-            } catch (IOException e) {
-                bi = ImageIO.read(new File(tarea1 + "Recursos/Imagenes/Albumes/albumDefault.png"));
-            }
             OutputStream out = response.getOutputStream();
-            ImageIO.write(bi, "png", out);
+            try {
+                //bi = ImageIO.read(new File(tarea1 + "Recursos/Imagenes/Albumes/" + request.getParameter("album")));
+                 img = port.getFile("Album", request.getParameter("album"));
+                 out.write(img);                
+            } catch (Exception e) {
+                bi = ImageIO.read(new File(tarea1 + "Recursos/Imagenes/Albumes/albumDefault.png"));
+                ImageIO.write(bi, "png", out);
+            }
+                        
             out.close();
         }
         if (request.getParameter("lista") != null) {
             BufferedImage bi = null;
-            try {
-                bi = ImageIO.read(new File(tarea1 + "Recursos/Imagenes/Listas/" + request.getParameter("lista")));
-            } catch (IOException e) {
-                bi = ImageIO.read(new File(tarea1 + "Recursos/Imagenes/Listas/listaDefault.png"));
-            }
             OutputStream out = response.getOutputStream();
-            ImageIO.write(bi, "png", out);
+            try {
+                //bi = ImageIO.read(new File(tarea1 + "Recursos/Imagenes/Listas/" + request.getParameter("lista")));
+                 img = port.getFile("Lista", request.getParameter("lista"));
+                 out.write(img);  
+            } catch (Exception e) {
+                bi = ImageIO.read(new File(tarea1 + "Recursos/Imagenes/Listas/listaDefault.png"));
+                ImageIO.write(bi, "png", out);
+            }           
+            
             out.close();
         }
     }
