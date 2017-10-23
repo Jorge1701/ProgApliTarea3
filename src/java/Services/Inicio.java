@@ -6,6 +6,7 @@
 package Services;
 
 import javax.jws.WebService;
+import servicios.Exception_Exception;
 
 /**
  *
@@ -14,7 +15,7 @@ import javax.jws.WebService;
 @WebService(serviceName = "PInicioService", portName = "PInicioPort", endpointInterface = "servicios.PInicio", targetNamespace = "http://Servicios/", wsdlLocation = "WEB-INF/wsdl/Inicio/localhost_1234/inicio.wsdl")
 public class Inicio {
 
-    public servicios.DtListaUsuarios listarArtistas() {
+    public servicios.DtListaUsuarios listarSeguidosDe(java.lang.String arg0) {
         //TODO implement this method
         throw new UnsupportedOperationException("Not implemented yet.");
     }
@@ -24,7 +25,7 @@ public class Inicio {
         throw new UnsupportedOperationException("Not implemented yet.");
     }
 
-    public servicios.DtListaUsuarios listarSeguidosDe(java.lang.String arg0) {
+    public servicios.DtListaUsuarios listarArtistas() {
         //TODO implement this method
         throw new UnsupportedOperationException("Not implemented yet.");
     }
@@ -49,12 +50,17 @@ public class Inicio {
         throw new UnsupportedOperationException("Not implemented yet.");
     }
 
-    public void cargarDatosPrueba() throws servicios.Exception_Exception {
+    public servicios.DtCliente getDataCliente(java.lang.String arg0) {
         //TODO implement this method
         throw new UnsupportedOperationException("Not implemented yet.");
     }
 
     public void dtSuscripcion(servicios.DtSuscripcion arg0) {
+        //TODO implement this method
+        throw new UnsupportedOperationException("Not implemented yet.");
+    }
+
+    public void cargarDatosPrueba() throws Exception_Exception {
         //TODO implement this method
         throw new UnsupportedOperationException("Not implemented yet.");
     }

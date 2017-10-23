@@ -33,12 +33,44 @@
         </wsimport-option>
       </wsimport-options>
     </service>
-    <service name="Inicio">
-      <implementation-class>Services.Inicio</implementation-class>
-      <wsdl-url>http://localhost:1234/inicio?wsdl</wsdl-url>
-      <local-wsdl-file>localhost_1234/inicio.wsdl</local-wsdl-file>
-      <service-name>PInicioService</service-name>
-      <port-name>PInicioPort</port-name>
+    <service name="Imagen">
+      <implementation-class>Services.Imagen</implementation-class>
+      <wsdl-url>http://localhost:1234/imagen?wsdl</wsdl-url>
+      <local-wsdl-file>localhost_1234/imagen.wsdl</local-wsdl-file>
+      <service-name>PImagenService</service-name>
+      <port-name>PImagenPort</port-name>
+      <package-name>servicios</package-name>
+      <catalog-file>catalog.xml</catalog-file>
+      <use-provider>false</use-provider>
+      <wsimport-options>
+        <wsimport-option>
+          <wsimport-option-name>extension</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>verbose</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>fork</wsimport-option-name>
+          <wsimport-option-value>false</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>xnocompile</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>xendorsed</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+      </wsimport-options>
+    </service>
+    <service name="Uploadfile">
+      <implementation-class>Services.Uploadfile</implementation-class>
+      <wsdl-url>http://localhost:1234/uploadfile?wsdl</wsdl-url>
+      <local-wsdl-file>localhost_1234/uploadfile.wsdl</local-wsdl-file>
+      <service-name>PUploadfileService</service-name>
+      <port-name>PUploadfilePort</port-name>
       <package-name>servicios</package-name>
       <catalog-file>catalog.xml</catalog-file>
       <use-provider>false</use-provider>
@@ -97,12 +129,12 @@
         </wsimport-option>
       </wsimport-options>
     </service>
-    <service name="Imagen">
-      <implementation-class>Services.Imagen</implementation-class>
-      <wsdl-url>http://localhost:1234/imagen?wsdl</wsdl-url>
-      <local-wsdl-file>localhost_1234/imagen.wsdl</local-wsdl-file>
-      <service-name>PImagenService</service-name>
-      <port-name>PImagenPort</port-name>
+    <service name="Inicio">
+      <implementation-class>Services.Inicio</implementation-class>
+      <wsdl-url>http://localhost:1234/inicio?wsdl</wsdl-url>
+      <local-wsdl-file>localhost_1234/inicio.wsdl</local-wsdl-file>
+      <service-name>PInicioService</service-name>
+      <port-name>PInicioPort</port-name>
       <package-name>servicios</package-name>
       <catalog-file>catalog.xml</catalog-file>
       <use-provider>false</use-provider>

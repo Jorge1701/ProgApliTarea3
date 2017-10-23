@@ -119,8 +119,15 @@ public class SSesion extends HttpServlet {
                 String nickname = port.chequearLogin(request.getParameter("nickname"), request.getParameter("contrasenia"));
 
                 if (!nickname.contains("Error")) {
-                    DtUsuario dtu = port.getDataUsuario(nickname);
+                    DtUsuario dtu = null;
+                    if (port.esCliente(nickname)) {
+                        dtu = port.getDataCliente(nickname);
+                    } else {
+                        dtu = port.getDataUsuario(nickname);
+                    }
+
                     request.getSession().setAttribute("usuario", dtu);
+
                     if (dtu instanceof DtCliente) {
                         request.getSession().setAttribute("suscripcion", ((DtCliente) dtu).getActual());
                         request.getSession().setAttribute("suscripciones", ((DtCliente) dtu).getSuscripciones());

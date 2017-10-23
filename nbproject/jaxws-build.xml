@@ -45,24 +45,43 @@
         <delete dir="${build.generated.sources.dir}/jax-ws/servicios"/>
         <delete dir="${build.generated.dir}/jax-wsCache/service/Registro"/>
     </target>
-    <target name="wsimport-service-Inicio" depends="wsimport-init">
-        <mkdir dir="${build.generated.dir}/jax-wsCache/service/Inicio"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/service/Inicio" destdir="${build.generated.dir}/jax-wsCache/service/Inicio" wsdl="${basedir}/${conf-dir}xml-resources/web-services/Inicio/wsdl/localhost_1234/inicio.wsdl" catalog="catalog.xml" extension="true" verbose="true" fork="false" xnocompile="true" xendorsed="true">
-            <depends file="${basedir}/${conf-dir}xml-resources/web-services/Inicio/wsdl/localhost_1234/inicio.wsdl"/>
-            <produces dir="${build.generated.dir}/jax-wsCache/service/Inicio"/>
+    <target name="wsimport-service-Imagen" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/service/Imagen"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/service/Imagen" destdir="${build.generated.dir}/jax-wsCache/service/Imagen" wsdl="${basedir}/${conf-dir}xml-resources/web-services/Imagen/wsdl/localhost_1234/imagen.wsdl" catalog="catalog.xml" extension="true" verbose="true" fork="false" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-services/Imagen/wsdl/localhost_1234/imagen.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/service/Imagen"/>
         </wsimport>
         <copy todir="${build.generated.sources.dir}/jax-ws">
-            <fileset dir="${build.generated.dir}/jax-wsCache/service/Inicio">
+            <fileset dir="${build.generated.dir}/jax-wsCache/service/Imagen">
                 <include name="**/*.java"/>
             </fileset>
         </copy>
-        <copy todir="${build.web.dir}/WEB-INF/wsdl/Inicio">
-            <fileset dir="${basedir}/${conf-dir}xml-resources/web-services/Inicio/wsdl/"/>
+        <copy todir="${build.web.dir}/WEB-INF/wsdl/Imagen">
+            <fileset dir="${basedir}/${conf-dir}xml-resources/web-services/Imagen/wsdl/"/>
         </copy>
     </target>
-    <target name="wsimport-service-clean-Inicio" depends="-init-project">
+    <target name="wsimport-service-clean-Imagen" depends="-init-project">
         <delete dir="${build.generated.sources.dir}/jax-ws/servicios"/>
-        <delete dir="${build.generated.dir}/jax-wsCache/service/Inicio"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/service/Imagen"/>
+    </target>
+    <target name="wsimport-service-Uploadfile" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/service/Uploadfile"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/service/Uploadfile" destdir="${build.generated.dir}/jax-wsCache/service/Uploadfile" wsdl="${basedir}/${conf-dir}xml-resources/web-services/Uploadfile/wsdl/localhost_1234/uploadfile.wsdl" catalog="catalog.xml" extension="true" verbose="true" fork="false" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-services/Uploadfile/wsdl/localhost_1234/uploadfile.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/service/Uploadfile"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/service/Uploadfile">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+        <copy todir="${build.web.dir}/WEB-INF/wsdl/Uploadfile">
+            <fileset dir="${basedir}/${conf-dir}xml-resources/web-services/Uploadfile/wsdl/"/>
+        </copy>
+    </target>
+    <target name="wsimport-service-clean-Uploadfile" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/servicios"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/service/Uploadfile"/>
     </target>
     <target name="wsimport-service-Sesion" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/service/Sesion"/>
@@ -83,24 +102,24 @@
         <delete dir="${build.generated.sources.dir}/jax-ws/servicios"/>
         <delete dir="${build.generated.dir}/jax-wsCache/service/Sesion"/>
     </target>
-    <target name="wsimport-service-Imagen" depends="wsimport-init">
-        <mkdir dir="${build.generated.dir}/jax-wsCache/service/Imagen"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/service/Imagen" destdir="${build.generated.dir}/jax-wsCache/service/Imagen" wsdl="${basedir}/${conf-dir}xml-resources/web-services/Imagen/wsdl/localhost_1234/imagen.wsdl" catalog="catalog.xml" extension="true" verbose="true" fork="false" xnocompile="true" xendorsed="true">
-            <depends file="${basedir}/${conf-dir}xml-resources/web-services/Imagen/wsdl/localhost_1234/imagen.wsdl"/>
-            <produces dir="${build.generated.dir}/jax-wsCache/service/Imagen"/>
+    <target name="wsimport-service-Inicio" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/service/Inicio"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/service/Inicio" destdir="${build.generated.dir}/jax-wsCache/service/Inicio" wsdl="${basedir}/${conf-dir}xml-resources/web-services/Inicio/wsdl/localhost_1234/inicio.wsdl" catalog="catalog.xml" extension="true" verbose="true" fork="false" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-services/Inicio/wsdl/localhost_1234/inicio.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/service/Inicio"/>
         </wsimport>
         <copy todir="${build.generated.sources.dir}/jax-ws">
-            <fileset dir="${build.generated.dir}/jax-wsCache/service/Imagen">
+            <fileset dir="${build.generated.dir}/jax-wsCache/service/Inicio">
                 <include name="**/*.java"/>
             </fileset>
         </copy>
-        <copy todir="${build.web.dir}/WEB-INF/wsdl/Imagen">
-            <fileset dir="${basedir}/${conf-dir}xml-resources/web-services/Imagen/wsdl/"/>
+        <copy todir="${build.web.dir}/WEB-INF/wsdl/Inicio">
+            <fileset dir="${basedir}/${conf-dir}xml-resources/web-services/Inicio/wsdl/"/>
         </copy>
     </target>
-    <target name="wsimport-service-clean-Imagen" depends="-init-project">
+    <target name="wsimport-service-clean-Inicio" depends="-init-project">
         <delete dir="${build.generated.sources.dir}/jax-ws/servicios"/>
-        <delete dir="${build.generated.dir}/jax-wsCache/service/Imagen"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/service/Inicio"/>
     </target>
-    <target name="wsimport-service-generate" depends="wsimport-service-Registro, wsimport-service-Inicio, wsimport-service-Sesion, wsimport-service-Imagen"/>
+    <target name="wsimport-service-generate" depends="wsimport-service-Registro, wsimport-service-Imagen, wsimport-service-Uploadfile, wsimport-service-Sesion, wsimport-service-Inicio"/>
 </project>

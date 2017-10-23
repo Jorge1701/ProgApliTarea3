@@ -44,6 +44,17 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="dtCliente">
+<xs:complexContent>
+<xs:extension base="tns:DtUsuario">
+<xs:sequence>
+<xs:element name="suscripciones" type="tns:dtSuscripcion" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
+<xs:element name="actual" type="tns:dtSuscripcion" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
 <xs:complexType name="Exception">
 <xs:sequence>
 <xs:element name="message" type="xs:string" minOccurs="0"></xs:element>

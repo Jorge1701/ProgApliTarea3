@@ -119,7 +119,7 @@ public class SInicio extends HttpServlet {
                     if (s.getEstado().equals("Vigente")) {
 
                         port.chequearSuscripcion(u.getNickname());
-                        DtUsuario usr = port.getDataUsuario(u.getNickname());
+                        DtUsuario usr = port.getDataCliente(u.getNickname());
                         request.getSession().setAttribute("usuario", usr);
                         request.setAttribute("suscripcion", ((DtCliente) usr).getActual());
 

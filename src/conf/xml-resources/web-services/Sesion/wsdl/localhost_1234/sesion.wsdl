@@ -6,12 +6,24 @@
 </types>
 <message name="publicar"></message>
 <message name="publicarResponse"></message>
+<message name="esCliente">
+<part name="arg0" type="xsd:string"></part>
+</message>
+<message name="esClienteResponse">
+<part name="return" type="xsd:boolean"></part>
+</message>
 <message name="chequearLogin">
 <part name="arg0" type="xsd:string"></part>
 <part name="arg1" type="xsd:string"></part>
 </message>
 <message name="chequearLoginResponse">
 <part name="return" type="xsd:string"></part>
+</message>
+<message name="getDataCliente">
+<part name="arg0" type="xsd:string"></part>
+</message>
+<message name="getDataClienteResponse">
+<part name="return" type="tns:dtCliente"></part>
 </message>
 <message name="getDataUsuario">
 <part name="arg0" type="xsd:string"></part>
@@ -24,9 +36,17 @@
 <input wsam:Action="http://Servicios/PSesion/publicarRequest" message="tns:publicar"></input>
 <output wsam:Action="http://Servicios/PSesion/publicarResponse" message="tns:publicarResponse"></output>
 </operation>
+<operation name="esCliente">
+<input wsam:Action="http://Servicios/PSesion/esClienteRequest" message="tns:esCliente"></input>
+<output wsam:Action="http://Servicios/PSesion/esClienteResponse" message="tns:esClienteResponse"></output>
+</operation>
 <operation name="chequearLogin" parameterOrder="arg0 arg1">
 <input wsam:Action="http://Servicios/PSesion/chequearLoginRequest" message="tns:chequearLogin"></input>
 <output wsam:Action="http://Servicios/PSesion/chequearLoginResponse" message="tns:chequearLoginResponse"></output>
+</operation>
+<operation name="getDataCliente">
+<input wsam:Action="http://Servicios/PSesion/getDataClienteRequest" message="tns:getDataCliente"></input>
+<output wsam:Action="http://Servicios/PSesion/getDataClienteResponse" message="tns:getDataClienteResponse"></output>
 </operation>
 <operation name="getDataUsuario">
 <input wsam:Action="http://Servicios/PSesion/getDataUsuarioRequest" message="tns:getDataUsuario"></input>
@@ -44,7 +64,25 @@
 <soap:body use="literal" namespace="http://Servicios/"></soap:body>
 </output>
 </operation>
+<operation name="esCliente">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal" namespace="http://Servicios/"></soap:body>
+</input>
+<output>
+<soap:body use="literal" namespace="http://Servicios/"></soap:body>
+</output>
+</operation>
 <operation name="chequearLogin">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal" namespace="http://Servicios/"></soap:body>
+</input>
+<output>
+<soap:body use="literal" namespace="http://Servicios/"></soap:body>
+</output>
+</operation>
+<operation name="getDataCliente">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal" namespace="http://Servicios/"></soap:body>

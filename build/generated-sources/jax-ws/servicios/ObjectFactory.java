@@ -1,10 +1,7 @@
 
 package servicios;
 
-import javax.xml.bind.JAXBElement;
-import javax.xml.bind.annotation.XmlElementDecl;
 import javax.xml.bind.annotation.XmlRegistry;
-import javax.xml.namespace.QName;
 
 
 /**
@@ -24,7 +21,6 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _Exception_QNAME = new QName("http://Servicios/", "Exception");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: servicios
@@ -34,20 +30,43 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Exception }
+     * Create an instance of {@link DtFecha }
      * 
      */
-    public Exception createException() {
-        return new Exception();
+    public DtFecha createDtFecha() {
+        return new DtFecha();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Exception }{@code >}}
+     * Create an instance of {@link DtUsuario }
      * 
      */
-    @XmlElementDecl(namespace = "http://Servicios/", name = "Exception")
-    public JAXBElement<Exception> createException(Exception value) {
-        return new JAXBElement<Exception>(_Exception_QNAME, Exception.class, null, value);
+    public DtUsuario createDtUsuario() {
+        return new DtUsuario();
+    }
+
+    /**
+     * Create an instance of {@link DtCliente }
+     * 
+     */
+    public DtCliente createDtCliente() {
+        return new DtCliente();
+    }
+
+    /**
+     * Create an instance of {@link DtSuscripcion }
+     * 
+     */
+    public DtSuscripcion createDtSuscripcion() {
+        return new DtSuscripcion();
+    }
+
+    /**
+     * Create an instance of {@link DtArtista }
+     * 
+     */
+    public DtArtista createDtArtista() {
+        return new DtArtista();
     }
 
 }

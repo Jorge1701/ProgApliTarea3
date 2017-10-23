@@ -27,23 +27,6 @@ public interface PInicio {
 
     /**
      * 
-     * @return
-     *     returns servicios.DtListaUsuarios
-     */
-    @WebMethod
-    @WebResult(partName = "return")
-    @Action(input = "http://Servicios/PInicio/listarArtistasRequest", output = "http://Servicios/PInicio/listarArtistasResponse")
-    public DtListaUsuarios listarArtistas();
-
-    /**
-     * 
-     */
-    @WebMethod
-    @Action(input = "http://Servicios/PInicio/publicarRequest", output = "http://Servicios/PInicio/publicarResponse")
-    public void publicar();
-
-    /**
-     * 
      * @param arg0
      * @return
      *     returns servicios.DtListaUsuarios
@@ -54,6 +37,23 @@ public interface PInicio {
     public DtListaUsuarios listarSeguidosDe(
         @WebParam(name = "arg0", partName = "arg0")
         String arg0);
+
+    /**
+     * 
+     */
+    @WebMethod
+    @Action(input = "http://Servicios/PInicio/publicarRequest", output = "http://Servicios/PInicio/publicarResponse")
+    public void publicar();
+
+    /**
+     * 
+     * @return
+     *     returns servicios.DtListaUsuarios
+     */
+    @WebMethod
+    @WebResult(partName = "return")
+    @Action(input = "http://Servicios/PInicio/listarArtistasRequest", output = "http://Servicios/PInicio/listarArtistasResponse")
+    public DtListaUsuarios listarArtistas();
 
     /**
      * 
@@ -103,15 +103,16 @@ public interface PInicio {
 
     /**
      * 
-     * @throws Exception_Exception
+     * @param arg0
+     * @return
+     *     returns servicios.DtCliente
      */
     @WebMethod
-    @Action(input = "http://Servicios/PInicio/cargarDatosPruebaRequest", output = "http://Servicios/PInicio/cargarDatosPruebaResponse", fault = {
-        @FaultAction(className = Exception_Exception.class, value = "http://Servicios/PInicio/cargarDatosPrueba/Fault/Exception")
-    })
-    public void cargarDatosPrueba()
-        throws Exception_Exception
-    ;
+    @WebResult(partName = "return")
+    @Action(input = "http://Servicios/PInicio/getDataClienteRequest", output = "http://Servicios/PInicio/getDataClienteResponse")
+    public DtCliente getDataCliente(
+        @WebParam(name = "arg0", partName = "arg0")
+        String arg0);
 
     /**
      * 
@@ -122,5 +123,17 @@ public interface PInicio {
     public void dtSuscripcion(
         @WebParam(name = "arg0", partName = "arg0")
         DtSuscripcion arg0);
+
+    /**
+     * 
+     * @throws Exception_Exception
+     */
+    @WebMethod
+    @Action(input = "http://Servicios/PInicio/cargarDatosPruebaRequest", output = "http://Servicios/PInicio/cargarDatosPruebaResponse", fault = {
+        @FaultAction(className = Exception_Exception.class, value = "http://Servicios/PInicio/cargarDatosPrueba/Fault/Exception")
+    })
+    public void cargarDatosPrueba()
+        throws Exception_Exception
+    ;
 
 }

@@ -3,6 +3,7 @@ package servicios;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -40,6 +41,10 @@ import javax.xml.bind.annotation.XmlType;
     "fechaNac",
     "imagen",
     "contrasenia"
+})
+@XmlSeeAlso({
+    DtCliente.class,
+    DtArtista.class
 })
 public class DtUsuario {
 
