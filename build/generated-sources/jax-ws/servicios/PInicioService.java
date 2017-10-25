@@ -17,7 +17,7 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.2
  * 
  */
-@WebServiceClient(name = "PInicioService", targetNamespace = "http://Servicios/", wsdlLocation = "file:/home/jorge/NetBeansProjects/ProgApliTarea3/src/conf/xml-resources/web-services/Inicio/wsdl/localhost_1234/inicio.wsdl")
+@WebServiceClient(name = "PInicioService", targetNamespace = "http://Servicios/", wsdlLocation = "file:/C:/Users/Ale/Documents/NetBeansProjects/ProgApliTarea3/ProgApliTarea3/src/conf/xml-resources/web-services/Inicio/wsdl/localhost_1234/inicio.wsdl")
 public class PInicioService
     extends Service
 {
@@ -30,7 +30,7 @@ public class PInicioService
         URL url = null;
         WebServiceException e = null;
         try {
-            url = new URL("file:/home/jorge/NetBeansProjects/ProgApliTarea3/src/conf/xml-resources/web-services/Inicio/wsdl/localhost_1234/inicio.wsdl");
+            url = new URL("file:/C:/Users/Ale/Documents/NetBeansProjects/ProgApliTarea3/ProgApliTarea3/src/conf/xml-resources/web-services/Inicio/wsdl/localhost_1234/inicio.wsdl");
         } catch (MalformedURLException ex) {
             e = new WebServiceException(ex);
         }

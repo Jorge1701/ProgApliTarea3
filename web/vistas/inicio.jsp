@@ -123,7 +123,7 @@
                                     // Si hay un usuario logueado, se quita al usuario logueado de la lista de artistas
                                     if (request.getSession().getAttribute("usuario") != null) {
                                         DtUsuario dtu = (DtUsuario) request.getSession().getAttribute("usuario");
-                                        if (dtu instanceof DtArtista) {
+                                        if (!(dtu instanceof DtCliente)) {
                                             for (int i = 0; i < artistas.size(); i++) {
                                                 if (artistas.get(i).getNickname().equals(dtu.getNickname())) {
                                                     artistas.remove(i);

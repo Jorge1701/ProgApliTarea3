@@ -21,8 +21,8 @@
 <message name="esCliente">
 <part name="arg0" type="xsd:string"></part>
 </message>
-<message name="esClienteResponse">
-<part name="return" type="xsd:boolean"></part>
+<message name="getDataUsuarioResponse">
+<part name="return" type="tns:DtUsuario"></part>
 </message>
 <message name="chequearLogin">
 <part name="arg0" type="xsd:string"></part>
@@ -44,9 +44,9 @@
 <input wsam:Action="http://Servicios/PSesion/getDataClienteRequest" message="tns:getDataCliente"></input>
 <output wsam:Action="http://Servicios/PSesion/getDataClienteResponse" message="tns:getDataClienteResponse"></output>
 </operation>
-<operation name="esCliente">
-<input wsam:Action="http://Servicios/PSesion/esClienteRequest" message="tns:esCliente"></input>
-<output wsam:Action="http://Servicios/PSesion/esClienteResponse" message="tns:esClienteResponse"></output>
+<operation name="getDataUsuario">
+<input wsam:Action="http://Servicios/PSesion/getDataUsuarioRequest" message="tns:getDataUsuario"></input>
+<output wsam:Action="http://Servicios/PSesion/getDataUsuarioResponse" message="tns:getDataUsuarioResponse"></output>
 </operation>
 <operation name="chequearLogin" parameterOrder="arg0 arg1">
 <input wsam:Action="http://Servicios/PSesion/chequearLoginRequest" message="tns:chequearLogin"></input>
@@ -82,7 +82,7 @@
 <soap:body use="literal" namespace="http://Servicios/"></soap:body>
 </output>
 </operation>
-<operation name="esCliente">
+<operation name="getDataUsuario">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal" namespace="http://Servicios/"></soap:body>
