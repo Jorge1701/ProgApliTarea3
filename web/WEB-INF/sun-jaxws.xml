@@ -2,6 +2,7 @@
 <endpoints version="2.0" xmlns="http://java.sun.com/xml/ns/jax-ws/ri/runtime">
   <endpoint implementation="Services.Registro" name="PRegistroService" url-pattern="/PRegistroService"/>
   <endpoint implementation="Services.Uploadfile" name="PUploadfileService" url-pattern="/PUploadfileService"/>
-  <endpoint implementation="Services.Sesion" name="PSesionService" url-pattern="/PSesionService"/>
   <endpoint implementation="Services.Inicio" name="PInicioService" url-pattern="/PInicioService"/>
+  <endpoint implementation="Services.Sesion" name="PSesionService" url-pattern="/PSesionService"/>
+  <endpoint implementation="Services.ConsultaPerfil" name="PConsultaPerfilService" url-pattern="/PConsultaPerfilService"/>
 </endpoints>

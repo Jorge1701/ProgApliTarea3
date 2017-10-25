@@ -1,44 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jax-ws xmlns="http://www.netbeans.org/ns/jax-ws/1">
   <services>
-    <service name="Uploadfile">
-      <implementation-class>Services.Uploadfile</implementation-class>
-      <wsdl-url>http://localhost:1234/uploadfile?wsdl</wsdl-url>
-      <local-wsdl-file>localhost_1234/uploadfile.wsdl</local-wsdl-file>
-      <service-name>PUploadfileService</service-name>
-      <port-name>PUploadfilePort</port-name>
-      <package-name>servicios</package-name>
-      <catalog-file>catalog.xml</catalog-file>
-      <use-provider>false</use-provider>
-      <wsimport-options>
-        <wsimport-option>
-          <wsimport-option-name>extension</wsimport-option-name>
-          <wsimport-option-value>true</wsimport-option-value>
-        </wsimport-option>
-        <wsimport-option>
-          <wsimport-option-name>verbose</wsimport-option-name>
-          <wsimport-option-value>true</wsimport-option-value>
-        </wsimport-option>
-        <wsimport-option>
-          <wsimport-option-name>fork</wsimport-option-name>
-          <wsimport-option-value>false</wsimport-option-value>
-        </wsimport-option>
-        <wsimport-option>
-          <wsimport-option-name>xnocompile</wsimport-option-name>
-          <wsimport-option-value>true</wsimport-option-value>
-        </wsimport-option>
-        <wsimport-option>
-          <wsimport-option-name>xendorsed</wsimport-option-name>
-          <wsimport-option-value>true</wsimport-option-value>
-        </wsimport-option>
-      </wsimport-options>
-    </service>
-    <service name="ConsultaPerfil">
-      <implementation-class>Services.ConsultaPerfil</implementation-class>
-      <wsdl-url>http://localhost:1234/consultaPerfil?wsdl</wsdl-url>
-      <local-wsdl-file>localhost_1234/consultaPerfil.wsdl</local-wsdl-file>
-      <service-name>PConsultaPerfilService</service-name>
-      <port-name>PConsultaPerfilPort</port-name>
+    <service name="Registro">
+      <implementation-class>Services.Registro</implementation-class>
+      <wsdl-url>http://localhost:1234/registro?wsdl</wsdl-url>
+      <local-wsdl-file>localhost_1234/registro.wsdl</local-wsdl-file>
+      <service-name>PRegistroService</service-name>
+      <port-name>PRegistroPort</port-name>
       <package-name>servicios</package-name>
       <catalog-file>catalog.xml</catalog-file>
       <use-provider>false</use-provider>
@@ -97,6 +65,38 @@
         </wsimport-option>
       </wsimport-options>
     </service>
+    <service name="Uploadfile">
+      <implementation-class>Services.Uploadfile</implementation-class>
+      <wsdl-url>http://localhost:1234/uploadfile?wsdl</wsdl-url>
+      <local-wsdl-file>localhost_1234/uploadfile.wsdl</local-wsdl-file>
+      <service-name>PUploadfileService</service-name>
+      <port-name>PUploadfilePort</port-name>
+      <package-name>servicios</package-name>
+      <catalog-file>catalog.xml</catalog-file>
+      <use-provider>false</use-provider>
+      <wsimport-options>
+        <wsimport-option>
+          <wsimport-option-name>extension</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>verbose</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>fork</wsimport-option-name>
+          <wsimport-option-value>false</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>xnocompile</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>xendorsed</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+      </wsimport-options>
+    </service>
     <service name="Inicio">
       <implementation-class>Services.Inicio</implementation-class>
       <wsdl-url>http://localhost:1234/inicio?wsdl</wsdl-url>
@@ -129,12 +129,12 @@
         </wsimport-option>
       </wsimport-options>
     </service>
-    <service name="Registro">
-      <implementation-class>Services.Registro</implementation-class>
-      <wsdl-url>http://localhost:1234/registro?wsdl</wsdl-url>
-      <local-wsdl-file>localhost_1234/registro.wsdl</local-wsdl-file>
-      <service-name>PRegistroService</service-name>
-      <port-name>PRegistroPort</port-name>
+    <service name="Sesion">
+      <implementation-class>Services.Sesion</implementation-class>
+      <wsdl-url>http://localhost:1234/sesion?wsdl</wsdl-url>
+      <local-wsdl-file>localhost_1234/sesion.wsdl</local-wsdl-file>
+      <service-name>PSesionService</service-name>
+      <port-name>PSesionPort</port-name>
       <package-name>servicios</package-name>
       <catalog-file>catalog.xml</catalog-file>
       <use-provider>false</use-provider>
@@ -161,12 +161,12 @@
         </wsimport-option>
       </wsimport-options>
     </service>
-    <service name="Sesion">
-      <implementation-class>Services.Sesion</implementation-class>
-      <wsdl-url>http://localhost:1234/sesion?wsdl</wsdl-url>
-      <local-wsdl-file>localhost_1234/sesion.wsdl</local-wsdl-file>
-      <service-name>PSesionService</service-name>
-      <port-name>PSesionPort</port-name>
+    <service name="ConsultaPerfil">
+      <implementation-class>Services.ConsultaPerfil</implementation-class>
+      <wsdl-url>http://localhost:1234/consultaPerfil?wsdl</wsdl-url>
+      <local-wsdl-file>localhost_1234/consultaPerfil.wsdl</local-wsdl-file>
+      <service-name>PConsultaPerfilService</service-name>
+      <port-name>PConsultaPerfilPort</port-name>
       <package-name>servicios</package-name>
       <catalog-file>catalog.xml</catalog-file>
       <use-provider>false</use-provider>

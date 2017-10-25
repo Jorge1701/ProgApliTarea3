@@ -9,15 +9,10 @@ import javax.jws.WebService;
 
 /**
  *
- * @author Diego
+ * @author Ale
  */
 @WebService(serviceName = "PConsultaPerfilService", portName = "PConsultaPerfilPort", endpointInterface = "servicios.PConsultaPerfil", targetNamespace = "http://Servicios/", wsdlLocation = "WEB-INF/wsdl/ConsultaPerfil/localhost_1234/consultaPerfil.wsdl")
 public class ConsultaPerfil {
-
-    public void publicar() {
-        //TODO implement this method
-        throw new UnsupportedOperationException("Not implemented yet.");
-    }
 
     public servicios.DtPerfilCliente obtenerPerfilCliente(java.lang.String arg0) {
         //TODO implement this method
@@ -25,6 +20,11 @@ public class ConsultaPerfil {
     }
 
     public servicios.DtPerfilArtista obtenerPerfilArtista(java.lang.String arg0) {
+        //TODO implement this method
+        throw new UnsupportedOperationException("Not implemented yet.");
+    }
+
+    public void publicar() {
         //TODO implement this method
         throw new UnsupportedOperationException("Not implemented yet.");
     }

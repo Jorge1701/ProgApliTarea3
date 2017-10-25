@@ -19,7 +19,7 @@ public class Sesion {
         throw new UnsupportedOperationException("Not implemented yet.");
     }
 
-    public boolean esCliente(java.lang.String arg0) {
+    public servicios.DtUsuario getDataUsuario(java.lang.String arg0) {
         //TODO implement this method
         throw new UnsupportedOperationException("Not implemented yet.");
     }
@@ -34,7 +34,7 @@ public class Sesion {
         throw new UnsupportedOperationException("Not implemented yet.");
     }
 
-    public servicios.DtUsuario getDataUsuario(java.lang.String arg0) {
+    public boolean esCliente(java.lang.String arg0) {
         //TODO implement this method
         throw new UnsupportedOperationException("Not implemented yet.");
     }

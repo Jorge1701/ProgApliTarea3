@@ -30,11 +30,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link DtCliente }
+     * Create an instance of {@link DtPerfilCliente }
      * 
      */
-    public DtCliente createDtCliente() {
-        return new DtCliente();
+    public DtPerfilCliente createDtPerfilCliente() {
+        return new DtPerfilCliente();
     }
 
     /**
@@ -43,6 +43,86 @@ public class ObjectFactory {
      */
     public DtFecha createDtFecha() {
         return new DtFecha();
+    }
+
+    /**
+     * Create an instance of {@link DtTema }
+     * 
+     */
+    public DtTema createDtTema() {
+        return new DtTema();
+    }
+
+    /**
+     * Create an instance of {@link DtPerfilUsuario }
+     * 
+     */
+    public DtPerfilUsuario createDtPerfilUsuario() {
+        return new DtPerfilUsuario();
+    }
+
+    /**
+     * Create an instance of {@link DtLista }
+     * 
+     */
+    public DtLista createDtLista() {
+        return new DtLista();
+    }
+
+    /**
+     * Create an instance of {@link DtArtista }
+     * 
+     */
+    public DtArtista createDtArtista() {
+        return new DtArtista();
+    }
+
+    /**
+     * Create an instance of {@link DtListaParticular }
+     * 
+     */
+    public DtListaParticular createDtListaParticular() {
+        return new DtListaParticular();
+    }
+
+    /**
+     * Create an instance of {@link DtTime }
+     * 
+     */
+    public DtTime createDtTime() {
+        return new DtTime();
+    }
+
+    /**
+     * Create an instance of {@link DtGenero }
+     * 
+     */
+    public DtGenero createDtGenero() {
+        return new DtGenero();
+    }
+
+    /**
+     * Create an instance of {@link DtPerfilArtista }
+     * 
+     */
+    public DtPerfilArtista createDtPerfilArtista() {
+        return new DtPerfilArtista();
+    }
+
+    /**
+     * Create an instance of {@link DtCliente }
+     * 
+     */
+    public DtCliente createDtCliente() {
+        return new DtCliente();
+    }
+
+    /**
+     * Create an instance of {@link DtListaDefecto }
+     * 
+     */
+    public DtListaDefecto createDtListaDefecto() {
+        return new DtListaDefecto();
     }
 
     /**
@@ -62,11 +142,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link DtArtista }
+     * Create an instance of {@link DtAlbum }
      * 
      */
-    public DtArtista createDtArtista() {
-        return new DtArtista();
+    public DtAlbum createDtAlbum() {
+        return new DtAlbum();
     }
 
 }
