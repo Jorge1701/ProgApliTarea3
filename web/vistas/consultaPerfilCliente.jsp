@@ -1,12 +1,14 @@
-<%@page import="Logica.DtListaDefecto"%>
-<%@page import="Logica.DtUsuario"%>
-<%@page import="Logica.DtLista"%>
-<%@page import="Logica.DtAlbum"%>
-<%@page import="Logica.DtCliente"%>
-<%@page import="Logica.DtListaParticular"%>
+
+<%@page import="servicios.DtAlbum"%>
+<%@page import="servicios.DtListaDefecto"%>
+<%@page import="servicios.DtTema"%>
+<%@page import="servicios.DtLista"%>
+<%@page import="servicios.DtUsuario"%>
+<%@page import="servicios.DtListaParticular"%>
+<%@page import="servicios.DtCliente"%>
+<%@page import="servicios.DtPerfilCliente"%>
 <%@page import="java.util.Collection"%>
-<%@page import="Logica.DtPerfilCliente"%>
-<%@page import="Logica.DtTema"%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -48,7 +50,7 @@
                         <li><a data-toggle="tab" href="#menu2" style="color: black"><h5 class="pestaniaP">Seguidores</h5></a></li>
 
 
-                        <%if (dtCli.getSuscripcion() != null && dtCli.getSuscripcion().getEstado() != null && dtCli.getSuscripcion().getEstado().equals("Vigente")) { %>
+                        <%if (dtCli.getActual() != null && dtCli.getActual().getEstado() != null && dtCli.getActual().getEstado().equals("Vigente")) { %>
                         <li><a data-toggle="tab" href="#menu6" style="color: black"><h5 class="pestaniaP">Sigue</h5></a></li>
                             <%}%> 
                         <li><a data-toggle="tab" href="#menu3" style="color: black"><h5 class="pestaniaP">Album Favoritos</h5></a></li>
@@ -95,7 +97,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td>Fecha Nacimiento:</td>
-                                                    <td><%= dtPCliente.getInfo().getFechaNac().toString()%></td>
+                                                    <td><%= dtPCliente.getInfo().getFechaNac().getDia()%>/<%= dtPCliente.getInfo().getFechaNac().getMes()%>/<%= dtPCliente.getInfo().getFechaNac().getAnio()%></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Email</td>
@@ -153,7 +155,7 @@
                                         </table>
                                         <% if (session.getAttribute("usuario") != null) {
                                                 DtUsuario usSesion = (DtUsuario) session.getAttribute("usuario");
-                                                if (usSesion.getNickname().equals(dtCli.getNickname()) && dtCli.getSuscripcion() != null && dtCli.getSuscripcion().getEstado() != null && dtCli.getSuscripcion().getEstado().equals("Vigente")) {%>
+if (usSesion.getNickname().equals(dtCli.getNickname()) && dtCli.getActual()!= null && dtCli.getActual().getEstado() != null && dtCli.getActual().getEstado().equals("Vigente")) {%>
                                         <h5><a href="/Tarea2/SLista" class="btn btn-info" id="btnCrearLista">Crear Lista Reproduccion</a> </h5> 
                                         <%}
                                             }%>
@@ -288,7 +290,7 @@
                             </div>
                         </div>
                         <%
-                            if (dtCli.getSuscripcion() != null && dtCli.getSuscripcion().getEstado() != null && dtCli.getSuscripcion().getEstado().equals("Vigente")) {
+                            if (dtCli.getActual()!= null && dtCli.getActual().getEstado() != null && dtCli.getActual().getEstado().equals("Vigente")) {
                         %>                    
                         <div id="menu6" class="tab-pane fade">
                             <h3>Sigue</h3>

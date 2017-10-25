@@ -7,12 +7,12 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Clase Java para dtArtista complex type.
+ * <p>Clase Java para DtArtista complex type.
  * 
  * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>
- * &lt;complexType name="dtArtista">
+ * &lt;complexType name="DtArtista">
  *   &lt;complexContent>
  *     &lt;extension base="{http://Servicios/}DtUsuario">
  *       &lt;sequence>
@@ -27,7 +27,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "dtArtista", propOrder = {
+@XmlType(name = "DtArtista", propOrder = {
     "biografia",
     "web"
 })

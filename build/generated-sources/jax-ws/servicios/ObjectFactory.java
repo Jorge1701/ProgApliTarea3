@@ -30,6 +30,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link DtCliente }
+     * 
+     */
+    public DtCliente createDtCliente() {
+        return new DtCliente();
+    }
+
+    /**
      * Create an instance of {@link DtFecha }
      * 
      */
@@ -43,14 +51,6 @@ public class ObjectFactory {
      */
     public DtUsuario createDtUsuario() {
         return new DtUsuario();
-    }
-
-    /**
-     * Create an instance of {@link DtCliente }
-     * 
-     */
-    public DtCliente createDtCliente() {
-        return new DtCliente();
     }
 
     /**

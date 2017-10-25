@@ -27,6 +27,16 @@ public interface PInicio {
 
     /**
      * 
+     * @return
+     *     returns servicios.DtListaUsuarios
+     */
+    @WebMethod
+    @WebResult(partName = "return")
+    @Action(input = "http://Servicios/PInicio/listarClientesRequest", output = "http://Servicios/PInicio/listarClientesResponse")
+    public DtListaUsuarios listarClientes();
+
+    /**
+     * 
      * @param arg0
      * @return
      *     returns servicios.DtListaUsuarios
@@ -40,13 +50,6 @@ public interface PInicio {
 
     /**
      * 
-     */
-    @WebMethod
-    @Action(input = "http://Servicios/PInicio/publicarRequest", output = "http://Servicios/PInicio/publicarResponse")
-    public void publicar();
-
-    /**
-     * 
      * @return
      *     returns servicios.DtListaUsuarios
      */
@@ -57,24 +60,21 @@ public interface PInicio {
 
     /**
      * 
-     * @return
-     *     returns servicios.DtListaUsuarios
      */
     @WebMethod
-    @WebResult(partName = "return")
-    @Action(input = "http://Servicios/PInicio/listarClientesRequest", output = "http://Servicios/PInicio/listarClientesResponse")
-    public DtListaUsuarios listarClientes();
+    @Action(input = "http://Servicios/PInicio/publicarRequest", output = "http://Servicios/PInicio/publicarResponse")
+    public void publicar();
 
     /**
      * 
      * @param arg0
      * @return
-     *     returns boolean
+     *     returns servicios.DtUsuario
      */
     @WebMethod
     @WebResult(partName = "return")
-    @Action(input = "http://Servicios/PInicio/chequearSuscripcionRequest", output = "http://Servicios/PInicio/chequearSuscripcionResponse")
-    public boolean chequearSuscripcion(
+    @Action(input = "http://Servicios/PInicio/getDataUsuarioRequest", output = "http://Servicios/PInicio/getDataUsuarioResponse")
+    public DtUsuario getDataUsuario(
         @WebParam(name = "arg0", partName = "arg0")
         String arg0);
 
@@ -92,19 +92,6 @@ public interface PInicio {
      * 
      * @param arg0
      * @return
-     *     returns servicios.DtUsuario
-     */
-    @WebMethod
-    @WebResult(partName = "return")
-    @Action(input = "http://Servicios/PInicio/getDataUsuarioRequest", output = "http://Servicios/PInicio/getDataUsuarioResponse")
-    public DtUsuario getDataUsuario(
-        @WebParam(name = "arg0", partName = "arg0")
-        String arg0);
-
-    /**
-     * 
-     * @param arg0
-     * @return
      *     returns servicios.DtCliente
      */
     @WebMethod
@@ -117,12 +104,15 @@ public interface PInicio {
     /**
      * 
      * @param arg0
+     * @return
+     *     returns boolean
      */
-    @WebMethod(operationName = "DtSuscripcion")
-    @Action(input = "http://Servicios/PInicio/DtSuscripcionRequest", output = "http://Servicios/PInicio/DtSuscripcionResponse")
-    public void dtSuscripcion(
+    @WebMethod
+    @WebResult(partName = "return")
+    @Action(input = "http://Servicios/PInicio/chequearSuscripcionRequest", output = "http://Servicios/PInicio/chequearSuscripcionResponse")
+    public boolean chequearSuscripcion(
         @WebParam(name = "arg0", partName = "arg0")
-        DtSuscripcion arg0);
+        String arg0);
 
     /**
      * 
@@ -135,5 +125,15 @@ public interface PInicio {
     public void cargarDatosPrueba()
         throws Exception_Exception
     ;
+
+    /**
+     * 
+     * @param arg0
+     */
+    @WebMethod(operationName = "DtSuscripcion")
+    @Action(input = "http://Servicios/PInicio/DtSuscripcionRequest", output = "http://Servicios/PInicio/DtSuscripcionResponse")
+    public void dtSuscripcion(
+        @WebParam(name = "arg0", partName = "arg0")
+        DtSuscripcion arg0);
 
 }

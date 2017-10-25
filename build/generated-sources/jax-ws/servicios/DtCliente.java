@@ -10,17 +10,17 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Clase Java para dtCliente complex type.
+ * <p>Clase Java para DtCliente complex type.
  * 
  * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>
- * &lt;complexType name="dtCliente">
+ * &lt;complexType name="DtCliente">
  *   &lt;complexContent>
  *     &lt;extension base="{http://Servicios/}DtUsuario">
  *       &lt;sequence>
- *         &lt;element name="suscripciones" type="{http://Servicios/}dtSuscripcion" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="actual" type="{http://Servicios/}dtSuscripcion" minOccurs="0"/>
+ *         &lt;element name="suscripciones" type="{http://Servicios/}DtSuscripcion" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="actual" type="{http://Servicios/}DtSuscripcion" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/extension>
  *   &lt;/complexContent>
@@ -30,7 +30,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "dtCliente", propOrder = {
+@XmlType(name = "DtCliente", propOrder = {
     "suscripciones",
     "actual"
 })
