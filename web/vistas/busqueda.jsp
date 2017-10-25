@@ -1,13 +1,14 @@
+<%@page import="servicios.DtBuscado"%>
 <%@page import="java.net.URLEncoder"%>
-<%@page import="Logica.DtTemaLocal"%>
-<%@page import="Logica.DtTemaRemoto"%>
-<%@page import="Logica.DtListaDefecto"%>
-<%@page import="Logica.DtListaParticular"%>
-<%@page import="Logica.DtLista"%>
-<%@page import="Logica.DtTema"%>
-<%@page import="Logica.DtAlbum"%>
-<%@page import="Logica.DtArtista"%>
-<%@page import="Logica.DtCliente"%>
+<%@page import="servicios.DtTemaLocal"%>
+<%@page import="servicios.DtTemaRemoto"%>
+<%@page import="servicios.DtListaDefecto"%>
+<%@page import="servicios.DtListaParticular"%>
+<%@page import="servicios.DtLista"%>
+<%@page import="servicios.DtTema"%>
+<%@page import="servicios.DtAlbum"%>
+<%@page import="servicios.DtArtista"%>
+<%@page import="servicios.DtCliente"%>
 <%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -32,7 +33,7 @@
                 <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
                     <div class="panel panel-default">
                         <%
-                            ArrayList<Object> resultados = (ArrayList<Object>) request.getAttribute("resultado");
+                            ArrayList<DtBuscado> resultados = (ArrayList<DtBuscado>) request.getAttribute("resultado");
                         %>
 
                         <div class="container" id="info">

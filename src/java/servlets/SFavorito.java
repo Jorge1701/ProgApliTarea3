@@ -1,34 +1,42 @@
 package servlets;
 
-import Logica.DtAlbum;
-import Logica.DtAlbumContenido;
-import Logica.DtArtista;
-import Logica.DtCliente;
-import Logica.DtLista;
-import Logica.DtSuscripcion;
-import Logica.DtTema;
-import Logica.DtUsuario;
-import Logica.Fabrica;
-import Logica.IContenido;
-import Logica.IUsuario;
+import Configuracion.Configuracion;
+import servicios.DtAlbum;
+import servicios.DtAlbumContenido;
+import servicios.DtArtista;
+import servicios.DtCliente;
+import servicios.DtTema;
+import servicios.DtLista;
+import servicios.DtSuscripcion;
+import servicios.DtUsuario;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.net.URLDecoder;
-import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import servicios.DtListaAlbum;
+import servicios.DtListaDeListas;
+import servicios.PFavorito;
+import servicios.PFavoritoService;
 
 @WebServlet(name = "SFavorito", urlPatterns = {"/SFavorito"})
 public class SFavorito extends HttpServlet {
 
-    private IUsuario iUsuario;
-    private IContenido iContenido;
+    private PFavorito port;
 
     public SFavorito() {
-        iUsuario = Fabrica.getIControladorUsuario();
-        iContenido = Fabrica.getIControladorContenido();
+        try {
+            PFavoritoService ws = new PFavoritoService(new URL("http://" + Configuracion.get("ip") + ":" + Configuracion.get("puerto") + "/" + Configuracion.get("PFavorito")));
+            port = ws.getPFavoritoPort();
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(SSeguir.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -71,7 +79,7 @@ public class SFavorito extends HttpServlet {
             return;
         }
 
-        if (iUsuario.obtenerUsuario(dtc.getNickname()) == null) {
+        if (port.getDataUsuario(dtc.getNickname()) == null) {
             request.setAttribute("mensaje_error", "Usuario no existe");
             request.getRequestDispatcher("vistas/pagina_error.jsp").forward(request, response);
             return;
@@ -98,8 +106,8 @@ public class SFavorito extends HttpServlet {
                 nomLista = URLDecoder.decode(request.getParameter("nomLista"), "UTF-8");
 
                 boolean existeLista = false;
-                ArrayList<DtLista> listas = iContenido.listarLisReproduccionGen(nomGenero);
-                for (DtLista lista : listas) {
+                DtListaDeListas listas = port.listarLisReproduccionGen(nomGenero);
+                for (DtLista lista : listas.getListas()) {
                     if (lista.getNombre().equals(nomLista)) {
                         existeLista = true;
                         break;
@@ -115,11 +123,11 @@ public class SFavorito extends HttpServlet {
                 mensaje = "";
                 switch (accion) {
                     case "agregar":
-                        iUsuario.agregarLDFav(nickCliente, nomGenero, nomLista);
+                        port.agregarLDFav(nickCliente, nomGenero, nomLista);
                         mensaje = ("Lista '" + nomLista + "' agregada a favoritos!").replaceAll(" ", "%20");
                         break;
                     case "quitar":
-                        iUsuario.quitarLDFav(nickCliente, nomGenero, nomLista);
+                        port.quitarLDFav(nickCliente, nomGenero, nomLista);
                         mensaje = ("Lista '" + nomLista + "' quidata de favoritos!").replaceAll(" ", "%20");
                         break;
                     default:
@@ -142,8 +150,8 @@ public class SFavorito extends HttpServlet {
                 nomLista = URLDecoder.decode(request.getParameter("nomLista"), "UTF-8");
 
                 boolean existeListaP = false;
-                ArrayList<DtLista> listasP = iUsuario.listarLisReproduccion(nickCliente);
-                for (DtLista lista : listasP) {
+                DtListaDeListas listasP = port.listarLisReproduccion(nickCliente);
+                for (DtLista lista : listasP.getListas()) {
                     if (lista.getNombre().equals(nomLista)) {
                         existeListaP = true;
                         break;
@@ -159,11 +167,11 @@ public class SFavorito extends HttpServlet {
                 mensaje = "";
                 switch (accion) {
                     case "agregar":
-                        iUsuario.agregarLPFav(nickCliente, nickDuenio, nomLista);
+                        port.agregarLPFav(nickCliente, nickDuenio, nomLista);
                         mensaje = ("Lista '" + nomLista + "' agregada a favoritos!").replaceAll(" ", "%20");
                         break;
                     case "quitar":
-                        iUsuario.quitarLPFav(nickCliente, nickCliente, nomLista);
+                        port.quitarLPFav(nickCliente, nickCliente, nomLista);
                         mensaje = ("Lista '" + nomLista + "' quidata de favoritos!").replaceAll(" ", "%20");
                         break;
                     default:
@@ -186,8 +194,8 @@ public class SFavorito extends HttpServlet {
                 nomAlbum = URLDecoder.decode(request.getParameter("nomAlbum"), "UTF-8");
 
                 boolean existeAlbum = false;
-                ArrayList<DtAlbum> albumes = iUsuario.listarAlbumesArtista(nickArtista);
-                for (DtAlbum album : albumes) {
+                DtListaAlbum albumes = port.listarAlbumesArtista(nickArtista);
+                for (DtAlbum album : albumes.getAlbum()) {
                     if (album.getNombre().equals(nomAlbum)) {
                         existeAlbum = true;
                         break;
@@ -203,11 +211,11 @@ public class SFavorito extends HttpServlet {
                 mensaje = "";
                 switch (accion) {
                     case "agregar":
-                        iUsuario.agregarAlbumFav(nickCliente, nickArtista, nomAlbum);
+                        port.agregarAlbumFav(nickCliente, nickArtista, nomAlbum);
                         mensaje = ("Album '" + nomAlbum + "' agregado a favoritos!").replaceAll(" ", "%20");
                         break;
                     case "quitar":
-                        iUsuario.quitarAlbumFav(nickCliente, nickArtista, nomAlbum);
+                        port.quitarAlbumFav(nickCliente, nickArtista, nomAlbum);
                         mensaje = ("Album '" + nomAlbum + "' quitado de favoritos!").replaceAll(" ", "%20");
                         break;
                     default:
@@ -231,11 +239,11 @@ public class SFavorito extends HttpServlet {
                 String nomTema = request.getParameter("nomTema");
 
                 boolean existeTema = false;
-                ArrayList<DtAlbum> albumesA = iUsuario.listarAlbumesArtista(nickArtista);
+                DtListaAlbum albumesA = port.listarAlbumesArtista(nickArtista);
                 loop:
-                for (DtAlbum album : albumesA) {
+                for (DtAlbum album : albumesA.getAlbum()) {
                     if (album.getNombre().equals(nomAlbum)) {
-                        DtAlbumContenido albumCont = iUsuario.obtenerAlbumContenido(nickArtista, nomAlbum);
+                        DtAlbumContenido albumCont = port.obtenerAlbumContenido(nickArtista, nomAlbum);
                         for (DtTema tema : albumCont.getTemas()) {
                             if (tema.getNombre().equals(nomTema)) {
                                 existeListaP = true;
@@ -254,11 +262,11 @@ public class SFavorito extends HttpServlet {
                 mensaje = "";
                 switch (accion) {
                     case "agregar":
-                        iUsuario.agregarTemaFav(nickCliente, nickArtista, nomAlbum, nomTema);
+                        port.agregarTemaFav(nickCliente, nickArtista, nomAlbum, nomTema);
                         mensaje = ("Tema '" + nomTema + "' agregado a favoritos!").replaceAll(" ", "%20");
                         break;
                     case "quitar":
-                        iUsuario.quitarTemaFav(nickCliente, nickArtista, nomAlbum, nomTema);
+                        port.quitarTemaFav(nickCliente, nickArtista, nomAlbum, nomTema);
                         mensaje = ("Tema '" + nomTema + "' quitado de favoritos!").replaceAll(" ", "%20");
                         break;
                     default:

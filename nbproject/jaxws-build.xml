@@ -45,25 +45,6 @@
         <delete dir="${build.generated.sources.dir}/jax-ws/servicios"/>
         <delete dir="${build.generated.dir}/jax-wsCache/service/Uploadfile"/>
     </target>
-    <target name="wsimport-service-ConsultaPerfil" depends="wsimport-init">
-        <mkdir dir="${build.generated.dir}/jax-wsCache/service/ConsultaPerfil"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/service/ConsultaPerfil" destdir="${build.generated.dir}/jax-wsCache/service/ConsultaPerfil" wsdl="${basedir}/${conf-dir}xml-resources/web-services/ConsultaPerfil/wsdl/localhost_1234/consultaPerfil.wsdl" catalog="catalog.xml" extension="true" verbose="true" fork="false" xnocompile="true" xendorsed="true">
-            <depends file="${basedir}/${conf-dir}xml-resources/web-services/ConsultaPerfil/wsdl/localhost_1234/consultaPerfil.wsdl"/>
-            <produces dir="${build.generated.dir}/jax-wsCache/service/ConsultaPerfil"/>
-        </wsimport>
-        <copy todir="${build.generated.sources.dir}/jax-ws">
-            <fileset dir="${build.generated.dir}/jax-wsCache/service/ConsultaPerfil">
-                <include name="**/*.java"/>
-            </fileset>
-        </copy>
-        <copy todir="${build.web.dir}/WEB-INF/wsdl/ConsultaPerfil">
-            <fileset dir="${basedir}/${conf-dir}xml-resources/web-services/ConsultaPerfil/wsdl/"/>
-        </copy>
-    </target>
-    <target name="wsimport-service-clean-ConsultaPerfil" depends="-init-project">
-        <delete dir="${build.generated.sources.dir}/jax-ws/servicios"/>
-        <delete dir="${build.generated.dir}/jax-wsCache/service/ConsultaPerfil"/>
-    </target>
     <target name="wsimport-service-Imagen" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/service/Imagen"/>
         <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/service/Imagen" destdir="${build.generated.dir}/jax-wsCache/service/Imagen" wsdl="${basedir}/${conf-dir}xml-resources/web-services/Imagen/wsdl/localhost_1234/imagen.wsdl" catalog="catalog.xml" extension="true" verbose="true" fork="false" xnocompile="true" xendorsed="true">
@@ -121,6 +102,63 @@
         <delete dir="${build.generated.sources.dir}/jax-ws/servicios"/>
         <delete dir="${build.generated.dir}/jax-wsCache/service/Registro"/>
     </target>
+    <target name="wsimport-service-Favorito" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/service/Favorito"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/service/Favorito" destdir="${build.generated.dir}/jax-wsCache/service/Favorito" wsdl="${basedir}/${conf-dir}xml-resources/web-services/Favorito/wsdl/localhost_1234/favorito.wsdl" catalog="catalog.xml" extension="true" verbose="true" fork="false" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-services/Favorito/wsdl/localhost_1234/favorito.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/service/Favorito"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/service/Favorito">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+        <copy todir="${build.web.dir}/WEB-INF/wsdl/Favorito">
+            <fileset dir="${basedir}/${conf-dir}xml-resources/web-services/Favorito/wsdl/"/>
+        </copy>
+    </target>
+    <target name="wsimport-service-clean-Favorito" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/servicios"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/service/Favorito"/>
+    </target>
+    <target name="wsimport-service-Seguir" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/service/Seguir"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/service/Seguir" destdir="${build.generated.dir}/jax-wsCache/service/Seguir" wsdl="${basedir}/${conf-dir}xml-resources/web-services/Seguir/wsdl/localhost_1234/seguir.wsdl" catalog="catalog.xml" extension="true" verbose="true" fork="false" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-services/Seguir/wsdl/localhost_1234/seguir.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/service/Seguir"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/service/Seguir">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+        <copy todir="${build.web.dir}/WEB-INF/wsdl/Seguir">
+            <fileset dir="${basedir}/${conf-dir}xml-resources/web-services/Seguir/wsdl/"/>
+        </copy>
+    </target>
+    <target name="wsimport-service-clean-Seguir" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/servicios"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/service/Seguir"/>
+    </target>
+    <target name="wsimport-service-ConsultaPerfil" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/service/ConsultaPerfil"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/service/ConsultaPerfil" destdir="${build.generated.dir}/jax-wsCache/service/ConsultaPerfil" wsdl="${basedir}/${conf-dir}xml-resources/web-services/ConsultaPerfil/wsdl/localhost_1234/consultaPerfil.wsdl" catalog="catalog.xml" extension="true" verbose="true" fork="false" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-services/ConsultaPerfil/wsdl/localhost_1234/consultaPerfil.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/service/ConsultaPerfil"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/service/ConsultaPerfil">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+        <copy todir="${build.web.dir}/WEB-INF/wsdl/ConsultaPerfil">
+            <fileset dir="${basedir}/${conf-dir}xml-resources/web-services/ConsultaPerfil/wsdl/"/>
+        </copy>
+    </target>
+    <target name="wsimport-service-clean-ConsultaPerfil" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/servicios"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/service/ConsultaPerfil"/>
+    </target>
     <target name="wsimport-service-Sesion" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/service/Sesion"/>
         <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/service/Sesion" destdir="${build.generated.dir}/jax-wsCache/service/Sesion" wsdl="${basedir}/${conf-dir}xml-resources/web-services/Sesion/wsdl/localhost_1234/sesion.wsdl" catalog="catalog.xml" extension="true" verbose="true" fork="false" xnocompile="true" xendorsed="true">
@@ -140,5 +178,24 @@
         <delete dir="${build.generated.sources.dir}/jax-ws/servicios"/>
         <delete dir="${build.generated.dir}/jax-wsCache/service/Sesion"/>
     </target>
-    <target name="wsimport-service-generate" depends="wsimport-service-Uploadfile, wsimport-service-ConsultaPerfil, wsimport-service-Imagen, wsimport-service-Inicio, wsimport-service-Registro, wsimport-service-Sesion"/>
+    <target name="wsimport-service-Buscador" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/service/Buscador"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/service/Buscador" destdir="${build.generated.dir}/jax-wsCache/service/Buscador" wsdl="${basedir}/${conf-dir}xml-resources/web-services/Buscador/wsdl/localhost_1234/buscador.wsdl" catalog="catalog.xml" extension="true" verbose="true" fork="false" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-services/Buscador/wsdl/localhost_1234/buscador.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/service/Buscador"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/service/Buscador">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+        <copy todir="${build.web.dir}/WEB-INF/wsdl/Buscador">
+            <fileset dir="${basedir}/${conf-dir}xml-resources/web-services/Buscador/wsdl/"/>
+        </copy>
+    </target>
+    <target name="wsimport-service-clean-Buscador" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/servicios"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/service/Buscador"/>
+    </target>
+    <target name="wsimport-service-generate" depends="wsimport-service-Uploadfile, wsimport-service-Imagen, wsimport-service-Inicio, wsimport-service-Registro, wsimport-service-Favorito, wsimport-service-Seguir, wsimport-service-ConsultaPerfil, wsimport-service-Sesion, wsimport-service-Buscador"/>
 </project>

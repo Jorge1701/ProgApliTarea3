@@ -30,11 +30,59 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link DtCliente }
+     * Create an instance of {@link DtTemaRemoto }
      * 
      */
-    public DtCliente createDtCliente() {
-        return new DtCliente();
+    public DtTemaRemoto createDtTemaRemoto() {
+        return new DtTemaRemoto();
+    }
+
+    /**
+     * Create an instance of {@link DtTemaLocal }
+     * 
+     */
+    public DtTemaLocal createDtTemaLocal() {
+        return new DtTemaLocal();
+    }
+
+    /**
+     * Create an instance of {@link DtTema }
+     * 
+     */
+    public DtTema createDtTema() {
+        return new DtTema();
+    }
+
+    /**
+     * Create an instance of {@link DtListaDefecto }
+     * 
+     */
+    public DtListaDefecto createDtListaDefecto() {
+        return new DtListaDefecto();
+    }
+
+    /**
+     * Create an instance of {@link DtLista }
+     * 
+     */
+    public DtLista createDtLista() {
+        return new DtLista();
+    }
+
+    /**
+     * Create an instance of {@link DtListaBuscados }
+     * 
+     */
+    public DtListaBuscados createDtListaBuscados() {
+        return new DtListaBuscados();
+    }
+
+    /**
+     * Create an instance of {@link DtTime }
+     * 
+     */
+    public DtTime createDtTime() {
+        return new DtTime();
     }
 
     /**
@@ -46,27 +94,27 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link DtUsuario }
+     * Create an instance of {@link DtListaParticular }
      * 
      */
-    public DtUsuario createDtUsuario() {
-        return new DtUsuario();
+    public DtListaParticular createDtListaParticular() {
+        return new DtListaParticular();
     }
 
     /**
-     * Create an instance of {@link DtSuscripcion }
+     * Create an instance of {@link DtAlbum }
      * 
      */
-    public DtSuscripcion createDtSuscripcion() {
-        return new DtSuscripcion();
+    public DtAlbum createDtAlbum() {
+        return new DtAlbum();
     }
 
     /**
-     * Create an instance of {@link DtArtista }
+     * Create an instance of {@link DtGenero }
      * 
      */
-    public DtArtista createDtArtista() {
-        return new DtArtista();
+    public DtGenero createDtGenero() {
+        return new DtGenero();
     }
 
 }

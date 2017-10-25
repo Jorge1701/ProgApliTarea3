@@ -7,9 +7,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Clase Java para DtArtista complex type.
+ * <p>Java class for DtArtista complex type.
  * 
- * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType name="DtArtista">
@@ -39,7 +39,7 @@ public class DtArtista
     protected String web;
 
     /**
-     * Obtiene el valor de la propiedad biografia.
+     * Gets the value of the biografia property.
      * 
      * @return
      *     possible object is
@@ -51,7 +51,7 @@ public class DtArtista
     }
 
     /**
-     * Define el valor de la propiedad biografia.
+     * Sets the value of the biografia property.
      * 
      * @param value
      *     allowed object is
@@ -63,7 +63,7 @@ public class DtArtista
     }
 
     /**
-     * Obtiene el valor de la propiedad web.
+     * Gets the value of the web property.
      * 
      * @return
      *     possible object is
@@ -75,7 +75,7 @@ public class DtArtista
     }
 
     /**
-     * Define el valor de la propiedad web.
+     * Sets the value of the web property.
      * 
      * @param value
      *     allowed object is

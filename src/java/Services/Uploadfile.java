@@ -9,7 +9,7 @@ import javax.jws.WebService;
 
 /**
  *
- * @author Ale
+ * @author jorge
  */
 @WebService(serviceName = "PUploadfileService", portName = "PUploadfilePort", endpointInterface = "servicios.PUploadfile", targetNamespace = "http://Servicios/", wsdlLocation = "WEB-INF/wsdl/Uploadfile/localhost_1234/uploadfile.wsdl")
 public class Uploadfile {

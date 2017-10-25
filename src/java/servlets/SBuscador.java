@@ -1,21 +1,32 @@
 package servlets;
 
-import Logica.Fabrica;
-import Logica.IContenido;
+import Configuracion.Configuracion;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import servicios.DtListaObjetos;
+import servicios.PBuscador;
+import servicios.PBuscadorService;
 
 @WebServlet(name = "SBuscador", urlPatterns = {"/SBuscador"})
 public class SBuscador extends HttpServlet {
 
-    private IContenido iContenido;
+    private PBuscador port;
 
     public SBuscador() {
-        iContenido = Fabrica.getIControladorContenido();
+        try {
+            String path = "http://" + Configuracion.get("ip") + ":" + Configuracion.get("puerto") + "/" + Configuracion.get("PBuscador");
+            PBuscadorService ws = new PBuscadorService(new URL(path));
+            port = ws.getPBuscadorPort();
+        } catch (MalformedURLException ex) {
+            System.err.println("ERROR: SBuscador port");
+        }
     }
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -27,7 +38,10 @@ public class SBuscador extends HttpServlet {
 
         String busqueda = request.getParameter("busqueda");
         request.setAttribute("busqueda", busqueda);
-        request.setAttribute("resultado", iContenido.buscar(busqueda, (request.getParameter("orden") != null ? request.getParameter("orden") : "")));
+
+        String orden = (request.getParameter("orden") != null ? request.getParameter("orden") : "");
+        request.setAttribute("resultado", port.buscar(busqueda, orden).getLista());
+
         request.getRequestDispatcher("vistas/busqueda.jsp").forward(request, response);
     }
 

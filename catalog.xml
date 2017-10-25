@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
     <system systemId="http://localhost:1234/uploadfile?wsdl" uri="src/conf/xml-resources/web-services/Uploadfile/wsdl/localhost_1234/uploadfile.wsdl"/>
-    <system systemId="http://localhost:1234/consultaPerfil?wsdl" uri="src/conf/xml-resources/web-services/ConsultaPerfil/wsdl/localhost_1234/consultaPerfil.wsdl"/>
-    <system systemId="http://localhost:1234/consultaPerfil?xsd=1" uri="src/conf/xml-resources/web-services/ConsultaPerfil/wsdl/localhost_1234/consultaPerfil.xsd_1.xsd"/>
     <system systemId="http://localhost:1234/imagen?wsdl" uri="src/conf/xml-resources/web-services/Imagen/wsdl/localhost_1234/imagen.wsdl"/>
     <system systemId="http://localhost:1234/imagen?xsd=1" uri="src/conf/xml-resources/web-services/Imagen/wsdl/localhost_1234/imagen.xsd_1.xsd"/>
     <system systemId="http://localhost:1234/inicio?wsdl" uri="src/conf/xml-resources/web-services/Inicio/wsdl/localhost_1234/inicio.wsdl"/>
     <system systemId="http://localhost:1234/inicio?xsd=1" uri="src/conf/xml-resources/web-services/Inicio/wsdl/localhost_1234/inicio.xsd_1.xsd"/>
     <system systemId="http://localhost:1234/registro?wsdl" uri="src/conf/xml-resources/web-services/Registro/wsdl/localhost_1234/registro.wsdl"/>
     <system systemId="http://localhost:1234/registro?xsd=1" uri="src/conf/xml-resources/web-services/Registro/wsdl/localhost_1234/registro.xsd_1.xsd"/>
+    <system systemId="http://localhost:1234/favorito?wsdl" uri="src/conf/xml-resources/web-services/Favorito/wsdl/localhost_1234/favorito.wsdl"/>
+    <system systemId="http://localhost:1234/favorito?xsd=1" uri="src/conf/xml-resources/web-services/Favorito/wsdl/localhost_1234/favorito.xsd_1.xsd"/>
+    <system systemId="http://localhost:1234/seguir?wsdl" uri="src/conf/xml-resources/web-services/Seguir/wsdl/localhost_1234/seguir.wsdl"/>
+    <system systemId="http://localhost:1234/seguir?xsd=1" uri="src/conf/xml-resources/web-services/Seguir/wsdl/localhost_1234/seguir.xsd_1.xsd"/>
+    <system systemId="http://localhost:1234/consultaPerfil?wsdl" uri="src/conf/xml-resources/web-services/ConsultaPerfil/wsdl/localhost_1234/consultaPerfil.wsdl"/>
+    <system systemId="http://localhost:1234/consultaPerfil?xsd=1" uri="src/conf/xml-resources/web-services/ConsultaPerfil/wsdl/localhost_1234/consultaPerfil.xsd_1.xsd"/>
     <system systemId="http://localhost:1234/sesion?wsdl" uri="src/conf/xml-resources/web-services/Sesion/wsdl/localhost_1234/sesion.wsdl"/>
     <system systemId="http://localhost:1234/sesion?xsd=1" uri="src/conf/xml-resources/web-services/Sesion/wsdl/localhost_1234/sesion.xsd_1.xsd"/>
+    <system systemId="http://localhost:1234/buscador?wsdl" uri="src/conf/xml-resources/web-services/Buscador/wsdl/localhost_1234/buscador.wsdl"/>
+    <system systemId="http://localhost:1234/buscador?xsd=1" uri="src/conf/xml-resources/web-services/Buscador/wsdl/localhost_1234/buscador.xsd_1.xsd"/>
 </catalog>

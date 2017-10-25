@@ -11,20 +11,20 @@ import javax.jws.WebService;
  *
  * @author jorge
  */
-@WebService(serviceName = "PConsultaPerfilService", portName = "PConsultaPerfilPort", endpointInterface = "servicios.PConsultaPerfil", targetNamespace = "http://Servicios/", wsdlLocation = "WEB-INF/wsdl/ConsultaPerfil/localhost_1234/consultaPerfil.wsdl")
-public class ConsultaPerfil {
+@WebService(serviceName = "PSeguirService", portName = "PSeguirPort", endpointInterface = "servicios.PSeguir", targetNamespace = "http://Servicios/", wsdlLocation = "WEB-INF/wsdl/Seguir/localhost_1234/seguir.wsdl")
+public class Seguir {
+
+    public void dejarSeguirUsuario(java.lang.String arg0, java.lang.String arg1) {
+        //TODO implement this method
+        throw new UnsupportedOperationException("Not implemented yet.");
+    }
+
+    public void seguirUsuario(java.lang.String arg0, java.lang.String arg1) {
+        //TODO implement this method
+        throw new UnsupportedOperationException("Not implemented yet.");
+    }
 
     public void publicar() {
-        //TODO implement this method
-        throw new UnsupportedOperationException("Not implemented yet.");
-    }
-
-    public servicios.DtPerfilCliente obtenerPerfilCliente(java.lang.String arg0) {
-        //TODO implement this method
-        throw new UnsupportedOperationException("Not implemented yet.");
-    }
-
-    public servicios.DtPerfilArtista obtenerPerfilArtista(java.lang.String arg0) {
         //TODO implement this method
         throw new UnsupportedOperationException("Not implemented yet.");
     }

@@ -9,12 +9,22 @@ import javax.jws.WebService;
 
 /**
  *
- * @author Ale
+ * @author jorge
  */
 @WebService(serviceName = "PSesionService", portName = "PSesionPort", endpointInterface = "servicios.PSesion", targetNamespace = "http://Servicios/", wsdlLocation = "WEB-INF/wsdl/Sesion/localhost_1234/sesion.wsdl")
 public class Sesion {
 
     public void publicar() {
+        //TODO implement this method
+        throw new UnsupportedOperationException("Not implemented yet.");
+    }
+
+    public servicios.DtUsuario getDataUsuario(java.lang.String arg0) {
+        //TODO implement this method
+        throw new UnsupportedOperationException("Not implemented yet.");
+    }
+
+    public servicios.DtCliente getDataCliente(java.lang.String arg0) {
         //TODO implement this method
         throw new UnsupportedOperationException("Not implemented yet.");
     }
@@ -25,16 +35,6 @@ public class Sesion {
     }
 
     public java.lang.String chequearLogin(java.lang.String arg0, java.lang.String arg1) {
-        //TODO implement this method
-        throw new UnsupportedOperationException("Not implemented yet.");
-    }
-
-    public servicios.DtCliente getDataCliente(java.lang.String arg0) {
-        //TODO implement this method
-        throw new UnsupportedOperationException("Not implemented yet.");
-    }
-
-    public servicios.DtUsuario getDataUsuario(java.lang.String arg0) {
         //TODO implement this method
         throw new UnsupportedOperationException("Not implemented yet.");
     }

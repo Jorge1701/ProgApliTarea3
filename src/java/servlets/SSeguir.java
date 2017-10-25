@@ -1,25 +1,35 @@
 package servlets;
 
-import Logica.DtArtista;
-import Logica.DtCliente;
-import Logica.DtSuscripcion;
-import Logica.DtUsuario;
-import Logica.Fabrica;
-import Logica.IUsuario;
+import Configuracion.Configuracion;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import servicios.DtArtista;
+import servicios.DtCliente;
+import servicios.DtSuscripcion;
+import servicios.DtUsuario;
+import servicios.PSeguir;
+import servicios.PSeguirService;
 
 @WebServlet(name = "SSeguir", urlPatterns = {"/SSeguir"})
 public class SSeguir extends HttpServlet {
 
-    private IUsuario iUsuario;
+    private PSeguir port;
 
     public SSeguir() {
-        iUsuario = Fabrica.getIControladorUsuario();
+        try {
+            PSeguirService ws = new PSeguirService(new URL("http://" + Configuracion.get("ip") + ":" + Configuracion.get("puerto") + "/" + Configuracion.get("PSeguir")));
+            port = ws.getPSeguirPort();
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(SSeguir.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -65,7 +75,7 @@ public class SSeguir extends HttpServlet {
         String accion = request.getParameter("accion");
         String seguido = request.getParameter("seguido");
 
-        DtUsuario dtuSeguido = iUsuario.getDataUsuario(seguido);
+        DtUsuario dtuSeguido = port.getDataUsuario(seguido);
 
         if (dtuSeguido == null) {
             request.setAttribute("mensaje_error", "El usuario que se desea seguir no existe");
@@ -75,12 +85,12 @@ public class SSeguir extends HttpServlet {
 
         switch (accion) {
             case "seguir":
-                iUsuario.seguirUsuario(dtc.getNickname(), seguido);
+                port.seguirUsuario(dtc.getNickname(), seguido);
                 request.getRequestDispatcher("/SInicio?pestania=" + (dtuSeguido instanceof DtCliente ? "Clientes" : "Artistas")).forward(request, response);
 
                 break;
             case "dejarSeguir":
-                iUsuario.dejarSeguirUsuario(dtc.getNickname(), seguido);
+                port.dejarSeguirUsuario(dtc.getNickname(), seguido);
                 request.getRequestDispatcher("/SInicio?pestania=" + (dtuSeguido instanceof DtCliente ? "Clientes" : "Artistas")).forward(request, response);
 
                 break;

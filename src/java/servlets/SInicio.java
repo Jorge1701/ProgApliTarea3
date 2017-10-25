@@ -1,5 +1,6 @@
 package servlets;
 
+import Configuracion.Configuracion;
 import servicios.DtCliente;
 import servicios.DtSuscripcion;
 import servicios.DtUsuario;
@@ -35,6 +36,7 @@ public class SInicio extends HttpServlet {
         //iUsuario = Fabrica.getIControladorUsuario();
         //iContenido = Fabrica.getIControladorContenido();
         // URL url = new URL("http://" + ip + ":" + puerto + "/" + servicio);
+        Configuracion.cargar();
         URL url = new URL("http://localhost:1234/inicio");
         PInicioService webserv = new PInicioService(url);
         port = webserv.getPInicioPort();
