@@ -1,8 +1,9 @@
-<%@page import="Logica.DtUsuario"%>
-<%@page import="Logica.DtCliente"%>
+<%@page import="servicios.DtAlbum"%>
+<%@page import="servicios.DtPerfilArtista"%>
+<%@page import="servicios.DtCliente"%>
+<%@page import="servicios.DtUsuario"%>
 <%@page import="java.util.Collection"%>
-<%@page import="Logica.DtAlbum"%>
-<%@page import="Logica.DtPerfilArtista"%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -68,7 +69,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td>Fecha Nacimiento:</td>
-                                                    <td><%= dtPArtista.getInfo().getFechaNac().toString()%></td>
+                                                    <td><%= dtPArtista.getInfo().getFechaNac().getDia()%>/<%= dtPArtista.getInfo().getFechaNac().getMes()%>/<%= dtPArtista.getInfo().getFechaNac().getAnio()%></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Email</td>

@@ -1,18 +1,22 @@
 package servlets;
 
-import Logica.DtArtista;
-import Logica.DtCliente;
-import Logica.DtPerfilArtista;
-import Logica.DtPerfilCliente;
-import Logica.DtUsuario;
-import Logica.Fabrica;
-import Logica.IUsuario;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import servicios.DtArtista;
+import servicios.DtCliente;
+import servicios.DtPerfilArtista;
+import servicios.DtPerfilCliente;
+import servicios.DtUsuario;
+import servicios.PConsultaPerfil;
+import servicios.PConsultaPerfilService;
 
 /**
  *
@@ -30,10 +34,21 @@ public class SConsultarPerfil extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    private IUsuario iUsuario;
+    //private IUsuario iUsuario;
+    PConsultaPerfil port;
 
     public SConsultarPerfil() {
-        iUsuario = Fabrica.getIControladorUsuario();
+        //iUsuario = Fabrica.getIControladorUsuario();
+        URL url = null;
+        try {
+            url = new URL("http://localhost:1234/consultaPerfil");
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(SSesion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        PConsultaPerfilService service = new PConsultaPerfilService(url);
+        port = service.getPConsultaPerfilPort();
+        
     }
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -49,7 +64,7 @@ public class SConsultarPerfil extends HttpServlet {
         } else {
             nickUs = (String) request.getAttribute("nickUs");
         }
-        DtUsuario DtUs = iUsuario.getDataUsuario(nickUs);
+        DtUsuario DtUs = port.getDataUsuario(nickUs);//iUsuario.getDataUsuario(nickUs);
         if (DtUs != null) {
             log(DtUs.getNickname());
         } else {
@@ -60,13 +75,13 @@ public class SConsultarPerfil extends HttpServlet {
 
         if (DtUs instanceof DtCliente) {
 
-            DtPerfilCliente DtPerfilC = (DtPerfilCliente) iUsuario.obtenerPerfilCliente(nickUs);
+            DtPerfilCliente DtPerfilC = (DtPerfilCliente) port.obtenerPerfilCliente(nickUs);//iUsuario.obtenerPerfilCliente(nickUs);
             request.setAttribute("DtPerfilCliente", DtPerfilC);
 
             request.getRequestDispatcher("/vistas/consultaPerfilCliente.jsp").
                     forward(request, response);
         } else if (DtUs instanceof DtArtista) {
-            DtPerfilArtista dtPerfilArtista = (DtPerfilArtista) iUsuario.obtenerPerfilArtista(nickUs);
+            DtPerfilArtista dtPerfilArtista = (DtPerfilArtista) port.obtenerPerfilArtista(nickUs);//iUsuario.obtenerPerfilArtista(nickUs);
             request.setAttribute("dtPerfilArtista", dtPerfilArtista);
             request.getRequestDispatcher("/vistas/consultaPerfilArtista.jsp").
                     forward(request, response);

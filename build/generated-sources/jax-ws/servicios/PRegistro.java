@@ -26,13 +26,6 @@ public interface PRegistro {
 
     /**
      * 
-     */
-    @WebMethod
-    @Action(input = "http://Servicios/PRegistro/publicarRequest", output = "http://Servicios/PRegistro/publicarResponse")
-    public void publicar();
-
-    /**
-     * 
      * @param arg0
      * @return
      *     returns boolean
@@ -43,6 +36,13 @@ public interface PRegistro {
     public boolean ingresarUsuario(
         @WebParam(name = "arg0", partName = "arg0")
         DtUsuario arg0);
+
+    /**
+     * 
+     */
+    @WebMethod
+    @Action(input = "http://Servicios/PRegistro/publicarRequest", output = "http://Servicios/PRegistro/publicarResponse")
+    public void publicar();
 
     /**
      * 
@@ -65,20 +65,10 @@ public interface PRegistro {
      */
     @WebMethod
     @WebResult(partName = "return")
-    @Action(input = "http://Servicios/PRegistro/nicknameExisteRequest", output = "http://Servicios/PRegistro/nicknameExisteResponse")
-    public boolean nicknameExiste(
+    @Action(input = "http://Servicios/PRegistro/correoExisteRequest", output = "http://Servicios/PRegistro/correoExisteResponse")
+    public boolean correoExiste(
         @WebParam(name = "arg0", partName = "arg0")
         String arg0);
-
-    /**
-     * 
-     * @param arg0
-     */
-    @WebMethod(operationName = "DtCliente")
-    @Action(input = "http://Servicios/PRegistro/DtClienteRequest", output = "http://Servicios/PRegistro/DtClienteResponse")
-    public void dtCliente(
-        @WebParam(name = "arg0", partName = "arg0")
-        DtCliente arg0);
 
     /**
      * 
@@ -88,8 +78,8 @@ public interface PRegistro {
      */
     @WebMethod
     @WebResult(partName = "return")
-    @Action(input = "http://Servicios/PRegistro/correoExisteRequest", output = "http://Servicios/PRegistro/correoExisteResponse")
-    public boolean correoExiste(
+    @Action(input = "http://Servicios/PRegistro/nicknameExisteRequest", output = "http://Servicios/PRegistro/nicknameExisteResponse")
+    public boolean nicknameExiste(
         @WebParam(name = "arg0", partName = "arg0")
         String arg0);
 
@@ -102,5 +92,15 @@ public interface PRegistro {
     public void dtArtista(
         @WebParam(name = "arg0", partName = "arg0")
         DtArtista arg0);
+
+    /**
+     * 
+     * @param arg0
+     */
+    @WebMethod(operationName = "DtCliente")
+    @Action(input = "http://Servicios/PRegistro/DtClienteRequest", output = "http://Servicios/PRegistro/DtClienteResponse")
+    public void dtCliente(
+        @WebParam(name = "arg0", partName = "arg0")
+        DtCliente arg0);
 
 }
