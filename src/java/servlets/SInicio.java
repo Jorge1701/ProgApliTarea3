@@ -4,11 +4,12 @@ import Configuracion.Configuracion;
 import servicios.DtCliente;
 import servicios.DtSuscripcion;
 import servicios.DtUsuario;
-import Properties.PropertyManager;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,26 +21,17 @@ import servicios.PInicio;
 @WebServlet(name = "SInicio", urlPatterns = {"/SInicio"})
 public class SInicio extends HttpServlet {
 
-    PropertyManager properties;
-    String ip;
-    String puerto;
-    String servicio;
     PInicio port;
-    //private IUsuario iUsuario;
-    //private IContenido iContenido;
 
-    public SInicio() throws MalformedURLException {
-        //properties = PropertyManager.getInstance();
-        //ip = properties.getProperty("ip");
-        //puerto = properties.getProperty("puerto");
-        //servicio = "inicio";
-        //iUsuario = Fabrica.getIControladorUsuario();
-        //iContenido = Fabrica.getIControladorContenido();
-        // URL url = new URL("http://" + ip + ":" + puerto + "/" + servicio);
+    public SInicio() {
         Configuracion.cargar();
-        URL url = new URL("http://localhost:1234/inicio");
-        PInicioService webserv = new PInicioService(url);
-        port = webserv.getPInicioPort();
+        try {
+            URL url = new URL("http://" + Configuracion.get("ip") + ":" + Configuracion.get("puerto") + "/" + Configuracion.get("PInicio"));
+            PInicioService webserv = new PInicioService(url);
+            port = webserv.getPInicioPort();
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(SInicio.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /*@Override

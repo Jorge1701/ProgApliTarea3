@@ -1,5 +1,6 @@
 package servlets;
 
+import Configuracion.Configuracion;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -18,37 +19,21 @@ import servicios.DtUsuario;
 import servicios.PConsultaPerfil;
 import servicios.PConsultaPerfilService;
 
-/**
- *
- * @author Diego
- */
 @WebServlet(name = "SConsultarPerfil", urlPatterns = {"/SConsultarPerfil"})
 public class SConsultarPerfil extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    //private IUsuario iUsuario;
     PConsultaPerfil port;
 
     public SConsultarPerfil() {
-        //iUsuario = Fabrica.getIControladorUsuario();
-        URL url = null;
+
         try {
-            url = new URL("http://localhost:1234/consultaPerfil");
+            URL url = new URL("http://" + Configuracion.get("ip") + ":" + Configuracion.get("puerto") + "/" + Configuracion.get("PConsultaPerfil"));
+            PConsultaPerfilService service = new PConsultaPerfilService(url);
+            port = service.getPConsultaPerfilPort();
         } catch (MalformedURLException ex) {
-            Logger.getLogger(SSesion.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SConsultarPerfil.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        PConsultaPerfilService service = new PConsultaPerfilService(url);
-        port = service.getPConsultaPerfilPort();
-        
+
     }
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

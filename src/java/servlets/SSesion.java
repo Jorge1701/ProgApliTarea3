@@ -1,5 +1,6 @@
 package servlets;
 
+import Configuracion.Configuracion;
 import servicios.DtCliente;
 import servicios.DtUsuario;
 import java.io.IOException;
@@ -12,22 +13,18 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import servicios.PRegistro;
-import servicios.PRegistroService;
 import servicios.PSesion;
 import servicios.PSesionService;
 
 @WebServlet(name = "SSesion", urlPatterns = {"/SSesion"})
 public class SSesion extends HttpServlet {
 
-    //private IUsuario iUsuario;
     PSesion port;
 
     public SSesion() {
-        //iUsuario = Fabrica.getIControladorUsuario();
         URL url = null;
         try {
-            url = new URL("http://localhost:1234/sesion");
+            url = new URL("http://" + Configuracion.get("ip") + ":" + Configuracion.get("puerto") + "/" + Configuracion.get("PSesion"));
         } catch (MalformedURLException ex) {
             Logger.getLogger(SSesion.class.getName()).log(Level.SEVERE, null, ex);
         }

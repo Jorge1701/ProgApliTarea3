@@ -1,12 +1,9 @@
 package servlets;
 
-//import Logica.Fabrica;
-//import Logica.IUsuario;
 import servicios.DtFecha;
-import Properties.PropertyManager;
+
 import servicios.DtArtista;
 import servicios.DtCliente;
-//import servicios.DtFecha;
 import servicios.DtUsuario;
 import java.io.IOException;
 import java.net.URL;
@@ -17,22 +14,24 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import servicios.PRegistro;
 import servicios.PRegistroService;
+import Configuracion.Configuracion;
+import java.net.MalformedURLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 @WebServlet(name = "SRegistro", urlPatterns = {"/SRegistro"})
 public class SRegistro extends HttpServlet {
 
-    PropertyManager properties;
-    String ip;
-    String puerto;
-    String servicio;
-    // IUsuario iUsuario;
+    PRegistro port;
 
     public SRegistro() {
-        /* properties = PropertyManager.getInstance();
-        ip = properties.getProperty("ip");
-        puerto = properties.getProperty("puerto");
-        servicio = "registro";*/
-        // iUsuario = Fabrica.getIControladorUsuario();
+        try {
+            URL url = new URL("http://" + Configuracion.get("ip") + ":" + Configuracion.get("puerto") + "/" + Configuracion.get("PRegistro"));
+            PRegistroService webserv = new PRegistroService(url);
+            port = webserv.getPRegistroPort();
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(SRegistro.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -70,11 +69,6 @@ public class SRegistro extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        //  URL url = new URL("http://" + ip + ":" + puerto + "/" + servicio);
-        URL url = new URL("http://localhost:1234/registro");
-        PRegistroService webserv = new PRegistroService(url);
-        PRegistro port = webserv.getPRegistroPort();
 
         String existe;
         String accion = request.getParameter("accion");

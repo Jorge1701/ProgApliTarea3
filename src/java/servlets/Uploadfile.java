@@ -1,8 +1,9 @@
 package servlets;
 
-import java.io.File;
+import Configuracion.Configuracion;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
 import java.util.logging.Level;
@@ -22,14 +23,22 @@ import servicios.PUploadfile;
 @WebServlet(name = "Uploadfile", urlPatterns = {"/Uploadfile"})
 public class Uploadfile extends HttpServlet {
 
+    PUploadfile port;
+
+    public Uploadfile() {
+        try {
+            URL url = new URL("http://" + Configuracion.get("ip") + ":" + Configuracion.get("puerto") + "/" + Configuracion.get("PUploadfile"));
+            PUploadfileService webserv = new PUploadfileService(url);
+            port = webserv.getPUploadfilePort();
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(Uploadfile.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         response.setContentType("text/html;charset=UTF-8");
-
-        URL url = new URL("http://localhost:1234/uploadfile");
-        PUploadfileService webserv = new PUploadfileService(url);
-        PUploadfile port = webserv.getPUploadfilePort();
 
         FileItemFactory fif = new DiskFileItemFactory();
         ServletFileUpload sfu = new ServletFileUpload(fif);

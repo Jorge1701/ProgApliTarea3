@@ -21,7 +21,7 @@
             </div>
 
             <!-- Buscador -->
-            <div class="col-lg-5 col-md-5 col-sm-4 col-xs-12" style="padding-top: 35px">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" style="padding-top: 35px">
                 <form action="/Tarea2/SBuscador" method="GET">
                     <div class="input-group input-group-lg">
                         <input type="text" style="border-color: black" name="busqueda" class="form-control" placeholder="Tema, Lista o Album"
@@ -38,6 +38,9 @@
                 </form>
             </div>
 
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12" style="padding-top: 30px">
+                <div id="btnRanking"> <a href="/Tarea2/SRanking?redirigir=redirigir" class="btn btn-default" style="border-color: black">Ver Ranking <br> de Usuarios</a></div>
+            </div>
 
 
             <%
@@ -49,13 +52,13 @@
             %>
 
             <!-- Perfil de Usuario -->
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" style="padding-top: 5px"  id="formPU">
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="padding-top: 5px"  id="formPU">
                 <div class="panelInformacion">
                     <div class="row">
 
-                        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <img src="/Tarea2/SImagen?usuario=<%= usuario.getImagen()%>" class="img-circle pull-left" width="65" height="65" style="margin-right: 20px" id="puImagen">
-                            <div style="margin: 0px; color:lavender; text-shadow: 2px 2px 4px #000000" id="puNombre"><a href="/Tarea2/SConsultarPerfil?nickUs=<%= usuario.getNickname()%>"><%= nombre%></a></div>
+                            <div style="color:black; text-shadow: 1px 1px 1px #000000; font-weight: bold" id="puNombre"><a href="/Tarea2/SConsultarPerfil?nickUs=<%= usuario.getNickname()%>"><%= nombre%></a></div>
                                 <% if (usuario instanceof DtCliente) { %>
                             <div> <a href="/Tarea2/SSuscripcion?accion=redir" class="btn btn-link btn-xs">Contratar Suscripción</a></div>
                             <div><a href="/Tarea2/SSuscripcion?accion=redir1" class="btn btn-link btn-xs">Estado Suscripciones</a></div>
@@ -76,9 +79,9 @@
             %>
 
             <!-- Opciones -->
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" style="padding-top: 10px">
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="padding-top: 10px">
                 <div class="container">
-                    <a href="/Tarea2/SSesion?accion=redirigir" class="btn btn-default" id="btnSesion" style="margin-left: 50px; border-color: black">Iniciar Sesion</a>
+                    <a href="/Tarea2/SSesion?accion=redirigir" class="btn btn-default" id="btnSesion" style="border-color: black">Iniciar Sesion</a>
                     <a href="/Tarea2/SRegistro?accion=redirigir" class="btn btn-default" id="btnRegistrarse" style="margin: 20px; border-color: black ">Registrarse</a>
                 </div>
             </div>
