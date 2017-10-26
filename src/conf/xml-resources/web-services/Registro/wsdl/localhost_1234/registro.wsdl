@@ -12,12 +12,14 @@
 </message>
 <message name="publicar"></message>
 <message name="publicarResponse"></message>
-<message name="getDataUsuario">
-<part name="arg0" type="xsd:string"></part>
+<message name="DtArtista">
+<part name="arg0" type="tns:DtArtista"></part>
 </message>
-<message name="getDataUsuarioResponse">
-<part name="return" type="tns:DtUsuario"></part>
+<message name="DtArtistaResponse"></message>
+<message name="DtCliente">
+<part name="arg0" type="tns:DtCliente"></part>
 </message>
+<message name="DtClienteResponse"></message>
 <message name="correoExiste">
 <part name="arg0" type="xsd:string"></part>
 </message>
@@ -30,14 +32,12 @@
 <message name="nicknameExisteResponse">
 <part name="return" type="xsd:boolean"></part>
 </message>
-<message name="DtArtista">
-<part name="arg0" type="tns:DtArtista"></part>
+<message name="getDataUsuario">
+<part name="arg0" type="xsd:string"></part>
 </message>
-<message name="DtArtistaResponse"></message>
-<message name="DtCliente">
-<part name="arg0" type="tns:DtCliente"></part>
+<message name="getDataUsuarioResponse">
+<part name="return" type="tns:DtUsuario"></part>
 </message>
-<message name="DtClienteResponse"></message>
 <portType name="PRegistro">
 <operation name="ingresarUsuario">
 <input wsam:Action="http://Servicios/PRegistro/ingresarUsuarioRequest" message="tns:ingresarUsuario"></input>
@@ -47,9 +47,13 @@
 <input wsam:Action="http://Servicios/PRegistro/publicarRequest" message="tns:publicar"></input>
 <output wsam:Action="http://Servicios/PRegistro/publicarResponse" message="tns:publicarResponse"></output>
 </operation>
-<operation name="getDataUsuario">
-<input wsam:Action="http://Servicios/PRegistro/getDataUsuarioRequest" message="tns:getDataUsuario"></input>
-<output wsam:Action="http://Servicios/PRegistro/getDataUsuarioResponse" message="tns:getDataUsuarioResponse"></output>
+<operation name="DtArtista">
+<input wsam:Action="http://Servicios/PRegistro/DtArtistaRequest" message="tns:DtArtista"></input>
+<output wsam:Action="http://Servicios/PRegistro/DtArtistaResponse" message="tns:DtArtistaResponse"></output>
+</operation>
+<operation name="DtCliente">
+<input wsam:Action="http://Servicios/PRegistro/DtClienteRequest" message="tns:DtCliente"></input>
+<output wsam:Action="http://Servicios/PRegistro/DtClienteResponse" message="tns:DtClienteResponse"></output>
 </operation>
 <operation name="correoExiste">
 <input wsam:Action="http://Servicios/PRegistro/correoExisteRequest" message="tns:correoExiste"></input>
@@ -59,13 +63,9 @@
 <input wsam:Action="http://Servicios/PRegistro/nicknameExisteRequest" message="tns:nicknameExiste"></input>
 <output wsam:Action="http://Servicios/PRegistro/nicknameExisteResponse" message="tns:nicknameExisteResponse"></output>
 </operation>
-<operation name="DtArtista">
-<input wsam:Action="http://Servicios/PRegistro/DtArtistaRequest" message="tns:DtArtista"></input>
-<output wsam:Action="http://Servicios/PRegistro/DtArtistaResponse" message="tns:DtArtistaResponse"></output>
-</operation>
-<operation name="DtCliente">
-<input wsam:Action="http://Servicios/PRegistro/DtClienteRequest" message="tns:DtCliente"></input>
-<output wsam:Action="http://Servicios/PRegistro/DtClienteResponse" message="tns:DtClienteResponse"></output>
+<operation name="getDataUsuario">
+<input wsam:Action="http://Servicios/PRegistro/getDataUsuarioRequest" message="tns:getDataUsuario"></input>
+<output wsam:Action="http://Servicios/PRegistro/getDataUsuarioResponse" message="tns:getDataUsuarioResponse"></output>
 </operation>
 </portType>
 <binding name="PRegistroPortBinding" type="tns:PRegistro">
@@ -88,7 +88,16 @@
 <soap:body use="literal" namespace="http://Servicios/"></soap:body>
 </output>
 </operation>
-<operation name="getDataUsuario">
+<operation name="DtArtista">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal" namespace="http://Servicios/"></soap:body>
+</input>
+<output>
+<soap:body use="literal" namespace="http://Servicios/"></soap:body>
+</output>
+</operation>
+<operation name="DtCliente">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal" namespace="http://Servicios/"></soap:body>
@@ -115,16 +124,7 @@
 <soap:body use="literal" namespace="http://Servicios/"></soap:body>
 </output>
 </operation>
-<operation name="DtArtista">
-<soap:operation soapAction=""></soap:operation>
-<input>
-<soap:body use="literal" namespace="http://Servicios/"></soap:body>
-</input>
-<output>
-<soap:body use="literal" namespace="http://Servicios/"></soap:body>
-</output>
-</operation>
-<operation name="DtCliente">
+<operation name="getDataUsuario">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal" namespace="http://Servicios/"></soap:body>

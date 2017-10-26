@@ -6,20 +6,21 @@
 package Services;
 
 import javax.jws.WebService;
+import servicios.Exception_Exception;
 
 /**
  *
- * @author jorge
+ * @author Ale
  */
 @WebService(serviceName = "PUploadfileService", portName = "PUploadfilePort", endpointInterface = "servicios.PUploadfile", targetNamespace = "http://Servicios/", wsdlLocation = "WEB-INF/wsdl/Uploadfile/localhost_1234/uploadfile.wsdl")
 public class Uploadfile {
 
-    public boolean upload(java.lang.String arg0, java.lang.String arg1, byte[] arg2) {
+    public void publicar() {
         //TODO implement this method
         throw new UnsupportedOperationException("Not implemented yet.");
     }
 
-    public void publicar() {
+    public boolean uploadfile(byte[] arg0, java.lang.String arg1, java.lang.String arg2) throws Exception_Exception {
         //TODO implement this method
         throw new UnsupportedOperationException("Not implemented yet.");
     }

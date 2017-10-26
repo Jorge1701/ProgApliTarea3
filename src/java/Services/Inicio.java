@@ -1,4 +1,3 @@
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -11,7 +10,7 @@ import servicios.Exception_Exception;
 
 /**
  *
- * @author jorge
+ * @author Ale
  */
 @WebService(serviceName = "PInicioService", portName = "PInicioPort", endpointInterface = "servicios.PInicio", targetNamespace = "http://Servicios/", wsdlLocation = "WEB-INF/wsdl/Inicio/localhost_1234/inicio.wsdl")
 public class Inicio {

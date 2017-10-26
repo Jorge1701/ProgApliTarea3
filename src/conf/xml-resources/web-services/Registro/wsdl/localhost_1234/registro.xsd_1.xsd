@@ -6,13 +6,13 @@
 <xs:element name="nombre" type="xs:string" minOccurs="0"></xs:element>
 <xs:element name="apellido" type="xs:string" minOccurs="0"></xs:element>
 <xs:element name="email" type="xs:string" minOccurs="0"></xs:element>
-<xs:element name="fechaNac" type="tns:dtFecha" minOccurs="0"></xs:element>
+<xs:element name="fechaNac" type="tns:DtFecha" minOccurs="0"></xs:element>
 <xs:element name="imagen" type="xs:string" minOccurs="0"></xs:element>
 <xs:element name="contrasenia" type="xs:string" minOccurs="0"></xs:element>
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="dtFecha">
+<xs:complexType name="DtFecha">
 <xs:sequence>
 <xs:element name="dia" type="xs:int"></xs:element>
 <xs:element name="mes" type="xs:int"></xs:element>
@@ -35,8 +35,8 @@
 <xs:sequence>
 <xs:element name="estado" type="xs:string" minOccurs="0"></xs:element>
 <xs:element name="cuota" type="xs:string" minOccurs="0"></xs:element>
-<xs:element name="fecha_venc" type="tns:dtFecha" minOccurs="0"></xs:element>
-<xs:element name="fecha" type="tns:dtFecha" minOccurs="0"></xs:element>
+<xs:element name="fecha_venc" type="tns:DtFecha" minOccurs="0"></xs:element>
+<xs:element name="fecha" type="tns:DtFecha" minOccurs="0"></xs:element>
 <xs:element name="monto" type="xs:int"></xs:element>
 </xs:sequence>
 </xs:complexType>

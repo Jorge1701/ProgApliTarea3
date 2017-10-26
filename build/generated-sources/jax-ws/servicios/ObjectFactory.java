@@ -30,35 +30,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link DtPerfilCliente }
-     * 
-     */
-    public DtPerfilCliente createDtPerfilCliente() {
-        return new DtPerfilCliente();
-    }
-
-    /**
-     * Create an instance of {@link DtFecha }
-     * 
-     */
-    public DtFecha createDtFecha() {
-        return new DtFecha();
-    }
-
-    /**
      * Create an instance of {@link DtTema }
      * 
      */
     public DtTema createDtTema() {
         return new DtTema();
-    }
-
-    /**
-     * Create an instance of {@link DtPerfilUsuario }
-     * 
-     */
-    public DtPerfilUsuario createDtPerfilUsuario() {
-        return new DtPerfilUsuario();
     }
 
     /**
@@ -70,11 +46,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link DtArtista }
+     * Create an instance of {@link DtListaDeListas }
      * 
      */
-    public DtArtista createDtArtista() {
-        return new DtArtista();
+    public DtListaDeListas createDtListaDeListas() {
+        return new DtListaDeListas();
     }
 
     /**
@@ -94,6 +70,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link DtFecha }
+     * 
+     */
+    public DtFecha createDtFecha() {
+        return new DtFecha();
+    }
+
+    /**
      * Create an instance of {@link DtGenero }
      * 
      */
@@ -102,19 +86,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link DtPerfilArtista }
+     * Create an instance of {@link DtTemaRemoto }
      * 
      */
-    public DtPerfilArtista createDtPerfilArtista() {
-        return new DtPerfilArtista();
+    public DtTemaRemoto createDtTemaRemoto() {
+        return new DtTemaRemoto();
     }
 
     /**
-     * Create an instance of {@link DtCliente }
+     * Create an instance of {@link DtTemaLocal }
      * 
      */
-    public DtCliente createDtCliente() {
-        return new DtCliente();
+    public DtTemaLocal createDtTemaLocal() {
+        return new DtTemaLocal();
     }
 
     /**
@@ -126,19 +110,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link DtUsuario }
+     * Create an instance of {@link DtListaTema }
      * 
      */
-    public DtUsuario createDtUsuario() {
-        return new DtUsuario();
-    }
-
-    /**
-     * Create an instance of {@link DtSuscripcion }
-     * 
-     */
-    public DtSuscripcion createDtSuscripcion() {
-        return new DtSuscripcion();
+    public DtListaTema createDtListaTema() {
+        return new DtListaTema();
     }
 
     /**

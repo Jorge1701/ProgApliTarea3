@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <endpoints version="2.0" xmlns="http://java.sun.com/xml/ns/jax-ws/ri/runtime">
   <endpoint implementation="Services.Registro" name="PRegistroService" url-pattern="/PRegistroService"/>
-  <endpoint implementation="Services.Uploadfile" name="PUploadfileService" url-pattern="/PUploadfileService"/>
   <endpoint implementation="Services.Inicio" name="PInicioService" url-pattern="/PInicioService"/>
   <endpoint implementation="Services.Favorito" name="PFavoritoService" url-pattern="/PFavoritoService"/>
   <endpoint implementation="Services.Seguir" name="PSeguirService" url-pattern="/PSeguirService"/>
   <endpoint implementation="Services.ConsultaPerfil" name="PConsultaPerfilService" url-pattern="/PConsultaPerfilService"/>
-  <endpoint implementation="Services.Sesion" name="PSesionService" url-pattern="/PSesionService"/>
   <endpoint implementation="Services.Buscador" name="PBuscadorService" url-pattern="/PBuscadorService"/>
+  <endpoint implementation="Services.Uploadfile" name="PUploadfileService" url-pattern="/PUploadfileService"/>
+  <endpoint implementation="Services.Sesion" name="PSesionService" url-pattern="/PSesionService"/>
+  <endpoint implementation="Services.Registro" name="PRegistroService" url-pattern="/PRegistroService"/>
+  <endpoint implementation="Services.Contenido" name="PContenidoService" url-pattern="/PContenidoService"/>
+  <endpoint implementation="Services.Downloadfile" name="PDownloadFileService" url-pattern="/PDownloadFileService"/>
+  <endpoint implementation="Services.Lista" name="PListaService" url-pattern="/PListaService"/>
 </endpoints>

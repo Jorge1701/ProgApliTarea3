@@ -6,21 +6,20 @@
 package Services;
 
 import javax.jws.WebService;
-import servicios.Exception_Exception;
 
 /**
  *
  * @author Ale
  */
-@WebService(serviceName = "PImagenService", portName = "PImagenPort", endpointInterface = "servicios.PImagen", targetNamespace = "http://Servicios/", wsdlLocation = "WEB-INF/wsdl/Imagen/localhost_1234/imagen.wsdl")
-public class Imagen {
+@WebService(serviceName = "PListaService", portName = "PListaPort", endpointInterface = "servicios.PLista", targetNamespace = "http://Servicios/", wsdlLocation = "WEB-INF/wsdl/Lista/localhost_1234/lista.wsdl")
+public class Lista {
 
-    public byte[] getFile(java.lang.String recurso, java.lang.String fileName) throws Exception_Exception {
+    public boolean crearListaReproduccion(servicios.DtListaParticular arg0, java.lang.String arg1) {
         //TODO implement this method
         throw new UnsupportedOperationException("Not implemented yet.");
     }
 
-    public void publicar() {
+    public servicios.DtListaDeListas listarListaReproduccionCli(java.lang.String arg0) {
         //TODO implement this method
         throw new UnsupportedOperationException("Not implemented yet.");
     }

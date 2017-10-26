@@ -1,40 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jax-ws xmlns="http://www.netbeans.org/ns/jax-ws/1">
   <services>
-    <service name="Uploadfile">
-      <implementation-class>Services.Uploadfile</implementation-class>
-      <wsdl-url>http://localhost:1234/uploadfile?wsdl</wsdl-url>
-      <local-wsdl-file>localhost_1234/uploadfile.wsdl</local-wsdl-file>
-      <service-name>PUploadfileService</service-name>
-      <port-name>PUploadfilePort</port-name>
-      <package-name>servicios</package-name>
-      <catalog-file>catalog.xml</catalog-file>
-      <use-provider>false</use-provider>
-      <wsimport-options>
-        <wsimport-option>
-          <wsimport-option-name>extension</wsimport-option-name>
-          <wsimport-option-value>true</wsimport-option-value>
-        </wsimport-option>
-        <wsimport-option>
-          <wsimport-option-name>verbose</wsimport-option-name>
-          <wsimport-option-value>true</wsimport-option-value>
-        </wsimport-option>
-        <wsimport-option>
-          <wsimport-option-name>fork</wsimport-option-name>
-          <wsimport-option-value>false</wsimport-option-value>
-        </wsimport-option>
-        <wsimport-option>
-          <wsimport-option-name>xnocompile</wsimport-option-name>
-          <wsimport-option-value>true</wsimport-option-value>
-        </wsimport-option>
-        <wsimport-option>
-          <wsimport-option-name>xendorsed</wsimport-option-name>
-          <wsimport-option-value>true</wsimport-option-value>
-        </wsimport-option>
-      </wsimport-options>
-    </service>
     <service name="Imagen">
-      <implementation-class>Servicios.PImagen</implementation-class>
+      <implementation-class>Services.Imagen</implementation-class>
       <wsdl-url>http://localhost:1234/imagen?wsdl</wsdl-url>
       <local-wsdl-file>localhost_1234/imagen.wsdl</local-wsdl-file>
       <service-name>PImagenService</service-name>
@@ -65,76 +33,12 @@
         </wsimport-option>
       </wsimport-options>
     </service>
-    <service name="Uploadfile">
-      <implementation-class>Services.Uploadfile</implementation-class>
-      <wsdl-url>http://localhost:1234/uploadfile?wsdl</wsdl-url>
-      <local-wsdl-file>localhost_1234/uploadfile.wsdl</local-wsdl-file>
-      <service-name>PUploadfileService</service-name>
-      <port-name>PUploadfilePort</port-name>
-      <package-name>servicios</package-name>
-      <catalog-file>catalog.xml</catalog-file>
-      <use-provider>false</use-provider>
-      <wsimport-options>
-        <wsimport-option>
-          <wsimport-option-name>extension</wsimport-option-name>
-          <wsimport-option-value>true</wsimport-option-value>
-        </wsimport-option>
-        <wsimport-option>
-          <wsimport-option-name>verbose</wsimport-option-name>
-          <wsimport-option-value>true</wsimport-option-value>
-        </wsimport-option>
-        <wsimport-option>
-          <wsimport-option-name>fork</wsimport-option-name>
-          <wsimport-option-value>false</wsimport-option-value>
-        </wsimport-option>
-        <wsimport-option>
-          <wsimport-option-name>xnocompile</wsimport-option-name>
-          <wsimport-option-value>true</wsimport-option-value>
-        </wsimport-option>
-        <wsimport-option>
-          <wsimport-option-name>xendorsed</wsimport-option-name>
-          <wsimport-option-value>true</wsimport-option-value>
-        </wsimport-option>
-      </wsimport-options>
-    </service>
     <service name="Inicio">
-      <implementation-class>Servicios.PInicio</implementation-class>
+      <implementation-class>Services.Inicio</implementation-class>
       <wsdl-url>http://localhost:1234/inicio?wsdl</wsdl-url>
       <local-wsdl-file>localhost_1234/inicio.wsdl</local-wsdl-file>
       <service-name>PInicioService</service-name>
       <port-name>PInicioPort</port-name>
-      <package-name>servicios</package-name>
-      <catalog-file>catalog.xml</catalog-file>
-      <use-provider>false</use-provider>
-      <wsimport-options>
-        <wsimport-option>
-          <wsimport-option-name>extension</wsimport-option-name>
-          <wsimport-option-value>true</wsimport-option-value>
-        </wsimport-option>
-        <wsimport-option>
-          <wsimport-option-name>verbose</wsimport-option-name>
-          <wsimport-option-value>true</wsimport-option-value>
-        </wsimport-option>
-        <wsimport-option>
-          <wsimport-option-name>fork</wsimport-option-name>
-          <wsimport-option-value>false</wsimport-option-value>
-        </wsimport-option>
-        <wsimport-option>
-          <wsimport-option-name>xnocompile</wsimport-option-name>
-          <wsimport-option-value>true</wsimport-option-value>
-        </wsimport-option>
-        <wsimport-option>
-          <wsimport-option-name>xendorsed</wsimport-option-name>
-          <wsimport-option-value>true</wsimport-option-value>
-        </wsimport-option>
-      </wsimport-options>
-    </service>
-    <service name="Sesion">
-      <implementation-class>Services.Sesion</implementation-class>
-      <wsdl-url>http://localhost:1234/sesion?wsdl</wsdl-url>
-      <local-wsdl-file>localhost_1234/sesion.wsdl</local-wsdl-file>
-      <service-name>PSesionService</service-name>
-      <port-name>PSesionPort</port-name>
       <package-name>servicios</package-name>
       <catalog-file>catalog.xml</catalog-file>
       <use-provider>false</use-provider>
@@ -194,7 +98,7 @@
       </wsimport-options>
     </service>
     <service name="Seguir">
-      <implementation-class>Servicios.PSeguir</implementation-class>
+      <implementation-class>Services.Seguir</implementation-class>
       <wsdl-url>http://localhost:1234/seguir?wsdl</wsdl-url>
       <local-wsdl-file>localhost_1234/seguir.wsdl</local-wsdl-file>
       <service-name>PSeguirService</service-name>
@@ -226,43 +130,11 @@
       </wsimport-options>
     </service>
     <service name="ConsultaPerfil">
-      <implementation-class>Servicios.PConsultaPerfil</implementation-class>
+      <implementation-class>Services.ConsultaPerfil</implementation-class>
       <wsdl-url>http://localhost:1234/consultaPerfil?wsdl</wsdl-url>
       <local-wsdl-file>localhost_1234/consultaPerfil.wsdl</local-wsdl-file>
       <service-name>PConsultaPerfilService</service-name>
       <port-name>PConsultaPerfilPort</port-name>
-      <package-name>servicios</package-name>
-      <catalog-file>catalog.xml</catalog-file>
-      <use-provider>false</use-provider>
-      <wsimport-options>
-        <wsimport-option>
-          <wsimport-option-name>extension</wsimport-option-name>
-          <wsimport-option-value>true</wsimport-option-value>
-        </wsimport-option>
-        <wsimport-option>
-          <wsimport-option-name>verbose</wsimport-option-name>
-          <wsimport-option-value>true</wsimport-option-value>
-        </wsimport-option>
-        <wsimport-option>
-          <wsimport-option-name>fork</wsimport-option-name>
-          <wsimport-option-value>false</wsimport-option-value>
-        </wsimport-option>
-        <wsimport-option>
-          <wsimport-option-name>xnocompile</wsimport-option-name>
-          <wsimport-option-value>true</wsimport-option-value>
-        </wsimport-option>
-        <wsimport-option>
-          <wsimport-option-name>xendorsed</wsimport-option-name>
-          <wsimport-option-value>true</wsimport-option-value>
-        </wsimport-option>
-      </wsimport-options>
-    </service>
-    <service name="Sesion">
-      <implementation-class>Servicios.PSesion</implementation-class>
-      <wsdl-url>http://localhost:1234/sesion?wsdl</wsdl-url>
-      <local-wsdl-file>localhost_1234/sesion.wsdl</local-wsdl-file>
-      <service-name>PSesionService</service-name>
-      <port-name>PSesionPort</port-name>
       <package-name>servicios</package-name>
       <catalog-file>catalog.xml</catalog-file>
       <use-provider>false</use-provider>
@@ -295,6 +167,198 @@
       <local-wsdl-file>localhost_1234/buscador.wsdl</local-wsdl-file>
       <service-name>PBuscadorService</service-name>
       <port-name>PBuscadorPort</port-name>
+      <package-name>servicios</package-name>
+      <catalog-file>catalog.xml</catalog-file>
+      <use-provider>false</use-provider>
+      <wsimport-options>
+        <wsimport-option>
+          <wsimport-option-name>extension</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>verbose</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>fork</wsimport-option-name>
+          <wsimport-option-value>false</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>xnocompile</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>xendorsed</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+      </wsimport-options>
+    </service>
+    <service name="Uploadfile">
+      <implementation-class>Services.Uploadfile</implementation-class>
+      <wsdl-url>http://localhost:1234/uploadfile?wsdl</wsdl-url>
+      <local-wsdl-file>localhost_1234/uploadfile.wsdl</local-wsdl-file>
+      <service-name>PUploadfileService</service-name>
+      <port-name>PUploadfilePort</port-name>
+      <package-name>servicios</package-name>
+      <catalog-file>catalog.xml</catalog-file>
+      <use-provider>false</use-provider>
+      <wsimport-options>
+        <wsimport-option>
+          <wsimport-option-name>extension</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>verbose</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>fork</wsimport-option-name>
+          <wsimport-option-value>false</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>xnocompile</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>xendorsed</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+      </wsimport-options>
+    </service>
+    <service name="Sesion">
+      <implementation-class>Services.Sesion</implementation-class>
+      <wsdl-url>http://localhost:1234/sesion?wsdl</wsdl-url>
+      <local-wsdl-file>localhost_1234/sesion.wsdl</local-wsdl-file>
+      <service-name>PSesionService</service-name>
+      <port-name>PSesionPort</port-name>
+      <package-name>servicios</package-name>
+      <catalog-file>catalog.xml</catalog-file>
+      <use-provider>false</use-provider>
+      <wsimport-options>
+        <wsimport-option>
+          <wsimport-option-name>extension</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>verbose</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>fork</wsimport-option-name>
+          <wsimport-option-value>false</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>xnocompile</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>xendorsed</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+      </wsimport-options>
+    </service>
+    <service name="Registro">
+      <implementation-class>Services.Registro</implementation-class>
+      <wsdl-url>http://localhost:1234/registro?wsdl</wsdl-url>
+      <local-wsdl-file>localhost_1234/registro.wsdl</local-wsdl-file>
+      <service-name>PRegistroService</service-name>
+      <port-name>PRegistroPort</port-name>
+      <package-name>servicios</package-name>
+      <catalog-file>catalog.xml</catalog-file>
+      <use-provider>false</use-provider>
+      <wsimport-options>
+        <wsimport-option>
+          <wsimport-option-name>extension</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>verbose</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>fork</wsimport-option-name>
+          <wsimport-option-value>false</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>xnocompile</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>xendorsed</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+      </wsimport-options>
+    </service>
+    <service name="Contenido">
+      <implementation-class>Services.Contenido</implementation-class>
+      <wsdl-url>http://localhost:1234/contenido?wsdl</wsdl-url>
+      <local-wsdl-file>localhost_1234/contenido.wsdl</local-wsdl-file>
+      <service-name>PContenidoService</service-name>
+      <port-name>PContenidoPort</port-name>
+      <package-name>servicios</package-name>
+      <catalog-file>catalog.xml</catalog-file>
+      <use-provider>false</use-provider>
+      <wsimport-options>
+        <wsimport-option>
+          <wsimport-option-name>extension</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>verbose</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>fork</wsimport-option-name>
+          <wsimport-option-value>false</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>xnocompile</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>xendorsed</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+      </wsimport-options>
+    </service>
+    <service name="Downloadfile">
+      <implementation-class>Services.Downloadfile</implementation-class>
+      <wsdl-url>http://localhost:1234/downloadfile?wsdl</wsdl-url>
+      <local-wsdl-file>localhost_1234/downloadfile.wsdl</local-wsdl-file>
+      <service-name>PDownloadFileService</service-name>
+      <port-name>PDownloadFilePort</port-name>
+      <package-name>servicios</package-name>
+      <catalog-file>catalog.xml</catalog-file>
+      <use-provider>false</use-provider>
+      <wsimport-options>
+        <wsimport-option>
+          <wsimport-option-name>extension</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>verbose</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>fork</wsimport-option-name>
+          <wsimport-option-value>false</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>xnocompile</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>xendorsed</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+      </wsimport-options>
+    </service>
+    <service name="Lista">
+      <implementation-class>Services.Lista</implementation-class>
+      <wsdl-url>http://localhost:1234/lista?wsdl</wsdl-url>
+      <local-wsdl-file>localhost_1234/lista.wsdl</local-wsdl-file>
+      <service-name>PListaService</service-name>
+      <port-name>PListaPort</port-name>
       <package-name>servicios</package-name>
       <catalog-file>catalog.xml</catalog-file>
       <use-provider>false</use-provider>

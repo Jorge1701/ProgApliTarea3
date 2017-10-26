@@ -56,8 +56,8 @@ public class Uploadfile extends HttpServlet {
                     FileInputStream streamer = (FileInputStream) item.getInputStream();
                     byte[] byteArray = new byte[streamer.available()];
                     streamer.read(byteArray);
-                    port.upload(accion, filename, byteArray);
-             
+                    port.uploadfile(byteArray, filename, accion);
+
                 }
 
             }
