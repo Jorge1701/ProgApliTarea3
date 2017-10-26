@@ -23,4 +23,11 @@
     <system systemId="http://localhost:1234/downloadfile?wsdl" uri="src/conf/xml-resources/web-services/Downloadfile/wsdl/localhost_1234/downloadfile.wsdl"/>
     <system systemId="http://localhost:1234/lista?wsdl" uri="src/conf/xml-resources/web-services/Lista/wsdl/localhost_1234/lista.wsdl"/>
     <system systemId="http://localhost:1234/lista?xsd=1" uri="src/conf/xml-resources/web-services/Lista/wsdl/localhost_1234/lista.xsd_1.xsd"/>
+    <system systemId="http://localhost:1234/suscripcion?wsdl" uri="src/conf/xml-resources/web-services/Suscripcion/wsdl/localhost_1234/suscripcion.wsdl"/>
+    <system systemId="http://localhost:1234/suscripcion?xsd=1" uri="src/conf/xml-resources/web-services/Suscripcion/wsdl/localhost_1234/suscripcion.xsd_1.xsd"/>
+    <system systemId="http://localhost:1234/tema?wsdl" uri="src/conf/xml-resources/web-services/Tema/wsdl/localhost_1234/tema.wsdl"/>
+    <system systemId="http://localhost:1234/tema?xsd=1" uri="src/conf/xml-resources/web-services/Tema/wsdl/localhost_1234/tema.xsd_1.xsd"/>
+    <system systemId="http://localhost:1234/ranking?wsdl" uri="src/conf/xml-resources/web-services/Ranking/wsdl/localhost_1234/ranking.wsdl"/>
+    <system systemId="http://localhost:1234/ranking?xsd=1" uri="src/conf/xml-resources/web-services/Ranking/wsdl/localhost_1234/ranking.xsd_1.xsd"/>
+    <system systemId="http://localhost:1234/desactivarArtista?wsdl" uri="src/conf/xml-resources/web-services/DesactivarArtista/wsdl/localhost_1234/desactivarArtista.wsdl"/>
 </catalog>

@@ -1,45 +1,48 @@
 package servlets;
 
-import Logica.Album;
-import Logica.DtAlbumContenido;
-import Logica.DtArtista;
-import Logica.DtGenero;
-import Logica.DtCliente;
-import Logica.DtLista;
-import Logica.DtListaParticular;
-import Logica.DtTema;
-import Logica.DtTemaLocal;
-import Logica.DtTemaRemoto;
-import Logica.DtTime;
-import Logica.DtUsuario;
-import Logica.Fabrica;
-import Logica.IContenido;
-import Logica.IUsuario;
-import java.io.File;
+import Configuracion.Configuracion;
+import servicios.DtAlbumContenido;
+import servicios.DtCliente;
+import servicios.DtLista;
+import servicios.DtUsuario;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.net.URLDecoder;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import servicios.DtListaParticular;
+import servicios.DtListaString;
+import servicios.DtTema;
+import servicios.DtTime;
+import servicios.PContenido;
+import servicios.PContenidoService;
+import servicios.DtListaTema;
+import servicios.DtTemaLocal;
+import servicios.DtTemaRemoto;
 
 @WebServlet(name = "SContenido", urlPatterns = {"/SContenido"})
 public class SContenido extends HttpServlet {
 
-    private IUsuario iUsuario;
-    private IContenido iContenido;
+    PContenido port;
 
     public SContenido() {
-        iUsuario = Fabrica.getIControladorUsuario();
-        iContenido = Fabrica.getIControladorContenido();
+        try {
+            URL url = new URL("http://" + Configuracion.get("ip") + ":" + Configuracion.get("puerto") + "/" + Configuracion.get("PContenido"));
+            PContenidoService webserv = new PContenidoService(url);
+            port = webserv.getPContenidoPort();
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(SContenido.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String ruta = getServletContext().getRealPath("/");
-        String[] parte = ruta.split("Tarea2");
-        String tarea1 = parte[0] + "Tarea1" + File.separator;
 
         if (request.getParameter("accion") == null) {
             request.setAttribute("mensaje_error", "Falta una accion");
@@ -50,7 +53,7 @@ public class SContenido extends HttpServlet {
             switch (accion) {
 
                 case "AltaAlbum":
-                    ArrayList<String> generos = (ArrayList<String>) iContenido.obtenerGeneros();
+                    ArrayList<String> generos = (ArrayList<String>) port.obtenerGeneros().getString();
                     request.setAttribute("Generos", generos);
                     request.getRequestDispatcher("/vistas/AltaAlbum.jsp").forward(request, response);
                     break;
@@ -61,20 +64,20 @@ public class SContenido extends HttpServlet {
                         request.getRequestDispatcher("vistas/pagina_error.jsp").forward(request, response);
                     } else {
                         String genero = request.getParameter("genero");
-                        if (iContenido.existeGenero(genero)) {
+                        if (port.existeGenero(genero)) {
                             if (request.getSession().getAttribute("usuario") != null) {
                                 DtUsuario dtu = (DtUsuario) request.getSession().getAttribute("usuario");
                                 if (dtu instanceof DtCliente) {
-                                    request.setAttribute("suscripcion", ((DtCliente) dtu).getSuscripcion());
+                                    request.setAttribute("suscripcion", ((DtCliente) dtu).getActual());
                                     request.setAttribute("suscripciones", ((DtCliente) dtu).getSuscripciones());
-                                    request.setAttribute("listasFav", iUsuario.obtenerListasFav(dtu.getNickname()));
-                                    request.setAttribute("albumesFav", iUsuario.obtenerAlbumesFav(dtu.getNickname()));
+                                    request.setAttribute("listasFav", port.obtenerListasFav(dtu.getNickname()).getListas());
+                                    request.setAttribute("albumesFav", port.obtenerAlbumesFav(dtu.getNickname()).getAlbum());
                                 }
                             }
 
                             request.setAttribute("genero", genero);
-                            request.setAttribute("listas", iContenido.listarLisReproduccionGen(genero));
-                            request.setAttribute("albumes", iContenido.listarAlbumesGenero(genero));
+                            request.setAttribute("listas", port.listarLisReproduccionGen(genero).getListas());
+                            request.setAttribute("albumes", port.listarAlbumesGenero(genero).getAlbum());
                             request.getRequestDispatcher("vistas/consultar_genero.jsp").forward(request, response);
                         } else {
                             request.setAttribute("mensaje_error", "El genero no existe");
@@ -86,23 +89,25 @@ public class SContenido extends HttpServlet {
                 case "consultarAlbum":
                     if (request.getParameter("nickArtista") == null || request.getParameter("nomAlbum") == null) {
                         request.setAttribute("mensaje_error", "Faltan parametros");
+                        log(request.getParameter("nickArtista"));
+                        log(request.getParameter("nomAlbum"));
                         request.getRequestDispatcher("vistas/pagina_error.jsp").forward(request, response);
                         return;
                     }
 
                     String nickArtista = request.getParameter("nickArtista");
 
-                    if (iUsuario.getDataUsuario(nickArtista) == null) {
+                    if (port.getDataUsuario(nickArtista) == null) {
                         request.setAttribute("mensaje_error", "El artista no existe");
                         request.getRequestDispatcher("vistas/pagina_error.jsp").forward(request, response);
                         return;
                     }
-                    
+
                     String nomAlbum = URLDecoder.decode(request.getParameter("nomAlbum"), "UTF-8");
                     //controlar null
                     DtAlbumContenido dtAlbum = null;
                     try {
-                        dtAlbum = iUsuario.obtenerAlbumContenido(nickArtista, nomAlbum);
+                        dtAlbum = port.obtenerAlbumContenido(nickArtista, nomAlbum);
                     } catch (UnsupportedOperationException e) {
                         request.setAttribute("mensaje_error", "El artista " + nickArtista + " no tiene el album " + nomAlbum);
                         request.getRequestDispatcher("vistas/pagina_error.jsp").forward(request, response);
@@ -125,10 +130,10 @@ public class SContenido extends HttpServlet {
                         request.getRequestDispatcher("vistas/pagina_error.jsp").forward(request, response);
                     } else {
                         String genero = request.getParameter("nomGenero");
-                        if (iContenido.existeGenero(genero)) {
+                        if (port.existeGenero(genero)) {
                             String nomLista = request.getParameter("nomLista");
                             DtLista lEncontrada = null;
-                            ArrayList<DtLista> listas = iContenido.listarLisReproduccionGen(genero);
+                            ArrayList<DtLista> listas = (ArrayList<DtLista>) port.listarLisReproduccionGen(genero).getListas();
                             for (DtLista l : listas) {
                                 if (l.getNombre().equals(nomLista)) {
                                     lEncontrada = l;
@@ -156,10 +161,10 @@ public class SContenido extends HttpServlet {
                         request.getRequestDispatcher("vistas/pagina_error.jsp").forward(request, response);
                     } else {
                         String nickCliente = request.getParameter("nickCliente");
-                        if (iUsuario.getDataUsuario(nickCliente) != null) {
+                        if (port.getDataUsuario(nickCliente) != null) {
                             String nomLista = request.getParameter("nomLista");
                             DtLista lEncontrada = null;
-                            ArrayList<DtLista> listas = iUsuario.listarLisReproduccion(nickCliente);
+                            ArrayList<DtLista> listas = (ArrayList<DtLista>) port.listarLisReproduccion(nickCliente).getListas();
                             for (DtLista l : listas) {
                                 if (l.getNombre().equals(nomLista)) {
                                     lEncontrada = l;
@@ -219,7 +224,9 @@ public class SContenido extends HttpServlet {
         }
 
         String accion = request.getParameter("accion");
-
+        URL url = new URL("http://localhost:1234/contenido");
+        PContenidoService webserv = new PContenidoService(url);
+        PContenido port = webserv.getPContenidoPort();
         switch (accion) {
             case "nombreAlbum":
                 if (request.getParameter("nickArtista") == null || request.getParameter("nombreAlbum") == null) {
@@ -233,7 +240,7 @@ public class SContenido extends HttpServlet {
 
                 String existe = "";
 
-                if (iContenido.ExisteAlbum(nickname, nombreAlbum) == true) {
+                if (port.existeAlbum(nickname, nombreAlbum) == true) {
                     existe = "si";
                 } else {
                     existe = "no";
@@ -255,14 +262,18 @@ public class SContenido extends HttpServlet {
                 log("temas " + temas);
 
                 DtTema dtTema;
-                ArrayList<DtTema> ArrayDeTemas = new ArrayList();
-                ArrayList<String> ArrayDeGeneros = new ArrayList();
+                //ArrayList ArrayDeTemas = new ArrayList();
+                DtListaTema ArrayDeTemas = new DtListaTema();
+                //ArrayList<String> ArrayDeGeneros = new ArrayList();
+                DtListaString ArrayDeGeneros = new DtListaString();
+
                 String[] objGeneros = gen.split("&");
                 int i;
                 for (i = 0; i < objGeneros.length; i++) {
                     log("Generos" + objGeneros[i]);
-                    ArrayDeGeneros.add(objGeneros[i]);
+                    ArrayDeGeneros.getString().add(objGeneros[i]);
                 }
+
                 String[] todoTemas = temas.split("@");
                 for (i = 0; i < todoTemas.length; i++) {
                     log("Tema 1 :" + todoTemas[i]);
@@ -270,31 +281,48 @@ public class SContenido extends HttpServlet {
                     log("url: " + data[0] + " nombre: " + data[1] + " posicion: " + data[2] + " duracion" + data[3]);
                     String[] duracion = data[3].split(":");
 
-                    DtTime time = new DtTime(Integer.parseInt(duracion[0]), Integer.parseInt(duracion[1]), Integer.parseInt(duracion[2]));
+                    DtTime time = new DtTime();
+                    //new DtTime(horas, minutos,segunos);
+                    time.setHoras(Integer.parseInt(duracion[0]));
+                    time.setMinutos(Integer.parseInt(duracion[1]));
+                    time.setSegundos(Integer.parseInt(duracion[2]));
                     if (data[0].contains("mp3") == true) {
-                        dtTema = new DtTemaLocal(data[0], data[1], time, Integer.parseInt(data[2]));
+                        //DtTemaLocal(data[0], data[1], time, Integer.parseInt(data[2]))
+                        DtTemaLocal dtLocal = new DtTemaLocal();
+                        dtLocal.setDirectorio(data[0]);
+                        dtLocal.setNombre(data[1]);
+                        dtLocal.setDuracion(time);
+                        dtLocal.setUbicacion(Integer.parseInt(data[2]));
+                        dtTema = dtLocal;
                     } else {
-                        dtTema = new DtTemaRemoto(data[0], data[1], time, Integer.parseInt(data[2]));
+                        DtTemaRemoto dtRemoto = new DtTemaRemoto();
+                        dtRemoto.setUrl(data[0]);
+                        dtRemoto.setNombre(data[1]);
+                        dtRemoto.setDuracion(time);
+                        dtRemoto.setUbicacion(Integer.parseInt(data[2]));
+                        dtTema = dtRemoto;
                     }
-                    ArrayDeTemas.add(dtTema);
+                    ArrayDeTemas.getDtTemas().add(dtTema);
                 }
                 //Album(String nickArtista, String nombre, int anio, String imagen, HashMap<String, Tema> temas, ArrayList<Genero> generos)
-                iContenido.selectArtista(nickArt);
-                iContenido.ingresarAlbum(nombreA, anio, ArrayDeGeneros, imagen, ArrayDeTemas);
+                port.selectArtista(nickArt);
+
+                port.ingresarAlbum(nombreA, anio, ArrayDeGeneros, imagen, ArrayDeTemas);
+                // (nombreA, anio, ArrayDeGeneros, imagen, ArrayDeTemas)
 
                 break;
 
             case "publicarLista":
                 DtUsuario usuario = (DtUsuario) request.getSession().getAttribute("usuario");
                 if (usuario != null) {
-                    if (iUsuario.getDataUsuario(usuario.getNickname()) != null) {
+                    if (port.getDataUsuario(usuario.getNickname()) != null) {
                         String nomLista = request.getParameter("nomLista");
                         if (nomLista == null) {
                             request.setAttribute("mensaje_error", "Faltan parámetros");
                             request.getRequestDispatcher("vistas/pagina_error.jsp").forward(request, response);
                         } else {
                             try {
-                                iContenido.publicarLista(usuario.getNickname(), nomLista);
+                                port.publicarLista(usuario.getNickname(), nomLista);
                                 request.setAttribute("pestania", "Listas");
                                 request.getRequestDispatcher("/SConsultarPerfil?nickUs=" + usuario.getNickname()).forward(request, response);
                             } catch (UnsupportedOperationException e) {

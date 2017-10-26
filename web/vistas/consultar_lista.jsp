@@ -1,10 +1,10 @@
-<%@page import="Logica.DtListaDefecto"%>
-<%@page import="Logica.DtListaParticular"%>
-<%@page import="Logica.DtTemaLocal"%>
-<%@page import="Logica.DtTemaRemoto"%>
-<%@page import="Logica.DtLista"%>
-<%@page import="Logica.DtTema"%>
-<%@page import="Logica.DtAlbum"%>
+<%@page import="servicios.DtListaDefecto"%>
+<%@page import="servicios.DtListaParticular"%>
+<%@page import="servicios.DtTemaLocal"%>
+<%@page import="servicios.DtTemaRemoto"%>
+<%@page import="servicios.DtLista"%>
+<%@page import="servicios.DtTema"%>
+<%@page import="servicios.DtAlbum"%>
 <%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

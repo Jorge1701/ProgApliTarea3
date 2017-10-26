@@ -1,3 +1,5 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="servicios.DtRanking"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -33,20 +35,17 @@
                                 </thead>
                                 <tbody>
                                     <%if (request.getAttribute("ranking") != null) {
-                                            //DtRanking ranking = (DtRanking)request.getAttribute("ranking");
-                                            //if(ranking.size() != 0){
+                                            ArrayList<DtRanking> rankings = (ArrayList<DtRanking>) request.getAttribute("ranking");
+                                            if (rankings.size() != 0) {
+                                                for (DtRanking r : rankings) {%>
+                                    <tr>
+                                        <td><a href="/Tarea2/SConsultarPerfil?nickUs=<%=r.getNickname()%>"><%=r.getNickname()%></a></td>
+                                        <td><%=r.getCantSeguidores()%></td>
+
+                                    </tr>
+                                    <%}
+                                            }
                                         }%>
-                                    <tr>
-                                        <td style="font"><a href="/Tarea2/SConsultarPerfil?nickUs=lachiqui">Mirtha Legrand(lachiqui)</a></td>
-                                        <td> 3</td>
-
-                                    </tr>
-                                    <tr>
-                                        <td style="font"><a href="/Tarea2/SConsultarPerfil?nickUs=vpeople">Village People</a></td>
-                                        <td> 1</td>
-
-                                    </tr>
-
 
                                 </tbody>
                             </table>

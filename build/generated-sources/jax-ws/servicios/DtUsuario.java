@@ -43,8 +43,8 @@ import javax.xml.bind.annotation.XmlType;
     "contrasenia"
 })
 @XmlSeeAlso({
-    DtArtista.class,
-    DtCliente.class
+    DtCliente.class,
+    DtArtista.class
 })
 public class DtUsuario {
 

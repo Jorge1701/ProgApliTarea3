@@ -18,6 +18,7 @@ import javax.xml.bind.annotation.XmlType;
  *       &lt;sequence>
  *         &lt;element name="biografia" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="web" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="activo" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
  *       &lt;/sequence>
  *     &lt;/extension>
  *   &lt;/complexContent>
@@ -29,7 +30,8 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "DtArtista", propOrder = {
     "biografia",
-    "web"
+    "web",
+    "activo"
 })
 public class DtArtista
     extends DtUsuario
@@ -37,6 +39,7 @@ public class DtArtista
 
     protected String biografia;
     protected String web;
+    protected boolean activo;
 
     /**
      * Obtiene el valor de la propiedad biografia.
@@ -84,6 +87,22 @@ public class DtArtista
      */
     public void setWeb(String value) {
         this.web = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad activo.
+     * 
+     */
+    public boolean isActivo() {
+        return activo;
+    }
+
+    /**
+     * Define el valor de la propiedad activo.
+     * 
+     */
+    public void setActivo(boolean value) {
+        this.activo = value;
     }
 
 }

@@ -12,4 +12,8 @@
   <endpoint implementation="Services.Contenido" name="PContenidoService" url-pattern="/PContenidoService"/>
   <endpoint implementation="Services.Downloadfile" name="PDownloadFileService" url-pattern="/PDownloadFileService"/>
   <endpoint implementation="Services.Lista" name="PListaService" url-pattern="/PListaService"/>
+  <endpoint implementation="Services.Suscripcion" name="PSuscripcionService" url-pattern="/PSuscripcionService"/>
+  <endpoint implementation="Services.Tema" name="PTemaService" url-pattern="/PTemaService"/>
+  <endpoint implementation="Services.Ranking" name="PRankingService" url-pattern="/PRankingService"/>
+  <endpoint implementation="Services.DesactivarArtista" name="PDesactivarArtistaService" url-pattern="/PDesactivarArtistaService"/>
 </endpoints>

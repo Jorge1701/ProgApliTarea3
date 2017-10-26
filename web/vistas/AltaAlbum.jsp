@@ -1,8 +1,8 @@
 
 
-<%@page import="Logica.DtCliente"%>
-<%@page import="Logica.DtArtista"%>
-<%@page import="Logica.DtUsuario"%>
+<%@page import="servicios.DtCliente"%>
+<%@page import="servicios.DtArtista"%>
+<%@page import="servicios.DtUsuario"%>
 <%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

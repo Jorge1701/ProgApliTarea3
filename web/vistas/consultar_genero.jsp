@@ -1,10 +1,10 @@
-<%@page import="Logica.DtSuscripcion"%>
-<%@page import="Logica.DtCliente"%>
-<%@page import="Logica.DtUsuario"%>
-<%@page import="Logica.DtAlbum"%>
+<%@page import="servicios.DtSuscripcion"%>
+<%@page import="servicios.DtCliente"%>
+<%@page import="servicios.DtUsuario"%>
+<%@page import="servicios.DtAlbum"%>
 <%@page import="java.net.URLEncoder"%>
-<%@page import="Logica.DtListaDefecto"%>
-<%@page import="Logica.DtLista"%>
+<%@page import="servicios.DtListaDefecto"%>
+<%@page import="servicios.DtLista"%>
 <%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

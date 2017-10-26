@@ -1,15 +1,15 @@
-<%@page import="Logica.DtArtista"%>
-<%@page import="Logica.DtTemaRemoto"%>
-<%@page import="Logica.DtTemaLocal"%>
-<%@page import="Logica.DtSuscripcion"%>
-<%@page import="Logica.DtCliente"%>
-<%@page import="Logica.DtUsuario"%>
-<%@page import="Logica.DtTema"%>
-<%@page import="Logica.DtAlbumContenido"%>
+<%@page import="servicios.DtArtista"%>
+<%@page import="servicios.DtTemaRemoto"%>
+<%@page import="servicios.DtTemaLocal"%>
+<%@page import="servicios.DtSuscripcion"%>
+<%@page import="servicios.DtCliente"%>
+<%@page import="servicios.DtUsuario"%>
+<%@page import="servicios.DtTema"%>
+<%@page import="servicios.DtAlbumContenido"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.Collection"%>
-<%@page import="Logica.DtAlbum"%>
-<%@page import="Logica.DtPerfilArtista"%>
+<%@page import="servicios.DtAlbum"%>
+<%@page import="servicios.DtPerfilArtista"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

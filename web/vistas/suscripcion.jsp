@@ -1,16 +1,15 @@
-<%@page import="Logica.DtCliente"%>
-<%@page import="Logica.DtUsuario"%>
+<%@page import="servicios.DtCliente"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <jsp:include page="include.html"/>
-        <% DtUsuario usr = (DtUsuario) request.getSession().getAttribute("usuario");%>
-        <% if (!((DtCliente) usr).getTipo().equals("Cliente")) {
-                request.setAttribute("mensaje_error", "Esta página está reservada para nuestros clientes");
+        <% DtCliente usr = (DtCliente) request.getSession().getAttribute("usuario");%>
+        <% if ( usr != null ) {
+                request.setAttribute("mensaje_error", "Esta pÃ¡gina estÃ¡ reservada para nuestros clientes");
                 request.getRequestDispatcher("pagina_error.jsp").forward(request, response);
-            } else if (((DtCliente)usr).getSuscripcion() != null) {
-                request.setAttribute("mensaje_error", "Ya posee una suscripción");
+            } else if ( usr.getActual() != null) {
+                request.setAttribute("mensaje_error", "Ya posee una suscripciÃ³n");
                 request.getRequestDispatcher("pagina_error.jsp").forward(request, response);
             }
         %>
@@ -35,7 +34,7 @@
                     <div class="col-lg-6 col-md-6 col-sm-8 col-xs-10" style="background-color: transparent">
                         <form id="formulario">
                             <div class="input-group input-group-lg" >
-                                <h3 class="text-center" style="color:lavender ">Contratar Suscripción</h3>
+                                <h3 class="text-center" style="color:lavender ">Contratar SuscripciÃ³n</h3>
 
                                 <span style="color: lavender; padding-left: 15px; font-weight: bold">Tipo de Cuota:</span>
                                 <div class="form-group"> 
@@ -51,7 +50,7 @@
 
                                 <row class="col-xs-12"> <div style="margin: 20px"></div> </row>
 
-                                <row class="col-lg-12 col-md-12 col-sm-12 col-xs-12"><h3><span class="label label-default" id="montototal">Aquí aparecerá el monto a pagar</span></h3></row>
+                                <row class="col-lg-12 col-md-12 col-sm-12 col-xs-12"><h3><span class="label label-default" id="montototal">AquÃ­ aparecerÃ¡ el monto a pagar</span></h3></row>
 
                                 <row class="col-xs-12"> <div style="margin: 20px"></div> </row>
 

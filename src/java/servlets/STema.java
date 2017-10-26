@@ -1,39 +1,55 @@
 package servlets;
 
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.FileInputStream;
+import Configuracion.Configuracion;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import servicios.PTema;
+import servicios.PTemaService;
 
 @WebServlet(name = "STema", urlPatterns = {"/STema"})
 public class STema extends HttpServlet {
 
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String ruta = getServletContext().getRealPath("/");
-        String[] parte = ruta.split("Tarea2");
-        String tarea1 = parte[0] + "Tarea1" + File.separator;
+    PTema port;
 
-        String track = request.getParameter("audio");
-        response.setContentType("audio/mpeg");
-        File mp3 = new File(tarea1 + "Recursos/Musica/" + track);
-        response.setContentLength((int) mp3.length());
-        FileInputStream input = new FileInputStream(mp3);
-        BufferedInputStream buf = new BufferedInputStream(input);
+    public STema() {
 
-        OutputStream out = response.getOutputStream();
-        int readBytes = 0;
-
-        while ((readBytes = buf.read()) != -1) {
-            out.write(readBytes);
+        try {
+            URL url = new URL("http://" + Configuracion.get("ip") + ":" + Configuracion.get("puerto") + "/" + Configuracion.get("PTema"));
+            PTemaService service = new PTemaService(url);
+            port = service.getPTemaPort();
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(STema.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        out.close();
+    }
+
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        try {
+
+            String track = request.getParameter("audio");
+            byte[] img = null;
+
+            img = port.getAudio(track);
+
+            response.setContentType("audio/mpeg");
+            response.setContentLength((int) img.length);
+
+            OutputStream out = response.getOutputStream();
+            out.write(img);
+            out.close();
+        } catch (Exception ex) {
+            Logger.getLogger(STema.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

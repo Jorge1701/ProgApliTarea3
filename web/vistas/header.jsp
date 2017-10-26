@@ -62,7 +62,9 @@
                                 <% if (usuario instanceof DtCliente) { %>
                             <div> <a href="/Tarea2/SSuscripcion?accion=redir" class="btn btn-link btn-xs">Contratar Suscripción</a></div>
                             <div><a href="/Tarea2/SSuscripcion?accion=redir1" class="btn btn-link btn-xs">Estado Suscripciones</a></div>
-                            <% } %>
+                            <% }else{ %>
+                            <div><a href="/Tarea2/" class="btn btn-link btn-xs">Darse de baja</a></div>
+                            <%}%>
                             <div><a href="/Tarea2/SInicio?cargarDatosPrueba=si" class="btn btn-link btn-xs">Cargar Datos de Prueba</a></div>
 
                             <form action="/Tarea2/SSesion" method="POST">

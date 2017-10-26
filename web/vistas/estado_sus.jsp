@@ -1,7 +1,7 @@
 <%@page import="java.util.ArrayList"%>
-<%@page import="Logica.DtSuscripcion"%>
-<%@page import="Logica.DtCliente"%>
-<%@page import="Logica.DtUsuario"%>
+<%@page import="servicios.DtSuscripcion"%>
+<%@page import="servicios.DtCliente"%>
+<%@page import="servicios.DtUsuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

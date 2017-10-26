@@ -1,13 +1,14 @@
 package servlets;
 
-import Logica.DtArtista;
-import Logica.DtUsuario;
-import Logica.DtCliente;
-import Logica.DtFecha;
-import Logica.DtSuscripcion;
-import Logica.Fabrica;
-import Logica.IUsuario;
+import servicios.DtArtista;
+import servicios.DtUsuario;
+import servicios.DtCliente;
+import servicios.DtFecha;
+import servicios.DtSuscripcion;
+import servicios.PSuscripcionService;
+import servicios.PSuscripcion;
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -16,33 +17,46 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import Configuracion.Configuracion;
+import java.net.MalformedURLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 @WebServlet(name = "SSuscripcion", urlPatterns = {"/SSuscripcion"})
 public class SSuscripcion extends HttpServlet {
 
-    IUsuario iUsuario;
+    PSuscripcion port;
+
+    public SSuscripcion() {
+        try {
+            URL url = new URL("http://" + Configuracion.get("ip") + ":" + Configuracion.get("puerto") + "/" + Configuracion.get("PSuscripcion"));
+            PSuscripcionService suscripcion = new PSuscripcionService(url);
+            port = suscripcion.getPSuscripcionPort();
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(SSuscripcion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-
-        iUsuario = Fabrica.getIControladorUsuario();
 
         if (request.getParameter("accion").equals("redir")) {
             if (request.getSession().getAttribute("usuario") != null) {
                 DtUsuario usr = (DtUsuario) request.getSession().getAttribute("usuario");
 
                 if (usr instanceof DtArtista) {
-                    request.setAttribute("mensaje_error", "Esta página esta reservada para nuestros clientes");
+                    request.setAttribute("mensaje_error", "Esta pÃ¡gina esta reservada para nuestros clientes");
                     request.getRequestDispatcher("vistas/pagina_error.jsp").forward(request, response);
                 } else {
-                    request.getSession().setAttribute("suscripcion", ((DtCliente) usr).getSuscripcion());
+                    request.getSession().setAttribute("suscripcion", ((DtCliente) usr).getActual());
                     request.getSession().setAttribute("suscripciones", ((DtCliente) usr).getSuscripciones());
                     this.getServletContext().getRequestDispatcher("/vistas/suscripcion.jsp").forward(request, response);
                 }
 
             } else {
-                request.setAttribute("mensaje_error", "Debe estar logueado para ver esta página");
+                request.setAttribute("mensaje_error", "Debe estar logueado para ver esta pÃ¡gina");
                 request.getRequestDispatcher("vistas/pagina_error.jsp").forward(request, response);
             }
 
@@ -51,43 +65,43 @@ public class SSuscripcion extends HttpServlet {
                 DtUsuario usr = (DtUsuario) request.getSession().getAttribute("usuario");
 
                 if (usr instanceof DtArtista) {
-                    request.setAttribute("mensaje_error", "Esta página esta reservada para nuestros clientes");
+                    request.setAttribute("mensaje_error", "Esta pÃ¡gina esta reservada para nuestros clientes");
                     request.getRequestDispatcher("vistas/pagina_error.jsp").forward(request, response);
                 } else {
-                    request.setAttribute("suscripcion", ((DtCliente) usr).getSuscripcion());
+                    request.setAttribute("suscripcion", ((DtCliente) usr).getActual());
                     request.setAttribute("suscripciones", (ArrayList<DtSuscripcion>) ((DtCliente) usr).getSuscripciones());
                     request.getRequestDispatcher("vistas/estado_sus.jsp").forward(request, response);
                     //this.getServletContext().getRequestDispatcher("/vistas/estado_sus.jsp").forward(request, response);
                 }
 
             } else {
-                request.setAttribute("mensaje_error", "Debe estar logueado para ver esta página");
+                request.setAttribute("mensaje_error", "Debe estar logueado para ver esta pÃ¡gina");
                 request.getRequestDispatcher("vistas/pagina_error.jsp").forward(request, response);
             }
 
         } else if (request.getParameter("accion").equals("monto")) {
             String cuota = request.getParameter("Cuota");
-            int monto = iUsuario.getMonto(cuota);
+            int monto = port.getMonto(cuota);
             response.setContentType("text/plain");
             response.setCharacterEncoding("UTF-8");
             response.getWriter().write(String.valueOf(monto));
 
         } else if (request.getParameter("accion").equals("registro")) {
             if (request.getSession().getAttribute("usuario") == null) {
-                request.setAttribute("mensaje_error", "Debe estar logueado para ver esta página");
+                request.setAttribute("mensaje_error", "Debe estar logueado para ver esta pÃ¡gina");
                 request.getRequestDispatcher("vistas/pagina_error.jsp").forward(request, response);
             }
 
             DtUsuario usuario = (DtUsuario) request.getSession().getAttribute("usuario");
-            if (((DtCliente) usuario).getSuscripcion() != null) {
-                request.setAttribute("mensaje_error", "Ya posee una suscripción vigente");
+            if (((DtCliente) usuario).getActual() != null) {
+                request.setAttribute("mensaje_error", "Ya posee una suscripciÃ³n vigente");
                 request.getRequestDispatcher("vistas/pagina_error.jsp").forward(request, response);
             }
             String nickname = usuario.getNickname();
             String cuota = request.getParameter("Cuota");
 
-            if (iUsuario.ingresarSuscripcion(nickname, cuota)) {
-                DtUsuario usr = iUsuario.getDataUsuario(nickname);
+            if (port.ingresarSuscripcion(nickname, cuota)) {
+                DtUsuario usr = port.getDataUsuario(nickname);
                 request.getSession().setAttribute("usuario", usr);
                 getServletContext().getRequestDispatcher("/SInicio").forward(request, response);
             }
@@ -98,12 +112,18 @@ public class SSuscripcion extends HttpServlet {
             String estado = request.getParameter("Estado");
 
             Calendar hoy = new GregorianCalendar();
-            DtFecha fechaHoy = new DtFecha(hoy.get(Calendar.DATE), (hoy.get(Calendar.MONTH) + 1), hoy.get(Calendar.YEAR));
+            DtFecha fechaHoy = new DtFecha();
+
+            //seteo de la fecha
+            fechaHoy.setDia(hoy.get(Calendar.DATE));
+            fechaHoy.setMes(hoy.get(Calendar.MONTH) + 1);
+            fechaHoy.setAnio(hoy.get(Calendar.YEAR));
+            //
 
             if (estado.equals("Pendiente")) {
-                if (iUsuario.cancelarSuscripcion(usuario.getNickname(), estado, "", "", "", fechaHoy)) {
-                    DtUsuario usr = iUsuario.getDataUsuario(usuario.getNickname());
-                    DtSuscripcion s = ((DtCliente) usr).getSuscripcion();
+                if (port.cancelarSuscripcion(usuario.getNickname(), estado, "", "", "", fechaHoy)) {
+                    DtUsuario usr = port.getDataUsuario(usuario.getNickname());
+                    DtSuscripcion s = ((DtCliente) usr).getActual();
                     request.getSession().setAttribute("usuario", usr);
                     // request.getSession().setAttribute("suscripcion", s);
                     // request.getSession().setAttribute("suscripciones", ((DtCliente) usr).getSuscripciones());
@@ -114,9 +134,9 @@ public class SSuscripcion extends HttpServlet {
                 String fecha = request.getParameter("Fecha");
                 String fecha_venc = request.getParameter("FechaVenc");
 
-                if (iUsuario.cancelarSuscripcion(usuario.getNickname(), estado, cuota, fecha, fecha_venc, fechaHoy)) {
-                    DtUsuario usr = iUsuario.getDataUsuario(usuario.getNickname());
-                    DtSuscripcion s = ((DtCliente) usr).getSuscripcion();
+                if (port.cancelarSuscripcion(usuario.getNickname(), estado, cuota, fecha, fecha_venc, fechaHoy)) {
+                    DtUsuario usr = port.getDataUsuario(usuario.getNickname());
+                    DtSuscripcion s = ((DtCliente) usr).getActual();
                     request.getSession().setAttribute("usuario", usr);
                     //request.getSession().setAttribute("suscripcion", s);
                     //request.getSession().setAttribute("suscripciones", ((DtCliente) usr).getSuscripciones());
@@ -135,12 +155,18 @@ public class SSuscripcion extends HttpServlet {
             String fecha_venc = request.getParameter("FechaVenc");
 
             Calendar dia = new GregorianCalendar();
-            DtFecha hoy = new DtFecha(dia.get(Calendar.DATE), (dia.get(Calendar.MONTH) + 1), dia.get(Calendar.YEAR));
+            DtFecha hoy = new DtFecha();
 
-            if (((DtCliente) usuario).getSuscripcion() == null) {
-                if (iUsuario.renovarSuscripcion(usuario.getNickname(), estado, cuota, fecha, fecha_venc, hoy)) {
-                    DtUsuario usr = iUsuario.getDataUsuario(usuario.getNickname());
-                    DtSuscripcion s = ((DtCliente) usr).getSuscripcion();
+            //seteo de la fecha
+            hoy.setDia(dia.get(Calendar.DATE));
+            hoy.setMes(dia.get(Calendar.MONTH) + 1);
+            hoy.setAnio(dia.get(Calendar.YEAR));
+            //
+
+            if (((DtCliente) usuario).getActual() == null) {
+                if (port.renovarSuscripcion(usuario.getNickname(), estado, cuota, fecha, fecha_venc, hoy)) {
+                    DtUsuario usr = port.getDataUsuario(usuario.getNickname());
+                    DtSuscripcion s = ((DtCliente) usr).getActual();
                     request.getSession().setAttribute("usuario", usr);
                 }
             } else {

@@ -63,6 +63,26 @@
         <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
+    <servlet>
+        <servlet-name>PSuscripcionService</servlet-name>
+        <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet>
+        <servlet-name>PTemaService</servlet-name>
+        <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet>
+        <servlet-name>PRankingService</servlet-name>
+        <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet>
+        <servlet-name>PDesactivarArtistaService</servlet-name>
+        <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
     <servlet-mapping>
         <servlet-name>PRegistroService</servlet-name>
         <url-pattern>/PRegistroService</url-pattern>
@@ -110,6 +130,22 @@
     <servlet-mapping>
         <servlet-name>PListaService</servlet-name>
         <url-pattern>/PListaService</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PSuscripcionService</servlet-name>
+        <url-pattern>/PSuscripcionService</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PTemaService</servlet-name>
+        <url-pattern>/PTemaService</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PRankingService</servlet-name>
+        <url-pattern>/PRankingService</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PDesactivarArtistaService</servlet-name>
+        <url-pattern>/PDesactivarArtistaService</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
