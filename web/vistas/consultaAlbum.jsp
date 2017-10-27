@@ -26,8 +26,8 @@
 
             DtAlbumContenido albumes = (DtAlbumContenido) request.getAttribute("Album");
             DtAlbum inf = (DtAlbum) albumes.getInfo();
-            String Generos = albumes.getGeneros2();
-            ArrayList<DtTema> temas = albumes.getTemas();
+            ArrayList<String> Generos = (ArrayList)albumes.getGeneros();
+            ArrayList<DtTema> temas = (ArrayList)albumes.getTemas();
             String nickArtista = inf.getNickArtista();
             String imagen = inf.getImagen();
             String nombreAlbum = inf.getNombre();
@@ -97,7 +97,7 @@
                                                 if (request.getSession().getAttribute("usuario") != null) {
                                                     DtUsuario user = (DtUsuario) request.getSession().getAttribute("usuario");
                                                     if (user instanceof DtCliente) {
-                                                        DtSuscripcion suscripcion = (DtSuscripcion) ((DtCliente) user).getSuscripcion();
+                                                        DtSuscripcion suscripcion = (DtSuscripcion) ((DtCliente) user).getActual();
                                                         if (suscripcion != null) {
                                                             if (suscripcion.getEstado().equals("Vigente")) {
                                                                 if (temas.get(i) instanceof DtTemaLocal) {

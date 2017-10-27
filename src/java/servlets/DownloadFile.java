@@ -23,7 +23,7 @@ public class DownloadFile extends HttpServlet {
 
     public DownloadFile() {
         try {
-            URL url = new URL("http://" + Configuracion.get("ip") + ":" + Configuracion.get("puerto") + "/" + Configuracion.get("PDowloadFile"));
+            URL url = new URL("http://" + Configuracion.get("ip") + ":" + Configuracion.get("puerto") + "/" + Configuracion.get("PDownloadFile"));
             PDownloadFileService webserv = new PDownloadFileService(url);
             port = webserv.getPDownloadFilePort();
         } catch (MalformedURLException ex) {

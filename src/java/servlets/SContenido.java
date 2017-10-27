@@ -70,14 +70,14 @@ public class SContenido extends HttpServlet {
                                 if (dtu instanceof DtCliente) {
                                     request.setAttribute("suscripcion", ((DtCliente) dtu).getActual());
                                     request.setAttribute("suscripciones", ((DtCliente) dtu).getSuscripciones());
-                                    request.setAttribute("listasFav", port.obtenerListasFav(dtu.getNickname()).getListas());
-                                    request.setAttribute("albumesFav", port.obtenerAlbumesFav(dtu.getNickname()).getAlbum());
+                                    request.setAttribute("listasFav", (ArrayList) port.obtenerListasFav(dtu.getNickname()).getListas());
+                                    request.setAttribute("albumesFav", (ArrayList) port.obtenerAlbumesFav(dtu.getNickname()).getAlbum());
                                 }
                             }
 
                             request.setAttribute("genero", genero);
-                            request.setAttribute("listas", port.listarLisReproduccionGen(genero).getListas());
-                            request.setAttribute("albumes", port.listarAlbumesGenero(genero).getAlbum());
+                            request.setAttribute("listas", (ArrayList) port.listarLisReproduccionGen(genero).getListas());
+                            request.setAttribute("albumes", (ArrayList) port.listarAlbumesGenero(genero).getAlbum());
                             request.getRequestDispatcher("vistas/consultar_genero.jsp").forward(request, response);
                         } else {
                             request.setAttribute("mensaje_error", "El genero no existe");
@@ -224,9 +224,7 @@ public class SContenido extends HttpServlet {
         }
 
         String accion = request.getParameter("accion");
-        URL url = new URL("http://localhost:1234/contenido");
-        PContenidoService webserv = new PContenidoService(url);
-        PContenido port = webserv.getPContenidoPort();
+        
         switch (accion) {
             case "nombreAlbum":
                 if (request.getParameter("nickArtista") == null || request.getParameter("nombreAlbum") == null) {
