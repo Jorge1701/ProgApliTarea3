@@ -76,6 +76,7 @@ public class SInicio extends HttpServlet {
                         resultado.add(cliente);
                     }
                 }
+
                 request.setAttribute("clientes", resultado);
                 request.setAttribute("artistas", artistas);
                 request.setAttribute("busquedaCliente", busqueda);
