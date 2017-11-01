@@ -8,9 +8,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Clase Java para DtSuscripcion complex type.
+ * <p>Java class for DtSuscripcion complex type.
  * 
- * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType name="DtSuscripcion">
@@ -19,8 +19,8 @@ import javax.xml.bind.annotation.XmlType;
  *       &lt;sequence>
  *         &lt;element name="estado" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="cuota" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="fecha_venc" type="{http://Servicios/}dtFecha" minOccurs="0"/>
- *         &lt;element name="fecha" type="{http://Servicios/}dtFecha" minOccurs="0"/>
+ *         &lt;element name="fecha_venc" type="{http://Servicios/}DtFecha" minOccurs="0"/>
+ *         &lt;element name="fecha" type="{http://Servicios/}DtFecha" minOccurs="0"/>
  *         &lt;element name="monto" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
@@ -48,7 +48,7 @@ public class DtSuscripcion {
     protected int monto;
 
     /**
-     * Obtiene el valor de la propiedad estado.
+     * Gets the value of the estado property.
      * 
      * @return
      *     possible object is
@@ -60,7 +60,7 @@ public class DtSuscripcion {
     }
 
     /**
-     * Define el valor de la propiedad estado.
+     * Sets the value of the estado property.
      * 
      * @param value
      *     allowed object is
@@ -72,7 +72,7 @@ public class DtSuscripcion {
     }
 
     /**
-     * Obtiene el valor de la propiedad cuota.
+     * Gets the value of the cuota property.
      * 
      * @return
      *     possible object is
@@ -84,7 +84,7 @@ public class DtSuscripcion {
     }
 
     /**
-     * Define el valor de la propiedad cuota.
+     * Sets the value of the cuota property.
      * 
      * @param value
      *     allowed object is
@@ -96,7 +96,7 @@ public class DtSuscripcion {
     }
 
     /**
-     * Obtiene el valor de la propiedad fechaVenc.
+     * Gets the value of the fechaVenc property.
      * 
      * @return
      *     possible object is
@@ -108,7 +108,7 @@ public class DtSuscripcion {
     }
 
     /**
-     * Define el valor de la propiedad fechaVenc.
+     * Sets the value of the fechaVenc property.
      * 
      * @param value
      *     allowed object is
@@ -120,7 +120,7 @@ public class DtSuscripcion {
     }
 
     /**
-     * Obtiene el valor de la propiedad fecha.
+     * Gets the value of the fecha property.
      * 
      * @return
      *     possible object is
@@ -132,7 +132,7 @@ public class DtSuscripcion {
     }
 
     /**
-     * Define el valor de la propiedad fecha.
+     * Sets the value of the fecha property.
      * 
      * @param value
      *     allowed object is
@@ -144,7 +144,7 @@ public class DtSuscripcion {
     }
 
     /**
-     * Obtiene el valor de la propiedad monto.
+     * Gets the value of the monto property.
      * 
      */
     public int getMonto() {
@@ -152,7 +152,7 @@ public class DtSuscripcion {
     }
 
     /**
-     * Define el valor de la propiedad monto.
+     * Sets the value of the monto property.
      * 
      */
     public void setMonto(int value) {

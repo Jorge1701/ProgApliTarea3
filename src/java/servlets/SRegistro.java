@@ -21,9 +21,9 @@ import java.util.logging.Logger;
 
 @WebServlet(name = "SRegistro", urlPatterns = {"/SRegistro"})
 public class SRegistro extends HttpServlet {
-
+    
     PRegistro port;
-
+    
     public SRegistro() {
         try {
             URL url = new URL("http://" + Configuracion.get("ip") + ":" + Configuracion.get("puerto") + "/" + Configuracion.get("PRegistro"));
@@ -33,12 +33,12 @@ public class SRegistro extends HttpServlet {
             Logger.getLogger(SRegistro.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("mensaje_error", "Ups, usted no deberia estar aqui :s");
         request.getRequestDispatcher("vistas/pagina_error.jsp").forward(request, response);
     }
-
+    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         if (request.getParameter("accion") == null) {
@@ -46,9 +46,9 @@ public class SRegistro extends HttpServlet {
             request.getRequestDispatcher("vistas/pagina_error.jsp").forward(request, response);
             return;
         }
-
+        
         String accion = request.getParameter("accion");
-
+        
         switch (accion) {
             case "redirigir":
                 if (request.getSession().getAttribute("usuario") != null) {
@@ -57,24 +57,24 @@ public class SRegistro extends HttpServlet {
                     return;
                 }
                 request.getRequestDispatcher("vistas/registrarse.jsp").forward(request, response);
-
+                
                 break;
             default:
                 request.setAttribute("mensaje_error", "El resto de acciones van por POST");
                 request.getRequestDispatcher("vistas/pagina_error.jsp").forward(request, response);
-
+                
                 break;
         }
     }
-
+    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        
         String existe;
         String accion = request.getParameter("accion");
         String nickname = request.getParameter("nickname");
         String email = request.getParameter("email");
-
+        
         if (null != accion) {
             switch (accion) {
                 case "redirigir":
@@ -116,7 +116,7 @@ public class SRegistro extends HttpServlet {
                     String link = request.getParameter("link");
                     String artista = request.getParameter("artista");
                     String imagen = request.getParameter("imagen");
-
+                    
                     int nMes;
                     switch (mes) {
                         case "enero":
@@ -159,21 +159,22 @@ public class SRegistro extends HttpServlet {
                             nMes = 0;
                             break;
                     }
-
+                    
                     DtFecha fechaNac = new DtFecha();
                     fechaNac.setDia(Integer.valueOf(dia));
                     fechaNac.setMes(nMes);
                     fechaNac.setAnio(Integer.valueOf(anio));
-
+                    
                     DtUsuario dtu;
                     if ("si".equals(artista)) {
                         dtu = new DtArtista();
                         ((DtArtista) dtu).setBiografia(biografia);
                         ((DtArtista) dtu).setWeb(link);
+                        ((DtArtista) dtu).setActivo(true);
                     } else {
                         dtu = new DtCliente();
                     }
-
+                    
                     dtu.setNickname(nickname);
                     dtu.setNombre(nombre);
                     dtu.setApellido(apellido);
@@ -181,9 +182,9 @@ public class SRegistro extends HttpServlet {
                     dtu.setFechaNac(fechaNac);
                     dtu.setImagen(imagen);
                     dtu.setContrasenia(contrasenia);
-
+                    
                     port.ingresarUsuario(dtu);
-
+                    
                     request.getSession().setAttribute("usuario", dtu);
 
                     //request.getRequestDispatcher("SInicio").forward(request, response);      //Redirigir utilizando el nombre del servlet
@@ -193,7 +194,7 @@ public class SRegistro extends HttpServlet {
             }
         }
     }
-
+    
     @Override
     public String getServletInfo() {
         return "Short description";
