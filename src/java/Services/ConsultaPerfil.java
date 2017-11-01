@@ -9,7 +9,7 @@ import javax.jws.WebService;
 
 /**
  *
- * @author Ale
+ * @author Diego
  */
 @WebService(serviceName = "PConsultaPerfilService", portName = "PConsultaPerfilPort", endpointInterface = "servicios.PConsultaPerfil", targetNamespace = "http://Servicios/", wsdlLocation = "WEB-INF/wsdl/ConsultaPerfil/localhost_1234/consultaPerfil.wsdl")
 public class ConsultaPerfil {

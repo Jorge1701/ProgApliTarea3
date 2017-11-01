@@ -11,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.ws.soap.SOAPFaultException;
 import servicios.DtArtista;
 import servicios.DtCliente;
 import servicios.DtPerfilArtista;
@@ -49,14 +50,24 @@ public class SConsultarPerfil extends HttpServlet {
         } else {
             nickUs = (String) request.getAttribute("nickUs");
         }
-        DtUsuario DtUs = port.getDataUsuario(nickUs);//iUsuario.getDataUsuario(nickUs);
+        DtUsuario DtUs = null;
+        try {
+            DtUs = port.getDataUsuario(nickUs); 
+        } catch (SOAPFaultException ex) { 
+            request.setAttribute("mensaje_error", "No existe el usuario " + nickUs);
+            request.getRequestDispatcher("vistas/pagina_error.jsp").forward(request, response);
+        } catch (Exception exc) {
+            request.setAttribute("mensaje_error", "Error de conexion con el servidor ");
+            request.getRequestDispatcher("vistas/pagina_error.jsp").forward(request, response);        
+        }
+        /*
         if (DtUs != null) {
             log(DtUs.getNickname());
         } else {
             log("Usuario es null");
             request.setAttribute("mensaje_error", "No existe el usuario " + nickUs);
             request.getRequestDispatcher("vistas/pagina_error.jsp").forward(request, response);
-        }
+        }*/
 
         if (DtUs instanceof DtCliente) {
 

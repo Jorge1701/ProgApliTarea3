@@ -8,9 +8,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for DtUsuario complex type.
+ * <p>Clase Java para DtUsuario complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>
  * &lt;complexType name="DtUsuario">
@@ -21,7 +21,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="nombre" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="apellido" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="email" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="fechaNac" type="{http://Servicios/}DtFecha" minOccurs="0"/>
+ *         &lt;element name="fechaNac" type="{http://Servicios/}dtFecha" minOccurs="0"/>
  *         &lt;element name="imagen" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="contrasenia" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *       &lt;/sequence>
@@ -57,7 +57,7 @@ public class DtUsuario {
     protected String contrasenia;
 
     /**
-     * Gets the value of the nickname property.
+     * Obtiene el valor de la propiedad nickname.
      * 
      * @return
      *     possible object is
@@ -69,7 +69,7 @@ public class DtUsuario {
     }
 
     /**
-     * Sets the value of the nickname property.
+     * Define el valor de la propiedad nickname.
      * 
      * @param value
      *     allowed object is
@@ -81,7 +81,7 @@ public class DtUsuario {
     }
 
     /**
-     * Gets the value of the nombre property.
+     * Obtiene el valor de la propiedad nombre.
      * 
      * @return
      *     possible object is
@@ -93,7 +93,7 @@ public class DtUsuario {
     }
 
     /**
-     * Sets the value of the nombre property.
+     * Define el valor de la propiedad nombre.
      * 
      * @param value
      *     allowed object is
@@ -105,7 +105,7 @@ public class DtUsuario {
     }
 
     /**
-     * Gets the value of the apellido property.
+     * Obtiene el valor de la propiedad apellido.
      * 
      * @return
      *     possible object is
@@ -117,7 +117,7 @@ public class DtUsuario {
     }
 
     /**
-     * Sets the value of the apellido property.
+     * Define el valor de la propiedad apellido.
      * 
      * @param value
      *     allowed object is
@@ -129,7 +129,7 @@ public class DtUsuario {
     }
 
     /**
-     * Gets the value of the email property.
+     * Obtiene el valor de la propiedad email.
      * 
      * @return
      *     possible object is
@@ -141,7 +141,7 @@ public class DtUsuario {
     }
 
     /**
-     * Sets the value of the email property.
+     * Define el valor de la propiedad email.
      * 
      * @param value
      *     allowed object is
@@ -153,7 +153,7 @@ public class DtUsuario {
     }
 
     /**
-     * Gets the value of the fechaNac property.
+     * Obtiene el valor de la propiedad fechaNac.
      * 
      * @return
      *     possible object is
@@ -165,7 +165,7 @@ public class DtUsuario {
     }
 
     /**
-     * Sets the value of the fechaNac property.
+     * Define el valor de la propiedad fechaNac.
      * 
      * @param value
      *     allowed object is
@@ -177,7 +177,7 @@ public class DtUsuario {
     }
 
     /**
-     * Gets the value of the imagen property.
+     * Obtiene el valor de la propiedad imagen.
      * 
      * @return
      *     possible object is
@@ -189,7 +189,7 @@ public class DtUsuario {
     }
 
     /**
-     * Sets the value of the imagen property.
+     * Define el valor de la propiedad imagen.
      * 
      * @param value
      *     allowed object is
@@ -201,7 +201,7 @@ public class DtUsuario {
     }
 
     /**
-     * Gets the value of the contrasenia property.
+     * Obtiene el valor de la propiedad contrasenia.
      * 
      * @return
      *     possible object is
@@ -213,7 +213,7 @@ public class DtUsuario {
     }
 
     /**
-     * Sets the value of the contrasenia property.
+     * Define el valor de la propiedad contrasenia.
      * 
      * @param value
      *     allowed object is
