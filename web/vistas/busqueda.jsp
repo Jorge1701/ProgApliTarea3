@@ -84,7 +84,7 @@
                                     if (o instanceof DtTemaRemoto) {
                                         DtTemaRemoto temaRemoto = (DtTemaRemoto) o;
                                 %>
-                            <tr onclick="reproducirRemoto('<%= temaRemoto.getUrl()%>')">
+                            <tr onclick="reproducirRemoto('<%= temaRemoto.getUrl()%>', '<%= temaRemoto.getArtista().replace("'", "\\'")%>', '<%= temaRemoto.getAlbum().replace("'", "\\'")%>', '<%= temaRemoto.getNombre().replace("'", "\\'")%>')">
                                 <td>
                                     <span class="glyphicon glyphicon-play-circle"></span>
                                 </td>
@@ -95,7 +95,7 @@
                                 <% } else if (o instanceof DtTemaLocal) {
                                     DtTemaLocal temaLocal = (DtTemaLocal) o;
                                 %>
-                            <tr onclick="reproducirLocal('<%= temaLocal.getDirectorio().replace("'", "\\'")%>', '<%= temaLocal.getNombre().replace("'", "\\'")%>', '<%= temaLocal.getArtista().replace("'", "\\'")%>', '<%= temaLocal.getImagenAlbum().replace("'", "\\'")%>')">
+                            <tr onclick="reproducirLocal('<%= temaLocal.getDirectorio().replace("'", "\\'")%>', '<%= temaLocal.getNombre().replace("'", "\\'")%>', '<%= temaLocal.getArtista().replace("'", "\\'")%>', '<%= temaLocal.getImagenAlbum().replace("'", "\\'")%>', '<%= temaLocal.getAlbum().replace("'", "\\'")%>')">
                                 <td>
                                     <span class="glyphicon glyphicon-play-circle"></span>
                                 </td>

@@ -330,5 +330,24 @@
         <delete dir="${build.generated.sources.dir}/jax-ws/servicios"/>
         <delete dir="${build.generated.dir}/jax-wsCache/service/DesactivarArtista"/>
     </target>
-    <target name="wsimport-service-generate" depends="wsimport-service-Imagen, wsimport-service-Inicio, wsimport-service-Favorito, wsimport-service-Seguir, wsimport-service-ConsultaPerfil, wsimport-service-Buscador, wsimport-service-Uploadfile, wsimport-service-Sesion, wsimport-service-Registro, wsimport-service-Contenido, wsimport-service-Downloadfile, wsimport-service-Lista, wsimport-service-Suscripcion, wsimport-service-Tema, wsimport-service-Ranking, wsimport-service-DesactivarArtista"/>
+    <target name="wsimport-service-Controladores" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/service/Controladores"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/service/Controladores" destdir="${build.generated.dir}/jax-wsCache/service/Controladores" wsdl="${basedir}/${conf-dir}xml-resources/web-services/Controladores/wsdl/localhost_1234/contadores.wsdl" catalog="catalog.xml" extension="true" verbose="true" fork="false" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-services/Controladores/wsdl/localhost_1234/contadores.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/service/Controladores"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/service/Controladores">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+        <copy todir="${build.web.dir}/WEB-INF/wsdl/Controladores">
+            <fileset dir="${basedir}/${conf-dir}xml-resources/web-services/Controladores/wsdl/"/>
+        </copy>
+    </target>
+    <target name="wsimport-service-clean-Controladores" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/servicios"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/service/Controladores"/>
+    </target>
+    <target name="wsimport-service-generate" depends="wsimport-service-Imagen, wsimport-service-Inicio, wsimport-service-Favorito, wsimport-service-Seguir, wsimport-service-ConsultaPerfil, wsimport-service-Buscador, wsimport-service-Uploadfile, wsimport-service-Sesion, wsimport-service-Registro, wsimport-service-Contenido, wsimport-service-Downloadfile, wsimport-service-Lista, wsimport-service-Suscripcion, wsimport-service-Tema, wsimport-service-Ranking, wsimport-service-DesactivarArtista, wsimport-service-Controladores"/>
 </project>

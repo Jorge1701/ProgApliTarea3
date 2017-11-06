@@ -23,11 +23,10 @@
     <body>
         <%
 
-
             DtAlbumContenido albumes = (DtAlbumContenido) request.getAttribute("Album");
             DtAlbum inf = (DtAlbum) albumes.getInfo();
-            ArrayList<String> Generos = (ArrayList)albumes.getGeneros();
-            ArrayList<DtTema> temas = (ArrayList)albumes.getTemas();
+            ArrayList<String> Generos = (ArrayList) albumes.getGeneros();
+            ArrayList<DtTema> temas = (ArrayList) albumes.getTemas();
             String nickArtista = inf.getNickArtista();
             String imagen = inf.getImagen();
             String nombreAlbum = inf.getNombre();
@@ -87,11 +86,14 @@
                                         <%  if (temas.get(i) instanceof DtTemaLocal) {
                                                 DtTemaLocal local = (DtTemaLocal) temas.get(i);%>
                                     <td><center><button type="button" class="btn btn-default" aria-label="Left Align">
-                                            <span class="glyphicon glyphicon-play-circle" aria-hidden="true"  onclick="reproducirLocal('<%= local.getDirectorio().replace("'", "\\'")%>', '<%= local.getNombre().replace("'", "\\'")%>', '<%= local.getArtista().replace("'", "\\'")%>', '<%= local.getImagenAlbum().replace("'", "\\'")%>')"></span>
+                                            <span class="glyphicon glyphicon-play-circle" aria-hidden="true"  onclick="reproducirLocal('<%= local.getDirectorio().replace("'", "\\'")%>', '<%= local.getNombre().replace("'", "\\'")%>', '<%= local.getArtista().replace("'", "\\'")%>', '<%= local.getImagenAlbum().replace("'", "\\'")%>', '<%= local.getAlbum().replace("'", "\\'")%>')"></span>
                                         </button></center></td>
                                         <%} else {%>
                                     <td><center><button type="button" class="btn btn-default" aria-label="Left Align">
-                                            <span class="glyphicon glyphicon-play-circle" aria-hidden="true"  onclick="reproducirRemoto('<%= ((DtTemaRemoto) temas.get(i)).getUrl()%>')"></span></button></center></td>
+                                            <%
+                                                DtTemaRemoto temaRemoto = (DtTemaRemoto) temas.get(i);
+                                            %>
+                                            <span class="glyphicon glyphicon-play-circle" aria-hidden="true"  onclick="reproducirRemoto('<%= temaRemoto.getUrl()%>', '<%= temaRemoto.getArtista().replace("'", "\\'")%>', '<%= temaRemoto.getAlbum().replace("'", "\\'")%>', '<%= temaRemoto.getNombre().replace("'", "\\'")%>')"></span></button></center></td>
                                             <% }%>
                                             <%
                                                 if (request.getSession().getAttribute("usuario") != null) {
@@ -102,7 +104,7 @@
                                                             if (suscripcion.getEstado().equals("Vigente")) {
                                                                 if (temas.get(i) instanceof DtTemaLocal) {
                                             %>
-                                            <td><center><input readonly onclick="Descarga('<%=((DtTemaLocal) temas.get(i)).getDirectorio()%>')" class="btn btn-info" id="btnDescargar" value="Descargar"></center></td>
+                                    <td><center><input readonly onclick="Descarga('<%=((DtTemaLocal) temas.get(i)).getDirectorio()%>')" class="btn btn-info" id="btnDescargar" value="Descargar"></center></td>
                                         <% } else {%>
                                     <td><center><text style="color:black ">No Se Puede Descargar</text></center></td> 
 
@@ -115,14 +117,16 @@
                                     <%} else { %>
                                     <td><center><a href="/Tarea2/SSuscripcion?accion=redir" class="btn btn-info">Modificar Suscripción</a></center></td>                                   
                                         <% }
-                                          }else{ %>
-                                          <td><center><text style="color:black ">No Se Puede Descargar</text></center></td>   
-                                            
-                                       <% } }else{ %> 
+                                        } else { %>
+                                    <td><center><text style="color:black ">No Se Puede Descargar</text></center></td>   
+
+                                    <% }
+                                       } else { %> 
                                     <td><center><text style="color:black ">Debe Iniciar Sesion</text></center></td>     
-                                        
+
                                     </tr>
-                                    <% } } %>
+                                    <% }
+                                        }%>
 
                                 </table>
                             </div>

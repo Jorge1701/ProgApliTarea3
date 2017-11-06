@@ -30,4 +30,5 @@
     <system systemId="http://localhost:1234/ranking?wsdl" uri="src/conf/xml-resources/web-services/Ranking/wsdl/localhost_1234/ranking.wsdl"/>
     <system systemId="http://localhost:1234/ranking?xsd=1" uri="src/conf/xml-resources/web-services/Ranking/wsdl/localhost_1234/ranking.xsd_1.xsd"/>
     <system systemId="http://localhost:1234/desactivarArtista?wsdl" uri="src/conf/xml-resources/web-services/DesactivarArtista/wsdl/localhost_1234/desactivarArtista.wsdl"/>
+    <system systemId="http://localhost:1234/contadores?wsdl" uri="src/conf/xml-resources/web-services/Controladores/wsdl/localhost_1234/contadores.wsdl"/>
 </catalog>

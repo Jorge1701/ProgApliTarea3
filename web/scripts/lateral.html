@@ -1,18 +1,35 @@
 <script>
-    function reproducirLocal(tema, nombre, artista, imagen) {
+    function reproducirLocal(tema, nombre, artista, imagen, nomAlbum) {
         document.getElementById("txtNombreTema").textContent = nombre;
         document.getElementById("txtNombreArtista").textContent = artista;
         document.getElementById("imgAlbumTema").src = "/Tarea2/SImagen?album=" + imagen;
         var repr = document.getElementById("aurepr");
         repr.src = "/Tarea2/STema?audio=" + tema;
         repr.play();
+
+        rep(artista, nomAlbum, nombre);
     }
 
-    function reproducirRemoto(url) {
-        if( url.indexOf("://") > -1 ) {
-          window.open(url, '_blank');  
-        }else{
-        window.open('http://' + url, '_blank');
+    function reproducirRemoto(url, nickArt, nomAlbum, nomTema) {
+        if (url.indexOf("://") > -1) {
+            window.open(url, '_blank');
+        } else {
+            window.open('http://' + url, '_blank');
+        }
+
+        rep(nickArt, nomAlbum, nomTema);
     }
+
+    function rep(nicArt, nomAlbum, nomTema) {
+        $.ajax({
+            type: "POST",
+            url: "/Tarea2/SContadores",
+            data: {
+                "accion": "reproducir",
+                "nickArt": encodeURI(nicArt),
+                "nomAlbum": encodeURI(nomAlbum),
+                "nomTema": encodeURI(nomTema)
+            }
+        });
     }
 </script>
