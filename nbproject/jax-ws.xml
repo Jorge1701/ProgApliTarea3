@@ -513,8 +513,8 @@
         </wsimport-option>
       </wsimport-options>
     </service>
-    <service name="Controladores">
-      <implementation-class>Services.Controladores</implementation-class>
+    <service name="Contadores">
+      <implementation-class>Services.Contadores</implementation-class>
       <wsdl-url>http://localhost:1234/contadores?wsdl</wsdl-url>
       <local-wsdl-file>localhost_1234/contadores.wsdl</local-wsdl-file>
       <service-name>PContadoresService</service-name>

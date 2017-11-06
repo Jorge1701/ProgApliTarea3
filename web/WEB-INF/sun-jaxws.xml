@@ -16,5 +16,5 @@
   <endpoint implementation="Services.Tema" name="PTemaService" url-pattern="/PTemaService"/>
   <endpoint implementation="Services.Ranking" name="PRankingService" url-pattern="/PRankingService"/>
   <endpoint implementation="Services.DesactivarArtista" name="PDesactivarArtistaService" url-pattern="/PDesactivarArtistaService"/>
-  <endpoint implementation="Services.Controladores" name="PContadoresService" url-pattern="/PContadoresService"/>
+  <endpoint implementation="Services.Contadores" name="PContadoresService" url-pattern="/PContadoresService"/>
 </endpoints>

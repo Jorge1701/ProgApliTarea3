@@ -89,8 +89,6 @@ public class SContenido extends HttpServlet {
                 case "consultarAlbum":
                     if (request.getParameter("nickArtista") == null || request.getParameter("nomAlbum") == null) {
                         request.setAttribute("mensaje_error", "Faltan parametros");
-                        log(request.getParameter("nickArtista"));
-                        log(request.getParameter("nomAlbum"));
                         request.getRequestDispatcher("vistas/pagina_error.jsp").forward(request, response);
                         return;
                     }
@@ -224,7 +222,7 @@ public class SContenido extends HttpServlet {
         }
 
         String accion = request.getParameter("accion");
-        
+
         switch (accion) {
             case "nombreAlbum":
                 if (request.getParameter("nickArtista") == null || request.getParameter("nombreAlbum") == null) {
@@ -255,9 +253,6 @@ public class SContenido extends HttpServlet {
                 String gen = request.getParameter("generos");
                 String imagen = request.getParameter("imagen");
                 int anio = Integer.parseInt(request.getParameter("anio"));
-                log("Anio " + anio);
-                log("nombreAlbum" + nombreA);
-                log("temas " + temas);
 
                 DtTema dtTema;
                 //ArrayList ArrayDeTemas = new ArrayList();
@@ -268,15 +263,12 @@ public class SContenido extends HttpServlet {
                 String[] objGeneros = gen.split("&");
                 int i;
                 for (i = 0; i < objGeneros.length; i++) {
-                    log("Generos" + objGeneros[i]);
                     ArrayDeGeneros.getString().add(objGeneros[i]);
                 }
 
                 String[] todoTemas = temas.split("@");
                 for (i = 0; i < todoTemas.length; i++) {
-                    log("Tema 1 :" + todoTemas[i]);
                     String[] data = todoTemas[i].split("~");
-                    log("url: " + data[0] + " nombre: " + data[1] + " posicion: " + data[2] + " duracion" + data[3]);
                     String[] duracion = data[3].split(":");
 
                     DtTime time = new DtTime();

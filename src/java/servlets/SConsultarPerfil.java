@@ -52,22 +52,14 @@ public class SConsultarPerfil extends HttpServlet {
         }
         DtUsuario DtUs = null;
         try {
-            DtUs = port.getDataUsuario(nickUs); 
-        } catch (SOAPFaultException ex) { 
+            DtUs = port.getDataUsuario(nickUs);
+        } catch (SOAPFaultException ex) {
             request.setAttribute("mensaje_error", "No existe el usuario " + nickUs);
             request.getRequestDispatcher("vistas/pagina_error.jsp").forward(request, response);
         } catch (Exception exc) {
             request.setAttribute("mensaje_error", "Error de conexion con el servidor ");
-            request.getRequestDispatcher("vistas/pagina_error.jsp").forward(request, response);        
-        }
-        /*
-        if (DtUs != null) {
-            log(DtUs.getNickname());
-        } else {
-            log("Usuario es null");
-            request.setAttribute("mensaje_error", "No existe el usuario " + nickUs);
             request.getRequestDispatcher("vistas/pagina_error.jsp").forward(request, response);
-        }*/
+        }
 
         if (DtUs instanceof DtCliente) {
 

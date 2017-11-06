@@ -23,7 +23,7 @@ public class SDesactivarArtista extends HttpServlet {
             PDesactivarArtistaService ws = new PDesactivarArtistaService(new URL(path));
             port = ws.getPDesactivarArtistaPort();
         } catch (MalformedURLException ex) {
-            System.err.println("ERROR: SDesactivarArtista port");
+            ex.printStackTrace();
         }
     }
 

@@ -80,17 +80,12 @@ public class SLista extends HttpServlet {
         String accion = request.getParameter("accion");
         String nombreL = request.getParameter("nombreLst");
 
-        log("llega al servlet Accion: " + accion);
-        log("nombre lista: " + nombreL);
-
         if ("nombreLst".equals(accion)) {
             ArrayList<DtLista> dtl = (ArrayList<DtLista>) port.listarListaReproduccionCli(dtUs.getNickname()).getListas();
-            log("entro 1er if");
             existe = "no";
             for (DtLista dta : dtl) {
                 if (dta.getNombre().equals(nombreL)) {
                     existe = "si";
-                    log("existe si");
                 }
             }
 
@@ -99,8 +94,6 @@ public class SLista extends HttpServlet {
             response.getWriter().write(existe);
 
         } else if ("registroLst".equals(accion)) {
-
-            log("entro a crear lista");
             Calendar c = new GregorianCalendar();
             DtFecha actual = new DtFecha();
             //c.get(Calendar.DATE), c.get(Calendar.MONTH) + 1, c.get(Calendar.YEAR)

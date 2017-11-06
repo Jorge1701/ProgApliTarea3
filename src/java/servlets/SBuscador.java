@@ -23,7 +23,7 @@ public class SBuscador extends HttpServlet {
             PBuscadorService ws = new PBuscadorService(new URL(path));
             port = ws.getPBuscadorPort();
         } catch (MalformedURLException ex) {
-            System.err.println("ERROR: SBuscador port");
+            ex.printStackTrace();
         }
     }
 

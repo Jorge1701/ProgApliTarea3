@@ -104,7 +104,7 @@
                                                             if (suscripcion.getEstado().equals("Vigente")) {
                                                                 if (temas.get(i) instanceof DtTemaLocal) {
                                             %>
-                                    <td><center><input readonly onclick="Descarga('<%=((DtTemaLocal) temas.get(i)).getDirectorio()%>')" class="btn btn-info" id="btnDescargar" value="Descargar"></center></td>
+                                    <td><center><input readonly onclick="Descarga('<%=((DtTemaLocal) temas.get(i)).getDirectorio()%>', '<%= ((DtTemaLocal) temas.get(i)).getArtista()%>', '<%=((DtTemaLocal) temas.get(i)).getAlbum()%>', '<%=((DtTemaLocal) temas.get(i)).getNombre()%>')" class="btn btn-info" id="btnDescargar" value="Descargar"></center></td>
                                         <% } else {%>
                                     <td><center><text style="color:black ">No Se Puede Descargar</text></center></td> 
 
@@ -121,7 +121,7 @@
                                     <td><center><text style="color:black ">No Se Puede Descargar</text></center></td>   
 
                                     <% }
-                                       } else { %> 
+                                    } else { %> 
                                     <td><center><text style="color:black ">Debe Iniciar Sesion</text></center></td>     
 
                                     </tr>

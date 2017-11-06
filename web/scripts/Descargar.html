@@ -1,9 +1,19 @@
 <script>
-    function Descarga(Ruta) {
-        window.location = "/Tarea2/DownloadFile?Ruta="+Ruta;
+    function Descarga(Ruta, nickArt, nomAlbum, nomTema) {
+        window.location = "/Tarea2/DownloadFile?Ruta=" + Ruta;
 
+        $.ajax({
+            type: "POST",
+            url: "/Tarea2/SContadores",
+            data: {
+                "accion": "descarga",
+                "nickArt": encodeURI(nickArt),
+                "nomAlbum": encodeURI(nomAlbum),
+                "nomTema": encodeURI(nomTema)
+            }
+        });
     }
-    
+
 </script>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">

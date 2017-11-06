@@ -8,6 +8,12 @@
 <part name="arg2" type="xsd:string"></part>
 </message>
 <message name="reproducirTemaResponse"></message>
+<message name="descargaTema">
+<part name="arg0" type="xsd:string"></part>
+<part name="arg1" type="xsd:string"></part>
+<part name="arg2" type="xsd:string"></part>
+</message>
+<message name="descargaTemaResponse"></message>
 <portType name="PContadores">
 <operation name="publicar">
 <input wsam:Action="http://Servicios/PContadores/publicarRequest" message="tns:publicar"></input>
@@ -16,6 +22,10 @@
 <operation name="reproducirTema" parameterOrder="arg0 arg1 arg2">
 <input wsam:Action="http://Servicios/PContadores/reproducirTemaRequest" message="tns:reproducirTema"></input>
 <output wsam:Action="http://Servicios/PContadores/reproducirTemaResponse" message="tns:reproducirTemaResponse"></output>
+</operation>
+<operation name="descargaTema" parameterOrder="arg0 arg1 arg2">
+<input wsam:Action="http://Servicios/PContadores/descargaTemaRequest" message="tns:descargaTema"></input>
+<output wsam:Action="http://Servicios/PContadores/descargaTemaResponse" message="tns:descargaTemaResponse"></output>
 </operation>
 </portType>
 <binding name="PContadoresPortBinding" type="tns:PContadores">
@@ -30,6 +40,15 @@
 </output>
 </operation>
 <operation name="reproducirTema">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal" namespace="http://Servicios/"></soap:body>
+</input>
+<output>
+<soap:body use="literal" namespace="http://Servicios/"></soap:body>
+</output>
+</operation>
+<operation name="descargaTema">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal" namespace="http://Servicios/"></soap:body>

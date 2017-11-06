@@ -18,7 +18,6 @@ public class Configuracion {
         String quitar = "build/web/WEB-INF/classes/Configuracion/Configuracion.class";
         String path = Configuracion.class.getResource("/Configuracion/Configuracion.class").getPath().replaceAll(quitar, "configuracion.properties");
 
-        System.out.println("PATH = " + path);
         try {
             BufferedReader br = new BufferedReader(new FileReader(new File(path)));
             String linea;
