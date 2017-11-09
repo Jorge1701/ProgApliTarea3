@@ -129,38 +129,6 @@
         </wsimport-option>
       </wsimport-options>
     </service>
-    <service name="ConsultaPerfil">
-      <implementation-class>Services.ConsultaPerfil</implementation-class>
-      <wsdl-url>http://localhost:1234/consultaPerfil?wsdl</wsdl-url>
-      <local-wsdl-file>localhost_1234/consultaPerfil.wsdl</local-wsdl-file>
-      <service-name>PConsultaPerfilService</service-name>
-      <port-name>PConsultaPerfilPort</port-name>
-      <package-name>servicios</package-name>
-      <catalog-file>catalog.xml</catalog-file>
-      <use-provider>false</use-provider>
-      <wsimport-options>
-        <wsimport-option>
-          <wsimport-option-name>extension</wsimport-option-name>
-          <wsimport-option-value>true</wsimport-option-value>
-        </wsimport-option>
-        <wsimport-option>
-          <wsimport-option-name>verbose</wsimport-option-name>
-          <wsimport-option-value>true</wsimport-option-value>
-        </wsimport-option>
-        <wsimport-option>
-          <wsimport-option-name>fork</wsimport-option-name>
-          <wsimport-option-value>false</wsimport-option-value>
-        </wsimport-option>
-        <wsimport-option>
-          <wsimport-option-name>xnocompile</wsimport-option-name>
-          <wsimport-option-value>true</wsimport-option-value>
-        </wsimport-option>
-        <wsimport-option>
-          <wsimport-option-name>xendorsed</wsimport-option-name>
-          <wsimport-option-value>true</wsimport-option-value>
-        </wsimport-option>
-      </wsimport-options>
-    </service>
     <service name="Buscador">
       <implementation-class>Services.Buscador</implementation-class>
       <wsdl-url>http://localhost:1234/buscador?wsdl</wsdl-url>
@@ -519,6 +487,38 @@
       <local-wsdl-file>localhost_1234/contadores.wsdl</local-wsdl-file>
       <service-name>PContadoresService</service-name>
       <port-name>PContadoresPort</port-name>
+      <package-name>servicios</package-name>
+      <catalog-file>catalog.xml</catalog-file>
+      <use-provider>false</use-provider>
+      <wsimport-options>
+        <wsimport-option>
+          <wsimport-option-name>extension</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>verbose</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>fork</wsimport-option-name>
+          <wsimport-option-value>false</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>xnocompile</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>xendorsed</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+      </wsimport-options>
+    </service>
+    <service name="ConsultarPerfil">
+      <implementation-class>Services.ConsultarPerfil</implementation-class>
+      <wsdl-url>http://localhost:1234/consultaPerfil?wsdl</wsdl-url>
+      <local-wsdl-file>localhost_1234/consultaPerfil.wsdl</local-wsdl-file>
+      <service-name>PConsultaPerfilService</service-name>
+      <port-name>PConsultaPerfilPort</port-name>
       <package-name>servicios</package-name>
       <catalog-file>catalog.xml</catalog-file>
       <use-provider>false</use-provider>

@@ -4,7 +4,6 @@
   <endpoint implementation="Services.Inicio" name="PInicioService" url-pattern="/PInicioService"/>
   <endpoint implementation="Services.Favorito" name="PFavoritoService" url-pattern="/PFavoritoService"/>
   <endpoint implementation="Services.Seguir" name="PSeguirService" url-pattern="/PSeguirService"/>
-  <endpoint implementation="Services.ConsultaPerfil" name="PConsultaPerfilService" url-pattern="/PConsultaPerfilService"/>
   <endpoint implementation="Services.Buscador" name="PBuscadorService" url-pattern="/PBuscadorService"/>
   <endpoint implementation="Services.Uploadfile" name="PUploadfileService" url-pattern="/PUploadfileService"/>
   <endpoint implementation="Services.Sesion" name="PSesionService" url-pattern="/PSesionService"/>
@@ -17,4 +16,5 @@
   <endpoint implementation="Services.Ranking" name="PRankingService" url-pattern="/PRankingService"/>
   <endpoint implementation="Services.DesactivarArtista" name="PDesactivarArtistaService" url-pattern="/PDesactivarArtistaService"/>
   <endpoint implementation="Services.Contadores" name="PContadoresService" url-pattern="/PContadoresService"/>
+  <endpoint implementation="Services.ConsultarPerfil" name="PConsultaPerfilService" url-pattern="/PConsultaPerfilService"/>
 </endpoints>

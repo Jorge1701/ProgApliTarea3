@@ -60,8 +60,8 @@
                                         <td><%= dts.getEstado()%></td>
                                         <td><%= dts.getCuota()%></td>
                                         <td><%= dts.getMonto()%></td>
-                                        <td><%= dts.getFecha().getDia()+ "/" + dts.getFecha().getMes() + "/" + dts.getFecha().getAnio() %></td>
-                                        <td><%= dts.getFechaVenc().getDia() + "/" + dts.getFechaVenc().getMes() + "/" + dts.getFechaVenc().getAnio() %></td>
+                                        <td><%= dts.getFecha().getDia() + "/" + dts.getFecha().getMes() + "/" + dts.getFecha().getAnio()%></td>
+                                        <td><%= dts.getFechaVenc().getDia() + "/" + dts.getFechaVenc().getMes() + "/" + dts.getFechaVenc().getAnio()%></td>
 
 
                                         <% if (dts.getEstado().equals("Vencida")) {%>
@@ -84,7 +84,7 @@
                                         <td><%= activa.getEstado()%></td>
                                         <td><%= activa.getCuota()%></td>
                                         <td><%= activa.getMonto()%></td>
-                                        <td><%= activa.getFecha().getDia()+ "/" + activa.getFecha().getMes() + "/" + activa.getFecha().getAnio()%></td>
+                                        <td><%= activa.getFecha().getDia() + "/" + activa.getFecha().getMes() + "/" + activa.getFecha().getAnio()%></td>
                                         <td><% if (activa.getFechaVenc() != null) {%>
                                             <%= activa.getFechaVenc().getDia()+ "/" + activa.getFechaVenc().getMes() + "/" + activa.getFechaVenc().getAnio()%> <% } else { %>
                                             No Corresponde <% } %>

@@ -30,19 +30,147 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link DtListaRanking }
+     * Create an instance of {@link DtPerfilCliente }
      * 
      */
-    public DtListaRanking createDtListaRanking() {
-        return new DtListaRanking();
+    public DtPerfilCliente createDtPerfilCliente() {
+        return new DtPerfilCliente();
     }
 
     /**
-     * Create an instance of {@link DtRanking }
+     * Create an instance of {@link DtTema }
      * 
      */
-    public DtRanking createDtRanking() {
-        return new DtRanking();
+    public DtTema createDtTema() {
+        return new DtTema();
+    }
+
+    /**
+     * Create an instance of {@link DtLista }
+     * 
+     */
+    public DtLista createDtLista() {
+        return new DtLista();
+    }
+
+    /**
+     * Create an instance of {@link DtArtista }
+     * 
+     */
+    public DtArtista createDtArtista() {
+        return new DtArtista();
+    }
+
+    /**
+     * Create an instance of {@link DtTime }
+     * 
+     */
+    public DtTime createDtTime() {
+        return new DtTime();
+    }
+
+    /**
+     * Create an instance of {@link DtFecha }
+     * 
+     */
+    public DtFecha createDtFecha() {
+        return new DtFecha();
+    }
+
+    /**
+     * Create an instance of {@link DtListaParticular }
+     * 
+     */
+    public DtListaParticular createDtListaParticular() {
+        return new DtListaParticular();
+    }
+
+    /**
+     * Create an instance of {@link DtGenero }
+     * 
+     */
+    public DtGenero createDtGenero() {
+        return new DtGenero();
+    }
+
+    /**
+     * Create an instance of {@link DtPerfilArtista }
+     * 
+     */
+    public DtPerfilArtista createDtPerfilArtista() {
+        return new DtPerfilArtista();
+    }
+
+    /**
+     * Create an instance of {@link DtTemaRemoto }
+     * 
+     */
+    public DtTemaRemoto createDtTemaRemoto() {
+        return new DtTemaRemoto();
+    }
+
+    /**
+     * Create an instance of {@link DtCliente }
+     * 
+     */
+    public DtCliente createDtCliente() {
+        return new DtCliente();
+    }
+
+    /**
+     * Create an instance of {@link DtTemaLocal }
+     * 
+     */
+    public DtTemaLocal createDtTemaLocal() {
+        return new DtTemaLocal();
+    }
+
+    /**
+     * Create an instance of {@link DtListaDefecto }
+     * 
+     */
+    public DtListaDefecto createDtListaDefecto() {
+        return new DtListaDefecto();
+    }
+
+    /**
+     * Create an instance of {@link DtPerfilUsuario }
+     * 
+     */
+    public DtPerfilUsuario createDtPerfilUsuario() {
+        return new DtPerfilUsuario();
+    }
+
+    /**
+     * Create an instance of {@link DtUsuario }
+     * 
+     */
+    public DtUsuario createDtUsuario() {
+        return new DtUsuario();
+    }
+
+    /**
+     * Create an instance of {@link DtSuscripcion }
+     * 
+     */
+    public DtSuscripcion createDtSuscripcion() {
+        return new DtSuscripcion();
+    }
+
+    /**
+     * Create an instance of {@link DtListaTema }
+     * 
+     */
+    public DtListaTema createDtListaTema() {
+        return new DtListaTema();
+    }
+
+    /**
+     * Create an instance of {@link DtAlbum }
+     * 
+     */
+    public DtAlbum createDtAlbum() {
+        return new DtAlbum();
     }
 
 }

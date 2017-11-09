@@ -17,7 +17,7 @@ $("#btnCrearAlbum").click(function () {
         if (subirImagen() === false) {
             return;
         }
-
+        window.alert(temas);
         $.ajax({
             type: "POST",
             url: "/Tarea2/SContenido",
@@ -133,7 +133,9 @@ $("#btnAgregarTema").click(function () {
                 tabla.appendChild(fila);
                 tabla.style.background = "white";
                 document.getElementById("txtNombre").value = "";
-                document.getElementById("txtDuracion").value = "";
+                document.getElementById("txtHora").value = "";
+                document.getElementById("txtMin").value = "";
+                document.getElementById("txtSegundos").value = "";
                 document.getElementById("txtPosicion").value = "";
                 document.getElementById("txtTemaRemoto").value = "";
             }

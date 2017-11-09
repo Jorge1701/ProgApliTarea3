@@ -29,11 +29,6 @@
         <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet>
-        <servlet-name>PConsultaPerfilService</servlet-name>
-        <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
-        <load-on-startup>1</load-on-startup>
-    </servlet>
-    <servlet>
         <servlet-name>PBuscadorService</servlet-name>
         <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
@@ -88,6 +83,11 @@
         <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
+    <servlet>
+        <servlet-name>PConsultaPerfilService</servlet-name>
+        <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
     <servlet-mapping>
         <servlet-name>PRegistroService</servlet-name>
         <url-pattern>/PRegistroService</url-pattern>
@@ -107,10 +107,6 @@
     <servlet-mapping>
         <servlet-name>PSeguirService</servlet-name>
         <url-pattern>/PSeguirService</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>PConsultaPerfilService</servlet-name>
-        <url-pattern>/PConsultaPerfilService</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>PBuscadorService</servlet-name>
@@ -155,6 +151,10 @@
     <servlet-mapping>
         <servlet-name>PContadoresService</servlet-name>
         <url-pattern>/PContadoresService</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PConsultaPerfilService</servlet-name>
+        <url-pattern>/PConsultaPerfilService</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

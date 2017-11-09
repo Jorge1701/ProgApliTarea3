@@ -8,8 +8,6 @@
     <system systemId="http://localhost:1234/favorito?xsd=1" uri="src/conf/xml-resources/web-services/Favorito/wsdl/localhost_1234/favorito.xsd_1.xsd"/>
     <system systemId="http://localhost:1234/seguir?wsdl" uri="src/conf/xml-resources/web-services/Seguir/wsdl/localhost_1234/seguir.wsdl"/>
     <system systemId="http://localhost:1234/seguir?xsd=1" uri="src/conf/xml-resources/web-services/Seguir/wsdl/localhost_1234/seguir.xsd_1.xsd"/>
-    <system systemId="http://localhost:1234/consultaPerfil?wsdl" uri="src/conf/xml-resources/web-services/ConsultaPerfil/wsdl/localhost_1234/consultaPerfil.wsdl"/>
-    <system systemId="http://localhost:1234/consultaPerfil?xsd=1" uri="src/conf/xml-resources/web-services/ConsultaPerfil/wsdl/localhost_1234/consultaPerfil.xsd_1.xsd"/>
     <system systemId="http://localhost:1234/buscador?wsdl" uri="src/conf/xml-resources/web-services/Buscador/wsdl/localhost_1234/buscador.wsdl"/>
     <system systemId="http://localhost:1234/buscador?xsd=1" uri="src/conf/xml-resources/web-services/Buscador/wsdl/localhost_1234/buscador.xsd_1.xsd"/>
     <system systemId="http://localhost:1234/uploadfile?wsdl" uri="src/conf/xml-resources/web-services/Uploadfile/wsdl/localhost_1234/uploadfile.wsdl"/>
@@ -31,4 +29,6 @@
     <system systemId="http://localhost:1234/ranking?xsd=1" uri="src/conf/xml-resources/web-services/Ranking/wsdl/localhost_1234/ranking.xsd_1.xsd"/>
     <system systemId="http://localhost:1234/desactivarArtista?wsdl" uri="src/conf/xml-resources/web-services/DesactivarArtista/wsdl/localhost_1234/desactivarArtista.wsdl"/>
     <system systemId="http://localhost:1234/contadores?wsdl" uri="src/conf/xml-resources/web-services/Contadores/wsdl/localhost_1234/contadores.wsdl"/>
+    <system systemId="http://localhost:1234/consultaPerfil?wsdl" uri="src/conf/xml-resources/web-services/ConsultarPerfil/wsdl/localhost_1234/consultaPerfil.wsdl"/>
+    <system systemId="http://localhost:1234/consultaPerfil?xsd=1" uri="src/conf/xml-resources/web-services/ConsultarPerfil/wsdl/localhost_1234/consultaPerfil.xsd_1.xsd"/>
 </catalog>

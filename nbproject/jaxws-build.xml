@@ -102,25 +102,6 @@
         <delete dir="${build.generated.sources.dir}/jax-ws/servicios"/>
         <delete dir="${build.generated.dir}/jax-wsCache/service/Seguir"/>
     </target>
-    <target name="wsimport-service-ConsultaPerfil" depends="wsimport-init">
-        <mkdir dir="${build.generated.dir}/jax-wsCache/service/ConsultaPerfil"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/service/ConsultaPerfil" destdir="${build.generated.dir}/jax-wsCache/service/ConsultaPerfil" wsdl="${basedir}/${conf-dir}xml-resources/web-services/ConsultaPerfil/wsdl/localhost_1234/consultaPerfil.wsdl" catalog="catalog.xml" extension="true" verbose="true" fork="false" xnocompile="true" xendorsed="true">
-            <depends file="${basedir}/${conf-dir}xml-resources/web-services/ConsultaPerfil/wsdl/localhost_1234/consultaPerfil.wsdl"/>
-            <produces dir="${build.generated.dir}/jax-wsCache/service/ConsultaPerfil"/>
-        </wsimport>
-        <copy todir="${build.generated.sources.dir}/jax-ws">
-            <fileset dir="${build.generated.dir}/jax-wsCache/service/ConsultaPerfil">
-                <include name="**/*.java"/>
-            </fileset>
-        </copy>
-        <copy todir="${build.web.dir}/WEB-INF/wsdl/ConsultaPerfil">
-            <fileset dir="${basedir}/${conf-dir}xml-resources/web-services/ConsultaPerfil/wsdl/"/>
-        </copy>
-    </target>
-    <target name="wsimport-service-clean-ConsultaPerfil" depends="-init-project">
-        <delete dir="${build.generated.sources.dir}/jax-ws/servicios"/>
-        <delete dir="${build.generated.dir}/jax-wsCache/service/ConsultaPerfil"/>
-    </target>
     <target name="wsimport-service-Buscador" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/service/Buscador"/>
         <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/service/Buscador" destdir="${build.generated.dir}/jax-wsCache/service/Buscador" wsdl="${basedir}/${conf-dir}xml-resources/web-services/Buscador/wsdl/localhost_1234/buscador.wsdl" catalog="catalog.xml" extension="true" verbose="true" fork="false" xnocompile="true" xendorsed="true">
@@ -349,5 +330,24 @@
         <delete dir="${build.generated.sources.dir}/jax-ws/servicios"/>
         <delete dir="${build.generated.dir}/jax-wsCache/service/Contadores"/>
     </target>
-    <target name="wsimport-service-generate" depends="wsimport-service-Imagen, wsimport-service-Inicio, wsimport-service-Favorito, wsimport-service-Seguir, wsimport-service-ConsultaPerfil, wsimport-service-Buscador, wsimport-service-Uploadfile, wsimport-service-Sesion, wsimport-service-Registro, wsimport-service-Contenido, wsimport-service-Downloadfile, wsimport-service-Lista, wsimport-service-Suscripcion, wsimport-service-Tema, wsimport-service-Ranking, wsimport-service-DesactivarArtista, wsimport-service-Contadores"/>
+    <target name="wsimport-service-ConsultarPerfil" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/service/ConsultarPerfil"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/service/ConsultarPerfil" destdir="${build.generated.dir}/jax-wsCache/service/ConsultarPerfil" wsdl="${basedir}/${conf-dir}xml-resources/web-services/ConsultarPerfil/wsdl/localhost_1234/consultaPerfil.wsdl" catalog="catalog.xml" extension="true" verbose="true" fork="false" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-services/ConsultarPerfil/wsdl/localhost_1234/consultaPerfil.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/service/ConsultarPerfil"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/service/ConsultarPerfil">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+        <copy todir="${build.web.dir}/WEB-INF/wsdl/ConsultarPerfil">
+            <fileset dir="${basedir}/${conf-dir}xml-resources/web-services/ConsultarPerfil/wsdl/"/>
+        </copy>
+    </target>
+    <target name="wsimport-service-clean-ConsultarPerfil" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/servicios"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/service/ConsultarPerfil"/>
+    </target>
+    <target name="wsimport-service-generate" depends="wsimport-service-Imagen, wsimport-service-Inicio, wsimport-service-Favorito, wsimport-service-Seguir, wsimport-service-Buscador, wsimport-service-Uploadfile, wsimport-service-Sesion, wsimport-service-Registro, wsimport-service-Contenido, wsimport-service-Downloadfile, wsimport-service-Lista, wsimport-service-Suscripcion, wsimport-service-Tema, wsimport-service-Ranking, wsimport-service-DesactivarArtista, wsimport-service-Contadores, wsimport-service-ConsultarPerfil"/>
 </project>
