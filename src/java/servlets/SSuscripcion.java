@@ -46,8 +46,8 @@ public class SSuscripcion extends HttpServlet {
             if (request.getSession().getAttribute("usuario") != null) {
                 DtUsuario usr = (DtUsuario) request.getSession().getAttribute("usuario");
 
-                if (usr instanceof DtArtista) {
-                    request.setAttribute("mensaje_error", "Esta pÃ¡gina esta reservada para nuestros clientes");
+                if (!(usr instanceof DtCliente)) {
+                    request.setAttribute("mensaje_error", "NARNIA");
                     request.getRequestDispatcher("vistas/pagina_error.jsp").forward(request, response);
                 } else {
                     request.getSession().setAttribute("suscripcion", ((DtCliente) usr).getActual());
@@ -56,7 +56,7 @@ public class SSuscripcion extends HttpServlet {
                 }
 
             } else {
-                request.setAttribute("mensaje_error", "Debe estar logueado para ver esta pÃ¡gina");
+                request.setAttribute("mensaje_error", "Debe estar logueado para ver esta pagina");
                 request.getRequestDispatcher("vistas/pagina_error.jsp").forward(request, response);
             }
 
@@ -64,8 +64,8 @@ public class SSuscripcion extends HttpServlet {
             if (request.getSession().getAttribute("usuario") != null) {
                 DtUsuario usr = (DtUsuario) request.getSession().getAttribute("usuario");
 
-                if (usr instanceof DtArtista) {
-                    request.setAttribute("mensaje_error", "Esta pÃ¡gina esta reservada para nuestros clientes");
+                if (!(usr instanceof DtCliente)) {
+                    request.setAttribute("mensaje_error", "Esta pagina esta reservada para nuestros clientes2");
                     request.getRequestDispatcher("vistas/pagina_error.jsp").forward(request, response);
                 } else {
                     request.setAttribute("suscripcion", ((DtCliente) usr).getActual());
@@ -75,7 +75,7 @@ public class SSuscripcion extends HttpServlet {
                 }
 
             } else {
-                request.setAttribute("mensaje_error", "Debe estar logueado para ver esta pÃ¡gina");
+                request.setAttribute("mensaje_error", "Debe estar logueado para ver esta pagina");
                 request.getRequestDispatcher("vistas/pagina_error.jsp").forward(request, response);
             }
 
@@ -88,13 +88,13 @@ public class SSuscripcion extends HttpServlet {
 
         } else if (request.getParameter("accion").equals("registro")) {
             if (request.getSession().getAttribute("usuario") == null) {
-                request.setAttribute("mensaje_error", "Debe estar logueado para ver esta pÃ¡gina");
+                request.setAttribute("mensaje_error", "Debe estar logueado para ver esta pagina");
                 request.getRequestDispatcher("vistas/pagina_error.jsp").forward(request, response);
             }
 
             DtUsuario usuario = (DtUsuario) request.getSession().getAttribute("usuario");
             if (((DtCliente) usuario).getActual() != null) {
-                request.setAttribute("mensaje_error", "Ya posee una suscripciÃ³n vigente");
+                request.setAttribute("mensaje_error", "Ya posee una suscripcion vigente");
                 request.getRequestDispatcher("vistas/pagina_error.jsp").forward(request, response);
             }
             String nickname = usuario.getNickname();

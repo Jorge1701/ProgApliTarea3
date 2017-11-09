@@ -30,43 +30,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link DtCliente }
+     * Create an instance of {@link DtListaRanking }
      * 
      */
-    public DtCliente createDtCliente() {
-        return new DtCliente();
+    public DtListaRanking createDtListaRanking() {
+        return new DtListaRanking();
     }
 
     /**
-     * Create an instance of {@link DtArtista }
+     * Create an instance of {@link DtRanking }
      * 
      */
-    public DtArtista createDtArtista() {
-        return new DtArtista();
-    }
-
-    /**
-     * Create an instance of {@link DtUsuario }
-     * 
-     */
-    public DtUsuario createDtUsuario() {
-        return new DtUsuario();
-    }
-
-    /**
-     * Create an instance of {@link DtSuscripcion }
-     * 
-     */
-    public DtSuscripcion createDtSuscripcion() {
-        return new DtSuscripcion();
-    }
-
-    /**
-     * Create an instance of {@link DtFecha }
-     * 
-     */
-    public DtFecha createDtFecha() {
-        return new DtFecha();
+    public DtRanking createDtRanking() {
+        return new DtRanking();
     }
 
 }
