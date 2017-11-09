@@ -27,8 +27,8 @@
     <system systemId="http://localhost:1234/tema?xsd=1" uri="src/conf/xml-resources/web-services/Tema/wsdl/localhost_1234/tema.xsd_1.xsd"/>
     <system systemId="http://localhost:1234/desactivarArtista?wsdl" uri="src/conf/xml-resources/web-services/DesactivarArtista/wsdl/localhost_1234/desactivarArtista.wsdl"/>
     <system systemId="http://localhost:1234/contadores?wsdl" uri="src/conf/xml-resources/web-services/Contadores/wsdl/localhost_1234/contadores.wsdl"/>
-    <system systemId="http://localhost:1234/consultaPerfil?wsdl" uri="src/conf/xml-resources/web-services/ConsultarPerfil/wsdl/localhost_1234/consultaPerfil.wsdl"/>
-    <system systemId="http://localhost:1234/consultaPerfil?xsd=1" uri="src/conf/xml-resources/web-services/ConsultarPerfil/wsdl/localhost_1234/consultaPerfil.xsd_1.xsd"/>
     <system systemId="http://localhost:1234/ranking?wsdl" uri="src/conf/xml-resources/web-services/Ranking/wsdl/localhost_1234/ranking.wsdl"/>
     <system systemId="http://localhost:1234/ranking?xsd=1" uri="src/conf/xml-resources/web-services/Ranking/wsdl/localhost_1234/ranking.xsd_1.xsd"/>
+    <system systemId="http://localhost:1234/consultaPerfil?wsdl" uri="src/conf/xml-resources/web-services/ConsultaPerfil/wsdl/localhost_1234/consultaPerfil.wsdl"/>
+    <system systemId="http://localhost:1234/consultaPerfil?xsd=1" uri="src/conf/xml-resources/web-services/ConsultaPerfil/wsdl/localhost_1234/consultaPerfil.xsd_1.xsd"/>
 </catalog>

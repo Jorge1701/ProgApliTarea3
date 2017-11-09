@@ -15,7 +15,7 @@
         %>
         <title>Contratar Suscripción de Espotify</title>
     </head>
-    <body style="background-image: url('media/wallpaper2.jpg')">
+    <body style="background-image: url('media/wallpaper.jpg')">
 
         <div class="container-fluid">
             <!-- Header -->

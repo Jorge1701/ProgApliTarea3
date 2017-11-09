@@ -2,7 +2,6 @@ package servlets;
 
 import Configuracion.Configuracion;
 import java.awt.image.BufferedImage;
-import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -11,7 +10,6 @@ import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
-import javax.imageio.stream.MemoryCacheImageOutputStream;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -42,34 +40,31 @@ public class SImagen extends HttpServlet {
             return;
         }
         byte[] img = null;
-        String ruta = getServletContext().getRealPath("/");
-        String[] parte = ruta.split("ProgApliTarea3");
-        String tarea1 = parte[0] + "ProgApliTarea1" + File.separator;
+
+        String quitar = "WEB-INF/classes/servlets/SImagen.class";
+        String path = SImagen.class.getResource("/servlets/SImagen.class").getPath().replace(quitar, "media/");
 
         if (request.getParameter("usuario") != null) {
             BufferedImage bi = null;
             OutputStream out = response.getOutputStream();
             try {
-                //bi = ImageIO.read(new File(tarea1 + "Recursos/Imagenes/Usuarios/" + request.getParameter("usuario")));
                 img = port.getFile("Usuario", request.getParameter("usuario"));
                 out.write(img);
-                //bi = ImageIO.read(new ByteArrayInputStream(img));
+
             } catch (Exception e) {
-                bi = ImageIO.read(new File(tarea1 + "Recursos/Imagenes/Usuarios/userDefaullt.png"));
+                bi = ImageIO.read(new File(path + "userDefault.png"));
                 ImageIO.write(bi, "png", out);
             }
-
             out.close();
         }
         if (request.getParameter("album") != null) {
             BufferedImage bi = null;
             OutputStream out = response.getOutputStream();
             try {
-                //bi = ImageIO.read(new File(tarea1 + "Recursos/Imagenes/Albumes/" + request.getParameter("album")));
                 img = port.getFile("Album", request.getParameter("album"));
                 out.write(img);
             } catch (Exception e) {
-                bi = ImageIO.read(new File(tarea1 + "Recursos/Imagenes/Albumes/albumDefault.png"));
+                bi = ImageIO.read(new File(path + "albumDefault.png"));
                 ImageIO.write(bi, "png", out);
             }
 
@@ -79,14 +74,12 @@ public class SImagen extends HttpServlet {
             BufferedImage bi = null;
             OutputStream out = response.getOutputStream();
             try {
-                //bi = ImageIO.read(new File(tarea1 + "Recursos/Imagenes/Listas/" + request.getParameter("lista")));
                 img = port.getFile("Lista", request.getParameter("lista"));
                 out.write(img);
             } catch (Exception e) {
-                bi = ImageIO.read(new File(tarea1 + "Recursos/Imagenes/Listas/listaDefault.png"));
+                bi = ImageIO.read(new File(path + "albumDefault.png"));
                 ImageIO.write(bi, "png", out);
             }
-
             out.close();
         }
     }

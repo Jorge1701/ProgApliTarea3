@@ -18,7 +18,7 @@
         <link rel="stylesheet" type="text/css" href="estilos/inicio.css">
         <title>Consulta perfil Cliente</title>
     </head>
-    <body style="background-image: url('media/wallpaper2.jpg')">
+    <body style="background-image: url('media/wallpaper.jpg')">
         <%
             DtPerfilCliente dtPCliente = (DtPerfilCliente) request.getAttribute("DtPerfilCliente");
             DtCliente dtCli = null;

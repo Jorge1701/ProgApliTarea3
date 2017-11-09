@@ -481,12 +481,12 @@
         </wsimport-option>
       </wsimport-options>
     </service>
-    <service name="ConsultarPerfil">
-      <implementation-class>Services.ConsultarPerfil</implementation-class>
-      <wsdl-url>http://localhost:1234/consultaPerfil?wsdl</wsdl-url>
-      <local-wsdl-file>localhost_1234/consultaPerfil.wsdl</local-wsdl-file>
-      <service-name>PConsultaPerfilService</service-name>
-      <port-name>PConsultaPerfilPort</port-name>
+    <service name="Ranking">
+      <implementation-class>Services.Ranking</implementation-class>
+      <wsdl-url>http://localhost:1234/ranking?wsdl</wsdl-url>
+      <local-wsdl-file>localhost_1234/ranking.wsdl</local-wsdl-file>
+      <service-name>PRankingService</service-name>
+      <port-name>PRankingPort</port-name>
       <package-name>servicios</package-name>
       <catalog-file>catalog.xml</catalog-file>
       <use-provider>false</use-provider>
@@ -513,12 +513,12 @@
         </wsimport-option>
       </wsimport-options>
     </service>
-    <service name="Ranking">
-      <implementation-class>Services.Ranking</implementation-class>
-      <wsdl-url>http://localhost:1234/ranking?wsdl</wsdl-url>
-      <local-wsdl-file>localhost_1234/ranking.wsdl</local-wsdl-file>
-      <service-name>PRankingService</service-name>
-      <port-name>PRankingPort</port-name>
+    <service name="ConsultaPerfil">
+      <implementation-class>Services.ConsultaPerfil</implementation-class>
+      <wsdl-url>http://localhost:1234/consultaPerfil?wsdl</wsdl-url>
+      <local-wsdl-file>localhost_1234/consultaPerfil.wsdl</local-wsdl-file>
+      <service-name>PConsultaPerfilService</service-name>
+      <port-name>PConsultaPerfilPort</port-name>
       <package-name>servicios</package-name>
       <catalog-file>catalog.xml</catalog-file>
       <use-provider>false</use-provider>

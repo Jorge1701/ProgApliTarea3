@@ -11,7 +11,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Consulta Perfil Artista</title>
     </head>
-    <body style="background-image: url('media/wallpaper2.jpg')">
+    <body style="background-image: url('media/wallpaper.jpg')">
         <%
             DtPerfilArtista dtPArtista = (DtPerfilArtista) request.getAttribute("dtPerfilArtista");
         %>

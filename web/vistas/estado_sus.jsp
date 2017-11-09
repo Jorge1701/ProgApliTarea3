@@ -10,7 +10,7 @@
         <jsp:include page="../scripts/busqueda.html"/>
         <title>Administrar Suscripciones</title>
     </head>
-    <body style="background-image: url('media/wallpaper2.jpg')">
+    <body style="background-image: url('media/wallpaper.jpg')">
 
         <div class="container-fluid">
             <!-- Header -->

@@ -4,20 +4,20 @@
 <xsd:import namespace="http://Servicios/" schemaLocation="http://localhost:1234/consultaPerfil?xsd=1"></xsd:import>
 </xsd:schema>
 </types>
-<message name="obtenerPerfilArtista">
-<part name="arg0" type="xsd:string"></part>
-</message>
-<message name="obtenerPerfilArtistaResponse">
-<part name="return" type="tns:DtPerfilArtista"></part>
-</message>
+<message name="publicar"></message>
+<message name="publicarResponse"></message>
 <message name="obtenerPerfilCliente">
 <part name="arg0" type="xsd:string"></part>
 </message>
 <message name="obtenerPerfilClienteResponse">
 <part name="return" type="tns:DtPerfilCliente"></part>
 </message>
-<message name="publicar"></message>
-<message name="publicarResponse"></message>
+<message name="obtenerPerfilArtista">
+<part name="arg0" type="xsd:string"></part>
+</message>
+<message name="obtenerPerfilArtistaResponse">
+<part name="return" type="tns:DtPerfilArtista"></part>
+</message>
 <message name="getDataUsuario">
 <part name="arg0" type="xsd:string"></part>
 </message>
@@ -25,17 +25,17 @@
 <part name="return" type="tns:DtUsuario"></part>
 </message>
 <portType name="PConsultaPerfil">
-<operation name="obtenerPerfilArtista">
-<input wsam:Action="http://Servicios/PConsultaPerfil/obtenerPerfilArtistaRequest" message="tns:obtenerPerfilArtista"></input>
-<output wsam:Action="http://Servicios/PConsultaPerfil/obtenerPerfilArtistaResponse" message="tns:obtenerPerfilArtistaResponse"></output>
+<operation name="publicar">
+<input wsam:Action="http://Servicios/PConsultaPerfil/publicarRequest" message="tns:publicar"></input>
+<output wsam:Action="http://Servicios/PConsultaPerfil/publicarResponse" message="tns:publicarResponse"></output>
 </operation>
 <operation name="obtenerPerfilCliente">
 <input wsam:Action="http://Servicios/PConsultaPerfil/obtenerPerfilClienteRequest" message="tns:obtenerPerfilCliente"></input>
 <output wsam:Action="http://Servicios/PConsultaPerfil/obtenerPerfilClienteResponse" message="tns:obtenerPerfilClienteResponse"></output>
 </operation>
-<operation name="publicar">
-<input wsam:Action="http://Servicios/PConsultaPerfil/publicarRequest" message="tns:publicar"></input>
-<output wsam:Action="http://Servicios/PConsultaPerfil/publicarResponse" message="tns:publicarResponse"></output>
+<operation name="obtenerPerfilArtista">
+<input wsam:Action="http://Servicios/PConsultaPerfil/obtenerPerfilArtistaRequest" message="tns:obtenerPerfilArtista"></input>
+<output wsam:Action="http://Servicios/PConsultaPerfil/obtenerPerfilArtistaResponse" message="tns:obtenerPerfilArtistaResponse"></output>
 </operation>
 <operation name="getDataUsuario">
 <input wsam:Action="http://Servicios/PConsultaPerfil/getDataUsuarioRequest" message="tns:getDataUsuario"></input>
@@ -44,7 +44,7 @@
 </portType>
 <binding name="PConsultaPerfilPortBinding" type="tns:PConsultaPerfil">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc"></soap:binding>
-<operation name="obtenerPerfilArtista">
+<operation name="publicar">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal" namespace="http://Servicios/"></soap:body>
@@ -62,7 +62,7 @@
 <soap:body use="literal" namespace="http://Servicios/"></soap:body>
 </output>
 </operation>
-<operation name="publicar">
+<operation name="obtenerPerfilArtista">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal" namespace="http://Servicios/"></soap:body>

@@ -11,7 +11,7 @@
          <jsp:include page="include.html"/>
         <title>Crear lista Reproduccion</title>
     </head>
-    <body style="background-image: url('media/wallpaper2.jpg')">
+    <body style="background-image: url('media/wallpaper.jpg')">
         <div class="container-fluid">
             <jsp:include page="header.jsp"/>
             <hr>

@@ -1,6 +1,6 @@
   
 body{
-            background-image: url('../media/wallpaper2.jpg');
+            background-image: url('../media/wallpaper.jpg');
             background-repeat:no-repeat;
             background-position:center center;
             background-attachment:fixed;
@@ -11,7 +11,7 @@ body{
         }
   
 #lateral{
-            background-image: url('../media/lateral1.jpg'); 
+            background-image: url('../media/lateral.jpg'); 
             background-repeat:no-repeat; 
             background-position:center center;
            

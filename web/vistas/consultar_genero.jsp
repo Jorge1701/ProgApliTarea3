@@ -18,7 +18,7 @@
         <title>Espotify</title>
 
     </head>
-    <body style="background-image: url('media/wallpaper2.jpg')">
+    <body style="background-image: url('media/wallpaper.jpg')">
         <%
             String url = "/SContenido?" + request.getQueryString();
         %>
