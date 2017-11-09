@@ -417,38 +417,6 @@
         </wsimport-option>
       </wsimport-options>
     </service>
-    <service name="Ranking">
-      <implementation-class>Services.Ranking</implementation-class>
-      <wsdl-url>http://localhost:1234/ranking?wsdl</wsdl-url>
-      <local-wsdl-file>localhost_1234/ranking.wsdl</local-wsdl-file>
-      <service-name>PRankingService</service-name>
-      <port-name>PRankingPort</port-name>
-      <package-name>servicios</package-name>
-      <catalog-file>catalog.xml</catalog-file>
-      <use-provider>false</use-provider>
-      <wsimport-options>
-        <wsimport-option>
-          <wsimport-option-name>extension</wsimport-option-name>
-          <wsimport-option-value>true</wsimport-option-value>
-        </wsimport-option>
-        <wsimport-option>
-          <wsimport-option-name>verbose</wsimport-option-name>
-          <wsimport-option-value>true</wsimport-option-value>
-        </wsimport-option>
-        <wsimport-option>
-          <wsimport-option-name>fork</wsimport-option-name>
-          <wsimport-option-value>false</wsimport-option-value>
-        </wsimport-option>
-        <wsimport-option>
-          <wsimport-option-name>xnocompile</wsimport-option-name>
-          <wsimport-option-value>true</wsimport-option-value>
-        </wsimport-option>
-        <wsimport-option>
-          <wsimport-option-name>xendorsed</wsimport-option-name>
-          <wsimport-option-value>true</wsimport-option-value>
-        </wsimport-option>
-      </wsimport-options>
-    </service>
     <service name="DesactivarArtista">
       <implementation-class>Services.DesactivarArtista</implementation-class>
       <wsdl-url>http://localhost:1234/desactivarArtista?wsdl</wsdl-url>
@@ -519,6 +487,38 @@
       <local-wsdl-file>localhost_1234/consultaPerfil.wsdl</local-wsdl-file>
       <service-name>PConsultaPerfilService</service-name>
       <port-name>PConsultaPerfilPort</port-name>
+      <package-name>servicios</package-name>
+      <catalog-file>catalog.xml</catalog-file>
+      <use-provider>false</use-provider>
+      <wsimport-options>
+        <wsimport-option>
+          <wsimport-option-name>extension</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>verbose</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>fork</wsimport-option-name>
+          <wsimport-option-value>false</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>xnocompile</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>xendorsed</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+      </wsimport-options>
+    </service>
+    <service name="Ranking">
+      <implementation-class>Services.Ranking</implementation-class>
+      <wsdl-url>http://localhost:1234/ranking?wsdl</wsdl-url>
+      <local-wsdl-file>localhost_1234/ranking.wsdl</local-wsdl-file>
+      <service-name>PRankingService</service-name>
+      <port-name>PRankingPort</port-name>
       <package-name>servicios</package-name>
       <catalog-file>catalog.xml</catalog-file>
       <use-provider>false</use-provider>

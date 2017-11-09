@@ -2,14 +2,15 @@
 
 <xs:complexType name="DtListaRanking">
 <xs:sequence>
-<xs:element name="ranking" type="tns:dtRanking" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
+<xs:element name="ranking" type="tns:DtRanking" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="dtRanking">
+<xs:complexType name="DtRanking">
 <xs:sequence>
-<xs:element name="cantSeguidores" type="xs:int"></xs:element>
 <xs:element name="nickname" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="nombre" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="cant_seguidores" type="xs:int"></xs:element>
 </xs:sequence>
 </xs:complexType>
 </xs:schema>

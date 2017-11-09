@@ -13,8 +13,8 @@
   <endpoint implementation="Services.Lista" name="PListaService" url-pattern="/PListaService"/>
   <endpoint implementation="Services.Suscripcion" name="PSuscripcionService" url-pattern="/PSuscripcionService"/>
   <endpoint implementation="Services.Tema" name="PTemaService" url-pattern="/PTemaService"/>
-  <endpoint implementation="Services.Ranking" name="PRankingService" url-pattern="/PRankingService"/>
   <endpoint implementation="Services.DesactivarArtista" name="PDesactivarArtistaService" url-pattern="/PDesactivarArtistaService"/>
   <endpoint implementation="Services.Contadores" name="PContadoresService" url-pattern="/PContadoresService"/>
   <endpoint implementation="Services.ConsultarPerfil" name="PConsultaPerfilService" url-pattern="/PConsultaPerfilService"/>
+  <endpoint implementation="Services.Ranking" name="PRankingService" url-pattern="/PRankingService"/>
 </endpoints>

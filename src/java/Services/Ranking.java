@@ -9,7 +9,7 @@ import javax.jws.WebService;
 
 /**
  *
- * @author Ale
+ * @author jorge
  */
 @WebService(serviceName = "PRankingService", portName = "PRankingPort", endpointInterface = "servicios.PRanking", targetNamespace = "http://Servicios/", wsdlLocation = "WEB-INF/wsdl/Ranking/localhost_1234/ranking.wsdl")
 public class Ranking {

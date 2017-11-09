@@ -273,25 +273,6 @@
         <delete dir="${build.generated.sources.dir}/jax-ws/servicios"/>
         <delete dir="${build.generated.dir}/jax-wsCache/service/Tema"/>
     </target>
-    <target name="wsimport-service-Ranking" depends="wsimport-init">
-        <mkdir dir="${build.generated.dir}/jax-wsCache/service/Ranking"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/service/Ranking" destdir="${build.generated.dir}/jax-wsCache/service/Ranking" wsdl="${basedir}/${conf-dir}xml-resources/web-services/Ranking/wsdl/localhost_1234/ranking.wsdl" catalog="catalog.xml" extension="true" verbose="true" fork="false" xnocompile="true" xendorsed="true">
-            <depends file="${basedir}/${conf-dir}xml-resources/web-services/Ranking/wsdl/localhost_1234/ranking.wsdl"/>
-            <produces dir="${build.generated.dir}/jax-wsCache/service/Ranking"/>
-        </wsimport>
-        <copy todir="${build.generated.sources.dir}/jax-ws">
-            <fileset dir="${build.generated.dir}/jax-wsCache/service/Ranking">
-                <include name="**/*.java"/>
-            </fileset>
-        </copy>
-        <copy todir="${build.web.dir}/WEB-INF/wsdl/Ranking">
-            <fileset dir="${basedir}/${conf-dir}xml-resources/web-services/Ranking/wsdl/"/>
-        </copy>
-    </target>
-    <target name="wsimport-service-clean-Ranking" depends="-init-project">
-        <delete dir="${build.generated.sources.dir}/jax-ws/servicios"/>
-        <delete dir="${build.generated.dir}/jax-wsCache/service/Ranking"/>
-    </target>
     <target name="wsimport-service-DesactivarArtista" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/service/DesactivarArtista"/>
         <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/service/DesactivarArtista" destdir="${build.generated.dir}/jax-wsCache/service/DesactivarArtista" wsdl="${basedir}/${conf-dir}xml-resources/web-services/DesactivarArtista/wsdl/localhost_1234/desactivarArtista.wsdl" catalog="catalog.xml" extension="true" verbose="true" fork="false" xnocompile="true" xendorsed="true">
@@ -349,5 +330,24 @@
         <delete dir="${build.generated.sources.dir}/jax-ws/servicios"/>
         <delete dir="${build.generated.dir}/jax-wsCache/service/ConsultarPerfil"/>
     </target>
-    <target name="wsimport-service-generate" depends="wsimport-service-Imagen, wsimport-service-Inicio, wsimport-service-Favorito, wsimport-service-Seguir, wsimport-service-Buscador, wsimport-service-Uploadfile, wsimport-service-Sesion, wsimport-service-Registro, wsimport-service-Contenido, wsimport-service-Downloadfile, wsimport-service-Lista, wsimport-service-Suscripcion, wsimport-service-Tema, wsimport-service-Ranking, wsimport-service-DesactivarArtista, wsimport-service-Contadores, wsimport-service-ConsultarPerfil"/>
+    <target name="wsimport-service-Ranking" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/service/Ranking"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/service/Ranking" destdir="${build.generated.dir}/jax-wsCache/service/Ranking" wsdl="${basedir}/${conf-dir}xml-resources/web-services/Ranking/wsdl/localhost_1234/ranking.wsdl" catalog="catalog.xml" extension="true" verbose="true" fork="false" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-services/Ranking/wsdl/localhost_1234/ranking.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/service/Ranking"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/service/Ranking">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+        <copy todir="${build.web.dir}/WEB-INF/wsdl/Ranking">
+            <fileset dir="${basedir}/${conf-dir}xml-resources/web-services/Ranking/wsdl/"/>
+        </copy>
+    </target>
+    <target name="wsimport-service-clean-Ranking" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/servicios"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/service/Ranking"/>
+    </target>
+    <target name="wsimport-service-generate" depends="wsimport-service-Imagen, wsimport-service-Inicio, wsimport-service-Favorito, wsimport-service-Seguir, wsimport-service-Buscador, wsimport-service-Uploadfile, wsimport-service-Sesion, wsimport-service-Registro, wsimport-service-Contenido, wsimport-service-Downloadfile, wsimport-service-Lista, wsimport-service-Suscripcion, wsimport-service-Tema, wsimport-service-DesactivarArtista, wsimport-service-Contadores, wsimport-service-ConsultarPerfil, wsimport-service-Ranking"/>
 </project>

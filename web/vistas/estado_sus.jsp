@@ -8,9 +8,6 @@
     <head>
         <jsp:include page="include.html"/>
         <jsp:include page="../scripts/busqueda.html"/>
-
-
-
         <title>Administrar Suscripciones</title>
     </head>
     <body style="background-image: url('media/wallpaper2.jpg')">

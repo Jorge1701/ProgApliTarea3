@@ -69,11 +69,6 @@
         <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet>
-        <servlet-name>PRankingService</servlet-name>
-        <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
-        <load-on-startup>1</load-on-startup>
-    </servlet>
-    <servlet>
         <servlet-name>PDesactivarArtistaService</servlet-name>
         <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
@@ -85,6 +80,11 @@
     </servlet>
     <servlet>
         <servlet-name>PConsultaPerfilService</servlet-name>
+        <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet>
+        <servlet-name>PRankingService</servlet-name>
         <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
@@ -141,10 +141,6 @@
         <url-pattern>/PTemaService</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>PRankingService</servlet-name>
-        <url-pattern>/PRankingService</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>PDesactivarArtistaService</servlet-name>
         <url-pattern>/PDesactivarArtistaService</url-pattern>
     </servlet-mapping>
@@ -155,6 +151,10 @@
     <servlet-mapping>
         <servlet-name>PConsultaPerfilService</servlet-name>
         <url-pattern>/PConsultaPerfilService</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PRankingService</servlet-name>
+        <url-pattern>/PRankingService</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

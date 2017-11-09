@@ -21,7 +21,7 @@
 
                     <div class="panel panel-default">
 
-                        <h2 style="text-align: center; font-weight: bold">Ranking <span class="glyphicon glyphicon-star" style="color: #ffff00;"></span><span class="glyphicon glyphicon-star" style="color: #ffff00;"></span><span class="glyphicon glyphicon-star" style="color: #ffff00;"></span></h2>   
+                        <h2 style="text-align: center; font-weight: bold">Ranking </h2>   
                         <br>
 
                         <div class="table-responsive"> 
@@ -39,7 +39,7 @@
                                             if (rankings.size() != 0) {
                                                 for (DtRanking r : rankings) {%>
                                     <tr>
-                                        <td><a href="/Tarea2/SConsultarPerfil?nickUs=<%=r.getNickname()%>"><%=r.getNickname()%></a></td>
+                                        <td><a href="/Tarea2/SConsultarPerfil?nickUs=<%=r.getNickname()%>"><%=r.getNombre()%></a></td>
                                         <td><%=r.getCantSeguidores()%></td>
 
                                     </tr>
