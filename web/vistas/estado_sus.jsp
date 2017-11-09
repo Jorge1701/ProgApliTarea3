@@ -60,8 +60,8 @@
                                         <td><%= dts.getEstado()%></td>
                                         <td><%= dts.getCuota()%></td>
                                         <td><%= dts.getMonto()%></td>
-                                        <td><%= dts.getFecha()%></td>
-                                        <td><%= dts.getFechaVenc()%></td>
+                                        <td><%= dts.getFecha().getDia() + "/" + dts.getFecha().getMes() + "/" + dts.getFecha().getAnio()%></td>
+                                        <td><%= dts.getFechaVenc().getDia() + "/" + dts.getFechaVenc().getMes() + "/" + dts.getFechaVenc().getAnio()%></td>
 
 
                                         <% if (dts.getEstado().equals("Vencida")) {%>
