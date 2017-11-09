@@ -277,7 +277,7 @@ if (usSesion.getNickname().equals(dtCli.getNickname()) && dtCli.getActual()!= nu
                                                     for (DtTema dtT : dtTemasF) {%>
                                                 <tr>
                                                     <td><%= dtT.getNombre()%></td>
-                                                    <td><span class="badge"> <%= dtT.getDuracion().toString()%> </span></td>
+                                                    <td><span class="badge"> <%= dtT.getDuracion().getHoras() + ":" + dtT.getDuracion().getMinutos() + ":" + dtT.getDuracion().getSegundos()%> </span></td>
                                                 </tr>
 
                                                 <% }%>  

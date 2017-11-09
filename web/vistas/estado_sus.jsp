@@ -84,7 +84,7 @@
                                         <td><%= activa.getEstado()%></td>
                                         <td><%= activa.getCuota()%></td>
                                         <td><%= activa.getMonto()%></td>
-                                        <td><%= activa.getFecha()%></td>
+                                        <td><%= activa.getFecha().getDia() + "/" + activa.getFecha().getMes() + "/" + activa.getFecha().getAnio()%></td>
                                         <td><% if (activa.getFechaVenc() != null) {%>
                                             <%= activa.getFechaVenc()%> <% } else { %>
                                             No Corresponde <% } %>

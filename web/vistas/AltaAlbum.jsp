@@ -1,12 +1,10 @@
-
-
 <%@page import="servicios.DtCliente"%>
 <%@page import="servicios.DtArtista"%>
 <%@page import="servicios.DtUsuario"%>
 <%@page import="java.util.ArrayList"%>
+<%@page import="servicios.DtGenero"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<%@page import="Logica.DtGenero"%>
 <html>
     <head>
         <jsp:include page="include.html"/>
@@ -181,7 +179,7 @@
                         </row>
 
                         <row class="col-lg-12 col-md-12 col-sm-12 col-xs-12"><div style="margin: 10px"></div>
-                             <div class="col-xs-2"> <span style="color: lavender; font-weight: bold">Imagen: </span></div>
+                            <div class="col-xs-2"> <span style="color: lavender; font-weight: bold">Imagen: </span></div>
                             <form enctype="multipart/form-data" method="post" id="formImagen" name="formImagen" >
                                 <input accept="image/*" type="file" name="imagen" id="imagen" class="btn btn-info" style="font-size: 11px"/>
                                 <input hidden type="text" name="accion" value="album"/>

@@ -65,11 +65,7 @@
                             <% } else {%>
                             <div>
 
-                                <form action="/Tarea2/SDesactivarArtista" method="POST">
-                                    <input type="text" class="hidden" name="accion" value="desactivarArtista">
-                                    <input type="text" class="hidden" name="artista" value="<%= usuario.getNickname()%>">
-                                    <input type="submit" class="btn btn-link btn-xs" value="Darse de baja">
-                                </form>
+                                <input onclick="darBaja('<%=usuario.getNickname()%>')" type="submit" class="btn btn-link btn-xs" value="Darse de baja">
 
                             </div>
                             <%}%>

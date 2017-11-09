@@ -70,7 +70,7 @@
                         <img src="/Tarea2/SImagen?lista=<%= lista.getImagen()%>" class="pull-left imgLista" width="80" height="80">
                         <div class="pull-left infoLista">
                             <text class="nombreLista"><%= lista.getNombre()%></text><br>
-                            <text><%= lista.getFecha().toString()%></text>
+                            <text><%= lista.getFecha().getDia() + "/" + lista.getFecha().getMes() + "/" + lista.getFecha().getAnio()%></text>
 
                             <%
                                 if (request.getSession().getAttribute("usuario") != null) {
