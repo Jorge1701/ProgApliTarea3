@@ -83,7 +83,7 @@
                                         <td><%= activa.getMonto()%></td>
                                         <td><%= activa.getFecha().getDia() + "/" + activa.getFecha().getMes() + "/" + activa.getFecha().getAnio()%></td>
                                         <td><% if (activa.getFechaVenc() != null) {%>
-                                            <%= activa.getFechaVenc()%> <% } else { %>
+                                            <%= activa.getFechaVenc().getDia()+ "/" + activa.getFechaVenc().getMes() + "/" + activa.getFechaVenc().getAnio()%> <% } else { %>
                                             No Corresponde <% } %>
 
                                             <% if (activa.getEstado().equals("Pendiente")) { %>

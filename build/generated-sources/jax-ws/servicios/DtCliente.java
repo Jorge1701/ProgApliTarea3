@@ -10,9 +10,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for DtCliente complex type.
+ * <p>Clase Java para DtCliente complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>
  * &lt;complexType name="DtCliente">
@@ -72,7 +72,7 @@ public class DtCliente
     }
 
     /**
-     * Gets the value of the actual property.
+     * Obtiene el valor de la propiedad actual.
      * 
      * @return
      *     possible object is
@@ -84,7 +84,7 @@ public class DtCliente
     }
 
     /**
-     * Sets the value of the actual property.
+     * Define el valor de la propiedad actual.
      * 
      * @param value
      *     allowed object is
