@@ -4,15 +4,18 @@
     }
 
     function darBaja(nick) {
-        $.ajax({
-            type: "POST",
-            url: "/Tarea2/SDesactivarArtista",
-            data: {
-                "artista": nick
-            },
-            success: function (data) {
-                window.location = "/Tarea2/SInicio?mensaje=Fuiste dado de baja";
-            }
-        });
+        var r = confirm("Seguro desea darse de baja?");
+        if (r === true) {
+            $.ajax({
+                type: "POST",
+                url: "/Tarea2/SDesactivarArtista",
+                data: {
+                    "artista": nick
+                },
+                success: function (data) {
+                    window.location = "/Tarea2/SInicio?mensaje=Fuiste dado de baja";
+                }
+            });
+        }
     }
 </script>

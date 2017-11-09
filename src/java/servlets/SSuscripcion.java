@@ -47,7 +47,7 @@ public class SSuscripcion extends HttpServlet {
                 DtUsuario usr = (DtUsuario) request.getSession().getAttribute("usuario");
 
                 if (usr instanceof DtArtista) {
-                    request.setAttribute("mensaje_error", "Esta pÃ¡gina esta reservada para nuestros clientes");
+                    request.setAttribute("mensaje_error", "Esta pagina esta reservada para nuestros clientes");
                     request.getRequestDispatcher("vistas/pagina_error.jsp").forward(request, response);
                 } else {
                     request.getSession().setAttribute("suscripcion", ((DtCliente) usr).getActual());
@@ -65,7 +65,7 @@ public class SSuscripcion extends HttpServlet {
                 DtUsuario usr = (DtUsuario) request.getSession().getAttribute("usuario");
 
                 if (usr instanceof DtArtista) {
-                    request.setAttribute("mensaje_error", "Esta pÃ¡gina esta reservada para nuestros clientes");
+                    request.setAttribute("mensaje_error", "Esta pÃgina esta reservada para nuestros clientes");
                     request.getRequestDispatcher("vistas/pagina_error.jsp").forward(request, response);
                 } else {
                     request.setAttribute("suscripcion", ((DtCliente) usr).getActual());
