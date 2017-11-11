@@ -9,7 +9,7 @@ import javax.jws.WebService;
 
 /**
  *
- * @author Ale
+ * @author Diego
  */
 @WebService(serviceName = "PRegistroService", portName = "PRegistroPort", endpointInterface = "servicios.PRegistro", targetNamespace = "http://Servicios/", wsdlLocation = "WEB-INF/wsdl/Registro/localhost_1234/registro.wsdl")
 public class Registro {
@@ -24,12 +24,7 @@ public class Registro {
         throw new UnsupportedOperationException("Not implemented yet.");
     }
 
-    public void dtArtista(servicios.DtArtista arg0) {
-        //TODO implement this method
-        throw new UnsupportedOperationException("Not implemented yet.");
-    }
-
-    public void dtCliente(servicios.DtCliente arg0) {
+    public servicios.DtUsuario getDataUsuario(java.lang.String arg0) {
         //TODO implement this method
         throw new UnsupportedOperationException("Not implemented yet.");
     }
@@ -44,7 +39,12 @@ public class Registro {
         throw new UnsupportedOperationException("Not implemented yet.");
     }
 
-    public servicios.DtUsuario getDataUsuario(java.lang.String arg0) {
+    public void dtArtista(servicios.DtArtista arg0) {
+        //TODO implement this method
+        throw new UnsupportedOperationException("Not implemented yet.");
+    }
+
+    public void dtCliente(servicios.DtCliente arg0) {
         //TODO implement this method
         throw new UnsupportedOperationException("Not implemented yet.");
     }

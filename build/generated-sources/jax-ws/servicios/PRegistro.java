@@ -47,22 +47,15 @@ public interface PRegistro {
     /**
      * 
      * @param arg0
+     * @return
+     *     returns servicios.DtUsuario
      */
-    @WebMethod(operationName = "DtArtista")
-    @Action(input = "http://Servicios/PRegistro/DtArtistaRequest", output = "http://Servicios/PRegistro/DtArtistaResponse")
-    public void dtArtista(
+    @WebMethod
+    @WebResult(partName = "return")
+    @Action(input = "http://Servicios/PRegistro/getDataUsuarioRequest", output = "http://Servicios/PRegistro/getDataUsuarioResponse")
+    public DtUsuario getDataUsuario(
         @WebParam(name = "arg0", partName = "arg0")
-        DtArtista arg0);
-
-    /**
-     * 
-     * @param arg0
-     */
-    @WebMethod(operationName = "DtCliente")
-    @Action(input = "http://Servicios/PRegistro/DtClienteRequest", output = "http://Servicios/PRegistro/DtClienteResponse")
-    public void dtCliente(
-        @WebParam(name = "arg0", partName = "arg0")
-        DtCliente arg0);
+        String arg0);
 
     /**
      * 
@@ -93,14 +86,21 @@ public interface PRegistro {
     /**
      * 
      * @param arg0
-     * @return
-     *     returns servicios.DtUsuario
      */
-    @WebMethod
-    @WebResult(partName = "return")
-    @Action(input = "http://Servicios/PRegistro/getDataUsuarioRequest", output = "http://Servicios/PRegistro/getDataUsuarioResponse")
-    public DtUsuario getDataUsuario(
+    @WebMethod(operationName = "DtArtista")
+    @Action(input = "http://Servicios/PRegistro/DtArtistaRequest", output = "http://Servicios/PRegistro/DtArtistaResponse")
+    public void dtArtista(
         @WebParam(name = "arg0", partName = "arg0")
-        String arg0);
+        DtArtista arg0);
+
+    /**
+     * 
+     * @param arg0
+     */
+    @WebMethod(operationName = "DtCliente")
+    @Action(input = "http://Servicios/PRegistro/DtClienteRequest", output = "http://Servicios/PRegistro/DtClienteResponse")
+    public void dtCliente(
+        @WebParam(name = "arg0", partName = "arg0")
+        DtCliente arg0);
 
 }

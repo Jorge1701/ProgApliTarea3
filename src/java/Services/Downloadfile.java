@@ -9,7 +9,7 @@ import javax.jws.WebService;
 
 /**
  *
- * @author Ale
+ * @author Diego
  */
 @WebService(serviceName = "PDownloadFileService", portName = "PDownloadFilePort", endpointInterface = "servicios.PDownloadFile", targetNamespace = "http://Servicios/", wsdlLocation = "WEB-INF/wsdl/Downloadfile/localhost_1234/downloadfile.wsdl")
 public class Downloadfile {

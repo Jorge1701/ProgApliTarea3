@@ -6,30 +6,11 @@
 </types>
 <message name="publicar"></message>
 <message name="publicarResponse"></message>
-<message name="listarLisReproduccion">
-<part name="arg0" type="xsd:string"></part>
-</message>
-<message name="listarLisReproduccionResponse">
-<part name="return" type="tns:dtListaDeListas"></part>
-</message>
-<message name="obtenerAlbumContenido">
-<part name="arg0" type="xsd:string"></part>
-<part name="arg1" type="xsd:string"></part>
-</message>
-<message name="obtenerAlbumContenidoResponse">
-<part name="return" type="tns:dtAlbumContenido"></part>
-</message>
-<message name="listarAlbumesArtista">
-<part name="arg0" type="xsd:string"></part>
-</message>
-<message name="listarAlbumesArtistaResponse">
-<part name="return" type="tns:dtListaAlbum"></part>
-</message>
 <message name="listarLisReproduccionGen">
 <part name="arg0" type="xsd:string"></part>
 </message>
 <message name="listarLisReproduccionGenResponse">
-<part name="return" type="tns:dtListaDeListas"></part>
+<part name="return" type="tns:DtListaDeListas"></part>
 </message>
 <message name="agregarAlbumFav">
 <part name="arg0" type="xsd:string"></part>
@@ -56,6 +37,25 @@
 <part name="arg2" type="xsd:string"></part>
 </message>
 <message name="agregarLPFavResponse"></message>
+<message name="listarLisReproduccion">
+<part name="arg0" type="xsd:string"></part>
+</message>
+<message name="listarLisReproduccionResponse">
+<part name="return" type="tns:DtListaDeListas"></part>
+</message>
+<message name="obtenerAlbumContenido">
+<part name="arg0" type="xsd:string"></part>
+<part name="arg1" type="xsd:string"></part>
+</message>
+<message name="obtenerAlbumContenidoResponse">
+<part name="return" type="tns:DtAlbumContenido"></part>
+</message>
+<message name="listarAlbumesArtista">
+<part name="arg0" type="xsd:string"></part>
+</message>
+<message name="listarAlbumesArtistaResponse">
+<part name="return" type="tns:DtListaAlbum"></part>
+</message>
 <message name="getDataUsuario">
 <part name="arg0" type="xsd:string"></part>
 </message>
@@ -96,18 +96,6 @@
 <input wsam:Action="http://Servicios/PFavorito/publicarRequest" message="tns:publicar"></input>
 <output wsam:Action="http://Servicios/PFavorito/publicarResponse" message="tns:publicarResponse"></output>
 </operation>
-<operation name="listarLisReproduccion">
-<input wsam:Action="http://Servicios/PFavorito/listarLisReproduccionRequest" message="tns:listarLisReproduccion"></input>
-<output wsam:Action="http://Servicios/PFavorito/listarLisReproduccionResponse" message="tns:listarLisReproduccionResponse"></output>
-</operation>
-<operation name="obtenerAlbumContenido" parameterOrder="arg0 arg1">
-<input wsam:Action="http://Servicios/PFavorito/obtenerAlbumContenidoRequest" message="tns:obtenerAlbumContenido"></input>
-<output wsam:Action="http://Servicios/PFavorito/obtenerAlbumContenidoResponse" message="tns:obtenerAlbumContenidoResponse"></output>
-</operation>
-<operation name="listarAlbumesArtista">
-<input wsam:Action="http://Servicios/PFavorito/listarAlbumesArtistaRequest" message="tns:listarAlbumesArtista"></input>
-<output wsam:Action="http://Servicios/PFavorito/listarAlbumesArtistaResponse" message="tns:listarAlbumesArtistaResponse"></output>
-</operation>
 <operation name="listarLisReproduccionGen">
 <input wsam:Action="http://Servicios/PFavorito/listarLisReproduccionGenRequest" message="tns:listarLisReproduccionGen"></input>
 <output wsam:Action="http://Servicios/PFavorito/listarLisReproduccionGenResponse" message="tns:listarLisReproduccionGenResponse"></output>
@@ -127,6 +115,18 @@
 <operation name="agregarLPFav" parameterOrder="arg0 arg1 arg2">
 <input wsam:Action="http://Servicios/PFavorito/agregarLPFavRequest" message="tns:agregarLPFav"></input>
 <output wsam:Action="http://Servicios/PFavorito/agregarLPFavResponse" message="tns:agregarLPFavResponse"></output>
+</operation>
+<operation name="listarLisReproduccion">
+<input wsam:Action="http://Servicios/PFavorito/listarLisReproduccionRequest" message="tns:listarLisReproduccion"></input>
+<output wsam:Action="http://Servicios/PFavorito/listarLisReproduccionResponse" message="tns:listarLisReproduccionResponse"></output>
+</operation>
+<operation name="obtenerAlbumContenido" parameterOrder="arg0 arg1">
+<input wsam:Action="http://Servicios/PFavorito/obtenerAlbumContenidoRequest" message="tns:obtenerAlbumContenido"></input>
+<output wsam:Action="http://Servicios/PFavorito/obtenerAlbumContenidoResponse" message="tns:obtenerAlbumContenidoResponse"></output>
+</operation>
+<operation name="listarAlbumesArtista">
+<input wsam:Action="http://Servicios/PFavorito/listarAlbumesArtistaRequest" message="tns:listarAlbumesArtista"></input>
+<output wsam:Action="http://Servicios/PFavorito/listarAlbumesArtistaResponse" message="tns:listarAlbumesArtistaResponse"></output>
 </operation>
 <operation name="getDataUsuario">
 <input wsam:Action="http://Servicios/PFavorito/getDataUsuarioRequest" message="tns:getDataUsuario"></input>
@@ -156,33 +156,6 @@
 <binding name="PFavoritoPortBinding" type="tns:PFavorito">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc"></soap:binding>
 <operation name="publicar">
-<soap:operation soapAction=""></soap:operation>
-<input>
-<soap:body use="literal" namespace="http://Servicios/"></soap:body>
-</input>
-<output>
-<soap:body use="literal" namespace="http://Servicios/"></soap:body>
-</output>
-</operation>
-<operation name="listarLisReproduccion">
-<soap:operation soapAction=""></soap:operation>
-<input>
-<soap:body use="literal" namespace="http://Servicios/"></soap:body>
-</input>
-<output>
-<soap:body use="literal" namespace="http://Servicios/"></soap:body>
-</output>
-</operation>
-<operation name="obtenerAlbumContenido">
-<soap:operation soapAction=""></soap:operation>
-<input>
-<soap:body use="literal" namespace="http://Servicios/"></soap:body>
-</input>
-<output>
-<soap:body use="literal" namespace="http://Servicios/"></soap:body>
-</output>
-</operation>
-<operation name="listarAlbumesArtista">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal" namespace="http://Servicios/"></soap:body>
@@ -228,6 +201,33 @@
 </output>
 </operation>
 <operation name="agregarLPFav">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal" namespace="http://Servicios/"></soap:body>
+</input>
+<output>
+<soap:body use="literal" namespace="http://Servicios/"></soap:body>
+</output>
+</operation>
+<operation name="listarLisReproduccion">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal" namespace="http://Servicios/"></soap:body>
+</input>
+<output>
+<soap:body use="literal" namespace="http://Servicios/"></soap:body>
+</output>
+</operation>
+<operation name="obtenerAlbumContenido">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal" namespace="http://Servicios/"></soap:body>
+</input>
+<output>
+<soap:body use="literal" namespace="http://Servicios/"></soap:body>
+</output>
+</operation>
+<operation name="listarAlbumesArtista">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal" namespace="http://Servicios/"></soap:body>

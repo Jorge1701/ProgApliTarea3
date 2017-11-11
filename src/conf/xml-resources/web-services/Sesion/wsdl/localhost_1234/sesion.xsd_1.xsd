@@ -47,6 +47,7 @@
 <xs:sequence>
 <xs:element name="biografia" type="xs:string" minOccurs="0"></xs:element>
 <xs:element name="web" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="activo" type="xs:boolean"></xs:element>
 </xs:sequence>
 </xs:extension>
 </xs:complexContent>

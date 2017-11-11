@@ -11,42 +11,36 @@
 <message name="publicarListaResponse">
 <part name="return" type="xsd:boolean"></part>
 </message>
-<message name="listarLisReproduccion">
-<part name="arg0" type="xsd:string"></part>
-</message>
-<message name="listarLisReproduccionResponse">
-<part name="return" type="tns:DtListaDeListas"></part>
-</message>
 <message name="publicar"></message>
 <message name="publicarResponse"></message>
-<message name="obtenerListasFav">
-<part name="arg0" type="xsd:string"></part>
-</message>
-<message name="obtenerListasFavResponse">
-<part name="return" type="tns:DtListaDeListas"></part>
-</message>
-<message name="selectArtista">
-<part name="arg0" type="xsd:string"></part>
-</message>
-<message name="selectArtistaResponse">
-<part name="return" type="xsd:boolean"></part>
-</message>
 <message name="listarLisReproduccionGen">
 <part name="arg0" type="xsd:string"></part>
 </message>
 <message name="listarLisReproduccionGenResponse">
 <part name="return" type="tns:DtListaDeListas"></part>
 </message>
-<message name="listarAlbumesGenero">
-<part name="arg0" type="xsd:string"></part>
-</message>
-<message name="listarAlbumesGeneroResponse">
-<part name="return" type="tns:DtListaAlbum"></part>
-</message>
 <message name="obtenerAlbumesFav">
 <part name="arg0" type="xsd:string"></part>
 </message>
 <message name="obtenerAlbumesFavResponse">
+<part name="return" type="tns:DtListaAlbum"></part>
+</message>
+<message name="obtenerListasFav">
+<part name="arg0" type="xsd:string"></part>
+</message>
+<message name="obtenerListasFavResponse">
+<part name="return" type="tns:DtListaDeListas"></part>
+</message>
+<message name="listarLisReproduccion">
+<part name="arg0" type="xsd:string"></part>
+</message>
+<message name="listarLisReproduccionResponse">
+<part name="return" type="tns:DtListaDeListas"></part>
+</message>
+<message name="listarAlbumesGenero">
+<part name="arg0" type="xsd:string"></part>
+</message>
+<message name="listarAlbumesGeneroResponse">
 <part name="return" type="tns:DtListaAlbum"></part>
 </message>
 <message name="obtenerAlbumContenido">
@@ -56,11 +50,23 @@
 <message name="obtenerAlbumContenidoResponse">
 <part name="return" type="tns:DtAlbumContenido"></part>
 </message>
+<message name="selectArtista">
+<part name="arg0" type="xsd:string"></part>
+</message>
+<message name="selectArtistaResponse">
+<part name="return" type="xsd:boolean"></part>
+</message>
 <message name="getDataUsuario">
 <part name="arg0" type="xsd:string"></part>
 </message>
 <message name="getDataUsuarioResponse">
 <part name="return" type="tns:DtUsuario"></part>
+</message>
+<message name="existeGenero">
+<part name="arg0" type="xsd:string"></part>
+</message>
+<message name="existeGeneroResponse">
+<part name="return" type="xsd:boolean"></part>
 </message>
 <message name="ingresarAlbum">
 <part name="arg0" type="xsd:string"></part>
@@ -70,12 +76,6 @@
 <part name="arg4" type="tns:dtListaTema"></part>
 </message>
 <message name="ingresarAlbumResponse"></message>
-<message name="existeGenero">
-<part name="arg0" type="xsd:string"></part>
-</message>
-<message name="existeGeneroResponse">
-<part name="return" type="xsd:boolean"></part>
-</message>
 <message name="obtenerGeneros"></message>
 <message name="obtenerGenerosResponse">
 <part name="return" type="tns:DtListaString"></part>
@@ -87,14 +87,14 @@
 <message name="ExisteAlbumResponse">
 <part name="return" type="xsd:boolean"></part>
 </message>
-<message name="DtTemaLocal">
-<part name="arg0" type="tns:DtTemaLocal"></part>
-</message>
-<message name="DtTemaLocalResponse"></message>
 <message name="DtListaTema">
 <part name="arg0" type="tns:dtListaTema"></part>
 </message>
 <message name="DtListaTemaResponse"></message>
+<message name="DtTemaLocal">
+<part name="arg0" type="tns:DtTemaLocal"></part>
+</message>
+<message name="DtTemaLocalResponse"></message>
 <message name="DtTemaRemoto">
 <part name="arg0" type="tns:DtTemaRemoto"></part>
 </message>
@@ -104,49 +104,49 @@
 <input wsam:Action="http://Servicios/PContenido/publicarListaRequest" message="tns:publicarLista"></input>
 <output wsam:Action="http://Servicios/PContenido/publicarListaResponse" message="tns:publicarListaResponse"></output>
 </operation>
-<operation name="listarLisReproduccion">
-<input wsam:Action="http://Servicios/PContenido/listarLisReproduccionRequest" message="tns:listarLisReproduccion"></input>
-<output wsam:Action="http://Servicios/PContenido/listarLisReproduccionResponse" message="tns:listarLisReproduccionResponse"></output>
-</operation>
 <operation name="publicar">
 <input wsam:Action="http://Servicios/PContenido/publicarRequest" message="tns:publicar"></input>
 <output wsam:Action="http://Servicios/PContenido/publicarResponse" message="tns:publicarResponse"></output>
-</operation>
-<operation name="obtenerListasFav">
-<input wsam:Action="http://Servicios/PContenido/obtenerListasFavRequest" message="tns:obtenerListasFav"></input>
-<output wsam:Action="http://Servicios/PContenido/obtenerListasFavResponse" message="tns:obtenerListasFavResponse"></output>
-</operation>
-<operation name="selectArtista">
-<input wsam:Action="http://Servicios/PContenido/selectArtistaRequest" message="tns:selectArtista"></input>
-<output wsam:Action="http://Servicios/PContenido/selectArtistaResponse" message="tns:selectArtistaResponse"></output>
 </operation>
 <operation name="listarLisReproduccionGen">
 <input wsam:Action="http://Servicios/PContenido/listarLisReproduccionGenRequest" message="tns:listarLisReproduccionGen"></input>
 <output wsam:Action="http://Servicios/PContenido/listarLisReproduccionGenResponse" message="tns:listarLisReproduccionGenResponse"></output>
 </operation>
-<operation name="listarAlbumesGenero">
-<input wsam:Action="http://Servicios/PContenido/listarAlbumesGeneroRequest" message="tns:listarAlbumesGenero"></input>
-<output wsam:Action="http://Servicios/PContenido/listarAlbumesGeneroResponse" message="tns:listarAlbumesGeneroResponse"></output>
-</operation>
 <operation name="obtenerAlbumesFav">
 <input wsam:Action="http://Servicios/PContenido/obtenerAlbumesFavRequest" message="tns:obtenerAlbumesFav"></input>
 <output wsam:Action="http://Servicios/PContenido/obtenerAlbumesFavResponse" message="tns:obtenerAlbumesFavResponse"></output>
+</operation>
+<operation name="obtenerListasFav">
+<input wsam:Action="http://Servicios/PContenido/obtenerListasFavRequest" message="tns:obtenerListasFav"></input>
+<output wsam:Action="http://Servicios/PContenido/obtenerListasFavResponse" message="tns:obtenerListasFavResponse"></output>
+</operation>
+<operation name="listarLisReproduccion">
+<input wsam:Action="http://Servicios/PContenido/listarLisReproduccionRequest" message="tns:listarLisReproduccion"></input>
+<output wsam:Action="http://Servicios/PContenido/listarLisReproduccionResponse" message="tns:listarLisReproduccionResponse"></output>
+</operation>
+<operation name="listarAlbumesGenero">
+<input wsam:Action="http://Servicios/PContenido/listarAlbumesGeneroRequest" message="tns:listarAlbumesGenero"></input>
+<output wsam:Action="http://Servicios/PContenido/listarAlbumesGeneroResponse" message="tns:listarAlbumesGeneroResponse"></output>
 </operation>
 <operation name="obtenerAlbumContenido" parameterOrder="arg0 arg1">
 <input wsam:Action="http://Servicios/PContenido/obtenerAlbumContenidoRequest" message="tns:obtenerAlbumContenido"></input>
 <output wsam:Action="http://Servicios/PContenido/obtenerAlbumContenidoResponse" message="tns:obtenerAlbumContenidoResponse"></output>
 </operation>
+<operation name="selectArtista">
+<input wsam:Action="http://Servicios/PContenido/selectArtistaRequest" message="tns:selectArtista"></input>
+<output wsam:Action="http://Servicios/PContenido/selectArtistaResponse" message="tns:selectArtistaResponse"></output>
+</operation>
 <operation name="getDataUsuario">
 <input wsam:Action="http://Servicios/PContenido/getDataUsuarioRequest" message="tns:getDataUsuario"></input>
 <output wsam:Action="http://Servicios/PContenido/getDataUsuarioResponse" message="tns:getDataUsuarioResponse"></output>
 </operation>
-<operation name="ingresarAlbum" parameterOrder="arg0 arg1 arg2 arg3 arg4">
-<input wsam:Action="http://Servicios/PContenido/ingresarAlbumRequest" message="tns:ingresarAlbum"></input>
-<output wsam:Action="http://Servicios/PContenido/ingresarAlbumResponse" message="tns:ingresarAlbumResponse"></output>
-</operation>
 <operation name="existeGenero">
 <input wsam:Action="http://Servicios/PContenido/existeGeneroRequest" message="tns:existeGenero"></input>
 <output wsam:Action="http://Servicios/PContenido/existeGeneroResponse" message="tns:existeGeneroResponse"></output>
+</operation>
+<operation name="ingresarAlbum" parameterOrder="arg0 arg1 arg2 arg3 arg4">
+<input wsam:Action="http://Servicios/PContenido/ingresarAlbumRequest" message="tns:ingresarAlbum"></input>
+<output wsam:Action="http://Servicios/PContenido/ingresarAlbumResponse" message="tns:ingresarAlbumResponse"></output>
 </operation>
 <operation name="obtenerGeneros">
 <input wsam:Action="http://Servicios/PContenido/obtenerGenerosRequest" message="tns:obtenerGeneros"></input>
@@ -156,13 +156,13 @@
 <input wsam:Action="http://Servicios/PContenido/ExisteAlbumRequest" message="tns:ExisteAlbum"></input>
 <output wsam:Action="http://Servicios/PContenido/ExisteAlbumResponse" message="tns:ExisteAlbumResponse"></output>
 </operation>
-<operation name="DtTemaLocal">
-<input wsam:Action="http://Servicios/PContenido/DtTemaLocalRequest" message="tns:DtTemaLocal"></input>
-<output wsam:Action="http://Servicios/PContenido/DtTemaLocalResponse" message="tns:DtTemaLocalResponse"></output>
-</operation>
 <operation name="DtListaTema">
 <input wsam:Action="http://Servicios/PContenido/DtListaTemaRequest" message="tns:DtListaTema"></input>
 <output wsam:Action="http://Servicios/PContenido/DtListaTemaResponse" message="tns:DtListaTemaResponse"></output>
+</operation>
+<operation name="DtTemaLocal">
+<input wsam:Action="http://Servicios/PContenido/DtTemaLocalRequest" message="tns:DtTemaLocal"></input>
+<output wsam:Action="http://Servicios/PContenido/DtTemaLocalResponse" message="tns:DtTemaLocalResponse"></output>
 </operation>
 <operation name="DtTemaRemoto">
 <input wsam:Action="http://Servicios/PContenido/DtTemaRemotoRequest" message="tns:DtTemaRemoto"></input>
@@ -180,34 +180,7 @@
 <soap:body use="literal" namespace="http://Servicios/"></soap:body>
 </output>
 </operation>
-<operation name="listarLisReproduccion">
-<soap:operation soapAction=""></soap:operation>
-<input>
-<soap:body use="literal" namespace="http://Servicios/"></soap:body>
-</input>
-<output>
-<soap:body use="literal" namespace="http://Servicios/"></soap:body>
-</output>
-</operation>
 <operation name="publicar">
-<soap:operation soapAction=""></soap:operation>
-<input>
-<soap:body use="literal" namespace="http://Servicios/"></soap:body>
-</input>
-<output>
-<soap:body use="literal" namespace="http://Servicios/"></soap:body>
-</output>
-</operation>
-<operation name="obtenerListasFav">
-<soap:operation soapAction=""></soap:operation>
-<input>
-<soap:body use="literal" namespace="http://Servicios/"></soap:body>
-</input>
-<output>
-<soap:body use="literal" namespace="http://Servicios/"></soap:body>
-</output>
-</operation>
-<operation name="selectArtista">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal" namespace="http://Servicios/"></soap:body>
@@ -225,7 +198,7 @@
 <soap:body use="literal" namespace="http://Servicios/"></soap:body>
 </output>
 </operation>
-<operation name="listarAlbumesGenero">
+<operation name="obtenerAlbumesFav">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal" namespace="http://Servicios/"></soap:body>
@@ -234,7 +207,25 @@
 <soap:body use="literal" namespace="http://Servicios/"></soap:body>
 </output>
 </operation>
-<operation name="obtenerAlbumesFav">
+<operation name="obtenerListasFav">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal" namespace="http://Servicios/"></soap:body>
+</input>
+<output>
+<soap:body use="literal" namespace="http://Servicios/"></soap:body>
+</output>
+</operation>
+<operation name="listarLisReproduccion">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal" namespace="http://Servicios/"></soap:body>
+</input>
+<output>
+<soap:body use="literal" namespace="http://Servicios/"></soap:body>
+</output>
+</operation>
+<operation name="listarAlbumesGenero">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal" namespace="http://Servicios/"></soap:body>
@@ -252,6 +243,15 @@
 <soap:body use="literal" namespace="http://Servicios/"></soap:body>
 </output>
 </operation>
+<operation name="selectArtista">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal" namespace="http://Servicios/"></soap:body>
+</input>
+<output>
+<soap:body use="literal" namespace="http://Servicios/"></soap:body>
+</output>
+</operation>
 <operation name="getDataUsuario">
 <soap:operation soapAction=""></soap:operation>
 <input>
@@ -261,7 +261,7 @@
 <soap:body use="literal" namespace="http://Servicios/"></soap:body>
 </output>
 </operation>
-<operation name="ingresarAlbum">
+<operation name="existeGenero">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal" namespace="http://Servicios/"></soap:body>
@@ -270,7 +270,7 @@
 <soap:body use="literal" namespace="http://Servicios/"></soap:body>
 </output>
 </operation>
-<operation name="existeGenero">
+<operation name="ingresarAlbum">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal" namespace="http://Servicios/"></soap:body>
@@ -297,7 +297,7 @@
 <soap:body use="literal" namespace="http://Servicios/"></soap:body>
 </output>
 </operation>
-<operation name="DtTemaLocal">
+<operation name="DtListaTema">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal" namespace="http://Servicios/"></soap:body>
@@ -306,7 +306,7 @@
 <soap:body use="literal" namespace="http://Servicios/"></soap:body>
 </output>
 </operation>
-<operation name="DtListaTema">
+<operation name="DtTemaLocal">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal" namespace="http://Servicios/"></soap:body>

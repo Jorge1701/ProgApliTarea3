@@ -6,17 +6,17 @@
 </types>
 <message name="listarClientes"></message>
 <message name="listarClientesResponse">
-<part name="return" type="tns:dtListaUsuarios"></part>
+<part name="return" type="tns:DtListaUsuarios"></part>
 </message>
 <message name="listarSeguidosDe">
 <part name="arg0" type="xsd:string"></part>
 </message>
 <message name="listarSeguidosDeResponse">
-<part name="return" type="tns:dtListaUsuarios"></part>
+<part name="return" type="tns:DtListaUsuarios"></part>
 </message>
 <message name="listarArtistas"></message>
 <message name="listarArtistasResponse">
-<part name="return" type="tns:dtListaUsuarios"></part>
+<part name="return" type="tns:DtListaUsuarios"></part>
 </message>
 <message name="publicar"></message>
 <message name="publicarResponse"></message>
@@ -26,15 +26,15 @@
 <message name="getDataUsuarioResponse">
 <part name="return" type="tns:DtUsuario"></part>
 </message>
-<message name="obtenerGeneros"></message>
-<message name="obtenerGenerosResponse">
-<part name="return" type="tns:dtListaString"></part>
-</message>
 <message name="getDataCliente">
 <part name="arg0" type="xsd:string"></part>
 </message>
 <message name="getDataClienteResponse">
 <part name="return" type="tns:DtCliente"></part>
+</message>
+<message name="obtenerGeneros"></message>
+<message name="obtenerGenerosResponse">
+<part name="return" type="tns:DtListaString"></part>
 </message>
 <message name="chequearSuscripcion">
 <part name="arg0" type="xsd:string"></part>
@@ -42,15 +42,12 @@
 <message name="chequearSuscripcionResponse">
 <part name="return" type="xsd:boolean"></part>
 </message>
-<message name="cargarDatosPrueba"></message>
-<message name="cargarDatosPruebaResponse"></message>
-<message name="Exception">
-<part name="fault" element="tns:Exception"></part>
-</message>
 <message name="DtSuscripcion">
 <part name="arg0" type="tns:DtSuscripcion"></part>
 </message>
 <message name="DtSuscripcionResponse"></message>
+<message name="cargarDatosPrueba"></message>
+<message name="cargarDatosPruebaResponse"></message>
 <portType name="PInicio">
 <operation name="listarClientes">
 <input wsam:Action="http://Servicios/PInicio/listarClientesRequest" message="tns:listarClientes"></input>
@@ -72,26 +69,25 @@
 <input wsam:Action="http://Servicios/PInicio/getDataUsuarioRequest" message="tns:getDataUsuario"></input>
 <output wsam:Action="http://Servicios/PInicio/getDataUsuarioResponse" message="tns:getDataUsuarioResponse"></output>
 </operation>
-<operation name="obtenerGeneros">
-<input wsam:Action="http://Servicios/PInicio/obtenerGenerosRequest" message="tns:obtenerGeneros"></input>
-<output wsam:Action="http://Servicios/PInicio/obtenerGenerosResponse" message="tns:obtenerGenerosResponse"></output>
-</operation>
 <operation name="getDataCliente">
 <input wsam:Action="http://Servicios/PInicio/getDataClienteRequest" message="tns:getDataCliente"></input>
 <output wsam:Action="http://Servicios/PInicio/getDataClienteResponse" message="tns:getDataClienteResponse"></output>
+</operation>
+<operation name="obtenerGeneros">
+<input wsam:Action="http://Servicios/PInicio/obtenerGenerosRequest" message="tns:obtenerGeneros"></input>
+<output wsam:Action="http://Servicios/PInicio/obtenerGenerosResponse" message="tns:obtenerGenerosResponse"></output>
 </operation>
 <operation name="chequearSuscripcion">
 <input wsam:Action="http://Servicios/PInicio/chequearSuscripcionRequest" message="tns:chequearSuscripcion"></input>
 <output wsam:Action="http://Servicios/PInicio/chequearSuscripcionResponse" message="tns:chequearSuscripcionResponse"></output>
 </operation>
-<operation name="cargarDatosPrueba">
-<input wsam:Action="http://Servicios/PInicio/cargarDatosPruebaRequest" message="tns:cargarDatosPrueba"></input>
-<output wsam:Action="http://Servicios/PInicio/cargarDatosPruebaResponse" message="tns:cargarDatosPruebaResponse"></output>
-<fault message="tns:Exception" name="Exception" wsam:Action="http://Servicios/PInicio/cargarDatosPrueba/Fault/Exception"></fault>
-</operation>
 <operation name="DtSuscripcion">
 <input wsam:Action="http://Servicios/PInicio/DtSuscripcionRequest" message="tns:DtSuscripcion"></input>
 <output wsam:Action="http://Servicios/PInicio/DtSuscripcionResponse" message="tns:DtSuscripcionResponse"></output>
+</operation>
+<operation name="cargarDatosPrueba">
+<input wsam:Action="http://Servicios/PInicio/cargarDatosPruebaRequest" message="tns:cargarDatosPrueba"></input>
+<output wsam:Action="http://Servicios/PInicio/cargarDatosPruebaResponse" message="tns:cargarDatosPruebaResponse"></output>
 </operation>
 </portType>
 <binding name="PInicioPortBinding" type="tns:PInicio">
@@ -141,7 +137,7 @@
 <soap:body use="literal" namespace="http://Servicios/"></soap:body>
 </output>
 </operation>
-<operation name="obtenerGeneros">
+<operation name="getDataCliente">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal" namespace="http://Servicios/"></soap:body>
@@ -150,7 +146,7 @@
 <soap:body use="literal" namespace="http://Servicios/"></soap:body>
 </output>
 </operation>
-<operation name="getDataCliente">
+<operation name="obtenerGeneros">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal" namespace="http://Servicios/"></soap:body>
@@ -168,7 +164,7 @@
 <soap:body use="literal" namespace="http://Servicios/"></soap:body>
 </output>
 </operation>
-<operation name="cargarDatosPrueba">
+<operation name="DtSuscripcion">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal" namespace="http://Servicios/"></soap:body>
@@ -176,11 +172,8 @@
 <output>
 <soap:body use="literal" namespace="http://Servicios/"></soap:body>
 </output>
-<fault name="Exception">
-<soap:fault name="Exception" use="literal"></soap:fault>
-</fault>
 </operation>
-<operation name="DtSuscripcion">
+<operation name="cargarDatosPrueba">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal" namespace="http://Servicios/"></soap:body>

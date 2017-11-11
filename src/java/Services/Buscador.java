@@ -9,7 +9,7 @@ import javax.jws.WebService;
 
 /**
  *
- * @author Ale
+ * @author Diego
  */
 @WebService(serviceName = "PBuscadorService", portName = "PBuscadorPort", endpointInterface = "servicios.PBuscador", targetNamespace = "http://Servicios/", wsdlLocation = "WEB-INF/wsdl/Buscador/localhost_1234/buscador.wsdl")
 public class Buscador {

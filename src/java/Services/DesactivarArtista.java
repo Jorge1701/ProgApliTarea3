@@ -9,7 +9,7 @@ import javax.jws.WebService;
 
 /**
  *
- * @author Ale
+ * @author Diego
  */
 @WebService(serviceName = "PDesactivarArtistaService", portName = "PDesactivarArtistaPort", endpointInterface = "servicios.PDesactivarArtista", targetNamespace = "http://Servicios/", wsdlLocation = "WEB-INF/wsdl/DesactivarArtista/localhost_1234/desactivarArtista.wsdl")
 public class DesactivarArtista {

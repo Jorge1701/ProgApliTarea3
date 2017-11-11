@@ -1,7 +1,10 @@
 
 package servicios;
 
+import javax.xml.bind.JAXBElement;
+import javax.xml.bind.annotation.XmlElementDecl;
 import javax.xml.bind.annotation.XmlRegistry;
+import javax.xml.namespace.QName;
 
 
 /**
@@ -21,12 +24,21 @@ import javax.xml.bind.annotation.XmlRegistry;
 @XmlRegistry
 public class ObjectFactory {
 
+    private final static QName _SoapSeviciosFaultException_QNAME = new QName("http://Servicios/", "SoapSeviciosFaultException");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: servicios
      * 
      */
     public ObjectFactory() {
+    }
+
+    /**
+     * Create an instance of {@link SoapSeviciosFaultException }
+     * 
+     */
+    public SoapSeviciosFaultException createSoapSeviciosFaultException() {
+        return new SoapSeviciosFaultException();
     }
 
     /**
@@ -134,6 +146,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link SimpleExceptionBean }
+     * 
+     */
+    public SimpleExceptionBean createSimpleExceptionBean() {
+        return new SimpleExceptionBean();
+    }
+
+    /**
      * Create an instance of {@link DtPerfilUsuario }
      * 
      */
@@ -171,6 +191,15 @@ public class ObjectFactory {
      */
     public DtAlbum createDtAlbum() {
         return new DtAlbum();
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link SoapSeviciosFaultException }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://Servicios/", name = "SoapSeviciosFaultException")
+    public JAXBElement<SoapSeviciosFaultException> createSoapSeviciosFaultException(SoapSeviciosFaultException value) {
+        return new JAXBElement<SoapSeviciosFaultException>(_SoapSeviciosFaultException_QNAME, SoapSeviciosFaultException.class, null, value);
     }
 
 }

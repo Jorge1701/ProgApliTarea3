@@ -6,13 +6,13 @@
 <xs:element name="nombre" type="xs:string" minOccurs="0"></xs:element>
 <xs:element name="apellido" type="xs:string" minOccurs="0"></xs:element>
 <xs:element name="email" type="xs:string" minOccurs="0"></xs:element>
-<xs:element name="fechaNac" type="tns:dtFecha" minOccurs="0"></xs:element>
+<xs:element name="fechaNac" type="tns:DtFecha" minOccurs="0"></xs:element>
 <xs:element name="imagen" type="xs:string" minOccurs="0"></xs:element>
 <xs:element name="contrasenia" type="xs:string" minOccurs="0"></xs:element>
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="dtFecha">
+<xs:complexType name="DtFecha">
 <xs:sequence>
 <xs:element name="dia" type="xs:int"></xs:element>
 <xs:element name="mes" type="xs:int"></xs:element>
@@ -35,8 +35,8 @@
 <xs:sequence>
 <xs:element name="estado" type="xs:string" minOccurs="0"></xs:element>
 <xs:element name="cuota" type="xs:string" minOccurs="0"></xs:element>
-<xs:element name="fecha_venc" type="tns:dtFecha" minOccurs="0"></xs:element>
-<xs:element name="fecha" type="tns:dtFecha" minOccurs="0"></xs:element>
+<xs:element name="fecha_venc" type="tns:DtFecha" minOccurs="0"></xs:element>
+<xs:element name="fecha" type="tns:DtFecha" minOccurs="0"></xs:element>
 <xs:element name="monto" type="xs:int"></xs:element>
 </xs:sequence>
 </xs:complexType>
@@ -47,28 +47,41 @@
 <xs:sequence>
 <xs:element name="biografia" type="xs:string" minOccurs="0"></xs:element>
 <xs:element name="web" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="activo" type="xs:boolean"></xs:element>
 </xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
 
-<xs:complexType name="dtListaDeListas">
+<xs:complexType name="DtListaDeListas">
 <xs:sequence>
 <xs:element name="listas" type="tns:DtLista" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
 </xs:sequence>
 </xs:complexType>
 
 <xs:complexType name="DtLista">
+<xs:complexContent>
+<xs:extension base="tns:DtBuscado">
 <xs:sequence>
 <xs:element name="nombre" type="xs:string" minOccurs="0"></xs:element>
 <xs:element name="temas" type="tns:DtTema" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
 <xs:element name="imagen" type="xs:string" minOccurs="0"></xs:element>
-<xs:element name="fecha" type="tns:dtFecha" minOccurs="0"></xs:element>
+<xs:element name="fecha" type="tns:DtFecha" minOccurs="0"></xs:element>
+<xs:element name="ArrayTemas" type="tns:dtListaTema" minOccurs="0"></xs:element>
 </xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="DtBuscado" abstract="true">
+<xs:sequence></xs:sequence>
 </xs:complexType>
 
 <xs:complexType name="DtTema">
+<xs:complexContent>
+<xs:extension base="tns:DtBuscado">
 <xs:sequence>
+<xs:element name="reproducciones" type="xs:int"></xs:element>
 <xs:element name="nombre" type="xs:string" minOccurs="0"></xs:element>
 <xs:element name="duracion" type="tns:DtTime" minOccurs="0"></xs:element>
 <xs:element name="ubicacion" type="xs:int"></xs:element>
@@ -76,6 +89,8 @@
 <xs:element name="artista" type="xs:string" minOccurs="0"></xs:element>
 <xs:element name="imagenAlbum" type="xs:string" minOccurs="0"></xs:element>
 </xs:sequence>
+</xs:extension>
+</xs:complexContent>
 </xs:complexType>
 
 <xs:complexType name="DtTime">
@@ -83,6 +98,46 @@
 <xs:element name="horas" type="xs:int"></xs:element>
 <xs:element name="minutos" type="xs:int"></xs:element>
 <xs:element name="segundos" type="xs:int"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="DtAlbum">
+<xs:complexContent>
+<xs:extension base="tns:DtBuscado">
+<xs:sequence>
+<xs:element name="nickArtista" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="nombre" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="anio" type="xs:int"></xs:element>
+<xs:element name="imagen" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="DtTemaLocal">
+<xs:complexContent>
+<xs:extension base="tns:DtTema">
+<xs:sequence>
+<xs:element name="directorio" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="descargas" type="xs:int"></xs:element>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="DtTemaRemoto">
+<xs:complexContent>
+<xs:extension base="tns:DtTema">
+<xs:sequence>
+<xs:element name="url" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="dtListaTema">
+<xs:sequence>
+<xs:element name="DtTemas" type="tns:DtTema" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
 </xs:sequence>
 </xs:complexType>
 
@@ -114,22 +169,13 @@
 </xs:complexContent>
 </xs:complexType>
 
-<xs:complexType name="dtListaAlbum">
+<xs:complexType name="DtListaAlbum">
 <xs:sequence>
 <xs:element name="album" type="tns:DtAlbum" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="DtAlbum">
-<xs:sequence>
-<xs:element name="nickArtista" type="xs:string" minOccurs="0"></xs:element>
-<xs:element name="nombre" type="xs:string" minOccurs="0"></xs:element>
-<xs:element name="anio" type="xs:int"></xs:element>
-<xs:element name="imagen" type="xs:string" minOccurs="0"></xs:element>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="dtAlbumContenido">
+<xs:complexType name="DtAlbumContenido">
 <xs:sequence>
 <xs:element name="info" type="tns:DtAlbum" minOccurs="0"></xs:element>
 <xs:element name="generos" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>

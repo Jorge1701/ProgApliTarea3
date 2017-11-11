@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is JAX-WS RI 2.2.9-b130926.1035 svn-revision#5f6196f2b90e9460065a4c2f4e30e065b245e51e. --><xs:schema xmlns:tns="http://Servicios/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://Servicios/">
 
+<xs:element name="SoapSeviciosFaultException" type="tns:SoapSeviciosFaultException"></xs:element>
+
 <xs:complexType name="DtPerfilArtista">
 <xs:complexContent>
 <xs:extension base="tns:DtPerfilUsuario">
@@ -180,6 +182,19 @@
 </xs:sequence>
 </xs:extension>
 </xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="SoapSeviciosFaultException">
+<xs:sequence>
+<xs:element name="faultBean" type="tns:simpleExceptionBean" minOccurs="0"></xs:element>
+<xs:element name="message" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="simpleExceptionBean">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
 </xs:complexType>
 
 <xs:complexType name="DtPerfilCliente">

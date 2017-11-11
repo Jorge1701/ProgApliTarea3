@@ -4,6 +4,8 @@
 <xsd:import namespace="http://Servicios/" schemaLocation="http://localhost:1234/lista?xsd=1"></xsd:import>
 </xsd:schema>
 </types>
+<message name="publicar"></message>
+<message name="publicarResponse"></message>
 <message name="crearListaReproduccion">
 <part name="arg0" type="tns:DtListaParticular"></part>
 <part name="arg1" type="xsd:string"></part>
@@ -18,6 +20,10 @@
 <part name="return" type="tns:DtListaDeListas"></part>
 </message>
 <portType name="PLista">
+<operation name="publicar">
+<input wsam:Action="http://Servicios/PLista/publicarRequest" message="tns:publicar"></input>
+<output wsam:Action="http://Servicios/PLista/publicarResponse" message="tns:publicarResponse"></output>
+</operation>
 <operation name="crearListaReproduccion" parameterOrder="arg0 arg1">
 <input wsam:Action="http://Servicios/PLista/crearListaReproduccionRequest" message="tns:crearListaReproduccion"></input>
 <output wsam:Action="http://Servicios/PLista/crearListaReproduccionResponse" message="tns:crearListaReproduccionResponse"></output>
@@ -29,6 +35,15 @@
 </portType>
 <binding name="PListaPortBinding" type="tns:PLista">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc"></soap:binding>
+<operation name="publicar">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal" namespace="http://Servicios/"></soap:body>
+</input>
+<output>
+<soap:body use="literal" namespace="http://Servicios/"></soap:body>
+</output>
+</operation>
 <operation name="crearListaReproduccion">
 <soap:operation soapAction=""></soap:operation>
 <input>

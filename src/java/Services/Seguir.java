@@ -9,17 +9,17 @@ import javax.jws.WebService;
 
 /**
  *
- * @author jorge
+ * @author Diego
  */
 @WebService(serviceName = "PSeguirService", portName = "PSeguirPort", endpointInterface = "servicios.PSeguir", targetNamespace = "http://Servicios/", wsdlLocation = "WEB-INF/wsdl/Seguir/localhost_1234/seguir.wsdl")
 public class Seguir {
 
-    public void dejarSeguirUsuario(java.lang.String arg0, java.lang.String arg1) {
+    public void seguirUsuario(java.lang.String arg0, java.lang.String arg1) {
         //TODO implement this method
         throw new UnsupportedOperationException("Not implemented yet.");
     }
 
-    public void seguirUsuario(java.lang.String arg0, java.lang.String arg1) {
+    public void dejarSeguirUsuario(java.lang.String arg0, java.lang.String arg1) {
         //TODO implement this method
         throw new UnsupportedOperationException("Not implemented yet.");
     }

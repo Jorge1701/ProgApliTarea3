@@ -6,16 +6,15 @@
 package Services;
 
 import javax.jws.WebService;
-import servicios.Exception_Exception;
 
 /**
  *
- * @author Ale
+ * @author Diego
  */
 @WebService(serviceName = "PImagenService", portName = "PImagenPort", endpointInterface = "servicios.PImagen", targetNamespace = "http://Servicios/", wsdlLocation = "WEB-INF/wsdl/Imagen/localhost_1234/imagen.wsdl")
 public class Imagen {
 
-    public byte[] getFile(java.lang.String recurso, java.lang.String fileName) throws Exception_Exception {
+    public byte[] getFile(java.lang.String recurso, java.lang.String fileName) {
         //TODO implement this method
         throw new UnsupportedOperationException("Not implemented yet.");
     }

@@ -24,6 +24,9 @@
 <message name="getDataUsuarioResponse">
 <part name="return" type="tns:DtUsuario"></part>
 </message>
+<message name="SoapSeviciosFaultException">
+<part name="fault" element="tns:SoapSeviciosFaultException"></part>
+</message>
 <portType name="PConsultaPerfil">
 <operation name="publicar">
 <input wsam:Action="http://Servicios/PConsultaPerfil/publicarRequest" message="tns:publicar"></input>
@@ -40,6 +43,7 @@
 <operation name="getDataUsuario">
 <input wsam:Action="http://Servicios/PConsultaPerfil/getDataUsuarioRequest" message="tns:getDataUsuario"></input>
 <output wsam:Action="http://Servicios/PConsultaPerfil/getDataUsuarioResponse" message="tns:getDataUsuarioResponse"></output>
+<fault message="tns:SoapSeviciosFaultException" name="SoapSeviciosFaultException" wsam:Action="http://Servicios/PConsultaPerfil/getDataUsuario/Fault/SoapSeviciosFaultException"></fault>
 </operation>
 </portType>
 <binding name="PConsultaPerfilPortBinding" type="tns:PConsultaPerfil">
@@ -79,6 +83,9 @@
 <output>
 <soap:body use="literal" namespace="http://Servicios/"></soap:body>
 </output>
+<fault name="SoapSeviciosFaultException">
+<soap:fault name="SoapSeviciosFaultException" use="literal"></soap:fault>
+</fault>
 </operation>
 </binding>
 <service name="PConsultaPerfilService">

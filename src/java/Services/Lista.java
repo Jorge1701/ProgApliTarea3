@@ -9,10 +9,15 @@ import javax.jws.WebService;
 
 /**
  *
- * @author Ale
+ * @author Diego
  */
 @WebService(serviceName = "PListaService", portName = "PListaPort", endpointInterface = "servicios.PLista", targetNamespace = "http://Servicios/", wsdlLocation = "WEB-INF/wsdl/Lista/localhost_1234/lista.wsdl")
 public class Lista {
+
+    public void publicar() {
+        //TODO implement this method
+        throw new UnsupportedOperationException("Not implemented yet.");
+    }
 
     public boolean crearListaReproduccion(servicios.DtListaParticular arg0, java.lang.String arg1) {
         //TODO implement this method

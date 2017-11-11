@@ -9,7 +9,7 @@ import javax.jws.WebService;
 
 /**
  *
- * @author Ale
+ * @author Diego
  */
 @WebService(serviceName = "PContenidoService", portName = "PContenidoPort", endpointInterface = "servicios.PContenido", targetNamespace = "http://Servicios/", wsdlLocation = "WEB-INF/wsdl/Contenido/localhost_1234/contenido.wsdl")
 public class Contenido {
@@ -19,22 +19,7 @@ public class Contenido {
         throw new UnsupportedOperationException("Not implemented yet.");
     }
 
-    public servicios.DtListaDeListas listarLisReproduccion(java.lang.String arg0) {
-        //TODO implement this method
-        throw new UnsupportedOperationException("Not implemented yet.");
-    }
-
     public void publicar() {
-        //TODO implement this method
-        throw new UnsupportedOperationException("Not implemented yet.");
-    }
-
-    public servicios.DtListaDeListas obtenerListasFav(java.lang.String arg0) {
-        //TODO implement this method
-        throw new UnsupportedOperationException("Not implemented yet.");
-    }
-
-    public boolean selectArtista(java.lang.String arg0) {
         //TODO implement this method
         throw new UnsupportedOperationException("Not implemented yet.");
     }
@@ -44,12 +29,22 @@ public class Contenido {
         throw new UnsupportedOperationException("Not implemented yet.");
     }
 
-    public servicios.DtListaAlbum listarAlbumesGenero(java.lang.String arg0) {
+    public servicios.DtListaAlbum obtenerAlbumesFav(java.lang.String arg0) {
         //TODO implement this method
         throw new UnsupportedOperationException("Not implemented yet.");
     }
 
-    public servicios.DtListaAlbum obtenerAlbumesFav(java.lang.String arg0) {
+    public servicios.DtListaDeListas obtenerListasFav(java.lang.String arg0) {
+        //TODO implement this method
+        throw new UnsupportedOperationException("Not implemented yet.");
+    }
+
+    public servicios.DtListaDeListas listarLisReproduccion(java.lang.String arg0) {
+        //TODO implement this method
+        throw new UnsupportedOperationException("Not implemented yet.");
+    }
+
+    public servicios.DtListaAlbum listarAlbumesGenero(java.lang.String arg0) {
         //TODO implement this method
         throw new UnsupportedOperationException("Not implemented yet.");
     }
@@ -59,17 +54,22 @@ public class Contenido {
         throw new UnsupportedOperationException("Not implemented yet.");
     }
 
+    public boolean selectArtista(java.lang.String arg0) {
+        //TODO implement this method
+        throw new UnsupportedOperationException("Not implemented yet.");
+    }
+
     public servicios.DtUsuario getDataUsuario(java.lang.String arg0) {
         //TODO implement this method
         throw new UnsupportedOperationException("Not implemented yet.");
     }
 
-    public void ingresarAlbum(java.lang.String arg0, int arg1, servicios.DtListaString arg2, java.lang.String arg3, servicios.DtListaTema arg4) {
+    public boolean existeGenero(java.lang.String arg0) {
         //TODO implement this method
         throw new UnsupportedOperationException("Not implemented yet.");
     }
 
-    public boolean existeGenero(java.lang.String arg0) {
+    public void ingresarAlbum(java.lang.String arg0, int arg1, servicios.DtListaString arg2, java.lang.String arg3, servicios.DtListaTema arg4) {
         //TODO implement this method
         throw new UnsupportedOperationException("Not implemented yet.");
     }
@@ -84,12 +84,12 @@ public class Contenido {
         throw new UnsupportedOperationException("Not implemented yet.");
     }
 
-    public void dtTemaLocal(servicios.DtTemaLocal arg0) {
+    public void dtListaTema(servicios.DtListaTema arg0) {
         //TODO implement this method
         throw new UnsupportedOperationException("Not implemented yet.");
     }
 
-    public void dtListaTema(servicios.DtListaTema arg0) {
+    public void dtTemaLocal(servicios.DtTemaLocal arg0) {
         //TODO implement this method
         throw new UnsupportedOperationException("Not implemented yet.");
     }

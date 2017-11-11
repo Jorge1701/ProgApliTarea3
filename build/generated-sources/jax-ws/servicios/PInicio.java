@@ -8,7 +8,6 @@ import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
 import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.ws.Action;
-import javax.xml.ws.FaultAction;
 
 
 /**
@@ -80,16 +79,6 @@ public interface PInicio {
 
     /**
      * 
-     * @return
-     *     returns servicios.DtListaString
-     */
-    @WebMethod
-    @WebResult(partName = "return")
-    @Action(input = "http://Servicios/PInicio/obtenerGenerosRequest", output = "http://Servicios/PInicio/obtenerGenerosResponse")
-    public DtListaString obtenerGeneros();
-
-    /**
-     * 
      * @param arg0
      * @return
      *     returns servicios.DtCliente
@@ -100,6 +89,16 @@ public interface PInicio {
     public DtCliente getDataCliente(
         @WebParam(name = "arg0", partName = "arg0")
         String arg0);
+
+    /**
+     * 
+     * @return
+     *     returns servicios.DtListaString
+     */
+    @WebMethod
+    @WebResult(partName = "return")
+    @Action(input = "http://Servicios/PInicio/obtenerGenerosRequest", output = "http://Servicios/PInicio/obtenerGenerosResponse")
+    public DtListaString obtenerGeneros();
 
     /**
      * 
@@ -116,18 +115,6 @@ public interface PInicio {
 
     /**
      * 
-     * @throws Exception_Exception
-     */
-    @WebMethod
-    @Action(input = "http://Servicios/PInicio/cargarDatosPruebaRequest", output = "http://Servicios/PInicio/cargarDatosPruebaResponse", fault = {
-        @FaultAction(className = Exception_Exception.class, value = "http://Servicios/PInicio/cargarDatosPrueba/Fault/Exception")
-    })
-    public void cargarDatosPrueba()
-        throws Exception_Exception
-    ;
-
-    /**
-     * 
      * @param arg0
      */
     @WebMethod(operationName = "DtSuscripcion")
@@ -135,5 +122,12 @@ public interface PInicio {
     public void dtSuscripcion(
         @WebParam(name = "arg0", partName = "arg0")
         DtSuscripcion arg0);
+
+    /**
+     * 
+     */
+    @WebMethod
+    @Action(input = "http://Servicios/PInicio/cargarDatosPruebaRequest", output = "http://Servicios/PInicio/cargarDatosPruebaResponse")
+    public void cargarDatosPrueba();
 
 }

@@ -17,7 +17,7 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.2
  * 
  */
-@WebServiceClient(name = "PRegistroService", targetNamespace = "http://Servicios/", wsdlLocation = "file:/C:/Users/Ale/Documents/NetBeansProjects/ProgApliTarea3/src/conf/xml-resources/web-services/Registro/wsdl/localhost_1234/registro.wsdl")
+@WebServiceClient(name = "PRegistroService", targetNamespace = "http://Servicios/", wsdlLocation = "file:/C:/Users/Diego/Documents/NetBeansProjects/ProgApliTarea3/src/conf/xml-resources/web-services/Registro/wsdl/localhost_1234/registro.wsdl")
 public class PRegistroService
     extends Service
 {
@@ -30,7 +30,7 @@ public class PRegistroService
         URL url = null;
         WebServiceException e = null;
         try {
-            url = new URL("file:/C:/Users/Ale/Documents/NetBeansProjects/ProgApliTarea3/src/conf/xml-resources/web-services/Registro/wsdl/localhost_1234/registro.wsdl");
+            url = new URL("file:/C:/Users/Diego/Documents/NetBeansProjects/ProgApliTarea3/src/conf/xml-resources/web-services/Registro/wsdl/localhost_1234/registro.wsdl");
         } catch (MalformedURLException ex) {
             e = new WebServiceException(ex);
         }

@@ -14,6 +14,7 @@
 <xs:complexContent>
 <xs:extension base="tns:DtBuscado">
 <xs:sequence>
+<xs:element name="reproducciones" type="xs:int"></xs:element>
 <xs:element name="nombre" type="xs:string" minOccurs="0"></xs:element>
 <xs:element name="duracion" type="tns:DtTime" minOccurs="0"></xs:element>
 <xs:element name="ubicacion" type="xs:int"></xs:element>
@@ -58,6 +59,7 @@
 <xs:element name="temas" type="tns:DtTema" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
 <xs:element name="imagen" type="xs:string" minOccurs="0"></xs:element>
 <xs:element name="fecha" type="tns:DtFecha" minOccurs="0"></xs:element>
+<xs:element name="ArrayTemas" type="tns:dtListaTema" minOccurs="0"></xs:element>
 </xs:sequence>
 </xs:extension>
 </xs:complexContent>
@@ -68,6 +70,12 @@
 <xs:element name="dia" type="xs:int"></xs:element>
 <xs:element name="mes" type="xs:int"></xs:element>
 <xs:element name="anio" type="xs:int"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="dtListaTema">
+<xs:sequence>
+<xs:element name="DtTemas" type="tns:DtTema" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
 </xs:sequence>
 </xs:complexType>
 
@@ -104,6 +112,7 @@
 <xs:extension base="tns:DtTema">
 <xs:sequence>
 <xs:element name="directorio" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="descargas" type="xs:int"></xs:element>
 </xs:sequence>
 </xs:extension>
 </xs:complexContent>

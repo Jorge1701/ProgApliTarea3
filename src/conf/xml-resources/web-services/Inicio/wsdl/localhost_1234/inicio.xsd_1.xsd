@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is JAX-WS RI 2.2.9-b130926.1035 svn-revision#5f6196f2b90e9460065a4c2f4e30e065b245e51e. --><xs:schema xmlns:tns="http://Servicios/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://Servicios/">
 
-<xs:element name="Exception" type="tns:Exception"></xs:element>
-
-<xs:complexType name="dtListaString">
+<xs:complexType name="DtListaString">
 <xs:sequence>
 <xs:element name="string" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
 </xs:sequence>
@@ -12,13 +10,13 @@
 <xs:sequence>
 <xs:element name="estado" type="xs:string" minOccurs="0"></xs:element>
 <xs:element name="cuota" type="xs:string" minOccurs="0"></xs:element>
-<xs:element name="fecha_venc" type="tns:dtFecha" minOccurs="0"></xs:element>
-<xs:element name="fecha" type="tns:dtFecha" minOccurs="0"></xs:element>
+<xs:element name="fecha_venc" type="tns:DtFecha" minOccurs="0"></xs:element>
+<xs:element name="fecha" type="tns:DtFecha" minOccurs="0"></xs:element>
 <xs:element name="monto" type="xs:int"></xs:element>
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="dtFecha">
+<xs:complexType name="DtFecha">
 <xs:sequence>
 <xs:element name="dia" type="xs:int"></xs:element>
 <xs:element name="mes" type="xs:int"></xs:element>
@@ -26,7 +24,7 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="dtListaUsuarios">
+<xs:complexType name="DtListaUsuarios">
 <xs:sequence>
 <xs:element name="usuarios" type="tns:DtUsuario" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
 </xs:sequence>
@@ -38,7 +36,7 @@
 <xs:element name="nombre" type="xs:string" minOccurs="0"></xs:element>
 <xs:element name="apellido" type="xs:string" minOccurs="0"></xs:element>
 <xs:element name="email" type="xs:string" minOccurs="0"></xs:element>
-<xs:element name="fechaNac" type="tns:dtFecha" minOccurs="0"></xs:element>
+<xs:element name="fechaNac" type="tns:DtFecha" minOccurs="0"></xs:element>
 <xs:element name="imagen" type="xs:string" minOccurs="0"></xs:element>
 <xs:element name="contrasenia" type="xs:string" minOccurs="0"></xs:element>
 </xs:sequence>
@@ -61,14 +59,9 @@
 <xs:sequence>
 <xs:element name="biografia" type="xs:string" minOccurs="0"></xs:element>
 <xs:element name="web" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="activo" type="xs:boolean"></xs:element>
 </xs:sequence>
 </xs:extension>
 </xs:complexContent>
-</xs:complexType>
-
-<xs:complexType name="Exception">
-<xs:sequence>
-<xs:element name="message" type="xs:string" minOccurs="0"></xs:element>
-</xs:sequence>
 </xs:complexType>
 </xs:schema>

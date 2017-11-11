@@ -6,11 +6,10 @@
 package Services;
 
 import javax.jws.WebService;
-import servicios.Exception_Exception;
 
 /**
  *
- * @author Ale
+ * @author Diego
  */
 @WebService(serviceName = "PTemaService", portName = "PTemaPort", endpointInterface = "servicios.PTema", targetNamespace = "http://Servicios/", wsdlLocation = "WEB-INF/wsdl/Tema/localhost_1234/tema.wsdl")
 public class Tema {
@@ -20,7 +19,7 @@ public class Tema {
         throw new UnsupportedOperationException("Not implemented yet.");
     }
 
-    public byte[] getAudio(java.lang.String audio) throws Exception_Exception {
+    public byte[] getAudio(java.lang.String audio) {
         //TODO implement this method
         throw new UnsupportedOperationException("Not implemented yet.");
     }

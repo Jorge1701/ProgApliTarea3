@@ -33,6 +33,7 @@
 <xs:complexContent>
 <xs:extension base="tns:DtBuscado">
 <xs:sequence>
+<xs:element name="reproducciones" type="xs:int"></xs:element>
 <xs:element name="nombre" type="xs:string" minOccurs="0"></xs:element>
 <xs:element name="duracion" type="tns:DtTime" minOccurs="0"></xs:element>
 <xs:element name="ubicacion" type="xs:int"></xs:element>
@@ -70,6 +71,7 @@
 <xs:extension base="tns:DtTema">
 <xs:sequence>
 <xs:element name="directorio" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="descargas" type="xs:int"></xs:element>
 </xs:sequence>
 </xs:extension>
 </xs:complexContent>

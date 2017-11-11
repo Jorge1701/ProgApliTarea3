@@ -9,7 +9,7 @@ import javax.jws.WebService;
 
 /**
  *
- * @author jorge
+ * @author Diego
  */
 @WebService(serviceName = "PContadoresService", portName = "PContadoresPort", endpointInterface = "servicios.PContadores", targetNamespace = "http://Servicios/", wsdlLocation = "WEB-INF/wsdl/Contadores/localhost_1234/contadores.wsdl")
 public class Contadores {

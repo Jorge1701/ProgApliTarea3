@@ -11,7 +11,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.xml.ws.soap.SOAPFaultException;
 import servicios.DtArtista;
 import servicios.DtCliente;
 import servicios.DtPerfilArtista;
@@ -19,6 +18,7 @@ import servicios.DtPerfilCliente;
 import servicios.DtUsuario;
 import servicios.PConsultaPerfil;
 import servicios.PConsultaPerfilService;
+import servicios.SoapSeviciosFaultException_Exception;
 
 @WebServlet(name = "SConsultarPerfil", urlPatterns = {"/SConsultarPerfil"})
 public class SConsultarPerfil extends HttpServlet {
@@ -53,7 +53,7 @@ public class SConsultarPerfil extends HttpServlet {
         DtUsuario DtUs = null;
         try {
             DtUs = port.getDataUsuario(nickUs);
-        } catch (SOAPFaultException ex) {
+        } catch (SoapSeviciosFaultException_Exception ex) {
             request.setAttribute("mensaje_error", "No existe el usuario " + nickUs);
             request.getRequestDispatcher("vistas/pagina_error.jsp").forward(request, response);
         } catch (Exception exc) {

@@ -4,16 +4,16 @@
 <xsd:import namespace="http://Servicios/" schemaLocation="http://localhost:1234/seguir?xsd=1"></xsd:import>
 </xsd:schema>
 </types>
-<message name="dejarSeguirUsuario">
-<part name="arg0" type="xsd:string"></part>
-<part name="arg1" type="xsd:string"></part>
-</message>
-<message name="dejarSeguirUsuarioResponse"></message>
 <message name="seguirUsuario">
 <part name="arg0" type="xsd:string"></part>
 <part name="arg1" type="xsd:string"></part>
 </message>
 <message name="seguirUsuarioResponse"></message>
+<message name="dejarSeguirUsuario">
+<part name="arg0" type="xsd:string"></part>
+<part name="arg1" type="xsd:string"></part>
+</message>
+<message name="dejarSeguirUsuarioResponse"></message>
 <message name="publicar"></message>
 <message name="publicarResponse"></message>
 <message name="getDataUsuario">
@@ -23,13 +23,13 @@
 <part name="return" type="tns:DtUsuario"></part>
 </message>
 <portType name="PSeguir">
-<operation name="dejarSeguirUsuario" parameterOrder="arg0 arg1">
-<input wsam:Action="http://Servicios/PSeguir/dejarSeguirUsuarioRequest" message="tns:dejarSeguirUsuario"></input>
-<output wsam:Action="http://Servicios/PSeguir/dejarSeguirUsuarioResponse" message="tns:dejarSeguirUsuarioResponse"></output>
-</operation>
 <operation name="seguirUsuario" parameterOrder="arg0 arg1">
 <input wsam:Action="http://Servicios/PSeguir/seguirUsuarioRequest" message="tns:seguirUsuario"></input>
 <output wsam:Action="http://Servicios/PSeguir/seguirUsuarioResponse" message="tns:seguirUsuarioResponse"></output>
+</operation>
+<operation name="dejarSeguirUsuario" parameterOrder="arg0 arg1">
+<input wsam:Action="http://Servicios/PSeguir/dejarSeguirUsuarioRequest" message="tns:dejarSeguirUsuario"></input>
+<output wsam:Action="http://Servicios/PSeguir/dejarSeguirUsuarioResponse" message="tns:dejarSeguirUsuarioResponse"></output>
 </operation>
 <operation name="publicar">
 <input wsam:Action="http://Servicios/PSeguir/publicarRequest" message="tns:publicar"></input>
@@ -42,7 +42,7 @@
 </portType>
 <binding name="PSeguirPortBinding" type="tns:PSeguir">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc"></soap:binding>
-<operation name="dejarSeguirUsuario">
+<operation name="seguirUsuario">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal" namespace="http://Servicios/"></soap:body>
@@ -51,7 +51,7 @@
 <soap:body use="literal" namespace="http://Servicios/"></soap:body>
 </output>
 </operation>
-<operation name="seguirUsuario">
+<operation name="dejarSeguirUsuario">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal" namespace="http://Servicios/"></soap:body>

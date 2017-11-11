@@ -6,10 +6,11 @@
 package Services;
 
 import javax.jws.WebService;
+import servicios.SoapSeviciosFaultException_Exception;
 
 /**
  *
- * @author Ale
+ * @author Diego
  */
 @WebService(serviceName = "PConsultaPerfilService", portName = "PConsultaPerfilPort", endpointInterface = "servicios.PConsultaPerfil", targetNamespace = "http://Servicios/", wsdlLocation = "WEB-INF/wsdl/ConsultaPerfil/localhost_1234/consultaPerfil.wsdl")
 public class ConsultaPerfil {
@@ -29,7 +30,7 @@ public class ConsultaPerfil {
         throw new UnsupportedOperationException("Not implemented yet.");
     }
 
-    public servicios.DtUsuario getDataUsuario(java.lang.String arg0) {
+    public servicios.DtUsuario getDataUsuario(java.lang.String arg0) throws SoapSeviciosFaultException_Exception {
         //TODO implement this method
         throw new UnsupportedOperationException("Not implemented yet.");
     }

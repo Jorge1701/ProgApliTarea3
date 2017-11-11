@@ -9,27 +9,12 @@ import javax.jws.WebService;
 
 /**
  *
- * @author jorge
+ * @author Diego
  */
 @WebService(serviceName = "PFavoritoService", portName = "PFavoritoPort", endpointInterface = "servicios.PFavorito", targetNamespace = "http://Servicios/", wsdlLocation = "WEB-INF/wsdl/Favorito/localhost_1234/favorito.wsdl")
 public class Favorito {
 
     public void publicar() {
-        //TODO implement this method
-        throw new UnsupportedOperationException("Not implemented yet.");
-    }
-
-    public servicios.DtListaDeListas listarLisReproduccion(java.lang.String arg0) {
-        //TODO implement this method
-        throw new UnsupportedOperationException("Not implemented yet.");
-    }
-
-    public servicios.DtAlbumContenido obtenerAlbumContenido(java.lang.String arg0, java.lang.String arg1) {
-        //TODO implement this method
-        throw new UnsupportedOperationException("Not implemented yet.");
-    }
-
-    public servicios.DtListaAlbum listarAlbumesArtista(java.lang.String arg0) {
         //TODO implement this method
         throw new UnsupportedOperationException("Not implemented yet.");
     }
@@ -55,6 +40,21 @@ public class Favorito {
     }
 
     public void agregarLPFav(java.lang.String arg0, java.lang.String arg1, java.lang.String arg2) {
+        //TODO implement this method
+        throw new UnsupportedOperationException("Not implemented yet.");
+    }
+
+    public servicios.DtListaDeListas listarLisReproduccion(java.lang.String arg0) {
+        //TODO implement this method
+        throw new UnsupportedOperationException("Not implemented yet.");
+    }
+
+    public servicios.DtAlbumContenido obtenerAlbumContenido(java.lang.String arg0, java.lang.String arg1) {
+        //TODO implement this method
+        throw new UnsupportedOperationException("Not implemented yet.");
+    }
+
+    public servicios.DtListaAlbum listarAlbumesArtista(java.lang.String arg0) {
         //TODO implement this method
         throw new UnsupportedOperationException("Not implemented yet.");
     }
