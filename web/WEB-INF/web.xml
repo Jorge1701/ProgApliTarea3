@@ -152,4 +152,8 @@
             30
         </session-timeout>
     </session-config>
+    <error-page>
+        <exception-type>javax.xml.ws.WebServiceException</exception-type>
+        <location>/vistas/pagina_error_conexion.jsp</location>
+    </error-page>
 </web-app>
