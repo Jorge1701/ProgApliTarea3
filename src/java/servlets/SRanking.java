@@ -23,6 +23,7 @@ public class SRanking extends HttpServlet {
     PRanking port;
 
     public SRanking() {
+        Configuracion.cargar();
         try {
             URL url = new URL("http://" + Configuracion.get("ip") + ":" + Configuracion.get("puerto") + "/" + Configuracion.get("PRanking"));
             PRankingService webserv = new PRankingService(url);

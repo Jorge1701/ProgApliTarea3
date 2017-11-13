@@ -22,6 +22,7 @@ public class SSesion extends HttpServlet {
     PSesion port;
 
     public SSesion() {
+        Configuracion.cargar();
         URL url = null;
         try {
             url = new URL("http://" + Configuracion.get("ip") + ":" + Configuracion.get("puerto") + "/" + Configuracion.get("PSesion"));

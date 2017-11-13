@@ -33,6 +33,7 @@ public class SContenido extends HttpServlet {
     PContenido port;
 
     public SContenido() {
+        Configuracion.cargar();
         try {
             URL url = new URL("http://" + Configuracion.get("ip") + ":" + Configuracion.get("puerto") + "/" + Configuracion.get("PContenido"));
             PContenidoService webserv = new PContenidoService(url);

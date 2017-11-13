@@ -18,6 +18,7 @@ public class SBuscador extends HttpServlet {
     private PBuscador port;
 
     public SBuscador() {
+        Configuracion.cargar();
         try {
             String path = "http://" + Configuracion.get("ip") + ":" + Configuracion.get("puerto") + "/" + Configuracion.get("PBuscador");
             PBuscadorService ws = new PBuscadorService(new URL(path));

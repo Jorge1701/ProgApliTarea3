@@ -21,7 +21,7 @@ public class STema extends HttpServlet {
     PTema port;
 
     public STema() {
-
+        Configuracion.cargar();
         try {
             URL url = new URL("http://" + Configuracion.get("ip") + ":" + Configuracion.get("puerto") + "/" + Configuracion.get("PTema"));
             PTemaService service = new PTemaService(url);

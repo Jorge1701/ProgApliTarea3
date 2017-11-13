@@ -22,6 +22,7 @@ public class DownloadFile extends HttpServlet {
     PDownloadFile port;
 
     public DownloadFile() {
+        Configuracion.cargar();
         try {
             URL url = new URL("http://" + Configuracion.get("ip") + ":" + Configuracion.get("puerto") + "/" + Configuracion.get("PDownloadFile"));
             PDownloadFileService webserv = new PDownloadFileService(url);

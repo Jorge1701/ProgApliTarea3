@@ -28,6 +28,7 @@ public class SLista extends HttpServlet {
     PLista port;
 
     public SLista() {
+        Configuracion.cargar();
         try {
             URL url = new URL("http://" + Configuracion.get("ip") + ":" + Configuracion.get("puerto") + "/" + Configuracion.get("PLista"));
             PListaService webserv = new PListaService(url);

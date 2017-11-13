@@ -28,6 +28,7 @@ public class SSuscripcion extends HttpServlet {
     PSuscripcion port;
 
     public SSuscripcion() {
+        Configuracion.cargar();
         try {
             URL url = new URL("http://" + Configuracion.get("ip") + ":" + Configuracion.get("puerto") + "/" + Configuracion.get("PSuscripcion"));
             PSuscripcionService suscripcion = new PSuscripcionService(url);

@@ -103,7 +103,7 @@ $("#btnAgregarTema").click(function () {
                 alert("Rellene Con Ceros La Duracion");
             } else {
                 if (hora < 0 || min < 0 || seg < 0) {
-                    alert("numeros negativos");
+                    alert("La duracion no puede cotnener numeros negativos");
                     return;
                 }
                 var tabla = document.getElementById("tabla");
@@ -154,7 +154,7 @@ function subirTema() {
     var ruta = $("#tema").val();
     if (ruta !== "") {
         tema = ruta.split("\\")[2];
-        var ext = tema.split(".").splice(-1,1);
+        var ext = tema.split(".").splice(-1, 1);
         if (ext.toString().localeCompare("mp3") === 0) {
             $.ajax({
                 url: '/Tarea2/Uploadfile',

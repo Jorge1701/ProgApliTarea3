@@ -26,7 +26,7 @@ public class SConsultarPerfil extends HttpServlet {
     PConsultaPerfil port;
 
     public SConsultarPerfil() {
-
+        Configuracion.cargar();
         try {
             URL url = new URL("http://" + Configuracion.get("ip") + ":" + Configuracion.get("puerto") + "/" + Configuracion.get("PConsultaPerfil"));
             PConsultaPerfilService service = new PConsultaPerfilService(url);

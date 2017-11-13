@@ -24,6 +24,7 @@ public class SImagen extends HttpServlet {
     PImagen port;
 
     public SImagen() {
+        Configuracion.cargar();
         try {
             URL url = new URL("http://" + Configuracion.get("ip") + ":" + Configuracion.get("puerto") + "/" + Configuracion.get("PImagen"));
             PImagenService serviceImg = new PImagenService(url);
