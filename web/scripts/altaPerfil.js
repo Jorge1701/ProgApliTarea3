@@ -59,7 +59,9 @@ function subirImagen() {
                 processData: false,
                 contentType: false,
                 type: 'POST',
+                async: false,
                 success: function (data) {
+                    imagen = data;
                     return true;
                 }
             });

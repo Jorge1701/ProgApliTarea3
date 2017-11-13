@@ -17,7 +17,7 @@ $("#btnCrearAlbum").click(function () {
         if (subirImagen() === false) {
             return;
         }
-        
+       
         $.ajax({
             type: "POST",
             url: "/Tarea2/SContenido",
@@ -29,7 +29,7 @@ $("#btnCrearAlbum").click(function () {
                 "temas": temas,
                 "imagen": imagen,
                 "accion": "crearAlbum"
-            },
+            }, 
             success: function (data) {
                 window.location = "/Tarea2/SInicio?mensaje=El Album Fue Creado Exitosamente";
             },
@@ -194,7 +194,9 @@ function subirImagen() {
                 processData: false,
                 contentType: false,
                 type: 'POST',
+                async: false,
                 success: function (data) {
+                    imagen=data;
                     return true;
                 }
             });

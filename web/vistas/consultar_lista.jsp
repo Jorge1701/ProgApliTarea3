@@ -40,14 +40,21 @@
                                 <%
                                     if (lista instanceof DtListaParticular) {
                                 %>
-                                <text><%= "Duenio: " + ((DtListaParticular) lista).getNickDuenio()%></text>
+                                <text><%= "Dueño: " + ((DtListaParticular) lista).getNickDuenio()%></text>
                                 <% } %>
                             </div>
+                            <br><br>
                             <div id="leyenda">
                                 <text>Leyenda:</text>
                                 <text><span class="glyphicon glyphicon-cloud"></span>Remoto</text>
                                 <text><span class="glyphicon glyphicon-floppy-disk"></span>Local</text>
                             </div>
+                            <%
+                                if (lista instanceof DtListaParticular) {
+                                    if (((DtListaParticular) lista).isPrivada()) {%>
+                                    <text style="padding-left: 200px;float: left;padding-top: 8px">Esta lista es privada</text>
+                            <%}
+                                } %>
                         </div>
                         <hr>
                         <%
