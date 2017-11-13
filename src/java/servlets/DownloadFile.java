@@ -23,6 +23,10 @@ public class DownloadFile extends HttpServlet {
 
     public DownloadFile() {
         Configuracion.cargar();
+        cargar();
+    }
+
+    private void cargar() {
         try {
             URL url = new URL("http://" + Configuracion.get("ip") + ":" + Configuracion.get("puerto") + "/" + Configuracion.get("PDownloadFile"));
             PDownloadFileService webserv = new PDownloadFileService(url);
@@ -33,6 +37,9 @@ public class DownloadFile extends HttpServlet {
     }
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        if (port == null) {
+            cargar();
+        }
 
         if (request.getSession().getAttribute("usuario") == null || request.getParameter("Ruta") == null) {
             request.setAttribute("mensaje_error", "Lo siento, no se puede acceder aqui de esa forma");

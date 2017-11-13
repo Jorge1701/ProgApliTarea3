@@ -29,6 +29,10 @@ public class Uploadfile extends HttpServlet {
 
     public Uploadfile() {
         Configuracion.cargar();
+        cargar();
+    }
+
+    private void cargar() {
         try {
             URL url = new URL("http://" + Configuracion.get("ip") + ":" + Configuracion.get("puerto") + "/" + Configuracion.get("PUploadfile"));
             PUploadfileService webserv = new PUploadfileService(url);
@@ -40,6 +44,10 @@ public class Uploadfile extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        if (port == null) {
+            cargar();
+        }
+        
 
         response.setContentType("text/html;charset=UTF-8");
         String nombreArchivo = "";

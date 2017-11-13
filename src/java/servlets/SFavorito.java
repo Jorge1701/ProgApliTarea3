@@ -32,6 +32,10 @@ public class SFavorito extends HttpServlet {
 
     public SFavorito() {
         Configuracion.cargar();
+        cargar();
+    }
+
+    private void cargar() {
         try {
             PFavoritoService ws = new PFavoritoService(new URL("http://" + Configuracion.get("ip") + ":" + Configuracion.get("puerto") + "/" + Configuracion.get("PFavorito")));
             port = ws.getPFavoritoPort();
@@ -41,6 +45,10 @@ public class SFavorito extends HttpServlet {
     }
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        if (port == null) {
+            cargar();
+        }
+        
         request.setAttribute("mensaje_error", "Ups, usted no deberia estar aqui   <span class=\"glyphicon glyphicon-eye-close\"></span>");
         request.getRequestDispatcher("vistas/pagina_error.jsp").forward(request, response);
     }
@@ -52,6 +60,10 @@ public class SFavorito extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        if (port == null) {
+            cargar();
+        }
+        
         if (request.getSession().getAttribute("usuario") == null) {
             request.setAttribute("mensaje_error", "No se pudo completar la tarea, no tiene permisos para entrar aqui");
             request.getRequestDispatcher("vistas/pagina_error.jsp").forward(request, response);

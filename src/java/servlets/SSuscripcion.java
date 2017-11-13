@@ -29,6 +29,10 @@ public class SSuscripcion extends HttpServlet {
 
     public SSuscripcion() {
         Configuracion.cargar();
+        cargar();
+    }
+
+    private void cargar() {
         try {
             URL url = new URL("http://" + Configuracion.get("ip") + ":" + Configuracion.get("puerto") + "/" + Configuracion.get("PSuscripcion"));
             PSuscripcionService suscripcion = new PSuscripcionService(url);
@@ -36,11 +40,14 @@ public class SSuscripcion extends HttpServlet {
         } catch (MalformedURLException ex) {
             Logger.getLogger(SSuscripcion.class.getName()).log(Level.SEVERE, null, ex);
         }
-
     }
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        if (port == null) {
+            cargar();
+        }
+        
         response.setContentType("text/html;charset=UTF-8");
 
         if (request.getParameter("accion").equals("redir")) {
@@ -136,7 +143,7 @@ public class SSuscripcion extends HttpServlet {
                 String cuota = request.getParameter("Cuota");
                 String fecha = request.getParameter("Fecha");
                 String fecha_venc = request.getParameter("FechaVenc");
-                
+
                 if (port.cancelarSuscripcion(usuario.getNickname(), estado, cuota, fecha, fecha_venc, fechaHoy)) {
                     DtUsuario usr = port.getDataUsuario(usuario.getNickname());
                     DtSuscripcion s = ((DtCliente) usr).getActual();
@@ -165,9 +172,9 @@ public class SSuscripcion extends HttpServlet {
             hoy.setMes(dia.get(Calendar.MONTH) + 1);
             hoy.setAnio(dia.get(Calendar.YEAR));
             //
-            log("fecha: "+ fecha);
-            log("fecha_venc "+ fecha_venc);
-            log("fecha_hoy: "+hoy.getAnio()+"-"+hoy.getMes()+"-"+hoy.getDia());
+            log("fecha: " + fecha);
+            log("fecha_venc " + fecha_venc);
+            log("fecha_hoy: " + hoy.getAnio() + "-" + hoy.getMes() + "-" + hoy.getDia());
             if (((DtCliente) usuario).getActual() == null) {
                 if (port.renovarSuscripcion(usuario.getNickname(), estado, cuota, fecha, fecha_venc, hoy)) {
                     DtUsuario usr = port.getDataUsuario(usuario.getNickname());

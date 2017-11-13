@@ -26,6 +26,10 @@ public class SRegistro extends HttpServlet {
 
     public SRegistro() {
         Configuracion.cargar();
+        cargar();
+    }
+
+    private void cargar() {
         try {
             URL url = new URL("http://" + Configuracion.get("ip") + ":" + Configuracion.get("puerto") + "/" + Configuracion.get("PRegistro"));
             PRegistroService webserv = new PRegistroService(url);
@@ -36,12 +40,20 @@ public class SRegistro extends HttpServlet {
     }
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        if (port == null) {
+            cargar();
+        }
+        
         request.setAttribute("mensaje_error", "Ups, usted no deberia estar aqui :s");
         request.getRequestDispatcher("vistas/pagina_error.jsp").forward(request, response);
     }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        if (port == null) {
+            cargar();
+        }
+        
         if (request.getParameter("accion") == null) {
             request.setAttribute("mensaje_error", "No hay una accion");
             request.getRequestDispatcher("vistas/pagina_error.jsp").forward(request, response);

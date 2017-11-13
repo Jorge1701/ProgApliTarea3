@@ -514,7 +514,7 @@
       </wsimport-options>
     </service>
     <service name="ConsultaPerfil">
-      <implementation-class>Services.ConsultarPerfil</implementation-class>
+      <implementation-class>Services.ConsultaPerfil</implementation-class>
       <wsdl-url>http://localhost:1234/consultaPerfil?wsdl</wsdl-url>
       <local-wsdl-file>localhost_1234/consultaPerfil.wsdl</local-wsdl-file>
       <service-name>PConsultaPerfilService</service-name>
