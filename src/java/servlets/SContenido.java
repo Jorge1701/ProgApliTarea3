@@ -34,6 +34,10 @@ public class SContenido extends HttpServlet {
 
     public SContenido() {
         Configuracion.cargar();
+        cargar();
+    }
+
+    private void cargar() {
         try {
             URL url = new URL("http://" + Configuracion.get("ip") + ":" + Configuracion.get("puerto") + "/" + Configuracion.get("PContenido"));
             PContenidoService webserv = new PContenidoService(url);
@@ -44,7 +48,10 @@ public class SContenido extends HttpServlet {
     }
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        if (port == null) {
+            cargar();
+        }
+        
         if (request.getParameter("accion") == null) {
             request.setAttribute("mensaje_error", "Falta una accion");
             request.getRequestDispatcher("vistas/pagina_error.jsp").forward(request, response);
@@ -216,6 +223,10 @@ public class SContenido extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        if (port == null) {
+            cargar();
+        }
+        
         if (request.getParameter("accion") == null) {
             request.setAttribute("mensaje_error", "Falta una accion");
             request.getRequestDispatcher("vistas/pagina_error.jsp").forward(request, response);

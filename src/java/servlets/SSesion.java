@@ -23,6 +23,10 @@ public class SSesion extends HttpServlet {
 
     public SSesion() {
         Configuracion.cargar();
+        cargar();
+    }
+
+    private void cargar() {
         URL url = null;
         try {
             url = new URL("http://" + Configuracion.get("ip") + ":" + Configuracion.get("puerto") + "/" + Configuracion.get("PSesion"));
@@ -31,16 +35,23 @@ public class SSesion extends HttpServlet {
         }
         PSesionService webserv = new PSesionService(url);
         port = webserv.getPSesionPort();
-
     }
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        if (port == null) {
+            cargar();
+        }
+        
         request.setAttribute("mensaje_error", "Ups, usted no deberia estar aqui :s");
         request.getRequestDispatcher("vistas/pagina_error.jsp").forward(request, response);
     }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        if (port == null) {
+            cargar();
+        }
+        
         if (request.getParameter("accion") == null) {
             request.setAttribute("mensaje_error", "No hay una accion");
             request.getRequestDispatcher("vistas/pagina_error.jsp").forward(request, response);
@@ -92,6 +103,10 @@ public class SSesion extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        if (port == null) {
+            cargar();
+        }
+        
         if (request.getParameter("accion") == null) {
             request.setAttribute("mensaje_error", "No hay una accion");
             request.getRequestDispatcher("vistas/pagina_error.jsp").forward(request, response);

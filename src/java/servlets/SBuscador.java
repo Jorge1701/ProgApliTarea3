@@ -19,6 +19,10 @@ public class SBuscador extends HttpServlet {
 
     public SBuscador() {
         Configuracion.cargar();
+        cargar();
+    }
+
+    private void cargar() {
         try {
             String path = "http://" + Configuracion.get("ip") + ":" + Configuracion.get("puerto") + "/" + Configuracion.get("PBuscador");
             PBuscadorService ws = new PBuscadorService(new URL(path));
@@ -29,6 +33,10 @@ public class SBuscador extends HttpServlet {
     }
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        if (port == null) {
+            cargar();
+        }
+        
         if (request.getParameter("busqueda") == null) {
             request.setAttribute("mensaje_error", "Debe de ingresar el parametro busqueda");
             request.getRequestDispatcher("vistas/pagina_error.jsp").forward(request, response);

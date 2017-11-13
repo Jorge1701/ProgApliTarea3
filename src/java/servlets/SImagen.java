@@ -25,6 +25,10 @@ public class SImagen extends HttpServlet {
 
     public SImagen() {
         Configuracion.cargar();
+        cargar();
+    }
+
+    private void cargar() {
         try {
             URL url = new URL("http://" + Configuracion.get("ip") + ":" + Configuracion.get("puerto") + "/" + Configuracion.get("PImagen"));
             PImagenService serviceImg = new PImagenService(url);
@@ -35,6 +39,10 @@ public class SImagen extends HttpServlet {
     }
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        if (port == null) {
+            cargar();
+        }
+        
         if (request.getParameter("usuario") == null && request.getParameter("album") == null && request.getParameter("lista") == null) {
             request.setAttribute("mensaje_error", "No ingreso nada");
             request.getRequestDispatcher("vistas/pagina_error.jsp").forward(request, response);

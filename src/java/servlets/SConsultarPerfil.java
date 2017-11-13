@@ -27,6 +27,10 @@ public class SConsultarPerfil extends HttpServlet {
 
     public SConsultarPerfil() {
         Configuracion.cargar();
+        cargar();
+    }
+
+    private void cargar() {
         try {
             URL url = new URL("http://" + Configuracion.get("ip") + ":" + Configuracion.get("puerto") + "/" + Configuracion.get("PConsultaPerfil"));
             PConsultaPerfilService service = new PConsultaPerfilService(url);
@@ -34,10 +38,13 @@ public class SConsultarPerfil extends HttpServlet {
         } catch (MalformedURLException ex) {
             Logger.getLogger(SConsultarPerfil.class.getName()).log(Level.SEVERE, null, ex);
         }
-
     }
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        if (port == null) {
+            cargar();
+        }
+
         if (request.getParameter("nickUs") == null) {
             request.setAttribute("mensaje_error", "No se ingreso que usuario quiere consultar");
             request.getRequestDispatcher("vistas/pagina_error.jsp").forward(request, response);

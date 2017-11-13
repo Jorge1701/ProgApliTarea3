@@ -29,6 +29,10 @@ public class SLista extends HttpServlet {
 
     public SLista() {
         Configuracion.cargar();
+        cargar();
+    }
+
+    private void cargar() {
         try {
             URL url = new URL("http://" + Configuracion.get("ip") + ":" + Configuracion.get("puerto") + "/" + Configuracion.get("PLista"));
             PListaService webserv = new PListaService(url);
@@ -39,14 +43,20 @@ public class SLista extends HttpServlet {
     }
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        if (port == null) {
+            cargar();
+        }
+        
         request.setAttribute("mensaje_error", "Ups, usted no deberia estar aqui :s");
         request.getRequestDispatcher("vistas/pagina_error.jsp").forward(request, response);
-
     }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        if (port == null) {
+            cargar();
+        }
+        
         DtUsuario dtUs = (DtUsuario) request.getSession().getAttribute("usuario");
         if (dtUs == null) {            // 
             request.setAttribute("mensaje_error", "Debe iniciar sesion");

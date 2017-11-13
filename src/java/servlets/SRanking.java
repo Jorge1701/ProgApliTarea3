@@ -24,6 +24,10 @@ public class SRanking extends HttpServlet {
 
     public SRanking() {
         Configuracion.cargar();
+        cargar();
+    }
+
+    private void cargar() {
         try {
             URL url = new URL("http://" + Configuracion.get("ip") + ":" + Configuracion.get("puerto") + "/" + Configuracion.get("PRanking"));
             PRankingService webserv = new PRankingService(url);
@@ -35,6 +39,10 @@ public class SRanking extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        if (port == null) {
+            cargar();
+        }
+        
 
         if (request.getParameter("redirigir") != null) {
             ArrayList<DtRanking> ranking = (ArrayList) port.obtenerRanking().getRanking();

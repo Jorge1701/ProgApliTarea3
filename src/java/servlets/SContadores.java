@@ -22,6 +22,10 @@ public class SContadores extends HttpServlet {
 
     public SContadores() {
         Configuracion.cargar();
+        cargar();
+    }
+
+    private void cargar() {
         try {
             PContadoresService ws = new PContadoresService(new URL("http://" + Configuracion.get("ip") + ":" + Configuracion.get("puerto") + "/" + Configuracion.get("PContadores")));
             port = ws.getPContadoresPort();
@@ -31,6 +35,10 @@ public class SContadores extends HttpServlet {
     }
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        if (port == null) {
+            cargar();
+        }
+        
         request.setAttribute("mensaje_error", "Ups, usted no deberia estar aqui   <span class=\"glyphicon glyphicon-eye-close\"></span>");
         request.getRequestDispatcher("vistas/pagina_error.jsp").forward(request, response);
     }
@@ -42,6 +50,10 @@ public class SContadores extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        if (port == null) {
+            cargar();
+        }
+        
         String accion = request.getParameter("accion");
 
         String nickArt = URLDecoder.decode(request.getParameter("nickArt"), "UTF-8");

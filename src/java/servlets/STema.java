@@ -22,6 +22,10 @@ public class STema extends HttpServlet {
 
     public STema() {
         Configuracion.cargar();
+        cargar();
+    }
+
+    private void cargar() {
         try {
             URL url = new URL("http://" + Configuracion.get("ip") + ":" + Configuracion.get("puerto") + "/" + Configuracion.get("PTema"));
             PTemaService service = new PTemaService(url);
@@ -29,10 +33,13 @@ public class STema extends HttpServlet {
         } catch (MalformedURLException ex) {
             Logger.getLogger(STema.class.getName()).log(Level.SEVERE, null, ex);
         }
-
     }
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        if (port == null) {
+            cargar();
+        }
+        
         try {
 
             String track = request.getParameter("audio");

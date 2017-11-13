@@ -25,6 +25,10 @@ public class SInicio extends HttpServlet {
 
     public SInicio() {
         Configuracion.cargar();
+        cargar();
+    }
+
+    private void cargar() {
         try {
             URL url = new URL("http://" + Configuracion.get("ip") + ":" + Configuracion.get("puerto") + "/" + Configuracion.get("PInicio"));
             PInicioService webserv = new PInicioService(url);
@@ -45,7 +49,10 @@ public class SInicio extends HttpServlet {
     }
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        if (port == null) {
+            cargar();
+        }
+        
         if (request.getParameter("cargarDatosPrueba") != null) {
             if (request.getSession().getAttribute("usuario") == null) {
                 request.setAttribute("mensaje_error", "Usted no puede cargar los datos de prueba");
