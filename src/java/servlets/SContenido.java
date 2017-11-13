@@ -267,9 +267,9 @@ public class SContenido extends HttpServlet {
                 }
 
                 String[] todoTemas = temas.split("@");
-                log("TAMAÑO: "+todoTemas.length);
+                //log("TAMAÑO: "+todoTemas.length);
                 for (i = 0; i < todoTemas.length; i++) {
-                    log("CONTENIDO: "+todoTemas[i]);
+                    //log("CONTENIDO: "+todoTemas[i]);
                     String[] data = todoTemas[i].split("~");
                     String[] duracion = data[3].split(":");
 

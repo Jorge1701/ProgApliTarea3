@@ -5,6 +5,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -39,7 +41,7 @@ public class Uploadfile extends HttpServlet {
             throws ServletException, IOException {
 
         response.setContentType("text/html;charset=UTF-8");
-
+        String nombreArchivo = "";
         FileItemFactory fif = new DiskFileItemFactory();
         ServletFileUpload sfu = new ServletFileUpload(fif);
 
@@ -65,11 +67,18 @@ public class Uploadfile extends HttpServlet {
                     FileInputStream streamer = (FileInputStream) item.getInputStream();
                     byte[] byteArray = new byte[streamer.available()];
                     streamer.read(byteArray);
-                    port.uploadfile(byteArray, filename, accion);
+                    String[] array = filename.split("\\.");
+                    Calendar hoy = new GregorianCalendar();
+                    nombreArchivo = String.valueOf(hoy.get(Calendar.DATE)) + "_" + String.valueOf((hoy.get(Calendar.MONTH) + 1)) + "_" + String.valueOf(hoy.get(Calendar.YEAR)) + "_" + String.valueOf(hoy.get(Calendar.HOUR_OF_DAY)) + "_" + String.valueOf(hoy.get(Calendar.MINUTE)) + "_" + String.valueOf(hoy.get(Calendar.SECOND) + "." + array[1]);
+                    port.uploadfile(byteArray, nombreArchivo, accion);
+                    //prueba
 
                 }
 
             }
+            response.setContentType("text/plain");
+            response.setCharacterEncoding("UTF-8");
+            response.getWriter().write(nombreArchivo);
 
         } catch (Exception ex) {
             Logger.getLogger(Uploadfile.class.getName()).log(Level.SEVERE, null, ex);

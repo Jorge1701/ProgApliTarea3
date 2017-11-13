@@ -64,11 +64,11 @@
                                         <% if (dts.getEstado().equals("Vencida")) {%>
                                         <td>
                                             <%if (request.getAttribute("suscripcion") == null) {%>
-                                            <button onclick="renovarSuscripcion('<%= dts.getEstado()%>', '<%=dts.getCuota()%>', '<%=dts.getFecha()%>', '<%=dts.getFechaVenc()%>')" class="btn btn-default btn-xs">
+                                            <button onclick="renovarSuscripcion('<%= dts.getEstado()%>', '<%=dts.getCuota()%>', '<%=dts.getFecha().getDia() + "/" + dts.getFecha().getMes() + "/" + dts.getFecha().getAnio()%>', '<%=dts.getFechaVenc().getDia() + "/" + dts.getFechaVenc().getMes() + "/" + dts.getFechaVenc().getAnio()%>')" class="btn btn-default btn-xs">
                                                 <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
                                             </button>
                                             <%}%>
-                                            <button onclick="cancelarSuscripcion('<%= dts.getEstado()%>', '<%=dts.getCuota()%>', '<%=dts.getFecha()%>', '<%=dts.getFechaVenc()%>')" class="btn btn-default btn-xs">
+                                            <button onclick="cancelarSuscripcion('<%= dts.getEstado()%>', '<%=dts.getCuota()%>', '<%=dts.getFecha().getDia() + "/" + dts.getFecha().getMes() + "/" + dts.getFecha().getAnio()%>', '<%=dts.getFechaVenc().getDia() + "/" + dts.getFechaVenc().getMes() + "/" + dts.getFechaVenc().getAnio()%>')" class="btn btn-default btn-xs">
                                                 <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                                             </button>
                                         </td><%}
