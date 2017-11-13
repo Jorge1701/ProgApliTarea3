@@ -261,10 +261,13 @@ public class SContenido extends HttpServlet {
                 //ArrayList<String> ArrayDeGeneros = new ArrayList();
                 DtListaString ArrayDeGeneros = new DtListaString();
 
-                String[] objGeneros = gen.split("&");
+                String[] objGeneros = gen.split("\\(#%\\*\\)");
                 int i;
+                log(gen);
                 for (i = 0; i < objGeneros.length; i++) {
+                    log(objGeneros[i]);
                     ArrayDeGeneros.getString().add(objGeneros[i]);
+                    
                 }
 
                 String[] todoTemas = temas.split("@");

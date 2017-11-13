@@ -11,7 +11,7 @@ $("#btnCrearAlbum").click(function () {
             temas = temas + tabla.rows[i].cells[0].innerHTML + "~" + tabla.rows[i].cells[1].innerHTML + "~" + tabla.rows[i].cells[2].innerHTML + "~" + tabla.rows[i].cells[3].innerHTML + "@";
         }
         for (i = 0; i < lista.length; i++) {
-            generos = generos + lista.options[i].text + "&";
+            generos = generos + lista.options[i].text + "(#%*)";
         }
 
         if (subirImagen() === false) {
