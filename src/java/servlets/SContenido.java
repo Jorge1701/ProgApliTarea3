@@ -33,6 +33,7 @@ public class SContenido extends HttpServlet {
     PContenido port;
 
     public SContenido() {
+        Configuracion.cargar();
         try {
             URL url = new URL("http://" + Configuracion.get("ip") + ":" + Configuracion.get("puerto") + "/" + Configuracion.get("PContenido"));
             PContenidoService webserv = new PContenidoService(url);
@@ -267,9 +268,9 @@ public class SContenido extends HttpServlet {
                 }
 
                 String[] todoTemas = temas.split("@");
-                log("TAMAÑO: "+todoTemas.length);
+                log("TAMAÑO: " + todoTemas.length);
                 for (i = 0; i < todoTemas.length; i++) {
-                    log("CONTENIDO: "+todoTemas[i]);
+                    log("CONTENIDO: " + todoTemas[i]);
                     String[] data = todoTemas[i].split("~");
                     String[] duracion = data[3].split(":");
 

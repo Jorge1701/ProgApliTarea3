@@ -11,26 +11,27 @@ import java.util.HashMap;
 // Tarea 2
 public class Configuracion {
 
-    private static HashMap<String, String> propiedades;
+    private static HashMap<String, String> propiedades = null;
 
     public static void cargar() {
+        if (propiedades != null) {
+            return;
+        }
+
         propiedades = new HashMap<>();
 
-        //String quitar = "build/web/WEB-INF/classes/Configuracion/Configuracion.class";
-        //String path = Configuracion.class.getResource("/Configuracion/Configuracion.class").getPath().replaceAll(quitar, "configuracion.properties");
-
-        //System.out.println("PATH = " + path);
+        // Desde NetBeans
+        String quitar = "build/web/WEB-INF/classes/Configuracion/Configuracion.class";
+        String path = Configuracion.class.getResource("/Configuracion/Configuracion.class").getPath().replaceAll(quitar, "configuracion.properties");
+        //=============        
+        // Desde Script
+        //String propertyHome = System.getenv("CATALINA_HOME");
+        //if (null == propertyHome) {
+        //    propertyHome = System.getProperty("PROPERTY_HOME");
+        //}
+        //String path = propertyHome + "/properties/configuracion.properties";
         try {
-            //Use Any Environmental Variable , here i have used CATALINA_HOME
-            String propertyHome = System.getenv("CATALINA_HOME");           
-            if(null == propertyHome){
 
-                //This is a system property that is  passed
-                // using the -D option in the Tomcat startup script
-                propertyHome  =  System.getProperty("PROPERTY_HOME");
-            }
-            String path= propertyHome+"/properties/configuracion.properties";
-            
             BufferedReader br = new BufferedReader(new FileReader(new File(path)));
             String linea;
             while ((linea = br.readLine()) != null) {

@@ -24,6 +24,7 @@ public class SSeguir extends HttpServlet {
     private PSeguir port;
 
     public SSeguir() {
+        Configuracion.cargar();
         try {
             PSeguirService ws = new PSeguirService(new URL("http://" + Configuracion.get("ip") + ":" + Configuracion.get("puerto") + "/" + Configuracion.get("PSeguir")));
             port = ws.getPSeguirPort();

@@ -18,6 +18,7 @@ public class SDesactivarArtista extends HttpServlet {
     private PDesactivarArtista port;
 
     public SDesactivarArtista() {
+        Configuracion.cargar();
         try {
             String path = "http://" + Configuracion.get("ip") + ":" + Configuracion.get("puerto") + "/" + Configuracion.get("PDesactivarArtista");
             PDesactivarArtistaService ws = new PDesactivarArtistaService(new URL(path));

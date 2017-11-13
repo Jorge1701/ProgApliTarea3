@@ -31,6 +31,7 @@ public class SFavorito extends HttpServlet {
     private PFavorito port;
 
     public SFavorito() {
+        Configuracion.cargar();
         try {
             PFavoritoService ws = new PFavoritoService(new URL("http://" + Configuracion.get("ip") + ":" + Configuracion.get("puerto") + "/" + Configuracion.get("PFavorito")));
             port = ws.getPFavoritoPort();

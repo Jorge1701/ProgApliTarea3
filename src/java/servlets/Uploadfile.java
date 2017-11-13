@@ -26,6 +26,7 @@ public class Uploadfile extends HttpServlet {
     PUploadfile port;
 
     public Uploadfile() {
+        Configuracion.cargar();
         try {
             URL url = new URL("http://" + Configuracion.get("ip") + ":" + Configuracion.get("puerto") + "/" + Configuracion.get("PUploadfile"));
             PUploadfileService webserv = new PUploadfileService(url);
