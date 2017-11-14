@@ -103,7 +103,7 @@ $("#btnAgregarTema").click(function () {
                 alert("Rellene Con Ceros La Duracion");
             } else {
                 if (hora < 0 || min < 0 || seg < 0) {
-                    alert("La duracion no puede cotnener numeros negativos");
+                    alert("La duracion no puede contener numeros negativos");
                     return;
                 }
                 var tabla = document.getElementById("tabla");
