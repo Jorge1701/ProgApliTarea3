@@ -96,16 +96,7 @@ public class SLista extends HttpServlet {
         String nombreL = request.getParameter("nombreLst");
 
         if ("nombreLst".equals(accion)) {
-            log("Aasdasd");
-            if (port == null) {
-                log("PORT NULL");
-            }
-            if (nombreL == null) {
-                log("NOMBREL NULL");
-            }
-            if (dtUs.getNickname() == null) {
-                log("NICK NULL");
-            }
+
             if (port.existeLista(nombreL, dtUs.getNickname())) {
                 existe = "si";
             } else {
