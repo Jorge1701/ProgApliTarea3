@@ -85,15 +85,15 @@
                                     <td><text style="color:black ; background-color: white"><center> <%= temas.get(i) instanceof DtTemaLocal ? ((DtTemaLocal) temas.get(i)).getDirectorio() : ((DtTemaRemoto) temas.get(i)).getUrl()%></center> </text></td>
                                         <%  if (temas.get(i) instanceof DtTemaLocal) {
                                                 DtTemaLocal local = (DtTemaLocal) temas.get(i);%>
-                                    <td><center><button type="button" class="btn btn-default" aria-label="Left Align">
-                                            <span class="glyphicon glyphicon-play-circle" aria-hidden="true"  onclick="reproducirLocal('<%= local.getDirectorio().replace("'", "\\'")%>', '<%= local.getNombre().replace("'", "\\'")%>', '<%= local.getArtista().replace("'", "\\'")%>', '<%= local.getImagenAlbum().replace("'", "\\'")%>', '<%= local.getAlbum().replace("'", "\\'")%>')"></span>
+                                    <td><center><button type="button" class="btn btn-default" aria-label="Left Align" onclick="reproducirLocal('<%= local.getDirectorio().replace("'", "\\'")%>', '<%= local.getNombre().replace("'", "\\'")%>', '<%= local.getArtista().replace("'", "\\'")%>', '<%= local.getImagenAlbum().replace("'", "\\'")%>', '<%= local.getAlbum().replace("'", "\\'")%>')">
+                                            <span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span>
                                         </button></center></td>
                                         <%} else {%>
-                                    <td><center><button type="button" class="btn btn-default" aria-label="Left Align">
+                                    <td><center><button type="button" class="btn btn-default" aria-label="Left Align" onclick="reproducirRemoto('<%= temaRemoto.getUrl()%>', '<%= temaRemoto.getArtista().replace("'", "\\'")%>', '<%= temaRemoto.getAlbum().replace("'", "\\'")%>', '<%= temaRemoto.getNombre().replace("'", "\\'")%>')">
                                             <%
                                                 DtTemaRemoto temaRemoto = (DtTemaRemoto) temas.get(i);
                                             %>
-                                            <span class="glyphicon glyphicon-play-circle" aria-hidden="true"  onclick="reproducirRemoto('<%= temaRemoto.getUrl()%>', '<%= temaRemoto.getArtista().replace("'", "\\'")%>', '<%= temaRemoto.getAlbum().replace("'", "\\'")%>', '<%= temaRemoto.getNombre().replace("'", "\\'")%>')"></span></button></center></td>
+                                            <span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span></button></center></td>
                                             <% }%>
                                             <%
                                                 if (request.getSession().getAttribute("usuario") != null) {

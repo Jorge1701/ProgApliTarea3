@@ -39,11 +39,6 @@
         <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet>
-        <servlet-name>PListaService</servlet-name>
-        <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
-        <load-on-startup>1</load-on-startup>
-    </servlet>
-    <servlet>
         <servlet-name>PRankingService</servlet-name>
         <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
@@ -80,6 +75,11 @@
     </servlet>
     <servlet>
         <servlet-name>PUploadfileService</servlet-name>
+        <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet>
+        <servlet-name>PListaService</servlet-name>
         <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
@@ -112,10 +112,6 @@
         <url-pattern>/PInicioService</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>PListaService</servlet-name>
-        <url-pattern>/PListaService</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>PRankingService</servlet-name>
         <url-pattern>/PRankingService</url-pattern>
     </servlet-mapping>
@@ -146,6 +142,10 @@
     <servlet-mapping>
         <servlet-name>PUploadfileService</servlet-name>
         <url-pattern>/PUploadfileService</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PListaService</servlet-name>
+        <url-pattern>/PListaService</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

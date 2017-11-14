@@ -13,11 +13,12 @@
 <message name="crearListaReproduccionResponse">
 <part name="return" type="xsd:boolean"></part>
 </message>
-<message name="listarListaReproduccionCli">
+<message name="existeLista">
 <part name="arg0" type="xsd:string"></part>
+<part name="arg1" type="xsd:string"></part>
 </message>
-<message name="listarListaReproduccionCliResponse">
-<part name="return" type="tns:DtListaDeListas"></part>
+<message name="existeListaResponse">
+<part name="return" type="xsd:boolean"></part>
 </message>
 <portType name="PLista">
 <operation name="publicar">
@@ -28,9 +29,9 @@
 <input wsam:Action="http://Servicios/PLista/crearListaReproduccionRequest" message="tns:crearListaReproduccion"></input>
 <output wsam:Action="http://Servicios/PLista/crearListaReproduccionResponse" message="tns:crearListaReproduccionResponse"></output>
 </operation>
-<operation name="listarListaReproduccionCli">
-<input wsam:Action="http://Servicios/PLista/listarListaReproduccionCliRequest" message="tns:listarListaReproduccionCli"></input>
-<output wsam:Action="http://Servicios/PLista/listarListaReproduccionCliResponse" message="tns:listarListaReproduccionCliResponse"></output>
+<operation name="existeLista" parameterOrder="arg0 arg1">
+<input wsam:Action="http://Servicios/PLista/existeListaRequest" message="tns:existeLista"></input>
+<output wsam:Action="http://Servicios/PLista/existeListaResponse" message="tns:existeListaResponse"></output>
 </operation>
 </portType>
 <binding name="PListaPortBinding" type="tns:PLista">
@@ -53,7 +54,7 @@
 <soap:body use="literal" namespace="http://Servicios/"></soap:body>
 </output>
 </operation>
-<operation name="listarListaReproduccionCli">
+<operation name="existeLista">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal" namespace="http://Servicios/"></soap:body>

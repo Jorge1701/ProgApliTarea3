@@ -17,10 +17,12 @@ import javax.servlet.http.HttpServletResponse;
 import servicios.DtCliente;
 import servicios.DtFecha;
 import servicios.DtLista;
+import servicios.DtListaDeListas;
 import servicios.DtListaParticular;
 import servicios.DtUsuario;
 import servicios.PLista;
 import servicios.PListaService;
+import servicios.SoapSeviciosFaultException_Exception;
 
 @WebServlet(name = "SLista", urlPatterns = {"/SLista"})
 public class SLista extends HttpServlet {
@@ -36,7 +38,7 @@ public class SLista extends HttpServlet {
         try {
             URL url = new URL("http://" + Configuracion.get("ip") + ":" + Configuracion.get("puerto") + "/" + Configuracion.get("PLista"));
             PListaService webserv = new PListaService(url);
-            PLista port = webserv.getPListaPort();
+            port = webserv.getPListaPort();
         } catch (MalformedURLException ex) {
             Logger.getLogger(SLista.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -46,7 +48,7 @@ public class SLista extends HttpServlet {
         if (port == null) {
             cargar();
         }
-        
+
         request.setAttribute("mensaje_error", "Ups, usted no deberia estar aqui :s");
         request.getRequestDispatcher("vistas/pagina_error.jsp").forward(request, response);
     }
@@ -56,7 +58,7 @@ public class SLista extends HttpServlet {
         if (port == null) {
             cargar();
         }
-        
+
         DtUsuario dtUs = (DtUsuario) request.getSession().getAttribute("usuario");
         if (dtUs == null) {            // 
             request.setAttribute("mensaje_error", "Debe iniciar sesion");
@@ -83,7 +85,9 @@ public class SLista extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        //processRequest(request, response);
+        if (port == null) {
+            cargar();
+        }
 
         DtUsuario dtUs = (DtUsuario) request.getSession().getAttribute("usuario");
 
@@ -92,12 +96,20 @@ public class SLista extends HttpServlet {
         String nombreL = request.getParameter("nombreLst");
 
         if ("nombreLst".equals(accion)) {
-            ArrayList<DtLista> dtl = (ArrayList<DtLista>) port.listarListaReproduccionCli(dtUs.getNickname()).getListas();
-            existe = "no";
-            for (DtLista dta : dtl) {
-                if (dta.getNombre().equals(nombreL)) {
-                    existe = "si";
-                }
+            log("Aasdasd");
+            if (port == null) {
+                log("PORT NULL");
+            }
+            if (nombreL == null) {
+                log("NOMBREL NULL");
+            }
+            if (dtUs.getNickname() == null) {
+                log("NICK NULL");
+            }
+            if (port.existeLista(nombreL, dtUs.getNickname())) {
+                existe = "si";
+            } else {
+                existe = "no";
             }
 
             response.setContentType("text/plain");

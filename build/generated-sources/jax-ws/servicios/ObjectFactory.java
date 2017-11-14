@@ -1,10 +1,7 @@
 
 package servicios;
 
-import javax.xml.bind.JAXBElement;
-import javax.xml.bind.annotation.XmlElementDecl;
 import javax.xml.bind.annotation.XmlRegistry;
-import javax.xml.namespace.QName;
 
 
 /**
@@ -24,7 +21,6 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _SoapSeviciosFaultException_QNAME = new QName("http://Servicios/", "SoapSeviciosFaultException");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: servicios
@@ -34,19 +30,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link SoapSeviciosFaultException }
+     * Create an instance of {@link DtTemaRemoto }
      * 
      */
-    public SoapSeviciosFaultException createSoapSeviciosFaultException() {
-        return new SoapSeviciosFaultException();
+    public DtTemaRemoto createDtTemaRemoto() {
+        return new DtTemaRemoto();
     }
 
     /**
-     * Create an instance of {@link DtPerfilCliente }
+     * Create an instance of {@link DtTemaLocal }
      * 
      */
-    public DtPerfilCliente createDtPerfilCliente() {
-        return new DtPerfilCliente();
+    public DtTemaLocal createDtTemaLocal() {
+        return new DtTemaLocal();
     }
 
     /**
@@ -58,6 +54,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link DtListaDefecto }
+     * 
+     */
+    public DtListaDefecto createDtListaDefecto() {
+        return new DtListaDefecto();
+    }
+
+    /**
      * Create an instance of {@link DtLista }
      * 
      */
@@ -66,11 +70,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link DtArtista }
+     * Create an instance of {@link DtListaParticular }
      * 
      */
-    public DtArtista createDtArtista() {
-        return new DtArtista();
+    public DtListaParticular createDtListaParticular() {
+        return new DtListaParticular();
     }
 
     /**
@@ -90,94 +94,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link DtListaParticular }
-     * 
-     */
-    public DtListaParticular createDtListaParticular() {
-        return new DtListaParticular();
-    }
-
-    /**
-     * Create an instance of {@link DtGenero }
-     * 
-     */
-    public DtGenero createDtGenero() {
-        return new DtGenero();
-    }
-
-    /**
-     * Create an instance of {@link DtPerfilArtista }
-     * 
-     */
-    public DtPerfilArtista createDtPerfilArtista() {
-        return new DtPerfilArtista();
-    }
-
-    /**
-     * Create an instance of {@link DtTemaRemoto }
-     * 
-     */
-    public DtTemaRemoto createDtTemaRemoto() {
-        return new DtTemaRemoto();
-    }
-
-    /**
-     * Create an instance of {@link DtCliente }
-     * 
-     */
-    public DtCliente createDtCliente() {
-        return new DtCliente();
-    }
-
-    /**
-     * Create an instance of {@link DtTemaLocal }
-     * 
-     */
-    public DtTemaLocal createDtTemaLocal() {
-        return new DtTemaLocal();
-    }
-
-    /**
-     * Create an instance of {@link DtListaDefecto }
-     * 
-     */
-    public DtListaDefecto createDtListaDefecto() {
-        return new DtListaDefecto();
-    }
-
-    /**
-     * Create an instance of {@link SimpleExceptionBean }
-     * 
-     */
-    public SimpleExceptionBean createSimpleExceptionBean() {
-        return new SimpleExceptionBean();
-    }
-
-    /**
-     * Create an instance of {@link DtPerfilUsuario }
-     * 
-     */
-    public DtPerfilUsuario createDtPerfilUsuario() {
-        return new DtPerfilUsuario();
-    }
-
-    /**
-     * Create an instance of {@link DtUsuario }
-     * 
-     */
-    public DtUsuario createDtUsuario() {
-        return new DtUsuario();
-    }
-
-    /**
-     * Create an instance of {@link DtSuscripcion }
-     * 
-     */
-    public DtSuscripcion createDtSuscripcion() {
-        return new DtSuscripcion();
-    }
-
-    /**
      * Create an instance of {@link DtListaTema }
      * 
      */
@@ -194,12 +110,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SoapSeviciosFaultException }{@code >}}
+     * Create an instance of {@link DtGenero }
      * 
      */
-    @XmlElementDecl(namespace = "http://Servicios/", name = "SoapSeviciosFaultException")
-    public JAXBElement<SoapSeviciosFaultException> createSoapSeviciosFaultException(SoapSeviciosFaultException value) {
-        return new JAXBElement<SoapSeviciosFaultException>(_SoapSeviciosFaultException_QNAME, SoapSeviciosFaultException.class, null, value);
+    public DtGenero createDtGenero() {
+        return new DtGenero();
     }
 
 }
