@@ -58,7 +58,13 @@
 
                                             <td><h4 style="color: black">Nombre Album : <%= nombreAlbum%></h4></td>
                                             <td><h4 style="color: black">Año De Creacion : <%= anioCreacion%> </h4></td>
-                                            <td><h4 style="color: black">Generos: <%=Generos%></h4></td>
+                                            
+                                            <%
+                                                String generos = "";
+                                                for (String gen : Generos) {
+                                                    generos = generos +" | "+ gen;
+                                            %><%}%>
+                                            <td><h4 style="color: black">Géneros:<%=generos%> |</h4></td>
                                         </div>
                                     </div>          
                                 </div> 
@@ -93,10 +99,10 @@
                                             <span class="glyphicon glyphicon-play-circle" aria-hidden="true"  onclick="reproducirRemoto('<%= temaRemoto.getUrl()%>', '<%= temaRemoto.getArtista().replace("'", "\\'")%>', '<%= temaRemoto.getAlbum().replace("'", "\\'")%>', '<%= temaRemoto.getNombre().replace("'", "\\'")%>')"></span></button></center></td>
                                             <% }
                                                 if (temas.get(i) instanceof DtTemaLocal) {%>
-                                                <td><center><span class="badge"> <%= ((DtTemaLocal) temas.get(i)).getDescargas()%> </span></center></td>
-                                    <% }else {%>
-                                <td><center><span class="badge">0</span></center></td>
-                                    <% } %>
+                                    <td><center><span class="badge"> <%= ((DtTemaLocal) temas.get(i)).getDescargas()%> </span></center></td>
+                                        <% } else {%>
+                                    <td><center><span class="badge">0</span></center></td>
+                                        <% } %>
 
                                     <%
                                         if (request.getSession().getAttribute("usuario") != null) {
