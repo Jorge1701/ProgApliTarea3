@@ -162,7 +162,9 @@ function subirTema() {
                 processData: false,
                 contentType: false,
                 type: 'POST',
+                async: false,
                 success: function (data) {
+                    tema=data;
                     return true;
                 }
             });

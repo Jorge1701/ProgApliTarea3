@@ -135,8 +135,8 @@ public class SSuscripcion extends HttpServlet {
                     DtUsuario usr = port.getDataUsuario(usuario.getNickname());
                     DtSuscripcion s = ((DtCliente) usr).getActual();
                     request.getSession().setAttribute("usuario", usr);
-                    // request.getSession().setAttribute("suscripcion", s);
-                    // request.getSession().setAttribute("suscripciones", ((DtCliente) usr).getSuscripciones());
+                    request.getSession().setAttribute("suscripcion", s);
+                    request.getSession().setAttribute("suscripciones", ((DtCliente) usr).getSuscripciones());
                     // getServletContext().getRequestDispatcher("/SSuscripcion?accion=redir1").forward(request, response);
                 }
             } else {
@@ -148,8 +148,8 @@ public class SSuscripcion extends HttpServlet {
                     DtUsuario usr = port.getDataUsuario(usuario.getNickname());
                     DtSuscripcion s = ((DtCliente) usr).getActual();
                     request.getSession().setAttribute("usuario", usr);
-                    //request.getSession().setAttribute("suscripcion", s);
-                    //request.getSession().setAttribute("suscripciones", ((DtCliente) usr).getSuscripciones());
+                    request.getSession().setAttribute("suscripcion", s);
+                    request.getSession().setAttribute("suscripciones", ((DtCliente) usr).getSuscripciones());
                     //getServletContext().getRequestDispatcher("/SSuscripcion?accion=redir1").forward(request, response);
                 }
 

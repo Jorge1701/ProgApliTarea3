@@ -58,7 +58,10 @@
                                         <td><%= dts.getCuota()%></td>
                                         <td><%= dts.getMonto()%></td>
                                         <td><%= dts.getFecha().getDia() + "/" + dts.getFecha().getMes() + "/" + dts.getFecha().getAnio()%></td>
-                                        <td><%= dts.getFechaVenc().getDia() + "/" + dts.getFechaVenc().getMes() + "/" + dts.getFechaVenc().getAnio()%></td>
+                                        <td><% if (dts.getFechaVenc() != null) {%>
+                                            <%= dts.getFechaVenc().getDia()+ "/" + dts.getFechaVenc().getMes() + "/" + dts.getFechaVenc().getAnio()%> <% } else { %>
+                                            No Corresponde <% } %>
+                                        </td>
 
 
                                         <% if (dts.getEstado().equals("Vencida")) {%>
@@ -85,6 +88,7 @@
                                         <td><% if (activa.getFechaVenc() != null) {%>
                                             <%= activa.getFechaVenc().getDia()+ "/" + activa.getFechaVenc().getMes() + "/" + activa.getFechaVenc().getAnio()%> <% } else { %>
                                             No Corresponde <% } %>
+                                        </td>
 
                                             <% if (activa.getEstado().equals("Pendiente")) { %>
                                         <td>

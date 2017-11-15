@@ -117,10 +117,4 @@
 <xs:element name="subGeneros" type="tns:DtGenero" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
 </xs:sequence>
 </xs:complexType>
-
-<xs:complexType name="DtListaDeListas">
-<xs:sequence>
-<xs:element name="listas" type="tns:DtLista" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
-</xs:sequence>
-</xs:complexType>
 </xs:schema>

@@ -15,8 +15,6 @@
     <system systemId="http://localhost:1234/imagen?wsdl" uri="src/conf/xml-resources/web-services/Imagen/wsdl/localhost_1234/imagen.wsdl"/>
     <system systemId="http://localhost:1234/inicio?wsdl" uri="src/conf/xml-resources/web-services/Inicio/wsdl/localhost_1234/inicio.wsdl"/>
     <system systemId="http://localhost:1234/inicio?xsd=1" uri="src/conf/xml-resources/web-services/Inicio/wsdl/localhost_1234/inicio.xsd_1.xsd"/>
-    <system systemId="http://localhost:1234/lista?wsdl" uri="src/conf/xml-resources/web-services/Lista/wsdl/localhost_1234/lista.wsdl"/>
-    <system systemId="http://localhost:1234/lista?xsd=1" uri="src/conf/xml-resources/web-services/Lista/wsdl/localhost_1234/lista.xsd_1.xsd"/>
     <system systemId="http://localhost:1234/ranking?wsdl" uri="src/conf/xml-resources/web-services/Ranking/wsdl/localhost_1234/ranking.wsdl"/>
     <system systemId="http://localhost:1234/ranking?xsd=1" uri="src/conf/xml-resources/web-services/Ranking/wsdl/localhost_1234/ranking.xsd_1.xsd"/>
     <system systemId="http://localhost:1234/registro?wsdl" uri="src/conf/xml-resources/web-services/Registro/wsdl/localhost_1234/registro.wsdl"/>
@@ -31,4 +29,6 @@
     <system systemId="http://localhost:1234/consultaPerfil?wsdl" uri="src/conf/xml-resources/web-services/ConsultaPerfil/wsdl/localhost_1234/consultaPerfil.wsdl"/>
     <system systemId="http://localhost:1234/consultaPerfil?xsd=1" uri="src/conf/xml-resources/web-services/ConsultaPerfil/wsdl/localhost_1234/consultaPerfil.xsd_1.xsd"/>
     <system systemId="http://localhost:1234/uploadfile?wsdl" uri="src/conf/xml-resources/web-services/Uploadfile/wsdl/localhost_1234/uploadfile.wsdl"/>
+    <system systemId="http://localhost:1234/lista?wsdl" uri="src/conf/xml-resources/web-services/Lista/wsdl/localhost_1234/lista.wsdl"/>
+    <system systemId="http://localhost:1234/lista?xsd=1" uri="src/conf/xml-resources/web-services/Lista/wsdl/localhost_1234/lista.xsd_1.xsd"/>
 </catalog>
