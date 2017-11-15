@@ -36,7 +36,7 @@ public class SLista extends HttpServlet {
         try {
             URL url = new URL("http://" + Configuracion.get("ip") + ":" + Configuracion.get("puerto") + "/" + Configuracion.get("PLista"));
             PListaService webserv = new PListaService(url);
-            PLista port = webserv.getPListaPort();
+            port = webserv.getPListaPort();
         } catch (MalformedURLException ex) {
             Logger.getLogger(SLista.class.getName()).log(Level.SEVERE, null, ex);
         }

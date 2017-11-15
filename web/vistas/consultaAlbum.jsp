@@ -1,4 +1,3 @@
-<%@page import="servicios.DtArtista"%>
 <%@page import="servicios.DtTemaRemoto"%>
 <%@page import="servicios.DtTemaLocal"%>
 <%@page import="servicios.DtSuscripcion"%>
@@ -76,9 +75,9 @@
                                     <th><center><text style="color:black ">Duracion</text></center></th>
                                     <th><center><text style="color:black ">Ubicacion</text></center></th>
                                     <th><center><text style="color:black ">Reproducir</text></center></th>
+                                    <th><center><text style="color:black ">Cant Descargas</text></center></th>                            
                                     <th><center><text style="color:black ">Descargar</text></center></th>
-
-                                    <% for (int i = 0; i < temas.size(); i++) {%>
+                                        <% for (int i = 0; i < temas.size(); i++) {%>
                                     <tr>                              
                                         <td><text style="color:black"><center><%= temas.get(i).getNombre()%></center> </text></td>
                                     <td><text style="color:black  ; background-color: white"><center> <%= temas.get(i).getDuracion().getHoras()%>:<%= temas.get(i).getDuracion().getMinutos()%>:<%= temas.get(i).getDuracion().getSegundos()%></center></text></td>
@@ -88,24 +87,30 @@
                                     <td><center><button type="button" class="btn btn-default" aria-label="Left Align">
                                             <span class="glyphicon glyphicon-play-circle" aria-hidden="true"  onclick="reproducirLocal('<%= local.getDirectorio().replace("'", "\\'")%>', '<%= local.getNombre().replace("'", "\\'")%>', '<%= local.getArtista().replace("'", "\\'")%>', '<%= local.getImagenAlbum().replace("'", "\\'")%>', '<%= local.getAlbum().replace("'", "\\'")%>')"></span>
                                         </button></center></td>
-                                        <%} else {%>
+                                        <%} else {
+                                            DtTemaRemoto temaRemoto = (DtTemaRemoto) temas.get(i);%>
                                     <td><center><button type="button" class="btn btn-default" aria-label="Left Align">
-                                            <%
-                                                DtTemaRemoto temaRemoto = (DtTemaRemoto) temas.get(i);
-                                            %>
                                             <span class="glyphicon glyphicon-play-circle" aria-hidden="true"  onclick="reproducirRemoto('<%= temaRemoto.getUrl()%>', '<%= temaRemoto.getArtista().replace("'", "\\'")%>', '<%= temaRemoto.getAlbum().replace("'", "\\'")%>', '<%= temaRemoto.getNombre().replace("'", "\\'")%>')"></span></button></center></td>
-                                            <% }%>
-                                            <%
-                                                if (request.getSession().getAttribute("usuario") != null) {
-                                                    DtUsuario user = (DtUsuario) request.getSession().getAttribute("usuario");
-                                                    if (user instanceof DtCliente) {
-                                                        DtSuscripcion suscripcion = (DtSuscripcion) ((DtCliente) user).getActual();
-                                                        if (suscripcion != null) {
-                                                            if (suscripcion.getEstado().equals("Vigente")) {
-                                                                if (temas.get(i) instanceof DtTemaLocal) {
-                                            %>
+                                            <% }
+                                                if (temas.get(i) instanceof DtTemaLocal) {%>
+                                                <td><center><span class="badge"> <%= ((DtTemaLocal) temas.get(i)).getDescargas()%> </span></center></td>
+                                    <% }else {%>
+                                <td><center><span class="badge">0</span></center></td>
+                                    <% } %>
+
+                                    <%
+                                        if (request.getSession().getAttribute("usuario") != null) {
+                                            DtUsuario user = (DtUsuario) request.getSession().getAttribute("usuario");
+                                            if (user instanceof DtCliente) {
+                                                DtSuscripcion suscripcion = (DtSuscripcion) ((DtCliente) user).getActual();
+                                                if (suscripcion != null) {
+                                                    if (suscripcion.getEstado().equals("Vigente")) {
+                                                        if (temas.get(i) instanceof DtTemaLocal) {
+                                    %>
+
                                     <td><center><input readonly onclick="Descarga('<%=((DtTemaLocal) temas.get(i)).getDirectorio()%>', '<%= ((DtTemaLocal) temas.get(i)).getArtista()%>', '<%=((DtTemaLocal) temas.get(i)).getAlbum()%>', '<%=((DtTemaLocal) temas.get(i)).getNombre()%>')" class="btn btn-info" id="btnDescargar" value="Descargar"></center></td>
-                                        <% } else {%>
+
+                                    <% } else {%>
                                     <td><center><text style="color:black ">No Se Puede Descargar</text></center></td> 
 
                                     <%}%>
@@ -123,7 +128,6 @@
                                     <% }
                                     } else { %> 
                                     <td><center><text style="color:black ">Debe Iniciar Sesion</text></center></td>     
-
                                     </tr>
                                     <% }
                                         }%>
