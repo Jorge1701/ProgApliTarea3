@@ -88,11 +88,11 @@
                                     <td><center><button type="button" class="btn btn-default" aria-label="Left Align" onclick="reproducirLocal('<%= local.getDirectorio().replace("'", "\\'")%>', '<%= local.getNombre().replace("'", "\\'")%>', '<%= local.getArtista().replace("'", "\\'")%>', '<%= local.getImagenAlbum().replace("'", "\\'")%>', '<%= local.getAlbum().replace("'", "\\'")%>')">
                                             <span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span>
                                         </button></center></td>
-                                        <%} else {%>
+                                        <%} else {
+                                            DtTemaRemoto temaRemoto = (DtTemaRemoto) temas.get(i);
+                                        %>
                                     <td><center><button type="button" class="btn btn-default" aria-label="Left Align" onclick="reproducirRemoto('<%= temaRemoto.getUrl()%>', '<%= temaRemoto.getArtista().replace("'", "\\'")%>', '<%= temaRemoto.getAlbum().replace("'", "\\'")%>', '<%= temaRemoto.getNombre().replace("'", "\\'")%>')">
-                                            <%
-                                                DtTemaRemoto temaRemoto = (DtTemaRemoto) temas.get(i);
-                                            %>
+
                                             <span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span></button></center></td>
                                             <% }%>
                                             <%

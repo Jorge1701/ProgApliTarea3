@@ -12,7 +12,6 @@
     <system systemId="http://localhost:1234/favorito?wsdl" uri="src/conf/xml-resources/web-services/Favorito/wsdl/localhost_1234/favorito.wsdl"/>
     <system systemId="http://localhost:1234/favorito?xsd=1" uri="src/conf/xml-resources/web-services/Favorito/wsdl/localhost_1234/favorito.xsd_1.xsd"/>
     <system systemId="http://localhost:1234/downloadfile?wsdl" uri="src/conf/xml-resources/web-services/Downloadfile/wsdl/localhost_1234/downloadfile.wsdl"/>
-    <system systemId="http://localhost:1234/imagen?wsdl" uri="src/conf/xml-resources/web-services/Imagen/wsdl/localhost_1234/imagen.wsdl"/>
     <system systemId="http://localhost:1234/inicio?wsdl" uri="src/conf/xml-resources/web-services/Inicio/wsdl/localhost_1234/inicio.wsdl"/>
     <system systemId="http://localhost:1234/inicio?xsd=1" uri="src/conf/xml-resources/web-services/Inicio/wsdl/localhost_1234/inicio.xsd_1.xsd"/>
     <system systemId="http://localhost:1234/ranking?wsdl" uri="src/conf/xml-resources/web-services/Ranking/wsdl/localhost_1234/ranking.wsdl"/>
@@ -25,10 +24,11 @@
     <system systemId="http://localhost:1234/sesion?xsd=1" uri="src/conf/xml-resources/web-services/Sesion/wsdl/localhost_1234/sesion.xsd_1.xsd"/>
     <system systemId="http://localhost:1234/suscripcion?wsdl" uri="src/conf/xml-resources/web-services/Suscripcion/wsdl/localhost_1234/suscripcion.wsdl"/>
     <system systemId="http://localhost:1234/suscripcion?xsd=1" uri="src/conf/xml-resources/web-services/Suscripcion/wsdl/localhost_1234/suscripcion.xsd_1.xsd"/>
-    <system systemId="http://localhost:1234/tema?wsdl" uri="src/conf/xml-resources/web-services/Tema/wsdl/localhost_1234/tema.wsdl"/>
     <system systemId="http://localhost:1234/consultaPerfil?wsdl" uri="src/conf/xml-resources/web-services/ConsultaPerfil/wsdl/localhost_1234/consultaPerfil.wsdl"/>
     <system systemId="http://localhost:1234/consultaPerfil?xsd=1" uri="src/conf/xml-resources/web-services/ConsultaPerfil/wsdl/localhost_1234/consultaPerfil.xsd_1.xsd"/>
     <system systemId="http://localhost:1234/uploadfile?wsdl" uri="src/conf/xml-resources/web-services/Uploadfile/wsdl/localhost_1234/uploadfile.wsdl"/>
     <system systemId="http://localhost:1234/lista?wsdl" uri="src/conf/xml-resources/web-services/Lista/wsdl/localhost_1234/lista.wsdl"/>
     <system systemId="http://localhost:1234/lista?xsd=1" uri="src/conf/xml-resources/web-services/Lista/wsdl/localhost_1234/lista.xsd_1.xsd"/>
+    <system systemId="http://localhost:1234/imagen?wsdl" uri="src/conf/xml-resources/web-services/Imagen/wsdl/localhost_1234/imagen.wsdl"/>
+    <system systemId="http://localhost:1234/tema?wsdl" uri="src/conf/xml-resources/web-services/Tema/wsdl/localhost_1234/tema.wsdl"/>
 </catalog>

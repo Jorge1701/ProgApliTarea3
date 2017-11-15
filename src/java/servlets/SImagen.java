@@ -42,7 +42,7 @@ public class SImagen extends HttpServlet {
         if (port == null) {
             cargar();
         }
-        
+
         if (request.getParameter("usuario") == null && request.getParameter("album") == null && request.getParameter("lista") == null) {
             request.setAttribute("mensaje_error", "No ingreso nada");
             request.getRequestDispatcher("vistas/pagina_error.jsp").forward(request, response);
@@ -54,40 +54,46 @@ public class SImagen extends HttpServlet {
         String path = SImagen.class.getResource("/servlets/SImagen.class").getPath().replace(quitar, "media/");
 
         if (request.getParameter("usuario") != null) {
-            BufferedImage bi = null;
+            response.setContentType("image/png");
             OutputStream out = response.getOutputStream();
             try {
                 img = port.getFile("Usuario", request.getParameter("usuario"));
+                response.setContentLength((int) img.length);
                 out.write(img);
-
             } catch (Exception e) {
-                bi = ImageIO.read(new File(path + "userDefault.png"));
+                BufferedImage bi = ImageIO.read(new File(path + "userDefault.png"));
                 ImageIO.write(bi, "png", out);
+
             }
             out.close();
         }
         if (request.getParameter("album") != null) {
             BufferedImage bi = null;
+            response.setContentType("image/png");
             OutputStream out = response.getOutputStream();
             try {
                 img = port.getFile("Album", request.getParameter("album"));
+                response.setContentLength((int) img.length);
                 out.write(img);
             } catch (Exception e) {
                 bi = ImageIO.read(new File(path + "albumDefault.png"));
                 ImageIO.write(bi, "png", out);
-            }
 
+            }
             out.close();
         }
         if (request.getParameter("lista") != null) {
             BufferedImage bi = null;
+            response.setContentType("image/png");
             OutputStream out = response.getOutputStream();
             try {
                 img = port.getFile("Lista", request.getParameter("lista"));
+                response.setContentLength((int) img.length);
                 out.write(img);
             } catch (Exception e) {
                 bi = ImageIO.read(new File(path + "albumDefault.png"));
                 ImageIO.write(bi, "png", out);
+
             }
             out.close();
         }

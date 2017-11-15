@@ -9,7 +9,7 @@ import javax.jws.WebService;
 
 /**
  *
- * @author Diego
+ * @author Ale
  */
 @WebService(serviceName = "PImagenService", portName = "PImagenPort", endpointInterface = "servicios.PImagen", targetNamespace = "http://Servicios/", wsdlLocation = "WEB-INF/wsdl/Imagen/localhost_1234/imagen.wsdl")
 public class Imagen {

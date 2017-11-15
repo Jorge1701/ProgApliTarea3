@@ -9,7 +9,7 @@ import javax.jws.WebService;
 
 /**
  *
- * @author Diego
+ * @author Ale
  */
 @WebService(serviceName = "PTemaService", portName = "PTemaPort", endpointInterface = "servicios.PTema", targetNamespace = "http://Servicios/", wsdlLocation = "WEB-INF/wsdl/Tema/localhost_1234/tema.wsdl")
 public class Tema {

@@ -26,25 +26,6 @@
             <isset property="conf.dir"/>
         </condition>
     </target>
-    <target name="wsimport-service-Imagen" depends="wsimport-init">
-        <mkdir dir="${build.generated.dir}/jax-wsCache/service/Imagen"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/service/Imagen" destdir="${build.generated.dir}/jax-wsCache/service/Imagen" wsdl="${basedir}/${conf-dir}xml-resources/web-services/Imagen/wsdl/localhost_1234/imagen.wsdl" catalog="catalog.xml" extension="true" verbose="true" fork="false" xnocompile="true" xendorsed="true">
-            <depends file="${basedir}/${conf-dir}xml-resources/web-services/Imagen/wsdl/localhost_1234/imagen.wsdl"/>
-            <produces dir="${build.generated.dir}/jax-wsCache/service/Imagen"/>
-        </wsimport>
-        <copy todir="${build.generated.sources.dir}/jax-ws">
-            <fileset dir="${build.generated.dir}/jax-wsCache/service/Imagen">
-                <include name="**/*.java"/>
-            </fileset>
-        </copy>
-        <copy todir="${build.web.dir}/WEB-INF/wsdl/Imagen">
-            <fileset dir="${basedir}/${conf-dir}xml-resources/web-services/Imagen/wsdl/"/>
-        </copy>
-    </target>
-    <target name="wsimport-service-clean-Imagen" depends="-init-project">
-        <delete dir="${build.generated.sources.dir}/jax-ws/servicios"/>
-        <delete dir="${build.generated.dir}/jax-wsCache/service/Imagen"/>
-    </target>
     <target name="wsimport-service-Inicio" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/service/Inicio"/>
         <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/service/Inicio" destdir="${build.generated.dir}/jax-wsCache/service/Inicio" wsdl="${basedir}/${conf-dir}xml-resources/web-services/Inicio/wsdl/localhost_1234/inicio.wsdl" catalog="catalog.xml" extension="true" verbose="true" fork="false" xnocompile="true" xendorsed="true">
@@ -235,25 +216,6 @@
         <delete dir="${build.generated.sources.dir}/jax-ws/servicios"/>
         <delete dir="${build.generated.dir}/jax-wsCache/service/Suscripcion"/>
     </target>
-    <target name="wsimport-service-Tema" depends="wsimport-init">
-        <mkdir dir="${build.generated.dir}/jax-wsCache/service/Tema"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/service/Tema" destdir="${build.generated.dir}/jax-wsCache/service/Tema" wsdl="${basedir}/${conf-dir}xml-resources/web-services/Tema/wsdl/localhost_1234/tema.wsdl" catalog="catalog.xml" extension="true" verbose="true" fork="false" xnocompile="true" xendorsed="true">
-            <depends file="${basedir}/${conf-dir}xml-resources/web-services/Tema/wsdl/localhost_1234/tema.wsdl"/>
-            <produces dir="${build.generated.dir}/jax-wsCache/service/Tema"/>
-        </wsimport>
-        <copy todir="${build.generated.sources.dir}/jax-ws">
-            <fileset dir="${build.generated.dir}/jax-wsCache/service/Tema">
-                <include name="**/*.java"/>
-            </fileset>
-        </copy>
-        <copy todir="${build.web.dir}/WEB-INF/wsdl/Tema">
-            <fileset dir="${basedir}/${conf-dir}xml-resources/web-services/Tema/wsdl/"/>
-        </copy>
-    </target>
-    <target name="wsimport-service-clean-Tema" depends="-init-project">
-        <delete dir="${build.generated.sources.dir}/jax-ws/servicios"/>
-        <delete dir="${build.generated.dir}/jax-wsCache/service/Tema"/>
-    </target>
     <target name="wsimport-service-DesactivarArtista" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/service/DesactivarArtista"/>
         <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/service/DesactivarArtista" destdir="${build.generated.dir}/jax-wsCache/service/DesactivarArtista" wsdl="${basedir}/${conf-dir}xml-resources/web-services/DesactivarArtista/wsdl/localhost_1234/desactivarArtista.wsdl" catalog="catalog.xml" extension="true" verbose="true" fork="false" xnocompile="true" xendorsed="true">
@@ -349,5 +311,43 @@
         <delete dir="${build.generated.sources.dir}/jax-ws/servicios"/>
         <delete dir="${build.generated.dir}/jax-wsCache/service/Lista"/>
     </target>
-    <target name="wsimport-service-generate" depends="wsimport-service-Imagen, wsimport-service-Inicio, wsimport-service-Favorito, wsimport-service-Seguir, wsimport-service-Buscador, wsimport-service-Uploadfile, wsimport-service-Sesion, wsimport-service-Registro, wsimport-service-Contenido, wsimport-service-Downloadfile, wsimport-service-Suscripcion, wsimport-service-Tema, wsimport-service-DesactivarArtista, wsimport-service-Contadores, wsimport-service-Ranking, wsimport-service-ConsultaPerfil, wsimport-service-Lista"/>
+    <target name="wsimport-service-Imagen" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/service/Imagen"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/service/Imagen" destdir="${build.generated.dir}/jax-wsCache/service/Imagen" wsdl="${basedir}/${conf-dir}xml-resources/web-services/Imagen/wsdl/localhost_1234/imagen.wsdl" catalog="catalog.xml" extension="true" verbose="true" fork="false" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-services/Imagen/wsdl/localhost_1234/imagen.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/service/Imagen"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/service/Imagen">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+        <copy todir="${build.web.dir}/WEB-INF/wsdl/Imagen">
+            <fileset dir="${basedir}/${conf-dir}xml-resources/web-services/Imagen/wsdl/"/>
+        </copy>
+    </target>
+    <target name="wsimport-service-clean-Imagen" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/servicios"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/service/Imagen"/>
+    </target>
+    <target name="wsimport-service-Tema" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/service/Tema"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/service/Tema" destdir="${build.generated.dir}/jax-wsCache/service/Tema" wsdl="${basedir}/${conf-dir}xml-resources/web-services/Tema/wsdl/localhost_1234/tema.wsdl" catalog="catalog.xml" extension="true" verbose="true" fork="false" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-services/Tema/wsdl/localhost_1234/tema.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/service/Tema"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/service/Tema">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+        <copy todir="${build.web.dir}/WEB-INF/wsdl/Tema">
+            <fileset dir="${basedir}/${conf-dir}xml-resources/web-services/Tema/wsdl/"/>
+        </copy>
+    </target>
+    <target name="wsimport-service-clean-Tema" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/servicios"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/service/Tema"/>
+    </target>
+    <target name="wsimport-service-generate" depends="wsimport-service-Inicio, wsimport-service-Favorito, wsimport-service-Seguir, wsimport-service-Buscador, wsimport-service-Uploadfile, wsimport-service-Sesion, wsimport-service-Registro, wsimport-service-Contenido, wsimport-service-Downloadfile, wsimport-service-Suscripcion, wsimport-service-DesactivarArtista, wsimport-service-Contadores, wsimport-service-Ranking, wsimport-service-ConsultaPerfil, wsimport-service-Lista, wsimport-service-Imagen, wsimport-service-Tema"/>
 </project>

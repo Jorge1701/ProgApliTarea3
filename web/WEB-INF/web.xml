@@ -29,11 +29,6 @@
         <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet>
-        <servlet-name>PImagenService</servlet-name>
-        <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
-        <load-on-startup>1</load-on-startup>
-    </servlet>
-    <servlet>
         <servlet-name>PInicioService</servlet-name>
         <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
@@ -64,11 +59,6 @@
         <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet>
-        <servlet-name>PTemaService</servlet-name>
-        <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
-        <load-on-startup>1</load-on-startup>
-    </servlet>
-    <servlet>
         <servlet-name>PConsultaPerfilService</servlet-name>
         <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
@@ -80,6 +70,16 @@
     </servlet>
     <servlet>
         <servlet-name>PListaService</servlet-name>
+        <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet>
+        <servlet-name>PImagenService</servlet-name>
+        <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet>
+        <servlet-name>PTemaService</servlet-name>
         <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
@@ -102,10 +102,6 @@
     <servlet-mapping>
         <servlet-name>PDownloadFileService</servlet-name>
         <url-pattern>/PDownloadFileService</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>PImagenService</servlet-name>
-        <url-pattern>/PImagenService</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>PInicioService</servlet-name>
@@ -132,10 +128,6 @@
         <url-pattern>/PSuscripcionService</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>PTemaService</servlet-name>
-        <url-pattern>/PTemaService</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>PConsultaPerfilService</servlet-name>
         <url-pattern>/PConsultaPerfilService</url-pattern>
     </servlet-mapping>
@@ -146,6 +138,14 @@
     <servlet-mapping>
         <servlet-name>PListaService</servlet-name>
         <url-pattern>/PListaService</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PImagenService</servlet-name>
+        <url-pattern>/PImagenService</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PTemaService</servlet-name>
+        <url-pattern>/PTemaService</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

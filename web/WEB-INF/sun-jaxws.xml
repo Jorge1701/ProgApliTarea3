@@ -2,4 +2,6 @@
 <endpoints version="2.0" xmlns="http://java.sun.com/xml/ns/jax-ws/ri/runtime">
   <endpoint implementation="Services.ConsultaPerfil" name="PConsultaPerfilService" url-pattern="/PConsultaPerfilService"/>
   <endpoint implementation="Services.Lista" name="PListaService" url-pattern="/PListaService"/>
+  <endpoint implementation="Services.Imagen" name="PImagenService" url-pattern="/PImagenService"/>
+  <endpoint implementation="Services.Tema" name="PTemaService" url-pattern="/PTemaService"/>
 </endpoints>
