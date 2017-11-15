@@ -124,15 +124,16 @@ public class SInicio extends HttpServlet {
                         DtUsuario usr = port.getDataCliente(u.getNickname());
                         request.getSession().setAttribute("usuario", usr);
                         request.setAttribute("suscripcion", ((DtCliente) usr).getActual());
-
+                        request.getSession().setAttribute("suscripcion", ((DtCliente) usr).getActual());
                     }
 
                 }
 
                 if (dts != null) {
-                    DtUsuario usr = port.getDataUsuario(u.getNickname());
+                    DtUsuario usr = port.getDataCliente(u.getNickname());
                     if (usr instanceof DtCliente) {
                         request.setAttribute("suscripciones", ((DtCliente) usr).getSuscripciones());
+                        request.getSession().setAttribute("suscripciones", ((DtCliente) usr).getSuscripciones());
                     }
 
                 }
