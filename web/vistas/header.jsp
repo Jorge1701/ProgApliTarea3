@@ -22,7 +22,7 @@
 
             <!-- Buscador -->
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" style="padding-top: 35px">
-                <form action="/Tarea2/SBuscador" method="GET">
+                <form action="/Tarea2/SBuscador" method="GET" accept-charset="UTF-8">
                     <div class="input-group input-group-lg">
                         <input type="text" style="border-color: black" name="busqueda" class="form-control" placeholder="Tema, Lista o Album"
                                <%
